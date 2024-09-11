@@ -34,6 +34,5 @@ Console.WriteLine(removed);
 string subString = metin.Substring(7, 20);
 Console.WriteLine(subString);
 */
-
 string trimmedString = metin.Trim();
 Console.WriteLine(trimmedString);
