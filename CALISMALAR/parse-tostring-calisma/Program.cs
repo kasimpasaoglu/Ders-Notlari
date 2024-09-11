@@ -214,19 +214,19 @@ Console.WriteLine("Vade Sonu Hesaplanan Tutar => {0}", finalAmount);
 
 #region Cember, Daire, Silindir Cozumleme
 
-// Console.WriteLine("Yaricapi olcusunu girin :");
-// double radius = double.Parse(Console.ReadLine());
+Console.WriteLine("Yaricapi olcusunu girin :");
+double radius = double.Parse(Console.ReadLine());
 
-// Console.WriteLine("Yuksekligini girin :");
-// double height = double.Parse(Console.ReadLine());
+Console.WriteLine("Yuksekligini girin :");
+double height = double.Parse(Console.ReadLine());
 
-// double perimeter = Math.Round(2 * Math.PI * radius, 2);
+double perimeter = Math.Round(2 * Math.PI * radius, 2);
 
-// double area = Math.Round(Math.PI * Math.Pow(radius, 2), 2);
+double area = Math.Round(Math.PI * Math.Pow(radius, 2), 2);
 
-// double volume = Math.Round(Math.PI * Math.Pow(radius, 2) * height, 2);
+double volume = Math.Round(Math.PI * Math.Pow(radius, 2) * height, 2);
 
-// Console.WriteLine("Cevresi = {0} , Alani = {1}, Silindirin Hacmi = {2}", perimeter, area, volume);
+Console.WriteLine("Cevresi = {0} , Alani = {1}, Silindirin Hacmi = {2}", perimeter, area, volume);
 
 
 #endregion

@@ -299,4 +299,4 @@
 // double number = 1.5;
 // double number = 1,5;
 
-Math.Exp(10);
+// Math.Exp(10);
