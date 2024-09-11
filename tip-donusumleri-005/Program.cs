@@ -89,16 +89,16 @@
 
 #region random uretilmis karakter yazdiralim
 
-// Random rnd = new Random();
+Random rnd = new Random();
 
-// char randomChar1 = Convert.ToChar(rnd.Next(97, 122)); // kucuk harf araligi
-// char randomChar2 = Convert.ToChar(rnd.Next(65, 90));  // buyuk harf araligi
-// char randomChar3 = Convert.ToChar(rnd.Next(97, 122));
-// char randomChar4 = Convert.ToChar(rnd.Next(65, 90));
-// char randomChar5 = Convert.ToChar(rnd.Next(97, 122));
+char randomChar1 = Convert.ToChar(rnd.Next(97, 122)); // kucuk harf araligi
+char randomChar2 = Convert.ToChar(rnd.Next(65, 90));  // buyuk harf araligi
+char randomChar3 = Convert.ToChar(rnd.Next(97, 122));
+char randomChar4 = Convert.ToChar(rnd.Next(65, 90));
+char randomChar5 = Convert.ToChar(rnd.Next(97, 122));
 
 
-// Console.WriteLine("{0}{1}{2}{3}{4}", randomChar1, randomChar2, randomChar3, randomChar4, randomChar5);
+Console.WriteLine("{0}{1}{2}{3}{4}", randomChar1, randomChar2, randomChar3, randomChar4, randomChar5);
 
 #endregion
 
