@@ -86,26 +86,29 @@ Bu ornekteki sorun su: Kullanicinin girecegi karakterin ASCII kodu 64, 91 aralig
 * if bloklari icine baska if bloklari ve else bloklari da yazabiliriz.
 
 ```C#
-if (kosul)
-{
-    if(baskaBirKosul)
+    Console.WriteLine("lutfen notunuzu giriniz");
+    int note = int.Parse(Console.ReadLine());
+    
+    if (note < 50)
     {
-
+        if (note < 25)
+        {
+            Console.WriteLine("Kaldi");
+        }
+        else
+        {
+            Console.WriteLine("Dusuk Ama Gecti");
+        }
     }
     else
     {
-
+        if (note < 75)
+        {
+            Console.WriteLine("Orta Seviyeli Gecti");
+        }
+        else
+        {
+            Console.WriteLine("Cok Iyi Seviyeli Gecti");
+        }
     }
-}
-else
-{
-    if (kosul)
-    {
-
-    }
-    else
-    {
-        
-    }
-}
 ```
