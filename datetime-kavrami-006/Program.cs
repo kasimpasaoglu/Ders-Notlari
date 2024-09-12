@@ -84,7 +84,7 @@ Console.WriteLine("{0} yildir dunyadasiniz", diff.TotalDays / 365);
 #endregion
 
 #region ODEV kac yil kac gun ve kac saat yasadiginizi hesaplayan kodu yaziniz. (Vazgecti)
-
+/*
 Console.WriteLine("Lutfen Dogum Tarihinizi Giriniz (gg.aa.yyyy) :");
 string userInput = Console.ReadLine();
 int day = int.Parse(userInput.Substring(0, 2));
@@ -114,6 +114,85 @@ int hourRounded = (int)Math.Floor(hoursDiff);
 int minuteRounded = (int)Math.Floor(minutesDiff);
 
 Console.WriteLine("{0} yil, {1} ay, {2} gun, {3} saat, {4} dakikadir dunyadasiniz...", yearRounded, mouthRounded, dayRounded, hourRounded, minuteRounded);
+*/
+#endregion
 
+#region saat ve dakika bilgisi ile tekrar
+/*
+Console.WriteLine("Write Date & Time (dd.mm.yyyy hh.mm.ss):");
+string userInput = Console.ReadLine().Trim();
 
+int day = int.Parse(userInput.Substring(0, 2));
+int month = int.Parse(userInput.Substring(3, 2));
+int year = int.Parse(userInput.Substring(6, 4));
+int hour = int.Parse(userInput.Substring(11, 2));
+int minute = int.Parse(userInput.Substring(14, 2));
+int second = int.Parse(userInput.Substring(17, 2));
+
+DateTime userDate = new DateTime(year, month, day, hour, minute, second);
+
+TimeSpan diff = DateTime.Now - userDate;
+
+double yearDiff = diff.TotalDays / 365;
+double monthDiff = (yearDiff - Math.Truncate(yearDiff)) * 12;
+double dayDiff = (monthDiff - Math.Truncate(monthDiff)) * 30;
+double hourDiff = (dayDiff - Math.Truncate(dayDiff)) * 24;
+double minuteDiff = (hourDiff - Math.Truncate(hourDiff)) * 60;
+double secondDiff = (minuteDiff - Math.Truncate(minuteDiff)) * 60;
+
+int yearRounded = (int)Math.Floor(yearDiff);
+int monthRounded = (int)Math.Floor(monthDiff);
+int dayRounded = (int)Math.Floor(dayDiff);
+int hourRounded = (int)Math.Floor(hourDiff);
+int minuteRounded = (int)Math.Floor(minuteDiff);
+int secondRounded = (int)Math.Floor(secondDiff);
+
+Console.WriteLine($"{yearRounded} Yil, {monthRounded} Ay, {dayRounded} gun, {hourRounded} saat, {minuteRounded} dakika, {secondRounded} saniyedir hayattasiniz...");
+*/
+#endregion
+
+#region dogum gunun hangi gune geldigini hesaplama
+/*
+Console.WriteLine("Dogum Tarihinizi Girin (gg.aa.yyyy sa:dk:sn) :");
+DateTime userDate = DateTime.Parse(Console.ReadLine().Trim());
+
+TimeSpan diff = DateTime.Now - userDate;
+int age = Convert.ToInt32(Math.Floor(diff.TotalDays / 365));
+
+DateTime thisYearBirthDate = new DateTime(DateTime.Now.Year, userDate.Month, userDate.Day);
+DateTime nextYearBirthDate = new DateTime(DateTime.Now.AddYears(1).Year, userDate.Month, userDate.Day);
+
+Console.WriteLine($"Yasiniz -> {age}");
+Console.WriteLine($"{thisYearBirthDate.Year} Yilinda dogum gununuz -> {thisYearBirthDate.DayOfWeek}");
+Console.WriteLine($"{nextYearBirthDate.Year} Yilinda dogum gununuz -> {nextYearBirthDate.DayOfWeek}");
+Console.WriteLine();
+*/
+#endregion
+
+#region Tarihler Arasi Fark
+/*
+Console.WriteLine("Ilk Tarihi gg.aa.yyyy sa:dk:sn Formatinda Giriniz :");
+DateTime firstDate = DateTime.Parse(Console.ReadLine());
+
+Console.WriteLine("Ikinci Tarihi gg.aa.yyyy sa:dk:sn Formatinda Giriniz :");
+DateTime secondDate = DateTime.Parse(Console.ReadLine());
+
+TimeSpan diff = (firstDate - secondDate).Duration();
+
+double yearDiff = diff.TotalDays / 365;
+double monthDiff = (yearDiff - Math.Truncate(yearDiff)) * 12;
+double dayDiff = (monthDiff - Math.Truncate(monthDiff)) * 30;
+double hourDiff = (dayDiff - Math.Truncate(dayDiff)) * 24;
+double minuteDiff = (hourDiff - Math.Truncate(hourDiff)) * 60;
+double secondDiff = (minuteDiff - Math.Truncate(minuteDiff)) * 60;
+
+int year = Convert.ToInt32(Math.Floor(yearDiff));
+int month = Convert.ToInt32(Math.Floor(monthDiff));
+int day = Convert.ToInt32(Math.Floor(dayDiff));
+int hour = Convert.ToInt32(Math.Floor(hourDiff));
+int minute = Convert.ToInt32(Math.Floor(minuteDiff));
+int second = Convert.ToInt32(Math.Floor(secondDiff));
+
+Console.WriteLine($"{firstDate} ile {secondDate} arasindaki fark -> {year} yil, {month} ay, {day} gun, {hour} saat, {minute} dakika, {second} saniyedir");
+*/
 #endregion

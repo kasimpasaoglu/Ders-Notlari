@@ -38,6 +38,10 @@
 
     Console.WriteLine("Saat farki " + diff.TotalHours);
 ```
+* Hangi Tarihin daha buyuk oldugunu bilmiyorsak ve sonucun mutlak deger olarak pozitif gelmesini istiyorsak `Duration()` kullanabiliriz.
+```C#
+TimeSpan diff = (firstDate - secondDate).Duration();
+```
 * Ornek Uygulama
 ```C#
     Console.WriteLine("Lutfen Tarih giriniz (gg.aa.yyyy) :");
@@ -52,3 +56,8 @@
     
     Console.WriteLine("{0} yildir dunyadasiniz", diff.TotalDays / 365);
 ```
+* `Parse()` fonksiyonu icine verecegimiz parametreler dogru formatta yazilirsa direk bir tarhi olarak cevrilebilir
+```C#
+    DateTime userDate = DateTime.Parse(Console.ReadLine());
+```
+*kullanicinin girdisini (31.05.1992 18:21:45) DateTime olarak tanimladi.*
