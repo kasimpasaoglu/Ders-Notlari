@@ -163,29 +163,104 @@ else
 #endregion
 
 #region ic ice if else kullanimi
-Console.WriteLine("lutfen notunuzu giriniz");
-int note = int.Parse(Console.ReadLine());
+// Console.WriteLine("lutfen notunuzu giriniz");
+// int note = int.Parse(Console.ReadLine());
 
-if (note < 50)
+// if (note < 50)
+// {
+//     if (note < 25)
+//     {
+//         Console.WriteLine("Kaldi");
+//     }
+//     else
+//     {
+//         Console.WriteLine("Dusuk Ama Gecti");
+//     }
+// }
+// else
+// {
+//     if (note < 75)
+//     {
+//         Console.WriteLine("Orta Seviyeli Gecti");
+//     }
+//     else
+//     {
+//         Console.WriteLine("Cok Iyi Seviyeli Gecti");
+//     }
+// }
+#endregion
+
+#region hesap makinesi
+/*
+Console.WriteLine("Ilk Sayiyi Girin :");
+double firstNumber = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Ikinci Sayiyi Girin:");
+double secondNumber = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Yapilacak Islemi Giriniz => (+)(-)(/)(*)");
+string islem = Console.ReadLine();
+
+
+if ((islem == "+") || (islem == "-") || (islem == "/") || (islem == "*"))
 {
-    if (note < 25)
+    if (islem == "+")
     {
-        Console.WriteLine("Kaldi");
+        Console.WriteLine("Sonuc = {0}", firstNumber + secondNumber);
     }
-    else
+
+    if (islem == "-")
     {
-        Console.WriteLine("Dusuk Ama Gecti");
+        Console.WriteLine("Sonuc = {0}", firstNumber - secondNumber);
+    }
+
+    if (islem == "*")
+    {
+        Console.WriteLine("Sonuc = {0}", firstNumber * secondNumber);
+    }
+
+    if (islem == "/")
+    {
+        Console.WriteLine("Sonuc = {0}", firstNumber / secondNumber);
     }
 }
 else
 {
-    if (note < 75)
+    Console.WriteLine("Lutfen Gecerli Bir Islem Giriniz");
+}
+*/
+#endregion
+
+#region iki farkli urun fiyati al(veri kontrolu yap: negatif degeri kabul etme) indirim oranini al (0 ile 1 araliginda degilse kabul etme), iki urun toplami 1000 tl den fazlaysa, ucuz olan urune verilen oranda indirim yap. toplam tutara KDV ekle.
+
+
+Console.WriteLine("Birinci Urun Fiyatini Giriniz :");
+double price1 = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Ikinci Urun Fiyatini Giriniz :");
+double price2 = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Indirim Oranini Giriniz :");
+double discount = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+
+if ((price1 > 0) && (price2 > 0) && (discount > 0) && (discount < 1))
+{
+    if (price1 + price2 >= 1000)
     {
-        Console.WriteLine("Orta Seviyeli Gecti");
+        double totalPrice = (Math.Min(price1, price2) * (1 - discount) + Math.Max(price1, price2)) * 1.20;
+        Console.WriteLine("Toplam odemeniz gereken tutar => {0} tl", totalPrice);
     }
     else
     {
-        Console.WriteLine("Cok Iyi Seviyeli Gecti");
+        Console.WriteLine("Toplam odemeniz gereken tutar => {0} tl", (price1 + price2) * 1.20);
     }
+
 }
+else
+{
+    Console.WriteLine("Lutfen Degerleri Kontrol Edip Tekrar Deneyiniz");
+}
+
 #endregion
+
