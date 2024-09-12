@@ -5,3 +5,4 @@
 4. [Scope Kavrami](/scope-kavrami-004/README.md)
 5. [Tip Donusumleri](/tip-donusumleri-005/README.md)
 6. [DateTime Fonksiyonu](/datetime-kavrami-006/README.md)
+7. [Kosullar](/kosullar-007/README.md)
