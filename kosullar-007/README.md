@@ -42,14 +42,70 @@ Eger if blogu calisirsa `else` blogunu asla kontrol etmez
 ```C#
     Console.WriteLine("Lutfen Bir Sayi Giriniz");
     int intDegisken = int.Parse(Console.ReadLine());
+
     // cift mi kosulu dogru ise bu blok calisir
     if (intDegisken % 2 == 0)
     {
         Console.WriteLine("Girdiginiz sayi cift");
     }
+
     // degilse ...
     else
     {
         Console.WriteLine("Girdiginiz sayi tek");
     }
+```
+
+*derste verilen odev1
+```C#
+    Console.WriteLine("bir karakter girin");
+    int input = Convert.ToInt32(char.Parse(Console.ReadLine()));
+
+    if (input > 64 && input < 91)
+    {
+        Console.WriteLine("Girdiginiz Harf Buyuk");
+    }
+    else
+    {
+        Console.WriteLine("Girdiginiz harf kucuk");
+    }
+```
+Bu ornekteki sorun su: Kullanicinin girecegi karakterin ASCII kodu 64, 91 araligi disinda hangi deger gelirse gelsin Ekrana `Girdiginiz Harf Kucuk` yazisi cikacak. Bu da aslinda tam olarak istedigimiz sey degil. Buna deginecegiz
+* if ve else kosullarinda, eger bu bloklarin icinde tek satir kod girilecekse  paranteze alamamiza gerek yoktur
+```C#
+    Console.WriteLine("bir karakter girin");
+    int input = Convert.ToInt32(char.Parse(Console.ReadLine()));
+
+    if (input > 64 && input < 91)
+        Console.WriteLine("Girdiginiz Harf Buyuk");
+    
+    else
+        Console.WriteLine("Girdiginiz harf kucuk");
+    
+```
+* if bloklari icine baska if bloklari ve else bloklari da yazabiliriz.
+
+```C#
+if (kosul)
+{
+    if(baskaBirKosul)
+    {
+
+    }
+    else
+    {
+
+    }
+}
+else
+{
+    if (kosul)
+    {
+
+    }
+    else
+    {
+        
+    }
+}
 ```
