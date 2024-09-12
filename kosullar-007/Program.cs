@@ -232,7 +232,7 @@ else
 #endregion
 
 #region iki farkli urun fiyati al(veri kontrolu yap: negatif degeri kabul etme) indirim oranini al (0 ile 1 araliginda degilse kabul etme), iki urun toplami 1000 tl den fazlaysa, ucuz olan urune verilen oranda indirim yap. toplam tutara KDV ekle.
-
+/*
 
 Console.WriteLine("Birinci Urun Fiyatini Giriniz :");
 double price1 = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
@@ -261,6 +261,148 @@ else
 {
     Console.WriteLine("Lutfen Degerleri Kontrol Edip Tekrar Deneyiniz");
 }
-
+*/
 #endregion
 
+#region CALISMA => notun harf karsiligi ve kaldi/ gecti bilgisi
+
+Console.WriteLine("Ilk Vize Notunuzu Giriniz :");
+double firstMidtermGrade = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Ikinci Vize Notunuzu Giriniz :");
+double secondMidtermGrade = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Final Notunuzu Giriniz :");
+double finalGrade = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Vize Sinavlarinin Toplam Katsayisini (Agirlik) Giriniz (0-1 arasi) :");
+double totalMidtermWeight = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+Console.WriteLine("Final Sinavinin Katsayisini (Agirlik) Giriniz (0-1 arasi):");
+double finalWeight = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
+
+DateTime start = DateTime.Now;
+
+double avarageGrade = firstMidtermGrade * totalMidtermWeight / 2 + secondMidtermGrade * totalMidtermWeight / 2 + finalGrade * finalWeight;
+
+bool isGradeInputCorrect =
+(firstMidtermGrade >= 0) &&
+(firstMidtermGrade <= 100) &&
+(secondMidtermGrade >= 0) &&
+(secondMidtermGrade <= 100) &&
+(finalGrade >= 0) &&
+(finalGrade <= 100);
+
+bool isWeightInputCorrect =
+(totalMidtermWeight > 0) &&
+(totalMidtermWeight <= 1) &&
+(finalWeight > 0) &&
+(finalWeight <= 1);
+
+
+if (isGradeInputCorrect)
+{
+    if (isWeightInputCorrect)
+    {
+        if (totalMidtermWeight + finalWeight == 1)
+        {
+            if (avarageGrade > 50)
+            {
+                Console.WriteLine("Sinifi Gectiniz");
+                if (avarageGrade >= 50 && avarageGrade < 56)
+                {
+                    string mark = "D";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 56 && avarageGrade < 62)
+                {
+                    string mark = "D+";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 62 && avarageGrade < 70)
+                {
+                    string mark = "C-";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 70 && avarageGrade < 74)
+                {
+                    string mark = "C";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 74 && avarageGrade < 78)
+                {
+                    string mark = "C+";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 78 && avarageGrade < 82)
+                {
+                    string mark = "B-";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 82 && avarageGrade < 86)
+                {
+                    string mark = "B";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 86 && avarageGrade < 90)
+                {
+                    string mark = "B+";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 90 && avarageGrade < 95)
+                {
+                    string mark = "A-";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 95 && avarageGrade <= 100)
+                {
+                    string mark = "A";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sinifta Kaldiniz");
+                if (avarageGrade >= 40 && avarageGrade < 50)
+                {
+                    string mark = "F";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade >= 0 && avarageGrade < 40)
+                {
+                    string mark = "FF";
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+                if (avarageGrade < 0) // bu degere asla dusmez, cunku sorgulamalar sonucu asla negatif cikmayacak zaten
+                {
+                    string mark = "WTF";
+                    Console.WriteLine("Imkansizi Basardiniz :)");
+                    Console.WriteLine("Harf Notunuz {0}, not ortalamaniz {1}", mark, avarageGrade);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Katsayilar Toplami 1 olmalidir.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Katsayilar 0-1 araliginda olmalidir");
+    }
+}
+
+else
+{
+    Console.WriteLine("Notlar 0-100 araliginda olmalidir");
+}
+
+Console.WriteLine();
+
+DateTime end = DateTime.Now;
+
+TimeSpan workTime = end - start;
+
+Console.WriteLine("Hesaplama Suresi {0}ms", Math.Round(workTime.TotalMilliseconds));
+
+#endregion
