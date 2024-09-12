@@ -122,6 +122,8 @@ Console.WriteLine("{0} yil, {1} ay, {2} gun, {3} saat, {4} dakikadir dunyadasini
 Console.WriteLine("Write Date & Time (dd.mm.yyyy hh.mm.ss):");
 string userInput = Console.ReadLine().Trim();
 
+DateTime processStartTime = DateTime.Now; // hesaplamaya baslangic zamani
+
 int day = int.Parse(userInput.Substring(0, 2));
 int month = int.Parse(userInput.Substring(3, 2));
 int year = int.Parse(userInput.Substring(6, 4));
@@ -147,6 +149,11 @@ int hourRounded = (int)Math.Floor(hourDiff);
 int minuteRounded = (int)Math.Floor(minuteDiff);
 int secondRounded = (int)Math.Floor(secondDiff);
 
+DateTime processEndTime = DateTime.Now; // hesaplama bitis zamani
+
+TimeSpan processTime = processEndTime - processStartTime; // hesaplama ne kadar surdu...
+
+Console.WriteLine("Hesaplama {0} milisaniye(ms) surdu...", processTime.TotalMilliseconds);
 Console.WriteLine($"{yearRounded} Yil, {monthRounded} Ay, {dayRounded} gun, {hourRounded} saat, {minuteRounded} dakika, {secondRounded} saniyedir hayattasiniz...");
 */
 #endregion
@@ -195,4 +202,39 @@ int second = Convert.ToInt32(Math.Floor(secondDiff));
 
 Console.WriteLine($"{firstDate} ile {secondDate} arasindaki fark -> {year} yil, {month} ay, {day} gun, {hour} saat, {minute} dakika, {second} saniyedir");
 */
+#endregion
+
+#region Bu Gunun tarihine Ekleme Cikarma Yapmak
+
+Console.WriteLine("Kac Yil Eklenecek :");
+int yearInput = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Kac Ay Eklenecek :");
+int monthInput = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Kac Gun Eklenecek :");
+int dayInput = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Kac Saat Eklenecek :");
+int hourInput = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Kac Dakika Eklenecek :");
+int minuteIntput = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Kac Saniye Eklenecek :");
+int secondsInput = int.Parse(Console.ReadLine());
+
+DateTime start = DateTime.Now; // isleme baslangic
+
+DateTime userDate = DateTime.Now.AddYears(yearInput).AddMonths(monthInput).AddDays(dayInput).AddHours(hourInput).AddMinutes(minuteIntput).AddSeconds(secondsInput);
+
+DateTime end = DateTime.Now; // islem tamamlandiktan sonra
+
+TimeSpan diff = end - start; // islem suresi ne kadar surdu
+
+
+Console.WriteLine("Hesaplama {0} milisaniye(ms) surdu... ", diff.TotalMilliseconds);
+Console.WriteLine(userDate.ToLongDateString());
+
+
 #endregion
