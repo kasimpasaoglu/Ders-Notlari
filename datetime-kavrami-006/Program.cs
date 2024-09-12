@@ -236,5 +236,4 @@ TimeSpan diff = end - start; // islem suresi ne kadar surdu
 Console.WriteLine("Hesaplama {0} milisaniye(ms) surdu... ", diff.TotalMilliseconds);
 Console.WriteLine(userDate.ToLongDateString());
 
-
 #endregion
