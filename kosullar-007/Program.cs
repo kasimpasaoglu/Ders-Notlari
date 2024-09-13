@@ -471,7 +471,7 @@ Console.WriteLine("Islem Suresi {0}ms", Math.Round(processLenght.TotalMillisecon
 #endregion
 
 #region Pizza Fiyati Hesaplama
-
+/*
 Console.WriteLine("Boyut seciniz : (kucuk / orta / buyuk)");
 string size = Console.ReadLine().ToLower().Trim();
 
@@ -554,6 +554,93 @@ Console.WriteLine(extraMassage);
 Console.WriteLine();
 Console.WriteLine("Tutar = {0}tl + Hesaplanan KDV {1} tl", pizzaPrice, totalVat);
 Console.WriteLine("Toplam = {0}tl", totalPrice);
+*/
+#endregion
 
+#region Atm Simulasyonu (while Denemesi)
+
+string userId = "1234";
+string password = "1234";
+double accountBalance = 10000.00;
+
+Console.WriteLine("Hesap No Giriniz:");
+string userIdInput = Console.ReadLine().Trim();
+
+Console.WriteLine("Sifrenizi Giriniz:");
+string userPasswordInput = Console.ReadLine().Trim();
+bool isRunning = true;
+
+if (userIdInput == userId && userPasswordInput == password)
+{
+    Console.WriteLine("Giris Basarili");
+    Console.WriteLine();
+    while (isRunning)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Yapmak Istediginiz Islemi Seciniz :");
+        Console.WriteLine("1. Bakiye Goruntule");
+        Console.WriteLine("2. Para Cekme");
+        Console.WriteLine("3. Para Yatirma");
+        Console.WriteLine("4. Cikis");
+        char userInput = char.Parse(Console.ReadLine().Trim());
+
+        if (userInput == '1')
+        {
+            Console.WriteLine("Hesap Bakiyeniz : {0}TL", accountBalance);
+        }
+        else if (userInput == '2')
+        {
+            Console.WriteLine("Hesap Bakiyeniz : {0}TL. Cekmek Istediginiz Tutari Giriniz", accountBalance);
+            double settleAmount = double.Parse(Console.ReadLine());
+            if (accountBalance >= settleAmount)
+            {
+                accountBalance -= settleAmount;
+                Console.WriteLine("Hesabinizdan {0}TL Cektiniz. Kalan Bakiyeniz {1}TL", settleAmount, accountBalance);
+            }
+            else if (accountBalance < settleAmount)
+            {
+                Console.WriteLine("Hesap Bakiyeniz Bu Islem Icin Yeterli Degildir...");
+            }
+            else
+            {
+                Console.WriteLine("Hatali Islem Yaptiniz");
+            }
+
+        }
+        else if (userInput == '3')
+        {
+            Console.WriteLine("Hesap Bakiyeniz : {0}TL. Yatirmak Istediginiz Tutari Giriniz", accountBalance);
+            double depositAmount = double.Parse(Console.ReadLine());
+            if (depositAmount > 0)
+            {
+                accountBalance += depositAmount;
+                Console.WriteLine("Hesabiniza {0}TL Yatirdiniz. Toplam Bakiyeniz {1}TL", depositAmount, accountBalance);
+            }
+            else
+            {
+                Console.WriteLine("Yatirilacak Tutar Hatali Girildi...");
+            }
+        }
+        else if (userInput == '4')
+        {
+            Console.WriteLine("Cikis Yapiliyor");
+            isRunning = false;
+        }
+        else
+        {
+            Console.WriteLine("Hatali Secim Yaptiniz");
+        }
+    }
+}
+
+if (userIdInput != userId)
+{
+    Console.WriteLine("Hesap No Hatali");
+}
+
+if (userPasswordInput != password)
+{
+    Console.WriteLine("Sifre Hatali");
+}
 
 #endregion
