@@ -408,7 +408,7 @@ Console.WriteLine("Hesaplama Suresi {0}ms", Math.Round(workTime.TotalMillisecond
 #endregion
 
 #region  Ayrintili Yas Hesapla, dogum gunune ne kadar kaldigini hesapla. Dogum Gununun hangi gune denk gelecegini hesapla
-
+/*
 Console.WriteLine("Dogum Tarihinizi Giriniz (gg.aa.yyyy) :");
 string userInput = Console.ReadLine();
 
@@ -467,5 +467,93 @@ Console.WriteLine();
 DateTime finishProcess = DateTime.Now; // process bitis zamanini al
 TimeSpan processLenght = finishProcess - startProcess; // farki al
 Console.WriteLine("Islem Suresi {0}ms", Math.Round(processLenght.TotalMilliseconds)); // milisaniye cinsinden yazdir
+*/
+#endregion
+
+#region Pizza Fiyati Hesaplama
+
+Console.WriteLine("Boyut seciniz : (kucuk / orta / buyuk)");
+string size = Console.ReadLine().ToLower().Trim();
+
+int pizzaPrice = 75;
+
+string orderMassage = "Pizza Ucreti 75tl. Siparis Detaylariniz: ";
+
+if (size == "kucuk")
+{
+    pizzaPrice += 50;
+    orderMassage += "Kucuk Boy Farki (+50), ";
+}
+
+else if (size == "orta")
+{
+    pizzaPrice += 100;
+    orderMassage += "Orta Boy Farki (+100), ";
+}
+
+else if (size == "buyuk")
+{
+    pizzaPrice += 150;
+    orderMassage += "Buyuk Boy Farki (+150)";
+}
+else
+{
+    Console.WriteLine("Girdiginiz Boyut Hatali...");
+}
+
+Console.WriteLine("Ekstra Malzemeleri Yaziniz : (Peynir / Mantar / Sucuk / Misir / Sosis)");
+string extra = Console.ReadLine().ToLower().Trim();
+
+bool isExtraCorrect = false;
+string extraMassage = "Ekstra Malzemeler: ";
+
+if (extra.Contains("peynir"))
+{
+    pizzaPrice += 20;
+    extraMassage += "Peynir (+20), ";
+    isExtraCorrect = true;
+}
+
+if (extra.Contains("mantar"))
+{
+    pizzaPrice += 20;
+    extraMassage += "Mantar (+20), ";
+    isExtraCorrect = true;
+}
+
+if (extra.Contains("sucuk"))
+{
+    pizzaPrice += 30;
+    extraMassage += "Sucuk (+30), ";
+    isExtraCorrect = true;
+}
+
+if (extra.Contains("misir"))
+{
+    pizzaPrice += 20;
+    extraMassage += "Misir (+20), ";
+    isExtraCorrect = true;
+}
+
+if (extra.Contains("sosis"))
+{
+    pizzaPrice += 30;
+    extraMassage += "Sosis (+30)";
+    isExtraCorrect = true;
+}
+if (!isExtraCorrect)
+{
+    Console.WriteLine("Ekstra Malzeme Secimi Yapilmadi...");
+}
+
+double totalVat = Math.Round(pizzaPrice * 0.20, 2);
+double totalPrice = Math.Round(pizzaPrice * 1.20, 2);
+Console.WriteLine();
+Console.WriteLine(orderMassage);
+Console.WriteLine(extraMassage);
+Console.WriteLine();
+Console.WriteLine("Tutar = {0}tl + Hesaplanan KDV {1} tl", pizzaPrice, totalVat);
+Console.WriteLine("Toplam = {0}tl", totalPrice);
+
 
 #endregion
