@@ -265,7 +265,7 @@ else
 #endregion
 
 #region CALISMA => notun harf karsiligi ve kaldi/ gecti bilgisi
-
+/*
 Console.WriteLine("Ilk Vize Notunuzu Giriniz :");
 double firstMidtermGrade = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
 
@@ -404,5 +404,68 @@ DateTime end = DateTime.Now;
 TimeSpan workTime = end - start;
 
 Console.WriteLine("Hesaplama Suresi {0}ms", Math.Round(workTime.TotalMilliseconds));
+*/
+#endregion
+
+#region  Ayrintili Yas Hesapla, dogum gunune ne kadar kaldigini hesapla. Dogum Gununun hangi gune denk gelecegini hesapla
+
+Console.WriteLine("Dogum Tarihinizi Giriniz (gg.aa.yyyy) :");
+string userInput = Console.ReadLine();
+
+DateTime startProcess = DateTime.Now; // process baslangic zamanini al (perf. olcumu icin)
+
+// saat bilgisiyle ugrasmak istemedigim icin sadece tarihi aldim (DateOnly). Ancak TimeSpan yaparken tekrar DateTime' a donusturmek gerekiyormus...
+DateOnly userBirthDate = DateOnly.Parse(userInput);
+DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+int age = today.Year - userBirthDate.Year;
+
+DateOnly nextBirthday = userBirthDate.AddYears(age); // dogum tarihine yil farkini(buldugumuz yasi) ekleyip bir sonraki dogum tarihini bul, Bu tarih bu yilki dogum gunudur..
+
+
+if (today < nextBirthday) // eger dogum gunu bu yilda henuz gelmediyse
+{
+    age--; // dogum tarihi bu yil icinde heniz gelmedigi icin yastan bir cikar
+    Console.WriteLine("Yasiniz {0}", age);
+}
+else if (today == nextBirthday)
+{
+    age--;
+    int oldAge = age;
+    age++;
+
+    Console.WriteLine($"Bu gun dogum gununuz! {oldAge} yasindan {age} yasina girdiniz!");
+    nextBirthday = nextBirthday.AddYears(1); // tarihe 1 yil ekleyip onumuzdeki yilin dogum tarihini aliyoruz.
+}
+else
+{
+    nextBirthday = nextBirthday.AddYears(1); // dogum gunu bu yil gectigi icin, tarihe 1 yil ekleyip onumuzdeki yilin dogum tarihini aliyoruz.
+    Console.WriteLine("Yasiniz {0}", age);
+}
+
+TimeSpan remaining = nextBirthday.ToDateTime(TimeOnly.MinValue) - today.ToDateTime(TimeOnly.MinValue); // bir sonraki dogum gunu tarihine olan farki bul
+
+double totalDaysToBirtday = remaining.TotalDays;
+// Ay ve gun farkini hesaplamak icin;
+double months = totalDaysToBirtday / 30;
+double days = totalDaysToBirtday % 30;
+
+int monthsToBirthDay = (int)Math.Floor(months); // kalan ay
+int daysToBirthDay = (int)Math.Floor(days); // kalan gun
+
+Console.WriteLine("Bir Sonraki Dogum Gununuz {0}", nextBirthday.ToLongDateString());
+
+if (monthsToBirthDay >= 1) // eger ay farki 1 den buyuk ve ya esitse, Yani dogum gunune bir aydan daha fazla zaman varsa ay ve gun bilgisini paylasiyoruz. 
+{
+    Console.WriteLine("Bir Sonraki Dogum Gununuze Kalan  => {0} Ay, {1} Gun", monthsToBirthDay, daysToBirthDay);
+}
+else    // bir aydan az zaman kaldiysa sadece gun bilgisini paylasiyoruz
+{
+    Console.WriteLine("Bir Sonraki Dogum Gununuze Kalan  => {0} Gun", daysToBirthDay);
+}
+Console.WriteLine();
+DateTime finishProcess = DateTime.Now; // process bitis zamanini al
+TimeSpan processLenght = finishProcess - startProcess; // farki al
+Console.WriteLine("Islem Suresi {0}ms", Math.Round(processLenght.TotalMilliseconds)); // milisaniye cinsinden yazdir
 
 #endregion
