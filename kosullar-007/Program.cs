@@ -558,7 +558,7 @@ Console.WriteLine("Toplam = {0}tl", totalPrice);
 #endregion
 
 #region Atm Simulasyonu (while Denemesi)
-
+/*
 string userId = "1234";
 string password = "1234";
 double accountBalance = 10000.00;
@@ -643,5 +643,6 @@ else if (userIdInput == userId && userPasswordInput == password)
     }
 }
 
-
+*/
 #endregion
+
