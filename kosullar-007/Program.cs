@@ -570,7 +570,17 @@ Console.WriteLine("Sifrenizi Giriniz:");
 string userPasswordInput = Console.ReadLine().Trim();
 bool isRunning = true;
 
-if (userIdInput == userId && userPasswordInput == password)
+if (userIdInput != userId)
+{
+    Console.WriteLine("Hesap No Hatali");
+}
+
+else if (userPasswordInput != password)
+{
+    Console.WriteLine("Sifre Hatali");
+}
+
+else if (userIdInput == userId && userPasswordInput == password)
 {
     Console.WriteLine("Giris Basarili");
     Console.WriteLine();
@@ -592,7 +602,7 @@ if (userIdInput == userId && userPasswordInput == password)
         {
             Console.WriteLine("Hesap Bakiyeniz : {0}TL. Cekmek Istediginiz Tutari Giriniz", accountBalance);
             double settleAmount = double.Parse(Console.ReadLine());
-            if (accountBalance >= settleAmount)
+            if (accountBalance >= settleAmount && settleAmount > 0)
             {
                 accountBalance -= settleAmount;
                 Console.WriteLine("Hesabinizdan {0}TL Cektiniz. Kalan Bakiyeniz {1}TL", settleAmount, accountBalance);
@@ -601,9 +611,9 @@ if (userIdInput == userId && userPasswordInput == password)
             {
                 Console.WriteLine("Hesap Bakiyeniz Bu Islem Icin Yeterli Degildir...");
             }
-            else
+            else if (settleAmount <= 0)
             {
-                Console.WriteLine("Hatali Islem Yaptiniz");
+                Console.WriteLine("Cekilecek Tutar Hatali");
             }
 
         }
@@ -633,14 +643,5 @@ if (userIdInput == userId && userPasswordInput == password)
     }
 }
 
-if (userIdInput != userId)
-{
-    Console.WriteLine("Hesap No Hatali");
-}
-
-if (userPasswordInput != password)
-{
-    Console.WriteLine("Sifre Hatali");
-}
 
 #endregion
