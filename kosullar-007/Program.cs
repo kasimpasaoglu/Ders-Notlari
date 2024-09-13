@@ -646,3 +646,113 @@ else if (userIdInput == userId && userPasswordInput == password)
 */
 #endregion
 
+#region Gift Karti Vergi Avantaji Hesaplama Ders Disi
+/*
+// gelir v %20  => 0.20 
+// damga v %0.75 => 0.0075
+// sgk isci payi %14 => 0.14 -
+// sgk isveren payi %20.5 => 0.205 -
+// issizlik sig isci payi %1 => 0.01 - 
+// issizlik sig isveren %2 => 0.02 -
+
+// bir kisiye yatirilacak tutar verisi al
+// kac kisi bilgisini al
+// nakit odenirse butun vergileri ekle sonucu goster
+// gift ile odenirse sadece gelir ve damga vergisi ekle tutari goster
+// gift ile odenirse kisi basi ne kadar vergi avantaji cikacak
+// gift ile odenirse toplam ne kadar vergi avantahi cikacak
+
+
+Console.WriteLine("Hediye (Gift) Tutarini Giriniz :");
+double giftAmount = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Kisi Sayisini Giriniz :");
+int workerAmount = int.Parse(Console.ReadLine().Trim());
+
+// Vergi ve Kesinti Oranları
+double incomeTaxRate = 0.20;                     // Gelir Vergisi %20
+double stampTaxRate = 0.00759;                    // Damga Vergisi %0.759
+double workerSocialSecurityRate = 0.14;        // SGK İşçi Payı %14
+double employerSocialSecurityRate = 0.205;       // SGK İşveren Payı %20.5
+double workerUnemploymentInsuranceRate = 0.01; // İşsizlik Sigortası İşçi Payı %1
+double employerUnemploymentInsuranceRate = 0.02; // İşsizlik Sigortası İşveren Payı %2
+
+double gross = giftAmount / (1 - (workerSocialSecurityRate + workerUnemploymentInsuranceRate + incomeTaxRate * (1 - workerSocialSecurityRate - workerUnemploymentInsuranceRate) + stampTaxRate));
+
+
+double grossTotal = gross + (employerSocialSecurityRate + employerUnemploymentInsuranceRate) * gross;
+
+
+double workerSSTPerPerson = gross * workerSocialSecurityRate;
+double employerSSTPerPerson = gross * employerSocialSecurityRate;
+double workerUITPerPerson = gross * workerUnemploymentInsuranceRate;
+double employerUITPerPerson = gross * employerUnemploymentInsuranceRate;
+double stampTaxPerPerson = gross * stampTaxRate;
+double incomeTaxPerPerson = (gross - workerSSTPerPerson - workerUITPerPerson) * incomeTaxRate;
+
+double totalTaxPerPerson = stampTaxPerPerson + workerSSTPerPerson + employerSSTPerPerson + workerUITPerPerson + employerUITPerPerson + incomeTaxPerPerson;
+
+Console.WriteLine("Maasa Ek => {0}", giftAmount);
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("Kisi Basi Gelir Vergisi (%20) => {0}", Math.Round(incomeTaxPerPerson, 2));
+Console.WriteLine("Kisi Basi Damga Vergisi (%0,759) => {0}", Math.Round(stampTaxPerPerson, 2));
+Console.WriteLine();
+Console.WriteLine("Kisi Basi SGK Isci Payi (%14) => {0}", Math.Round(workerSSTPerPerson, 2));
+Console.WriteLine("Kisi Basi SGK Isveren Payi (%20,5) => {0}", Math.Round(employerSSTPerPerson, 2));
+Console.WriteLine("Kisi Basi Issizlik Sigortasi Isci Payi (%1) => {0}", Math.Round(workerUITPerPerson, 2));
+Console.WriteLine("Kisi Basi Issizlik Sigortasi Isveren Payi (%2) => {0}", Math.Round(employerUITPerPerson, 2));
+Console.WriteLine();
+Console.WriteLine("Kisi Basi Toplam Odenecek Toplam Vergi => {0}", Math.Round(totalTaxPerPerson, 2));
+Console.WriteLine("Kisi Basi Toplam Maliyet => {0}", Math.Round(grossTotal, 2));
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("{0} Calisan Icin Odenecek Toplam Vergi => {1}", workerAmount, Math.Round(totalTaxPerPerson * workerAmount, 2));
+Console.WriteLine("{0} Calisan Icin Toplam Maliyet => {1}", workerAmount, Math.Round(grossTotal * workerAmount, 2));
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("Pluxe Avantajlarini Gormek Icin Enter'a Basiniz...");
+Console.ReadLine();
+
+
+double pluxeeWorkerSocialSecurityRate = 0;
+double pluxeeEmployerSocialSecurityRate = 0;
+double pluxeeWorkerUnemploymentInsuranceRate = 0;
+double pluxeeEmployerUnemploymentInsuranceRate = 0;
+
+double pluxeeGross = giftAmount / (1 - (pluxeeWorkerSocialSecurityRate + pluxeeWorkerUnemploymentInsuranceRate + incomeTaxRate * (1 - pluxeeWorkerSocialSecurityRate - pluxeeWorkerUnemploymentInsuranceRate) + stampTaxRate));
+
+double pluxeeGrossTotal = pluxeeGross + (pluxeeEmployerSocialSecurityRate + pluxeeEmployerUnemploymentInsuranceRate) * pluxeeGross;
+
+double workerSSTPerPersonPluxee = pluxeeGross * pluxeeWorkerSocialSecurityRate;
+double employerSSTPerPersonPluxee = pluxeeGross * pluxeeEmployerSocialSecurityRate;
+double workerUITPerPersonPluxee = pluxeeGross * pluxeeWorkerUnemploymentInsuranceRate;
+double employerUITPerPersonPluxee = pluxeeGross * pluxeeEmployerUnemploymentInsuranceRate;
+double stampTaxPerPersonPluxee = pluxeeGross * stampTaxRate;
+double incomeTaxPerPersonPluxee = (pluxeeGross - workerSSTPerPersonPluxee - workerUITPerPersonPluxee) * incomeTaxRate;
+
+double pluxeeTotalTaxPerPerson = stampTaxPerPersonPluxee + workerSSTPerPersonPluxee + employerSSTPerPersonPluxee + workerUITPerPersonPluxee + employerUITPerPersonPluxee + incomeTaxPerPerson;
+
+
+Console.WriteLine("Maasa Ek => {0}", giftAmount);
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("Kisi Basi Gelir Vergisi (%20) => {0}", Math.Round(incomeTaxPerPersonPluxee, 2));
+Console.WriteLine("Kisi Basi Damga Vergisi (%0,759) => {0}", Math.Round(stampTaxPerPersonPluxee, 2));
+Console.WriteLine();
+Console.WriteLine("Kisi Basi SGK Isci Payi (%14) => {0}", Math.Round(workerSSTPerPersonPluxee, 2));
+Console.WriteLine("Kisi Basi SGK Isveren Payi (%20,5) => {0}", Math.Round(employerSSTPerPersonPluxee, 2));
+Console.WriteLine("Kisi Basi Issizlik Sigortasi Isci Payi (%1) => {0}", Math.Round(workerUITPerPersonPluxee, 2));
+Console.WriteLine("Kisi Basi Issizlik Sigortasi Isveren Payi (%2) => {0}", Math.Round(employerUITPerPersonPluxee, 2));
+Console.WriteLine();
+Console.WriteLine("Kisi Basi Toplam Odenecek Toplam Vergi => {0}", Math.Round(pluxeeTotalTaxPerPerson, 2));
+Console.WriteLine("Kisi Basi Toplam Maliyet => {0}", Math.Round(pluxeeGrossTotal, 2));
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("{0} Calisan Icin Odenecek Toplam Vergi => {1}", workerAmount, Math.Round(pluxeeTotalTaxPerPerson * workerAmount, 2));
+Console.WriteLine("{0} Calisan Icin Toplam Maliyet => {1}", workerAmount, Math.Round(pluxeeGrossTotal * workerAmount, 2));
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("Toplam Kazancinizi Gormek Icin Enter'a Basiniz...");
+Console.ReadLine();
+Console.WriteLine("Kisi Basi Toplam Maaliyet Avantaji => {0}", Math.Round(grossTotal - pluxeeGrossTotal, 2));
+Console.WriteLine("Toplam Maaliyet Avantaji => {0}", Math.Round((grossTotal - pluxeeGrossTotal) * workerAmount, 2));
+Console.WriteLine("--------------------------------------------------------------");
+Console.WriteLine("Kapatmak Icin Bir Tusa Basiniz");
+Console.ReadLine();
+*/
+#endregion
