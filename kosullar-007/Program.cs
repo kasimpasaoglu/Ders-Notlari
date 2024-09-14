@@ -905,3 +905,40 @@ else
 */
 #endregion
 
+#region Ternary Operatoru Giris
+/*
+Console.WriteLine("Sayi Giriniz");
+int sayi1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Sayi Giriniz");
+int sayi2 = int.Parse(Console.ReadLine());
+Console.WriteLine("Secim Giriniz");
+char secim = char.Parse(Console.ReadLine());
+
+int result = secim == '+' ? sayi1 + sayi2 : 0;
+Console.WriteLine(result);
+*/
+#endregion
+
+#region randomdan girilen karaker sayisi 10 dan fazlaysa cok uzun kisaysa cok kisa yazsin
+/*
+Random rnd = new Random();
+string random = rnd.Next(999999999, 1000000001).ToString();
+
+string result = random.Length >= 10 ? "Cok Uzun" : "Cok Kisa";
+
+Console.WriteLine(random);
+Console.WriteLine(result);
+*/
+#endregion
+
+#region ekrandan almis oldugunuz karakter "A' ile basliyorsa, "karakter "A" ile basliyor yazdir, (tersini de yazdir) 
+/*
+Console.WriteLine("Bir Metin Giriniz");
+string input = Console.ReadLine().ToUpper().Trim();
+
+string result = input.StartsWith('A') ? "Metin 'A' Harfi Ile Basliyor" : "Metin 'A' Harfi Ile Baslamiyor";
+Console.WriteLine(result);
+*/
+#endregion
+
+

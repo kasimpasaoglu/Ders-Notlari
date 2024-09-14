@@ -117,4 +117,28 @@ Bu ornekteki sorun su: Kullanicinin girecegi karakterin ASCII kodu 64, 91 aralig
 * Ancak birden fazla kosul varsa `else if` ile ayiririz. Bu sayede kosul uymuyorsa direk `else` gitmek yerine, `else if` e 
 Ders:Hesap Makinesi Ornegine Bak
 * if veya else if'ler else olmadan calisabilir, ancak else, bir if olmadan calismaz.
+## Ternary Operatoru
+* `if` yerine gecen ancak if yazmak istemedigimiz durumlarda, hizlica bir degeri kontrol etmek istedigimiz durumlarda kullaniyoruz. 
+```C#
+    bool isOkay = true
+    string degisken = isOk ? "Dogru" : "Yanlis"
+```
+Aciklama : Eger isOk True gelirse ( ? ), degiskene "Dogru" degerini ata, Degilse ( : ) "Yanlis" degerini ata.
+* Mantiksal degere gore calisir.
+* Eger Mantiksal operator true degeri verirse, ? ifadesinden sonraki blok calisir
+* Eger Mantiksal operator false degeri verirse : ifadesinden sonraki blok calisir
+* yani if kismini ( ? ) temsil ediyor else kismini ( : ) temsil ediyor.
+* else kismi olmadan( : ) kabul etmez.
+* okunabilirligi dusuktur. 
+```C#
+    Console.WriteLine("Sayi Giriniz");
+    int sayi1 = int.Parse(Console.ReadLine());
+    Console.WriteLine("Sayi Giriniz");
+    int sayi2 = int.Parse(Console.ReadLine());
+    Console.WriteLine("Secim Giriniz");
+    char secim = char.Parse(Console.ReadLine());
+
+    int result = secim == '+' ? sayi1 + sayi2 : 0;
+    Console.WriteLine(result);
+```
 
