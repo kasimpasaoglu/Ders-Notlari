@@ -142,3 +142,68 @@ Aciklama : Eger isOk True gelirse ( ? ), degiskene "Dogru" degerini ata, Degilse
     Console.WriteLine(result);
 ```
 
+# Switch Case
+```C#
+    Console.WriteLine("Ilk Sayiyi Giriniz");
+    int sayi1 = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Ikinci Sayiyi Giriniz");
+    int sayi2 = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Islem Tipini Giriniz");
+    char tip = char.Parse(Console.ReadLine());
+    switch (tip) // tip verisini kontrol edecek
+    {
+        case '+': // tip + gelirse asagidaki blogu calistir
+        Console.WriteLine(sayi1 + sayi2);
+        break; // blok sonu
+
+        case '-': // else if
+        Console.WriteLine(sayi1 - sayi2);
+        break;
+
+        case '*': //else if
+        Console.WriteLine(sayi1 * sayi2);
+        break;
+
+        case '/': // else if
+        Console.WriteLine(sayi1 / sayi2);
+        break;
+
+        default: // else
+        Console.WriteLine("Gecersiz Islem Tipi");
+        break;
+    }
+```
+
+* Normalde derleyici if, else-ife baktiginda kosullari tek tek gezip dogru olan kosula giriyordu, ancak bu yontemde dogrudan kosulun gerceklestigi adrese gidiyor. 
+* Ic ice yapilabilir
+```C#
+// If ile ic ice yapmak
+    case '/':
+        // Bolen 0 olamaz Kontrolu
+        if (sayi2 != 0)
+        {
+            Console.WriteLine(sayi1 / sayi2);
+        }
+        // sayi sifira esit degilse yukardaki blok calisacak, degilse asagidaki else blogu calisacak
+        else
+        {
+        Console.WriteLine("Bolen Sifir Olamaz")
+        }
+        break;
+```
+```C#
+    // ic ice case
+    case '/':
+        switch (sayi2)
+        {
+            case 0:
+                Console.WriteLine("Bolen Sifir Olamaz");
+            break;
+            default:
+                Console.WriteLine(sayi1 / sayi2);
+            break;
+        }
+        break;
+```

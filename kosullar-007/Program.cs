@@ -941,4 +941,71 @@ Console.WriteLine(result);
 */
 #endregion
 
+#region Switch Case Ilk Ornek
+/*
+Console.WriteLine("Ilk Sayiyi Giriniz");
+int sayi1 = int.Parse(Console.ReadLine());
 
+Console.WriteLine("Ikinci Sayiyi Giriniz");
+int sayi2 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Islem Tipini Giriniz");
+char tip = char.Parse(Console.ReadLine());
+switch (tip) // tip verisini kontrol edecek
+{
+    case '+': // tip + gelirse asagidaki blogu calistir
+        Console.WriteLine(sayi1 + sayi2);
+        break; // blok sonu
+
+    case '-':
+        Console.WriteLine(sayi1 - sayi2);
+        break;
+
+    case '*':
+        Console.WriteLine(sayi1 * sayi2);
+        break;
+
+    case '/':
+        switch (sayi2)
+        {
+            case 0:
+                Console.WriteLine("Bolen Sifir Olamaz");
+                break;
+            default:
+                Console.WriteLine(sayi1 / sayi2);
+                break;
+        }
+        break;
+
+
+
+    default: // else
+        Console.WriteLine("Gecersiz Islem Tipi");
+        break;
+}
+
+*/
+#endregion
+
+#region ekrandan bir gun al, haftaici mi haftasonu mu onu kontrol edip ekrana yazdir.
+
+Console.WriteLine("Bir Gun Giriniz");
+string inputDay = Console.ReadLine().ToLower().Trim();
+
+switch (inputDay)
+{
+    case "pazartesi":
+    case "sali":
+    case "carsamba":
+    case "persembe":
+    case "cuma":
+        Console.WriteLine("girdiginiz gun hafta ici");
+        break;
+    case "cumartesi":
+    case "pazar":
+        Console.WriteLine("girdiginiz gun hafta sonu");
+        break;
+
+}
+
+#endregion
