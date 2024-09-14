@@ -112,3 +112,9 @@ Bu ornekteki sorun su: Kullanicinin girecegi karakterin ASCII kodu 64, 91 aralig
         }
     }
 ```
+## else if
+* If blogunda, kapidan kontrol if blogu sartina uyuyorsa if calisiyor uymuyorsa else calisiyor,
+* Ancak birden fazla kosul varsa `else if` ile ayiririz. Bu sayede kosul uymuyorsa direk `else` gitmek yerine, `else if` e 
+Ders:Hesap Makinesi Ornegine Bak
+* if veya else if'ler else olmadan calisabilir, ancak else, bir if olmadan calismaz.
+

@@ -756,3 +756,152 @@ Console.WriteLine("Kapatmak Icin Bir Tusa Basiniz");
 Console.ReadLine();
 */
 #endregion
+
+#region (Ders) else-if
+/*
+System.Console.WriteLine("Not Giriniz");
+int not = int.Parse(Console.ReadLine());
+
+if (not > 0 && not <= 24)
+{
+    Console.WriteLine("1 Aldin");
+}
+else if (not >=25 && not <=44)
+{
+    Console.WriteLine("2 Aldin");
+}
+else if (not >= 45 && not <=60 )
+{
+    Console.WriteLine("3 Aldin");
+}
+else if (not >= 60 && not <= 84)
+{
+    Console.WriteLine("4 Aldin");
+}
+else if ( not >= 85 && not <= 100)
+{
+    Console.WriteLine("5 Aldin");
+}
+else
+{
+    Console.WriteLine("Lutfen Gecerli Bir Not Girin");
+}
+*/
+#endregion
+
+#region (Ders Hesap Mak.) ikinci sayi sifir olamaz.
+/*
+Console.WriteLine("Ilk Sayiyi Giriniz");
+double input1 = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Ikinci Sayiyi Giriniz");
+double input2 = double.Parse(Console.ReadLine());
+
+Console.WriteLine("islem Tipini Seciniz '+'-'*'/' :");
+char process = char.Parse(Console.ReadLine());
+
+double result;
+
+
+if (process == '+')
+{
+    Console.WriteLine(input1 + input2);
+}
+else if (process == '-')
+{
+    Console.WriteLine(input1 - input2);
+}
+else if (process == '*')
+{
+    Console.WriteLine(input1 * input2);
+}
+else if (process == '/')
+{
+    if (input2 != 0)
+    {
+        Console.WriteLine(input1 / input2);
+    }
+    else
+    {
+        Console.WriteLine("Bolen sifir olamaz.");
+    }
+}
+else
+{
+    Console.WriteLine("Hatali Secim Yaptiniz");
+}
+*/
+#endregion
+
+#region (ders) Ekran ve cevre hesaplama araci.
+// oncelikle yapilabilecek seyler ciksin kullanici birini secsin, cevre mi alan mi hesaplanacak
+// secime gore degerler kullanicidan alinsin ve sonuc gostersin.
+/*
+Console.WriteLine("Ucgen icin 'ucgen' yaziniz");
+Console.WriteLine("Daire icin 'daire' yaziniz");
+string shape = Console.ReadLine().ToLower().Trim();
+
+Console.WriteLine("Cevre / Alan ??");
+string userChoice = Console.ReadLine().ToLower().Trim();
+
+if (shape == "ucgen")
+{
+
+    if (userChoice == "alan")
+    {
+        Console.WriteLine("Taban Uzunlugu Girin");
+        double bottomLenght = double.Parse(Console.ReadLine().Trim());
+
+        Console.WriteLine("Yukseklik Girin");
+        double heightLenght = double.Parse(Console.ReadLine().Trim());
+
+        double area = Math.Round(bottomLenght * heightLenght / 2, 2);
+        Console.WriteLine("Ucgenin Alani => {0}", area);
+    }
+    else if (userChoice == "cevre")
+    {
+        Console.WriteLine("Taban Uzunlugu Girin");
+        double bottomLenght = double.Parse(Console.ReadLine().Trim());
+
+        Console.WriteLine("Komsu Kenar Uzunlugu Girin");
+        double heightLenght = double.Parse(Console.ReadLine().Trim());
+
+        double perimeter = Math.Round(bottomLenght + (heightLenght * 2), 2);
+        Console.WriteLine("Cevresi : {0}", perimeter);
+    }
+    else
+    {
+        Console.WriteLine("Lutfen Gecerli Bir Secim Yapiniz...");
+    }
+}
+else if (shape == "daire")
+{
+
+    if (userChoice == "alan")
+    {
+        Console.WriteLine("Yaricapini giriniz :");
+        double radiusHalf = double.Parse(Console.ReadLine().Trim());
+        double area = Math.Round(Math.PI * Math.Pow(radiusHalf, 2), 2);
+        Console.WriteLine("Alani : {0}", area);
+    }
+    else if (userChoice == "cevre")
+    {
+        Console.WriteLine("Yaricapini giriniz :");
+        double radiusHalf = double.Parse(Console.ReadLine().Trim());
+        double perimeter = Math.Round(2 * Math.PI * radiusHalf, 2);
+
+        Console.WriteLine("Cevresi : {0}", perimeter);
+    }
+    else
+    {
+        Console.WriteLine("Lutfen Gecerli Bir Deger Girin");
+    }
+
+}
+else
+{
+    Console.WriteLine("Lutfen Gecerli Bir Secim Yapin (Ucgen/Daire)");
+}
+*/
+#endregion
+

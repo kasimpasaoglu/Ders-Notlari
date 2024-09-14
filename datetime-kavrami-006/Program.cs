@@ -82,9 +82,9 @@ TimeSpan diff = DateTime.Now - userdate;
 Console.WriteLine("{0} yildir dunyadasiniz", diff.TotalDays / 365);
 */
 #endregion
-
 #region ODEV kac yil kac gun ve kac saat yasadiginizi hesaplayan kodu yaziniz. (Vazgecti)
 /*
+
 Console.WriteLine("Lutfen Dogum Tarihinizi Giriniz (gg.aa.yyyy) :");
 string userInput = Console.ReadLine();
 int day = int.Parse(userInput.Substring(0, 2));
@@ -205,7 +205,7 @@ Console.WriteLine($"{firstDate} ile {secondDate} arasindaki fark -> {year} yil, 
 #endregion
 
 #region Bu Gunun tarihine Ekleme Cikarma Yapmak
-
+/*
 Console.WriteLine("Kac Yil Eklenecek :");
 int yearInput = int.Parse(Console.ReadLine());
 
@@ -235,5 +235,10 @@ TimeSpan diff = end - start; // islem suresi ne kadar surdu
 
 Console.WriteLine("Hesaplama {0} milisaniye(ms) surdu... ", diff.TotalMilliseconds);
 Console.WriteLine(userDate.ToLongDateString());
-
+*/
 #endregion
+
+double totalDays = 125.65121;
+int intDegisken = Convert.ToInt32(totalDays);
+
+System.Console.WriteLine(intDegisken);
