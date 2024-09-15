@@ -565,11 +565,6 @@ Console.ReadLine();
 */
 #endregion
 
-
-
-
-
-
 #region Sifre Guvenlik Skoru Uygulamasi uzun yontem
 /*
 Console.WriteLine("Sifrenizi Yaziniz :");
@@ -809,3 +804,243 @@ else
 }
 */
 #endregion
+
+#region Sicaklik Birimi Donusturucu
+/*
+Console.WriteLine("Sicaklik Birimini giriniz:");
+Console.WriteLine("(C)elcius || (F)ahrenheit || (K)elvin");
+char unit = char.Parse(Console.ReadLine().ToUpper());
+
+Console.WriteLine("Donusturulecek Sicaklik Birimini giriniz:");
+Console.WriteLine("(C)elcius || (F)ahrenheit || (K)elvin");
+char unitTarget = char.Parse(Console.ReadLine().ToUpper());
+
+if (unit != 'C' && unit != 'F' && unit != 'K')
+{
+    Console.WriteLine("Ilk Birim C, F ve ya K olmalidir");
+}
+else if (unitTarget != 'C' && unitTarget != 'F' && unitTarget != 'K')
+{
+    Console.WriteLine("Hedef Birim C, F ve ya K olmalidir");
+}
+else if (unit == unitTarget)
+{
+    Console.WriteLine("Donusturulmek istenen birimler farkli olmalidir...");
+}
+else if (unit != unitTarget)
+{
+    Console.WriteLine("'{0}' degerini giriniz", unit);
+    double unitValue = double.Parse(Console.ReadLine());
+    double resultValue = 0;
+
+
+    switch (unit)
+    {
+        case 'C':
+
+            switch (unitTarget)
+            {
+                case 'F':
+                    resultValue = (unitValue * 9 / 5) + 32;
+                    break;
+                case 'K':
+                    resultValue = unitValue + 273.15;
+                    break;
+            }
+
+            break;
+
+        case 'F':
+
+            switch (unitTarget)
+            {
+                case 'C':
+                    resultValue = (unitValue - 32) * 5 / 9;
+                    break;
+                case 'K':
+                    resultValue = (unitValue - 32) * 5 / 9 + 273.15;
+                    break;
+            }
+            break;
+
+        case 'K':
+
+            switch (unitTarget)
+            {
+                case 'C':
+                    resultValue = unitValue - 273.15;
+                    break;
+                case 'F':
+                    resultValue = (unitValue - 273.15) * 9 / 5 + 32;
+                    break;
+            }
+            break;
+    }
+    Console.WriteLine("{0} '{1}' ==> {2} '{3}'", unitValue, unit, Math.Round(resultValue, 2), unitTarget);
+}
+*/
+#endregion
+
+#region Iki Tarih Arasi Fark Alma
+/*
+Console.WriteLine("Ilk Tarihi Giriniz");
+Console.WriteLine("Format (gg.aa.yyyy sa:dk:sn)");
+DateTime firstDate = DateTime.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Ikinci Tarihi Giriniz");
+Console.WriteLine("Format (gg.aa.yyyy sa:dk:sn)");
+DateTime secondDate = DateTime.Parse(Console.ReadLine().Trim());
+int yearDiff, monthDiff, dayDiff, hourDiff, minuteDiff, secondDiff;
+TimeSpan diff;
+
+if (firstDate > secondDate)
+{
+    yearDiff = firstDate.Year - secondDate.Year;   // yil farkini al
+    monthDiff = firstDate.Month - secondDate.Month; // ay farkini al
+    diff = firstDate - secondDate;
+    hourDiff = diff.Hours;
+    minuteDiff = diff.Minutes;
+    secondDiff = diff.Seconds;
+
+    if (monthDiff < 0)   // ay farki 0 dan kucuk cikarsa
+    {
+        yearDiff--;   // yil farkindan 1 cikar
+        monthDiff += 12; // ay farkina 12 ekle
+    }
+
+    dayDiff = firstDate.Day - secondDate.Day;  // gun farkini al
+    if (dayDiff < 0) // gun farki 0 dan kucuk cikarsa
+    {
+        monthDiff--;  // ay farkindan 1 cikar
+                      // bu islem neticesinde
+        if (monthDiff < 0) // ay farki 0 dan kucuk olursa
+        {
+            yearDiff--;   // yil farkindan 1 cikar
+            monthDiff += 12; // ay farkina 1 ekle
+        }
+        dayDiff += DateTime.DaysInMonth(firstDate.Year, firstDate.Month); // gun farkina son yilin o ayindaki gun sayisi kadar gun ekle.
+    }
+}
+else
+{
+    yearDiff = secondDate.Year - firstDate.Year;
+    monthDiff = secondDate.Month - firstDate.Month;
+    diff = secondDate - firstDate;
+    hourDiff = diff.Hours;
+    minuteDiff = diff.Minutes;
+    secondDiff = diff.Seconds;
+
+    if (monthDiff < 0)
+    {
+        yearDiff--;
+        monthDiff += 12;
+    }
+
+    dayDiff = secondDate.Day - firstDate.Day;
+    if (dayDiff < 0)
+    {
+        monthDiff--;
+
+        if (monthDiff < 0)
+        {
+            yearDiff--;
+            monthDiff += 12;
+        }
+        dayDiff += DateTime.DaysInMonth(secondDate.Year, secondDate.Month);
+    }
+}
+
+Console.WriteLine("{0} Tarihi Ile {1} Tarihi Arasindaki Fark :", firstDate, secondDate);
+Console.WriteLine("{0} Yil, {1} Ay, {2} Gun, {3} Saat, {4} Dakika, {5} Saniyedir", yearDiff, monthDiff, dayDiff, hourDiff, minuteDiff, secondDiff);
+*/
+#endregion
+
+#region Ucgen Hesaplamalari
+/*
+Console.WriteLine("a Kenari Uzunlugunu Giriniz");
+double sideA = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("b Kenari Uzunlugunu Giriniz");
+double sideB = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("C Acisi Derecesini Giriniz");
+double angleC = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+double radianC = angleC * Math.PI / 180;
+
+double sideC = Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2) - 2 * sideA * sideB * Math.Cos(radianC)); // c kenari bulundu
+
+double areaCalc = sideA * sideB * Math.Sin(radianC) / 2; // alan bulundu
+
+double perimeterCalc = sideA + sideB + sideC; // cevresi bulundu
+
+double angleA = Math.Asin(sideA * Math.Sin(radianC) / sideC) * 180 / Math.PI; // a acisi bulundu
+double angleB = Math.Asin(sideB * Math.Sin(radianC) / sideC) * 180 / Math.PI; // b acisi bulundu
+
+// yuvarlama islemi
+
+double aSide = Math.Round(sideA, 2);
+double bSide = Math.Round(sideB, 2);
+double cSide = Math.Round(sideC, 2);
+
+double aAngle = Math.Round(angleA, 2);
+double bAngle = Math.Round(angleB, 2);
+double cAngle = Math.Round(angleC, 2);
+
+double area = Math.Round(areaCalc, 2);
+double perimeter = Math.Round(perimeterCalc, 2);
+
+double totalAngle = Math.Round(angleA + angleB + angleC, 2);
+
+
+
+if (sideA == sideB && sideB == sideC)
+{
+    Console.WriteLine("***Eskenar Ucgen***");
+}
+else if (sideA == sideB || sideA == sideC || sideB == sideC)
+{
+    Console.WriteLine("***Ikizkenar Ucgen***");
+}
+else
+{
+    Console.WriteLine("***Cesitkenar Ucgen***");
+}
+
+if (Math.Round(angleA) == 90 || Math.Round(angleB) == 90 || Math.Round(angleC) == 90) // 
+{
+    Console.WriteLine("***Dik Ucgen***");
+}
+
+Console.WriteLine($"A Kenari => {aSide} , B Kenari => {bSide}, C Kenari => {cSide}");
+Console.WriteLine($"a Acisi => {aAngle} , b Acisi => {bAngle}, c Acisi => {cAngle}, Toplami {totalAngle}");
+Console.WriteLine($"Alani => {area}");
+Console.WriteLine($"Cevresi => {perimeter}");
+*/
+#endregion
+
+#region Tam kare mi kontrolu
+/*
+Console.WriteLine("Bir sayi girin");
+double input = double.Parse(Console.ReadLine());
+
+if (input < 0)
+{
+    Console.WriteLine("Negatif Sayilar Tam Kare Olamaz");
+}
+else
+{
+    double sqrt = Math.Sqrt(input);
+    double check = sqrt - Math.Truncate(sqrt);
+    if (check == 0)
+    {
+        Console.WriteLine("{0} sayisi {1} sayisinin tam karesidir.", input, sqrt);
+    }
+    else
+    {
+        Console.WriteLine("{0} sayisi tam kare degildir.", input);
+    }
+}
+*/
+#endregion
+
