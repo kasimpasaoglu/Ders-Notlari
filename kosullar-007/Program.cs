@@ -988,7 +988,7 @@ switch (tip) // tip verisini kontrol edecek
 #endregion
 
 #region ekrandan bir gun al, haftaici mi haftasonu mu onu kontrol edip ekrana yazdir.
-
+/*
 Console.WriteLine("Bir Gun Giriniz");
 string inputDay = Console.ReadLine().ToLower().Trim();
 
@@ -1007,5 +1007,245 @@ switch (inputDay)
         break;
 
 }
+*/
+#endregion
 
+#region Sifre Guvenlik Skoru Uygulamasi uzun yontem
+/*
+Console.WriteLine("Sifrenizi Yaziniz :");
+string password = Console.ReadLine().Trim();
+int passwordStrenght = 0;
+string text;
+
+if (password.Length > 8)
+{
+    passwordStrenght++;
+}
+if (password.Any(char.IsUpper))
+{
+    passwordStrenght++;
+}
+if (password.Any(char.IsLower))
+{
+    passwordStrenght++;
+}
+if (password.Any(char.IsDigit))
+{
+    passwordStrenght++;
+}
+if (password.Any(char.IsSymbol))
+{
+    passwordStrenght++;
+}
+if (password.Any(char.IsPunctuation))
+{
+    passwordStrenght++;
+}
+
+switch (passwordStrenght)    // BUNUN DAHA KISA YAZILABILECEK YONTEMI VAR!
+{
+    case 0:
+    case 1:
+        text = "Zayif Sifre";
+        break;
+    case 2:
+    case 3:
+        text = "Orta Sifre";
+        break;
+    case 4:
+    case 5:
+        text = "Iyi Sifre";
+        break;
+    case 6:
+        text = "Mukemmel Sifre";
+        break;
+    default:
+        text = "Hatali Giris";
+        break;
+}
+
+
+// Format Fonksiyonu icine yazilan string ifadeyi WriteLine icine yazdirir gibi hazirlamamizi sagliyor.
+string massage = passwordStrenght >= 0 && passwordStrenght <= 6
+? string.Format("{0} ; Skoru {1} / 6", text, passwordStrenght)
+: text;
+
+Console.WriteLine(massage);
+*/
+#endregion
+
+#region Sifre Guvenlik Skoru Uygulamasi Kisa yontem
+
+/*
+
+
+Console.WriteLine("Sifrenizi Yaziniz :");
+string password = Console.ReadLine().Trim();
+
+int passwordStrenght = 0;
+
+passwordStrenght += password.Length > 8 ? 1 : 0;   // ternary operatoru ile skor verisine 1 ekle ve ya 0 ekle diyerek skoru belirliyoruz
+passwordStrenght += password.Any(char.IsUpper) ? 1 : 0;
+passwordStrenght += password.Any(char.IsLower) ? 1 : 0;
+passwordStrenght += password.Any(char.IsDigit) ? 1 : 0;
+passwordStrenght += password.Any(char.IsSymbol) ? 1 : 0;
+passwordStrenght += password.Any(char.IsPunctuation) ? 1 : 0;
+
+string text = passwordStrenght switch  // text degiskeninin icini switch case ile belirlenen kosullara gore yaziyoruz
+{
+    0 or 1 => "Zayif Sifre",   // => isaretini henuz ogrenmedik, ancak sanirim ternary deki ? isaretine benzer bir anlami var 
+    2 or 3 => "Orta Sifre",
+    4 or 5 => "Iyi Sifre",
+    6 => "Mukemmel Sifre",
+    _ => "Hatali Islem"
+};
+string massage = string.Format("{0} ; Skoru {1} / 6 ", text, passwordStrenght);
+Console.WriteLine(massage);
+*/
+#endregion
+
+#region BMI Hesaplama
+/*
+Console.WriteLine("Boyunuzu Girin : (metre)");
+double lenght = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+if (lenght > 0)
+{
+    Console.WriteLine("Kilonuzu Girin : (kilogram)");
+    double weight = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+    if (weight > 0)
+    {
+        double bodyMassIndex = weight / Math.Pow(lenght, 2);
+
+        string text = bodyMassIndex switch
+        {
+            <= 18.5 => "Zayif", // kucuk esit ise 18.5 ten
+            > 18.5 and <= 24.9 => "Normal Kilolu", // buyukse 18.5 ve kucuk esit ise 24.9
+            > 24.9 and <= 29.9 => "Fazla Kilolu",
+            > 29.9 => "Obez",
+            _ => "Hesaplamada Bir Hata Olustu"
+        };
+
+        string massage = (bodyMassIndex > 0) ? string.Format("BMI = {0} => {1}", Math.Round(bodyMassIndex, 2), text) : text;
+        Console.WriteLine(massage);
+    }
+    else
+    {
+        Console.WriteLine("Kilonuz Sifirdan Buyuk Olmalidir");
+    }
+}
+else
+{
+    Console.WriteLine("Boyunuz Sifirdan Buyuk Olmalidir");
+}
+*/
+#endregion
+
+#region Sayi Tahmin Oyunu
+/*
+Random rnd = new Random();
+int result = rnd.Next(1, 5);
+
+Console.WriteLine("Zar Atildi! 1-5 Arasi Tahmin Girin!(2 Tahmin Hakkiniz Var)");
+Console.WriteLine("Ilk Tahmin :");
+int userInput = int.Parse(Console.ReadLine());
+
+if (result != userInput)
+{
+    if (userInput > result)
+    {
+        Console.WriteLine("Daha Kucuk Bir Sayi Deneyiniz (Son Tahmin Hakkiniz)");
+        userInput = int.Parse(Console.ReadLine());
+        if (result == userInput)
+        {
+            Console.WriteLine("Tebrikler! Zar {0}, Son Tahmininiz {1}", result, userInput);
+        }
+        else
+        {
+            Console.WriteLine("Malesef Bilemediniz, Zar {0} Son Tahminiz {1}", result, userInput);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Daha Buyuk Bir Sayi Deneyiniz (Son Tahmin Hakkiniz)");
+        userInput = int.Parse(Console.ReadLine());
+        if (result == userInput)
+        {
+            Console.WriteLine("Tebrikler! Zar {0}, Son Tahmininiz {1}", result, userInput);
+        }
+        else
+        {
+            Console.WriteLine("Malesef Bilemediniz, Zar {0} Son Tahminiz {1}", result, userInput);
+        }
+    }
+}
+else
+{
+    Console.WriteLine("Tebrikler! Ilk Seferde Bildiniz! Zar {0}, Tahmininiz {1}", result, userInput);
+}
+*/
+#endregion
+
+#region Alisveris Sepeti
+/*
+using System.Text.RegularExpressions; // Regex i kullanmak icin gereken namespace'i cagirir. 
+
+Console.WriteLine("Sepetinize Eklemek Istediginiz Urunleri Yaziniz");
+Console.WriteLine("Ayni Urunu Birden Fazla Yazabilirsiniz...");
+Console.WriteLine("Yumurta / Ekmek / Sut / Peynir / Yogurt / Makarna");
+string userInput = Console.ReadLine().Trim().ToLower();
+
+if (userInput.Contains("yumurta") || userInput.Contains("ekmek") || userInput.Contains("sut") || userInput.Contains("peynir") || userInput.Contains("yogurt") || userInput.Contains("makarna"))
+{
+    // Regex.Macthes() fonksiyonu belirtilen stringte, yazilan sub-string'leri bulur, devamindaki .Count metodu ile bu eslestirmelerin sayisini verir. 
+    // henuz derste islenmedi
+    int eggCount = Regex.Matches(userInput, "yumurta").Count;
+    int breadCount = Regex.Matches(userInput, "ekmek").Count;
+    int milkCount = Regex.Matches(userInput, "sut").Count;
+    int cheeseCount = Regex.Matches(userInput, "peynir").Count;
+    int yogurtCount = Regex.Matches(userInput, "yogurt").Count;
+    int pastaCount = Regex.Matches(userInput, "makarna").Count;
+
+    double eggTotal = 192.45 * eggCount * 1.20;
+    double breadTotal = 5.91 * breadCount * 1.20;
+    double milkTotal = 29.75 * milkCount * 1.20;
+    double cheeseTotal = 212.145 * cheeseCount * 1.20;
+    double yogurtTotal = 48.50 * yogurtCount * 1.20;
+    double pastaTotal = 20.48 * pastaCount * 1.20;
+
+    double total = eggTotal + breadTotal + milkTotal + cheeseTotal + yogurtTotal + pastaTotal;
+
+    if (eggCount > 0)
+    {
+        Console.WriteLine("{0} Koli Yumurta => {1} TL", eggCount, Math.Round(eggTotal, 2));
+    }
+    if (breadCount > 0)
+    {
+        Console.WriteLine("{0} Adet Ekmek => {1} TL", breadCount, Math.Round(breadTotal, 2));
+    }
+    if (milkCount > 0)
+    {
+        Console.WriteLine("{0} Litre Sut => {1} TL", milkCount, Math.Round(milkTotal, 2));
+    }
+    if (cheeseCount > 0)
+    {
+        Console.WriteLine("{0} Kilo Peynir => {1} TL", cheeseCount, Math.Round(cheeseTotal, 2));
+    }
+    if (yogurtCount > 0)
+    {
+        Console.WriteLine("{0} Kilo Yogurt => {1} TL", yogurtCount, Math.Round(yogurtTotal, 2));
+    }
+    if (pastaCount > 0)
+    {
+        Console.WriteLine("{0} Paket Makarna => {1} TL", pastaCount, Math.Round(pastaTotal, 2));
+    }
+
+    Console.WriteLine("Toplam => {0} TL", Math.Round(total, 2));
+}
+else
+{
+    Console.WriteLine("Gecersiz Giris Yaptiniz");
+}
+*/
 #endregion
