@@ -1044,3 +1044,186 @@ else
 */
 #endregion
 
+#region Gelismis Hesap Makinesi
+/*
+Console.WriteLine("Bir Sayi Girin");
+double input1 = double.Parse(Console.ReadLine());
+
+Console.WriteLine("Bir Islem Seciniz:");
+Console.WriteLine("Topla (+), Cikar(-), Carp(*), Bol(/), Kuvvetini Al(Pow), Kokunu Al (Root)");
+string process = Console.ReadLine().Trim().ToLower();
+double input2, result = 0;
+
+switch (process)
+{
+    case "+":
+    case "-":
+    case "*":
+        Console.WriteLine("Ikinci Sayiyi Giriniz");
+        input2 = double.Parse(Console.ReadLine());
+        result = process == "+" ? input1 + input2 : process == "-" ? input1 - input2 : process == "*" ? input1 * input2 : 0; // + - * islemleri hangisi gelirse onu yap
+        break;
+
+    case "/":
+        Console.WriteLine("Boleni Giriniz");
+        input2 = double.Parse(Console.ReadLine());
+        if (input2 != 0) // bolen sifir degilse islemi yap,
+        {
+            result = input1 / input2;
+        }
+        else
+        {
+            Console.WriteLine("Bolen 0 olamaz");
+            return;
+        }
+        break;
+
+    case "pow":
+        Console.WriteLine("Kuvveti giriniz");
+        input2 = double.Parse(Console.ReadLine());
+        if (input1 == 0 && input2 < 0) // sifirin negatif kuvveti sorgusu
+        {
+            Console.WriteLine("{0} in negatif kuvveti alinamaz");
+            return;
+        }
+        else
+        {
+            result = Math.Pow(input1, input2);
+        }
+        break;
+
+    case "root":
+        Console.WriteLine("Koku giriniz");
+        input2 = double.Parse(Console.ReadLine());
+        // kok alma isleminde kullanicinin 2. kokten baska kok girmesi durumu icin  sayi1 ussu 1/kok sayisi formulu ile kok alacagiz.
+
+        if (input1 < 0 && input2 % 2 == 0)
+        {
+            Console.WriteLine("Negatif Sayilarin Cift Kokleri Alinamaz");
+            return;
+        }
+        else if (input1 < 0 && input2 % 2 == 1)
+        {
+            result = -Math.Pow(Math.Abs(input1), 1.0 / Math.Abs(input2)); // Math.Pow fonksiyonu negatif deger kabul etmedigi icin mutlak degerini alip islem sonunda - koyarak negatife donduruyorz. 
+        }
+        else if (input1 < 0 && input2 < 0 && Math.Abs(input2 % 2) == 1) // negatif sayinin negatif ussunu alirken, pozitif ussunu alip terse ceviriyoruz. Ve negatife ceviriyoruz
+        {
+            result = -1 / Math.Pow(Math.Abs(input1), Math.Abs(1.0 / input2));
+        }
+        else if (input1 > 0 && input2 < 0) // pozitif sayida ayni seyi yapiyoruz sadece negatife cevirmiyoruz
+        {
+            result = 1 / Math.Pow(input1, 1.0 / Math.Abs(input2));
+        }
+        else // iki sayi da pozitifse
+        {
+            result = Math.Pow(input1, 1.0 / input2);
+        }
+        break;
+
+    default:
+        Console.WriteLine("Gecerli Bir Islem Seciniz");
+        return;
+}
+Console.WriteLine("{0} {1} {2} => {3}", input1, process, input2, Math.Round(result, 4));
+*/
+#endregion
+
+#region bilet fiyati hesapla
+/*
+Console.WriteLine("Dogum Tarihinizi Giriniz (gg.aa.yyyy)");
+DateTime userBirthDate = DateTime.Parse(Console.ReadLine().Trim());
+DateTime now = DateTime.Now;
+
+double age = now.Year - userBirthDate.Year;
+if (userBirthDate.Month > now.Month || (userBirthDate.Month == now.Month && userBirthDate.Day > now.Day))
+{
+    age--;
+}
+Console.WriteLine("Mesafeyi Giriniz (km)");
+double distance = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+double subTotal = distance * 20;
+double total = subTotal;
+
+if (age <= 12)
+{
+    total = subTotal * 0.50;
+}
+else if (age > 12 && age <= 24)
+{
+    total = subTotal * 0.10;
+}
+else if (age >= 65)
+{
+    total = subTotal * 0.30;
+}
+Console.WriteLine("Bilet Fiyatiniz => {0}", total);
+*/
+#endregion
+
+#region arac yakit tuketim hesaplama depo kapasitesinden
+/*
+Console.WriteLine("1 Depo Yakit Fiyatini Giriniz");
+double fullTankPrice = double.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Ortalama Hizinizi Yaziniz (km/sa)");
+double avarageSpeed = double.Parse(Console.ReadLine().Trim());
+
+double pricePerLiter = 41.52;
+double fuelTankCap = fullTankPrice / pricePerLiter;
+double consumption = 0;
+
+if (avarageSpeed < 60)
+{
+    consumption = 4.5;
+}
+else if (avarageSpeed >= 60 && avarageSpeed < 100)
+{
+    consumption = 5.5;
+}
+else if (avarageSpeed >= 100 && avarageSpeed < 140)
+{
+    consumption = 7.5;
+}
+else if (avarageSpeed >= 140)
+{
+    consumption = 9.5;
+}
+
+double distance = fuelTankCap * 100 / consumption;
+double time = distance / avarageSpeed;
+double minutes = (time - Math.Truncate(time)) * 60;
+Console.WriteLine($"Ortalama {avarageSpeed} km/s hiz, yaklasik {consumption} yakit tuketimi, {Math.Round(fuelTankCap, 2)} litre yakitiniz ile, {Math.Round(distance, 2)} km yolu, molalar haric {Math.Round(time)} saat {Math.Round(minutes)} dakikada kat edersiniz... ");
+*/
+#endregion
+
+#region arac yakit yuketimi hesaplama
+/*
+Console.WriteLine("Mesafe Giriniz (km)");
+double distance = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Ortalama Yakit Tuketimi Giriniz (L/100km)");
+double consumptionAvg = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Yakit Fiyatini Giriniz (tl)");
+double pricePerLiter = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Ortalama Hizinizi Giriniz (km/sa)");
+double speedAvg = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+
+double consumptionLiters = distance * consumptionAvg / 100;
+double totalPrice = consumptionLiters * pricePerLiter;
+double time = distance / speedAvg;
+double timeHours = Math.Floor(time);
+double timeMinutes = Math.Round((time - Math.Truncate(time)) * 60);
+
+Console.WriteLine("Ortalama Yakit Tuketimi => {0} L/100km ", consumptionAvg);
+Console.WriteLine("Mesafe => {0} kilometre ", distance);
+Console.WriteLine("Ortalama Hiz => {0} km/sa ", speedAvg);
+Console.WriteLine();
+Console.WriteLine("Yakit Litre Fiyati => {0} tl/L", pricePerLiter);
+Console.WriteLine("Toplam Harcanacak Yakit => {0} liters", Math.Round(consumptionLiters, 2));
+Console.WriteLine("Toplam Yakit Maliyeti => {0} tl", Math.Round(totalPrice), 2);
+Console.WriteLine("Seyehat Suresi => {0} Saat, {1} Dakika", timeHours, timeMinutes);
+*/
+#endregion
