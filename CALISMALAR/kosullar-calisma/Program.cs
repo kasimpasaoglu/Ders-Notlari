@@ -1198,7 +1198,7 @@ Console.WriteLine($"Ortalama {avarageSpeed} km/s hiz, yaklasik {consumption} yak
 #endregion
 
 #region arac yakit yuketimi hesaplama
-
+/*
 Console.WriteLine("Mesafe Giriniz (km)");
 double distance = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
 
@@ -1225,5 +1225,5 @@ Console.WriteLine("Yakit Litre Fiyati => {0} tl/L", pricePerLiter);
 Console.WriteLine("Toplam Harcanacak Yakit => {0} liters", Math.Round(consumptionLiters, 2));
 Console.WriteLine("Toplam Yakit Maliyeti => {0} tl", Math.Round(totalPrice), 2);
 Console.WriteLine("Seyehat Suresi => {0} Saat, {1} Dakika", timeHours, timeMinutes);
-
+*/
 #endregion
