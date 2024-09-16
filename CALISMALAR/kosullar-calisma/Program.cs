@@ -1343,3 +1343,76 @@ Console.WriteLine("Tutar {0} TL, KDV {1} TL => Toplam {2} TL", Math.Round(price,
 */
 #endregion
 
+#region Ad Soyad Kontrolu
+/*
+Console.WriteLine("Adinizi Giriniz :");
+string name = Console.ReadLine().Trim();
+
+if (name.Length >= 3)
+{
+    // 3 ten fazla ise ilk harfi kontrol et buyuk mu
+    char firstLetterOfName = Convert.ToChar(name.Substring(0, 1));
+    if (char.IsUpper(firstLetterOfName))
+    {
+        // ilk harf buyukse geri kalan harfler kucuk mu kontrol et
+        string altName = name.Substring(1);
+        if (altName == altName.ToLower())
+        {
+            // hersey dogru ismi kaydet
+            Console.WriteLine("Isminiz Kaydedildi");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Ismin ilk harfi disindaki karakterler kucuk olmalidir");
+            return;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Ismin ilk harfi buyuk olmalidir");
+        return;
+    }
+}
+else
+{
+    Console.WriteLine("Isim En az 3 Karakter Uzunlugunda Olmalidir");
+    return;
+}
+
+Console.WriteLine("Soyadinizi Giriniz :");
+string surname = Console.ReadLine().Trim();
+if (surname.Length >= 2)
+{
+    // 3 ten fazla ise ilk harfi kontrol et buyuk mu
+    char firstLetterOfsurname = Convert.ToChar(surname.Substring(0, 1));
+    if (char.IsUpper(firstLetterOfsurname))
+    {
+        // ilk harf buyukse geri kalan harfler kucuk mu kontrol et
+        string altSurname = surname.Substring(1);
+        if (altSurname == altSurname.ToLower())
+        {
+            // hersey dogru soyismi kaydet
+            Console.WriteLine("Soyisminiz Kaydedildi");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Soyismin ilk harfi disindaki karakterler kucuk olmalidir");
+            return;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Soyismin ilk harfi buyuk olmalidir");
+        return;
+    }
+}
+else
+{
+    Console.WriteLine("Soyisim En az 2 Karakter Uzunlugunda Olmalidir");
+    return;
+}
+Console.WriteLine("Merhaba {0} {1}. Giris Basarili", name, surname);
+*/
+#endregion
