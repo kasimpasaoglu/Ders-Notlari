@@ -9,7 +9,6 @@ double secondNumber = double.Parse(Console.ReadLine());
 Console.WriteLine("Yapilacak Islemi Giriniz => (+)(-)(/)(*)");
 string islem = Console.ReadLine();
 
-
 if ((islem == "+") || (islem == "-") || (islem == "/") || (islem == "*"))
 {
     if (islem == "+")
