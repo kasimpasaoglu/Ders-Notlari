@@ -50,7 +50,6 @@ double price2 = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
 Console.WriteLine("Indirim Oranini Giriniz :");
 double discount = double.Parse(Console.ReadLine().Replace('.', ',').Trim());
 
-
 if ((price1 > 0) && (price2 > 0) && (discount > 0) && (discount < 1))
 {
     if (price1 + price2 >= 1000)
