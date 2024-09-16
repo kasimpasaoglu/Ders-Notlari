@@ -13,7 +13,6 @@ for (baslangic; kosul ; artis)
 */
 #endregion
 
-
 #region Ornek1: Sayactaki veriye disarda ihtiyacimiz yoksa direk icerde tanimlayabiliriz
 /*
 for (int i = 0; i < 5; i++)
@@ -151,7 +150,75 @@ Console.WriteLine(total); // sonucu yazdir
 */
 #endregion
 
-#region 
+#region kullanicidan sayi al, o sayiya kadar olan sayilarin karesini yazdir
+/*
+Console.WriteLine("Bir Sayi Girin :");
+int maxNumber = int.Parse(Console.ReadLine().Trim());
 
+for (int i = 1; i <= maxNumber; i++)
+{
+    Console.WriteLine("{0} in karesi => {1}", i, i * i);
+}
+*/
+#endregion
 
+#region kullanicidan sayi al, o sayiya kadar olan sayilarin toplamini al
+/*
+Console.WriteLine("Bir Sayi Giriniz :");
+int number = int.Parse(Console.ReadLine().Trim());
+int total = 0;
+for (int i = 1; i <= number; i++)
+{
+    total += i;
+}
+Console.WriteLine("1 den {0} e kadar olan sayilarin toplami => {1}", number, total);
+*/
+#endregion
+
+#region carpim tablosu yazdirma
+/*
+Console.WriteLine("Carpim Tablosu Icin Bir Rakam Girin :");
+int number = int.Parse(Console.ReadLine().Trim());
+
+for (int i = 1; i <= 10; i++)
+{
+    Console.WriteLine("{0} x {1} = {2}", number, i, number * i);
+}
+*/
+#endregion
+
+#region tek bir sayinin asal kontrolu
+
+using System.Diagnostics;
+/*
+Console.WriteLine("Kontrol Edilecek Sayiyi Girin :");
+int number = int.Parse(Console.ReadLine().Trim());
+Stopwatch stopwatch = Stopwatch.StartNew();  // performans olcumu yapiyorum
+bool isPrime = true;
+if (number == 1)
+{
+    Console.WriteLine("{0} bir asal sayi degildir.", number);
+}
+else
+{
+    for (int i = 2; i < number; i++)
+    {
+        if (number % i == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime)
+    {
+        Console.WriteLine("{0} bir asal sayidir.", number);
+    }
+    else
+    {
+        Console.WriteLine("{0} bir asal sayi degildir.", number);
+    }
+}
+stopwatch.Stop(); // olcum bitti
+Console.WriteLine("islem suresi => {0}ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 2));
+*/
 #endregion
