@@ -1093,7 +1093,7 @@ switch (process)
     case "root":
         Console.WriteLine("Koku giriniz");
         input2 = double.Parse(Console.ReadLine());
-        // kok alma isleminde kullanicinin 2. kokten baska kok girmesi durumu icin  sayi1 ussu 1/kok sayisi formulu ile kok alacagiz.
+        // kok alma isleminde kullanicinin 2. kokten baska kok girmesi durumu oldugu icin,  sayi1 ussu 1/kok sayisi formulu ile kok alacagiz.
 
         if (input1 < 0 && input2 % 2 == 0)
         {
@@ -1225,3 +1225,121 @@ Console.WriteLine("Toplam Yakit Maliyeti => {0} tl", Math.Round(totalPrice), 2);
 Console.WriteLine("Seyehat Suresi => {0} Saat, {1} Dakika", timeHours, timeMinutes);
 */
 #endregion
+
+#region Maas Zammi Hesaplama
+/*
+Console.WriteLine("Maasinizi Girin :");
+double wage = double.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Ise Baslama Tarihinizi Girin (gg.aa.yy):");
+DateTime startdate = DateTime.Parse(Console.ReadLine().Trim());
+DateTime now = DateTime.Now;
+
+int workYears = now.Year - startdate.Year;
+
+if (now.Month < startdate.Month || (now.Month == startdate.Month && now.Day < startdate.Day))
+{
+    workYears--;
+}
+
+TimeSpan diff = DateTime.Now - startdate;
+
+
+if (workYears >= 1 && workYears < 4)
+{
+    wage *= 1.10;
+}
+else if (workYears >= 4 && workYears < 7)
+{
+    wage *= 1.15;
+}
+else if (workYears >= 7 && workYears < 11)
+{
+    wage *= 1.20;
+}
+else if (workYears >= 11)
+{
+    wage *= 1.25;
+}
+else
+{
+    DateTime nextYear = startdate.AddYears(1);
+    double daysToIncrease = (nextYear - now).TotalDays;
+    Console.WriteLine("Zam Almaniza {0} Gun Var", Math.Round(daysToIncrease));
+    return;
+}
+Console.WriteLine("Yeni Maasiniz {0}", wage);
+*/
+#endregion
+
+#region Kira / SatinAlma Kiyaslamasi
+/*
+Console.WriteLine("Gayrimenkul Satin Alma Fiyatini Giriniz :");
+double buyPrice = double.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Gayrimenkul Aylik Kira Bedeli Hesaplam :");
+double monthlyRentPrice = double.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Sureyi Giriniz (Yil):");
+double periodLenght = double.Parse(Console.ReadLine().Trim());
+
+Console.WriteLine("Ortalama Yillik Enflasyon Beklentisini Giriniz (%):");
+double inflationRate = double.Parse(Console.ReadLine().Trim()) / 100;
+
+double expectedValue = buyPrice * Math.Pow(1 + inflationRate, periodLenght);
+
+double rentCostPerYear = monthlyRentPrice * 12;
+
+double totalRentCost = rentCostPerYear * ((1 - Math.Pow(1 + inflationRate, periodLenght)) / (-inflationRate));
+
+Console.WriteLine("Toplam Kiralama Maliyeti => {0} TL", Math.Round(totalRentCost, 2));
+Console.WriteLine("Gayrimenkulun {0} Yil Sonraki Beklenen Degeri => {1} TL", periodLenght, Math.Round(expectedValue, 2));
+
+double profitIfBought = expectedValue - buyPrice;
+
+if (buyPrice < totalRentCost)
+{
+    Console.WriteLine("Satin Almak Daha Dogru ");
+    Console.WriteLine("Satin Alimda, {0} Yil Sonra Deger {1} TL, Degisim => {2} TL", periodLenght, Math.Round(expectedValue, 2), Math.Round(profitIfBought, 2));
+}
+else if (buyPrice == totalRentCost)
+{
+    Console.WriteLine("Satin Alimda Kazanc => {0}", Math.Round(profitIfBought, 2));
+    Console.WriteLine("Kiralama Maliyeti => {0}", Math.Round(totalRentCost, 2));
+    Console.WriteLine("Her Iki Opsiyon Degerlendirilebilir...");
+}
+else
+{
+    Console.WriteLine("Kiralama Daha Dogru ");
+    Console.WriteLine("Satin Alimda, {0} Yil Sonra Deger {1} TL, Degisim => {2} TL", periodLenght, Math.Round(expectedValue, 2), Math.Round(profitIfBought, 2));
+    Console.WriteLine("Toplam Kiralama Maliyeti => {0}TL", Math.Round(totalRentCost, 2));
+    Console.WriteLine("Toplam kiralama Maliyeti, Satin Alimdan fazla degil");
+}
+*/
+#endregion
+
+#region Kademeli Elektrik Faturasi
+/*
+Console.WriteLine("Tuketim Miktarini Giriniz (kWh)");
+double consumption = double.Parse(Console.ReadLine());
+double price = 0;
+if (consumption > 200)
+{
+    price += 150;
+    price += 200;
+    price += (consumption - 200) * 2.5;
+}
+else if (consumption > 100)
+{
+    price += 150;
+    price += (consumption - 100) * 2;
+}
+else
+{
+    price = consumption * 1.5;
+}
+
+Console.WriteLine("Tutar {0} TL, KDV {1} TL => Toplam {2} TL", Math.Round(price, 2), Math.Round(price * 0.20, 2), Math.Round(price * 1.20, 2));
+*/
+#endregion
+
