@@ -6,3 +6,4 @@
 5. [Tip Donusumleri](/tip-donusumleri-005/README.md)
 6. [DateTime Fonksiyonu](/datetime-kavrami-006/README.md)
 7. [Kosullar](/kosullar-007/README.md)
+8. [Donguler](/donguler-008/README.md)
