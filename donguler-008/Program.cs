@@ -87,7 +87,7 @@ Console.WriteLine("{0} adet cift sayi", evenCount);
 #endregion
 
 #region Ekrana 10 karakterli random bir kelime yazdirin
-
+/*
 string text = "";
 Random rnd = new Random();
 
@@ -97,5 +97,6 @@ for (int i = 0; i < 10; i++)
     text += letter;
 }
 Console.WriteLine("Random Text => {0}", text);
-
+*/
 #endregion
+
