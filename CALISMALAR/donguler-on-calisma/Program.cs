@@ -125,7 +125,7 @@ for (int bolunen = 2; bolunen <= maxNumber; bolunen++)
         Console.Write("{0}-", bolunen); 
     }
     // dis dongu bolunen <= maxNumber kosulundan cikana kadar devam edecek. Burdan tekrar yukari gidip ayni islemleri bir daha yapacak. (icerdeki dongu de dahil)
-    // daha iyi anlamak icin break point koyup adim adim takip et. 
+    // daha iyi gormek icin break point koy. 
 }
 */
 #endregion
