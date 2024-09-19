@@ -59,6 +59,7 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
 ```
 
 * Ic ice `for` kullanimi
+\
 *Carpim Tablosu Ornegi*
 ```C#
     for (int i = 1; i <= 10; i++)  // bu dongu her dondugunde icerdeki dongu 10 kere donecek. 
@@ -70,3 +71,4 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
         Console.WriteLine("-----------------------");
     }
 ```
+
