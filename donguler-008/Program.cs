@@ -202,3 +202,189 @@ for (int i = 0; i <= inputIndexLenght; i++)
 }
 */
 #endregion
+
+#region ekrandan bir metin alın, ilk harfi ve son harfini buyuk yapın dongu ile
+/*
+Console.WriteLine("Bir Metin Giriniz");
+string userInput = Console.ReadLine().Trim();
+
+string result = "";
+int inputLenght = userInput.Length;
+
+for (int i = 0; i < inputLenght; i++)
+{
+    string letter = userInput.Substring(i, 1);
+    if (i == 0 || i == inputLenght - 1)
+    {
+        letter = letter.ToUpper();
+    }
+    result += letter;
+}
+
+Console.WriteLine(result);
+*/
+#endregion
+
+#region bir metnin icindeki rakamları temizleyen kod ornegi yazınız
+/*
+Console.WriteLine("Icınde Rakam Olan Metın Giriniz");
+string input = Console.ReadLine().Trim();
+string output = "";
+
+for (int i = 0; i < input.Length; i++)
+{
+    char letter = char.Parse(input.Substring(i, 1));
+
+    if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122) || (letter == 32))
+    {
+        output += letter;
+    }
+
+}
+Console.WriteLine(output);
+*/
+#endregion
+
+#region ekrandan aldıgımız bir string ifadenin icindeki buyuk harflerini, kucuk harflerını, karamlarını ayrı sayınız.
+/*
+Console.WriteLine("Bir Metin Giriniz :");
+string input = Console.ReadLine().Trim();
+
+int lowerCaseCount = 0;
+int upperCaseCount = 0;
+int digitCount = 0;
+int whiteSpaceCount = 0;
+
+for (int i = 0; i < input.Length; i++)
+{
+    char chars = char.Parse(input.Substring(i, 1));
+
+    if (char.IsUpper(chars))
+    {
+        upperCaseCount++;
+    }
+
+    if (char.IsLower(chars))
+    {
+        lowerCaseCount++;
+    }
+    if (char.IsDigit(chars))
+    {
+        digitCount++;
+    }
+    if (char.IsWhiteSpace(chars))
+    {
+        whiteSpaceCount++;
+    }
+}
+Console.WriteLine("{0} adet buyuk, {1} adet kucuk karakter, {2} adet rakam ve {3} adet bosluk girdiniz", upperCaseCount, lowerCaseCount, digitCount, whiteSpaceCount);
+
+*/
+#endregion
+
+#region ekrandan aldıgımız sayıya kadar olan asal sayıları yazdırınız. Ekrana 11 yazılınca (2-3-5-7-11) cikmali.
+/*
+Console.WriteLine("Ust siniri giriniz:");
+int limit = int.Parse(Console.ReadLine().Trim());
+
+for (int i = 2; i <= limit; i++)
+{
+    bool isPrime = true;
+
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            isPrime = false;
+        }
+    }
+
+    if (isPrime)
+    {
+        Console.WriteLine(i);
+    }
+}
+*/
+#endregion
+
+#region diger yontem
+/*
+Console.WriteLine("Bir Limit Girin");
+int limit = int.Parse(Console.ReadLine());
+
+for (int i = 2; i <= limit; i++)
+{
+    int sayac = 0;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            sayac++;
+        }
+    }
+    if (sayac == 0)
+    {
+        Console.WriteLine(i);
+    }
+}
+*/
+#endregion
+
+#region dık ucgen cizdirip kose noktarına X isareti koyunuz
+/*
+for (int i = 0; i <= 6; i++)
+{
+    for (int j = 0; j <= i; j++)
+    {
+        if (i == 0)
+        {
+            Console.WriteLine("x");
+            i++;
+        }
+
+        if (i == 6 && j == 0)
+        {
+            Console.Write("x");
+        }
+
+        Console.Write("*");
+
+        if (i == 6 && j == 6)
+        {
+            Console.Write("x");
+            j = 10;
+        }
+    }
+    Console.WriteLine();
+}
+*/
+
+// ikizkenar ucgen
+for (int i = 1; i < 8; i++)
+{
+    for (int j = 0; j <= i; j++)
+    {
+        if (i <= 3)
+        {
+            Console.Write(" ");
+            i++;
+
+            if (j == 3)
+            {
+                Console.WriteLine("x");
+                j += 20;
+            }
+        }
+    }
+
+    if (i > 1 && i < 7)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
+}
+
+#endregion

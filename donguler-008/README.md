@@ -71,4 +71,5 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
         Console.WriteLine("-----------------------");
     }
 ```
+# [ARA KONU (Char Metodları)](README(ARA%20KONU).md)
 
