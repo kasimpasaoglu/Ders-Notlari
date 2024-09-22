@@ -74,3 +74,28 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
 # [Ara Konu (char metodlari)](README(char-metodlari).md)
 
 # [Ara Konu (`break` ve `continue` kavramlari)](README(break-continue).md)
+
+ ## `do / while` Dongusu
+```C#
+    do
+    {
+        //asagidaki kosul !saglanana! kadar tekrar tekrar calisacak kod blogu
+    } while (kosul);
+```
+
+Ornek; kullanici 50 den buyuk bir sayi girene kadar calisacak bir kod yazalim
+```C#
+int girilenSayi = 0;
+    do
+    {
+        Console.WriteLine("Bir Sayi Giriniz");
+        girilenSayi = int.Parse(Console.ReadLine());
+    } while (girilenSayi < 50);
+```
+> Girilen sayi 50 den kucuk oldugu surece donmeye devam eder.
+
+> :warning: Gercek hayatta, cok kullanisli olmasina ragmen, bu donguyu pek goremezsiniz 
+
+* While dongusu icinde `break` ve `continue` operatorleri kullanilabilir
+* while dongusune kosul olarak `true` verilebilir, bu durumda dongu sonsuz dongu olur. 
+    * Yani bir while dongusune kosul olarak `true` verip icerde `break` ile donguyu bitecek sekilde de yazilabilir.

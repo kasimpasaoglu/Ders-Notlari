@@ -477,3 +477,38 @@ else
 */
 #endregion
 
+#region do/while Ornek1 50 den kucuk girme
+/*
+int girilenSayi = 0;
+do
+{
+    Console.WriteLine("Bir Sayi Giriniz");
+    girilenSayi = int.Parse(Console.ReadLine());
+} while (girilenSayi < 50);
+*/
+#endregion
+
+#region kullanicidan kullanici adi ve sifre alarak bir giris kontrolu yapiniz (do/while ile)
+
+string userNameData = "wissen";
+string passwordData = "besiktas123";
+
+Console.WriteLine("Kullanici Adinizi Giriniz:");
+string userNameInput = Console.ReadLine().Trim();
+do
+{
+    Console.WriteLine("Hatali Giris Tekrar Deneyiniz");
+    userNameInput = Console.ReadLine().Trim();
+} while (userNameInput != userNameData);
+
+Console.WriteLine("Sifrenizi Giriniz:");
+string userPasswordInput = Console.ReadLine().Trim();
+
+do
+{
+    Console.WriteLine("Hatali Giris Tekrar Deneyiniz");
+    userPasswordInput = Console.ReadLine().Trim();
+} while (userPasswordInput != passwordData);
+
+Console.WriteLine("Giris Basarili");
+#endregion
