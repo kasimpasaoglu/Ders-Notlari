@@ -203,7 +203,7 @@ for (int i = 0; i <= inputIndexLenght; i++)
 */
 #endregion
 
-#region ekrandan bir metin alın, ilk harfi ve son harfini buyuk yapın dongu ile
+#region ekrandan bir metin alin, ilk harfi ve son harfini buyuk yapin dongu ile
 /*
 Console.WriteLine("Bir Metin Giriniz");
 string userInput = Console.ReadLine().Trim();
@@ -225,7 +225,7 @@ Console.WriteLine(result);
 */
 #endregion
 
-#region bir metnin icindeki rakamları temizleyen kod ornegi yazınız
+#region bir metnin icindeki rakamlari temizleyen kod ornegi yazin
 /*
 Console.WriteLine("Icınde Rakam Olan Metın Giriniz");
 string input = Console.ReadLine().Trim();
@@ -245,7 +245,7 @@ Console.WriteLine(output);
 */
 #endregion
 
-#region ekrandan aldıgımız bir string ifadenin icindeki buyuk harflerini, kucuk harflerını, karamlarını ayrı sayınız.
+#region ekrandan aldigimiz bir string ifadenin icindeki buyuk harflerini, kucuk kucuk harflerini, rakamlarini ayri ayri sayiniz.
 /*
 Console.WriteLine("Bir Metin Giriniz :");
 string input = Console.ReadLine().Trim();
@@ -282,7 +282,7 @@ Console.WriteLine("{0} adet buyuk, {1} adet kucuk karakter, {2} adet rakam ve {3
 */
 #endregion
 
-#region ekrandan aldıgımız sayıya kadar olan asal sayıları yazdırınız. Ekrana 11 yazılınca (2-3-5-7-11) cikmali.
+#region ekrandan aldigimiz sayiya kadar olan asal sayilari yazdiriniz. Ekrana 11 yazilinca (2-3-5-7-11) cikmali.
 /*
 Console.WriteLine("Ust siniri giriniz:");
 int limit = int.Parse(Console.ReadLine().Trim());
@@ -330,61 +330,104 @@ for (int i = 2; i <= limit; i++)
 */
 #endregion
 
-#region dık ucgen cizdirip kose noktarına X isareti koyunuz
+#region dik ucgen cizdirip kose noktarina X isareti ve kenarlarini | \ isareti yapiniz
 /*
-for (int i = 0; i <= 6; i++)
+Console.WriteLine("Bir Deger Giriniz");
+int number = int.Parse(Console.ReadLine().Trim());
+
+for (int i = 0; i < number; i++)
 {
+
     for (int j = 0; j <= i; j++)
     {
-        if (i == 0)
+        if (i == 0 && j == 0)
         {
-            Console.WriteLine("x");
-            i++;
+            Console.Write('o');
         }
-
-        if (i == 6 && j == 0)
+        else if ((i == number - 1 && j == 0) || (i == number - 1 && j == i))
         {
-            Console.Write("x");
+            Console.Write('o');
         }
-
-        Console.Write("*");
-
-        if (i == 6 && j == 6)
+        else if (j == 0)
         {
-            Console.Write("x");
-            j = 10;
+            Console.Write('|');
+        }
+        else if (j == i)
+        {
+            Console.Write('\\');
+        }
+        else if (i == number - 1 && j > 0 && j < i)
+        {
+            Console.Write('-');
+        }
+        else
+        {
+            Console.Write('*');
         }
     }
     Console.WriteLine();
 }
 */
 
-// ikizkenar ucgen
-for (int i = 1; i < 8; i++)
-{
-    for (int j = 0; j <= i; j++)
-    {
-        if (i <= 3)
-        {
-            Console.Write(" ");
-            i++;
+#endregion
 
-            if (j == 3)
-            {
-                Console.WriteLine("x");
-                j += 20;
-            }
+#region ikizkenar ucgen cizdiriniz
+/*
+for (int i = 0; i < 10; i++)
+{
+
+    for (int j = i; j < 10; j++)
+    {
+        Console.Write(" "); // bosluklar
+    }
+
+    for (int x = 0; x <= i; x++)
+    {
+        Console.Write("*");
+        Console.Write(" ");
+    }
+    Console.WriteLine(); // satirlar
+}
+*/
+
+#endregion
+
+#region Kenarlari / ve \ isaretleri ile yapalim
+/*
+Console.WriteLine("Bir Deger Girin");
+int input = int.Parse(Console.ReadLine().Trim());
+
+
+for (int i = 0; i < input; i++)
+{
+
+    for (int j = 0; j < input - 1 - i; j++)
+    {
+        Console.Write(" ");
+
+    }
+    Console.Write("/");
+
+    if (i == input - 1)
+    {
+        for (int k = 0; k <= i * 2; k++)
+        {
+            Console.Write("-");
         }
     }
 
-    if (i > 1 && i < 7)
+    else
     {
-        for (int j = 0; j < i; j++)
+        for (int k = 0; k <= i * 2; k++)
         {
             Console.Write("*");
         }
-        Console.WriteLine();
     }
-}
 
+    Console.Write('\\');
+
+    Console.WriteLine();
+}
+*/
 #endregion
+
