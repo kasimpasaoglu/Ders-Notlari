@@ -431,3 +431,49 @@ for (int i = 0; i < input; i++)
 */
 #endregion
 
+#region sayi tahmin oyununu break kullanarak tekrar yapiniz
+/*
+Random rnd = new Random();
+int number = rnd.Next(0, 100);
+
+bool isUserWon = false;
+
+Console.WriteLine("Sayi tahmininizi Giriniz (10 hakkiniz var)");
+for (int i = 0; i < 10; i++)
+{
+    int guessesLeft = 10 - (i + 1);
+    int input = int.Parse(Console.ReadLine().Trim());
+
+    if (guessesLeft == 0)
+    {
+        break;
+    }
+
+    if (input > number)
+    {
+        Console.WriteLine("Asagi ({0} Hakkiniz Kaldi)", guessesLeft);
+    }
+
+    if (input < number)
+    {
+        Console.WriteLine("Yukari ({0} Hakkiniz Kaldi)", guessesLeft);
+    }
+
+    if (input == number)
+    {
+        isUserWon = true;
+        break;
+    }
+}
+
+if (isUserWon)
+{
+    Console.WriteLine("Tebrikler Kazandiniz");
+}
+else
+{
+    Console.WriteLine("Tahmin Hakkiniz Kalmadi Sayi => {0}", number);
+}
+*/
+#endregion
+
