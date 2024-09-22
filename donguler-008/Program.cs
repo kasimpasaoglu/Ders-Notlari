@@ -489,7 +489,7 @@ do
 #endregion
 
 #region kullanicidan kullanici adi ve sifre alarak bir giris kontrolu yapiniz (do/while ile)
-
+/*
 string userNameData = "wissen";
 string passwordData = "besiktas123";
 
@@ -511,4 +511,33 @@ do
 } while (userPasswordInput != passwordData);
 
 Console.WriteLine("Giris Basarili");
+*/
+#endregion
+
+#region BOLUM SONU ODEVI (FIBONACCI Sayi Dizisi Yazdirma)
+// Fibonacci kendinden onceki iki sayinin toplami ile elde edilen sayi dizisidir. 1-1-2-3-5-8-13 diye gider
+/*
+Console.WriteLine("Kac adet sayi yazdirilsin?");
+var count = int.Parse(Console.ReadLine());
+
+if (count >= 46)
+{
+    do
+    {
+        Console.WriteLine("En Fazla 45 Sayi Olusturulabilir, lutfen 45 den kucuk bir deger girin");
+        count = int.Parse(Console.ReadLine());
+    } while (count >= 46);
+}
+
+var numberCurrent = 1;
+var numberBeforeFirst = 1;
+var numberBeforeSecond = 0;
+for (int i = 0; i < count; i++)
+{
+    numberCurrent = numberBeforeFirst + numberBeforeSecond;
+    Console.WriteLine(numberCurrent);
+    numberBeforeSecond = numberBeforeFirst;
+    numberBeforeFirst = numberCurrent;
+}
+*/
 #endregion

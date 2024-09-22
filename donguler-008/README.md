@@ -71,9 +71,9 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
         Console.WriteLine("-----------------------");
     }
 ```
-# [Ara Konu (char metodlari)](README(char-metodlari).md)
+## [Ara Konu (char metodlari)](README(char-metodlari).md)
 
-# [Ara Konu (`break` ve `continue` kavramlari)](README(break-continue).md)
+## [Ara Konu (`break` ve `continue` kavramlari)](README(break-continue).md)
 
  ## `do / while` Dongusu
 ```C#
@@ -99,3 +99,6 @@ int girilenSayi = 0;
 * While dongusu icinde `break` ve `continue` operatorleri kullanilabilir
 * while dongusune kosul olarak `true` verilebilir, bu durumda dongu sonsuz dongu olur. 
     * Yani bir while dongusune kosul olarak `true` verip icerde `break` ile donguyu bitecek sekilde de yazilabilir.
+
+## [Boxing Unboxing(Ara Konu)](Readme(boxing-unboxing.md))
+## [Var Keyword(Ara Konu)](README(var-keyword).md)
