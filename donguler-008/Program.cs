@@ -583,3 +583,33 @@ do
 */
 #endregion
 
+#region girilen sayinin basamaklarini toplama
+/*
+var replay = 'e';
+
+do
+{
+    Console.WriteLine("Bir sayi giriniz:");
+    var inputString = Math.Abs(int.Parse(Console.ReadLine().Trim())).ToString();
+    var inputStringLength = inputString.Length;
+    var total = 0;
+
+    for (var i = 0; i < inputStringLength; i++)
+    {
+        var digit = int.Parse(inputString.Substring(i, 1));
+        total += digit;
+    }
+
+    if (total % 9 == 0)
+    {
+        Console.WriteLine("{0} Sayisinin rakamlari toplami 9'un katidir", inputString);
+    }
+
+    Console.WriteLine("{0} sayisinin rakamlari toplami => {1}", inputString, total);
+    Console.WriteLine("Tekrar denemek ister misiniz (e/h)");
+
+    replay = char.Parse(Console.ReadLine().Trim());
+
+} while (replay == 'e');
+*/
+#endregion
