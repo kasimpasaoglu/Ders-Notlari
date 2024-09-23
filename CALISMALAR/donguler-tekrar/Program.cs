@@ -128,9 +128,10 @@ Console.WriteLine("Girdiginiz sayilarin ortalamasi => {0}", avarage);
 #endregion
 
 #region faktoriyel hesaplama
+
 Console.WriteLine("Faktoriyeli Alinacak Sayiyi Giriniz");
 var input = int.Parse(Console.ReadLine().Trim());
-var result = 1;
+long result = 1;
 for (var i = 1; i <= input; i++)
 {
     if (i == input)
@@ -143,6 +144,6 @@ for (var i = 1; i <= input; i++)
     }
     result *= i;
 }
-Console.Write("= {0}", result);
+Console.Write(" = {0}", result);
 #endregion
 
