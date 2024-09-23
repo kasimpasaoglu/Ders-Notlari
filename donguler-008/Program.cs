@@ -519,17 +519,16 @@ Console.WriteLine("Giris Basarili");
 /*
 Console.WriteLine("Kac adet sayi yazdirilsin?");
 var count = int.Parse(Console.ReadLine());
-
-if (count >= 46)
+if (count < 0 || count >= 46)
 {
     do
     {
-        Console.WriteLine("En Fazla 45 Sayi Olusturulabilir, lutfen 45 den kucuk bir deger girin");
+        Console.WriteLine("Lutfen 0 ile 45 arasi bir deger giriniz.");
         count = int.Parse(Console.ReadLine());
-    } while (count >= 46);
+    } while (count < 0 || count >= 46);
 }
 
-var numberCurrent = 1;
+var numberCurrent = 0;
 var numberBeforeFirst = 1;
 var numberBeforeSecond = 0;
 for (int i = 0; i < count; i++)
@@ -541,3 +540,46 @@ for (int i = 0; i < count; i++)
 }
 */
 #endregion
+
+#region tekrar oynanabilir sayi tahmin oyunu
+/*
+var replay = 'e';
+do
+{
+    var rnd = new Random();
+    var answer = rnd.Next(0, 100);
+
+    Console.WriteLine("Tahmininizi Girin (10 Hakkiniz Kaldi)");
+    var input = int.Parse(Console.ReadLine().Trim());
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 9)
+        {
+            Console.WriteLine("Kaybettiniz. Sayi => {0}", answer);
+            break;
+        }
+        else if (input == answer)
+        {
+            Console.WriteLine("Tebrikler Sayiyi Buldunuz");
+            break;
+        }
+        if (input > answer)
+        {
+            Console.WriteLine("ASAGI. Kalan Hakkiniz {0}", 9 - i);
+            input = int.Parse(Console.ReadLine().Trim());
+        }
+        else if (input < answer)
+        {
+            Console.WriteLine("YUKARI. Kalan Hakkiniz {0}", 9 - i);
+            input = int.Parse(Console.ReadLine().Trim());
+        }
+    }
+
+    Console.WriteLine("Tekrar Oynamak Ister Misiniz? (e/h)");
+    replay = char.Parse(Console.ReadLine().Trim());
+
+} while (replay == 'e');
+*/
+#endregion
+
