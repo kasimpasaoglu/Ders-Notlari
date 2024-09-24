@@ -515,7 +515,7 @@ Console.WriteLine("Giris Basarili");
 #endregion
 
 #region BOLUM SONU ODEVI (FIBONACCI Sayi Dizisi Yazdirma)
-// Fibonacci kendinden onceki iki sayinin toplami ile elde edilen sayi dizisidir. 1-1-2-3-5-8-13 diye gider
+// a-b-c-d....n => c=a+b / d=b+c //
 /*
 Console.WriteLine("Kac adet sayi yazdirilsin?");
 var count = int.Parse(Console.ReadLine());
@@ -613,3 +613,4 @@ do
 } while (replay == 'e');
 */
 #endregion
+
