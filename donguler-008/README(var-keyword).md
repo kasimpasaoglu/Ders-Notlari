@@ -38,6 +38,8 @@ int degisken2 = 10;
 ```
 
 * `var` in cikis amaci, kodlamayi kolaylastirmak olmasinin yaninda ayni zamanda ileride gorecegimiz veri tabani ve entityframework asamasinda buyuk sorgulardan gelen tipleri kolay karsilamaktir.
+* Ayrica ilerde gorecegimiz **anonim** tiplerdeki verileri karsilamak icin `var` kullanilabilir
+
 ```C#
     Console.WriteLine("bir sayi giriniz");
     var birinciSayi = int.Parse(Console.ReadLine());
@@ -49,3 +51,4 @@ int degisken2 = 10;
 >Burda sadece `ReadLine()` fonksiyonu string dondugu icin `Parse` ile *int*'e donusturduk sonra direk var degiskenimize yazdik.  
 
 * Ozetle; var tipi verdigimiz degere gore kendi tipini ayarlar.
+* :warning: var keyworld'u yazilimcinin isini kolaytirir ancak okunmasini zorlastirabilir. 
