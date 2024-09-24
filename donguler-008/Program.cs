@@ -724,7 +724,7 @@ Console.WriteLine("Cift Sayilar Toplami => {0}", totalEvens);
 #endregion
 
 #region while ile sayi tahmin oyunu
-
+/*
 var replay = 'e';
 while (replay == 'e')
 {
@@ -782,6 +782,6 @@ while (replay == 'e')
     Console.WriteLine("Tekrar Oynamak Ister Misiniz? (e/h)");
     replay = char.Parse(Console.ReadLine().Trim());
 }
-
+*/
 #endregion
 
