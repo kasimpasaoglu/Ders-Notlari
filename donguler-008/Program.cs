@@ -614,3 +614,174 @@ do
 */
 #endregion
 
+#region while ornek 1'den 100'e kadar degerleri yazdir
+/*
+int number = 0;
+while (number < 100)
+{
+    number++;
+    Console.WriteLine(number);
+}
+*/
+#endregion
+
+#region while ile carpim tablosu
+/*
+int i = 1;
+while (i <= 10)
+{
+    int j = 1;
+    while (j <= 10)
+    {
+        Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
+        j++;
+    }
+    i++;
+    Console.WriteLine("---------------------------");
+}
+*/
+#endregion
+
+#region dik ucgeni while ile cizelim
+/*
+int i = 0;
+while (i < 10)
+{
+    int j = 0;
+    while (j < i)
+    {
+        Console.Write('*');
+        j++;
+    }
+    Console.WriteLine();
+    i++;
+}
+*/
+#endregion
+
+#region eskenar uscgeni while ile cizelim
+/*
+int i = 0;
+while (i < 10)
+{
+    int j = i;
+    while (j < 10)
+    {
+        // bosluklar
+        Console.Write(' ');
+        j++;
+    }
+
+    int k = 0;
+    while (k <= i * 2)
+    {
+        // sutunlar
+        Console.Write('*');
+        k++;
+    }
+    // satirlar
+    Console.WriteLine();
+    i++;
+}
+*/
+#endregion
+
+#region while ile ekrandan 10 adet not alip ortalamasi yazin
+/*
+double total = 0;
+int count = 1;
+while (count <= 10)
+{
+    Console.WriteLine("{0}. Notu Giriniz", count);
+    total += double.Parse(Console.ReadLine().Trim());
+    count++;
+}
+Console.WriteLine("Not Ortalamaniz {0}", Math.Round(total / count, 2));
+*/
+#endregion
+
+#region 1 den 10.000 e kadar tek sayi ve cift sayilarin toplami
+/*
+int totalEvens = 0;
+int totalOdds = 0;
+int i = 1;
+while (i <= 10000)
+{
+    if (i % 2 == 0)
+    {
+        totalEvens += i;
+    }
+    else
+    {
+        totalOdds += i;
+    }
+    i++;
+}
+
+Console.WriteLine("Tek Sayilar Toplami => {0}", totalOdds);
+Console.WriteLine("Cift Sayilar Toplami => {0}", totalEvens);
+*/
+#endregion
+
+#region while ile sayi tahmin oyunu
+
+var replay = 'e';
+while (replay == 'e')
+{
+
+    var rnd = new Random();
+    var answer = rnd.Next(0, 100);
+
+    var guessRight = 10;
+
+    var guessCount = 1;
+
+    while (guessCount <= guessRight)
+    {
+        Console.WriteLine("{0}. Tahmininizi Girin", guessCount);
+        var input = int.Parse(Console.ReadLine().Trim());
+
+        if (input == answer)
+        {
+            Console.WriteLine("Kazandiniz... Cevap => {0}", answer);
+            break;
+        }
+
+        else if (guessCount == guessRight)
+        {
+            Console.WriteLine("Kaybettiniz...");
+            Console.WriteLine("Ekstra 5 Tahmin Hakki Ister Misiniz? (e/h)");
+            var joker = char.Parse(Console.ReadLine().Trim());
+
+            if (joker == 'e')
+            {
+                guessRight += 5;
+            }
+
+            else
+            {
+                Console.WriteLine("Cevap => {0} olacakti.", answer);
+                break;
+            }
+
+        }
+
+        else if (input > answer)
+        {
+            Console.WriteLine("Asagi");
+        }
+
+        else if (input < answer)
+        {
+            Console.WriteLine("Yukari");
+        }
+
+        guessCount++;
+    }
+
+    Console.WriteLine("Tekrar Oynamak Ister Misiniz? (e/h)");
+    replay = char.Parse(Console.ReadLine().Trim());
+}
+
+#endregion
+

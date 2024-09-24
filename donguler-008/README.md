@@ -10,8 +10,9 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
 ```
  **DONGU CESITLERI**
  1. for dongusu (mantiksal operator)
- 2. forEach dongusu (veri kaynagi)
+ 2. forEach dongusu (veri kaynagi) (dizilerden sonra ogrenecegiz)
  3. do while dongusu (mantiksal operator)
+ 4. while dongusu
 
  ## `for` Dongusu
 
@@ -102,3 +103,33 @@ int girilenSayi = 0;
 
 ## [Boxing Unboxing(Ara Konu)](README(boxing-unboxing).md)
 ## [Var Keyword(Ara Konu)](README(var-keyword).md)
+
+## `while` Dongusu
+* Diger tum donguler gibi bir kosul saglandigi surece icindeki kod bloklarini tekrarlar. 
+* Kullanimi cok yaygin degildir.
+
+*syntax*
+```C#
+    while(kosul)
+    {
+     kod blogu
+    }
+```
+* `for` dongusunden farkli olarak dongu degiskeni ve arttirim/ azaltim ifadeleri barindirmaz, 
+* sadece kosula baglidir, ve kosul saglandigi surece doner.
+```C#
+    while(true) // kosul true verildigi icin sonsuza kadar doner
+    {
+        Console.WriteLine("sonsuza kadar donecek")
+    }
+```
+
+*ornek*
+```C#
+    int number = 0;
+    while (number < 100)
+    {
+        number++;
+        Console.WriteLine(number);
+    }
+```
