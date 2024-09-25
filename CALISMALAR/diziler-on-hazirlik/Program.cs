@@ -171,3 +171,100 @@ Console.WriteLine("Dizide girdiginiz sayidan({0}) buyuk {1} adet, kucuk {2} adet
 */
 #endregion
 
+#region Kullanicinin belirttigi kadar random sayi olussun, bu sayilardan her birinin kac defa tekrar ettigini bul.
+/*
+Console.WriteLine("Kac Adet Rakam Olusturulsun ?");
+var numberCount = int.Parse(Console.ReadLine());
+
+var numbersArray = new int[numberCount];
+var rnd = new Random();
+
+for (int i = 0; i < numberCount; i++)
+{
+    numbersArray[i] = rnd.Next(0, 20);
+    Console.Write("- {0} -", numbersArray[i]);
+}
+Console.WriteLine();
+
+var repeatCountArray = new int[numberCount]; // tekrar sayilarini yazmak icin arraye gerek yok aslinda...
+var checkedArray = new bool[numberCount]; // sayi daha once kontrol edildiyse burdaki karsilik degeri true olarak cevircez
+
+for (int i = 0; i < numberCount; i++)
+{
+    if (checkedArray[i])
+    {
+        continue;
+    }
+
+    for (int j = 0; j < numberCount; j++)
+    {
+
+        if (numbersArray[i] == numbersArray[j])
+        {
+            repeatCountArray[i]++;
+            checkedArray[j] = true; // sayi kontrol edildi olarak isaretlendi
+        }
+    }
+
+    if (repeatCountArray[i] > 1)
+    {
+        Console.WriteLine("{0} Sayisi {1} kere tekrar ediyor", numbersArray[i], repeatCountArray[i]);
+    }
+}
+*/
+#endregion
+
+#region 
+/*
+Console.WriteLine("Kac Adet Sayi Girilecek?");
+var inputCount = int.Parse(Console.ReadLine().Trim());
+var inputs = new int[inputCount];
+var evenCounts = 0;
+var oddCounts = 0;
+for (int i = 0; i < inputCount; i++)
+{
+    Console.WriteLine("{0}. Sayiyi Girin", i + 1);
+    inputs[i] = int.Parse(Console.ReadLine().Trim());
+
+    if (inputs[i] % 2 == 0)
+    {
+        evenCounts++;
+    }
+    else
+    {
+        oddCounts++;
+    }
+}
+var evensArray = new int[evenCounts];
+var oddsArray = new int[oddCounts];
+
+Console.WriteLine("{0} adet tek & {1} adet cift sayi girdiniz", oddCounts, evenCounts);
+Console.WriteLine("Cift Sayilar:");
+for (int i = 0; i < inputCount; i++)
+{
+    if (inputs[i] % 2 == 0)
+    {
+        Console.Write("-{0}-", inputs[i]);
+    }
+    else
+    {
+        continue;
+    }
+}
+
+Console.WriteLine();
+Console.WriteLine("Tek Sayilar:");
+for (int i = 0; i < inputCount; i++)
+{
+    if (inputs[i] % 2 == 1)
+    {
+        Console.Write("-{0}-", inputs[i]);
+    }
+    else
+    {
+        continue;
+    }
+}
+*/
+#endregion
+
