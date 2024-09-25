@@ -1,5 +1,5 @@
 ﻿#region Ornek1 - random olusturulan dizideki tek ve cift sayilari bul
-
+/*
 Console.WriteLine("Kac Adet Sayi Olusturulsun?");
 var numbers = new int[int.Parse(Console.ReadLine().Trim())];
 
@@ -68,5 +68,62 @@ for (int i = 0; i < oddNumbers.Length; i++)
 {
     Console.Write("-{0}-", oddNumbers[i]);
 }
+*/
+#endregion
 
+#region Ornek2 - Kullanicinin belirttigi ADET kadar asal sayi olusturup, array'de tutalim. Kullanicinin istedigi siradaki sayiyi yazalim, tekrar etsin.
+
+Console.WriteLine("Kac adet asal sayi olusturulsun?");
+var primeNumberCount = int.Parse(Console.ReadLine().Trim());
+while (primeNumberCount <= 0)
+{
+    Console.WriteLine("Lutfen pozitif tam sayi giriniz");
+    primeNumberCount = int.Parse(Console.ReadLine().Trim());
+}
+
+var primeNumbers = new int[primeNumberCount];
+var indexOfPrimeNumbers = 0;
+
+for (int i = 2; indexOfPrimeNumbers < primeNumbers.Length; i++)
+{
+    bool isNumberPrime = true;
+
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            isNumberPrime = false;
+            break;
+        }
+    }
+
+    if (isNumberPrime)
+    {
+        primeNumbers[indexOfPrimeNumbers] = i;
+        indexOfPrimeNumbers++;
+    }
+}
+
+
+while (true)
+{
+    Console.WriteLine("Kacinci Siradaki Sayiyi Gormek Istersiniz?");
+    var request = int.Parse(Console.ReadLine().Trim());
+
+    while (request <= 0 || request > primeNumbers.Length)
+    {
+        Console.WriteLine($"Lutfen 1 ile {primeNumbers.Length} arasi bir deger giriniz");
+        request = int.Parse(Console.ReadLine().Trim());
+    }
+
+    Console.WriteLine($"{primeNumbers[request - 1]}");
+
+    Console.WriteLine("Devam etmek icin bir tusa basiniz. Cikmak icin 'exit' yaziniz");
+    var input = Console.ReadLine().Trim().ToLower();
+
+    if (input == "exit")
+    {
+        break;
+    }
+}
 #endregion
