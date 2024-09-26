@@ -52,3 +52,49 @@ for (int i = 0; i < intArray.Length; i++)
     Console.WriteLine(intArray[i]);
 }
 ```
+
+### Ara Bilgi (Derleyiciyi Bekletme Fonksiyonu)
+```C#
+System.Threading.Thread.Sleep(milisaniye);
+```
+* Bu fonksiyon milisaniye cinsinden verecegimiz degere gore, derleyici bir sonraki satira gecmek icin bekleme yapacaktir
+
+## Diziler Ile Birlikte Kullanilabilen Metodlar(Fonksiyonlar)
+Diziler ile ilgili yapilacak islemleri yapan hazir fonksiyonlar vardir. Bu fonksiyonlara `Array` sinifi ile erisilebilir.
+* `IndexOf()` array ve deger parametrelerini alir, o array icinde aradigimiz degerin hangi indexte oldugu bilgisini int olarak doner. `Array.IndexOf(arrayin adi, object deger)`
+    * Aranan deger array icinde birden fazla varsa, ilk bulundugu indexi doner.
+* `LastIndexOf()` array, ve deger parametrelerini alir. Aranan degerin gorundugu son index numarasini doner. 
+* `Reverse()`  Parametre olarak arrayin adini alir
+```C#
+int [] reverseArray = new int[5]
+reverseArray[0] = 100
+reverseArray[1] = 52
+reverseArray[2] = 75
+reverseArray[3] = 40
+reverseArray[4] = 80
+
+Array.Reverse(reverseArray);
+// arrayi burda yazdirirsak ters cevirdigini goruruz
+```
+>:warning: Aslinda reverse direk calisti, geriye birsey vermedi. Fonksiyonlar konusunda geriye birsey donmeyen fonksiyonlar ile ilgili konusacaz. Cumartesi gunu arada, isleyecegiz. Deger tip ve Referans tip konusu. 
+* `Sort()` dizinin icindeki rakamlari kucukten buyuge, harfleri ise alfabetik siraya gore siralar. 
+    * Parametre olarak arrayin adini alir. 
+```C#
+Array.Sort(reverseArray)
+// yazdirirsak siralanmis hali gelir
+
+```
+* Kabarcik Siralama(Bubble)
+* Hizli Siralama (Quick Sorting)
+> ODEV: BOBBLE SORTING ILE 20 ELEMANLI BIR DIZIYI SIRALAYINIZ.
+* `Clear()` Dizi icindeki tum elemanlar silinir. 
+    * Parametre olarak array alir.
+* `Copy()` Bir dizinin kopyasini olusturmak icin kullanilir. 
+    * Alacagi parametreler sirasiyla; Kopyalanacak(kaynak) array, Kopyalanacagi (hedef) array, kacinci indexe kadar kopyalanacak
+```C#
+int [] reverseArray = new int[5]
+int [] destinationArray = new int[5]
+Array.Copy(reverseArray, destinationArray, reverseArray.Lenght)
+// reverse arrayi destination arraye reverse arrayin lenghti kadar kopyala
+
+```
