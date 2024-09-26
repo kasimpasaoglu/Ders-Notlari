@@ -72,7 +72,7 @@ for (int i = 0; i < oddNumbers.Length; i++)
 #endregion
 
 #region Ornek2 - Kullanicinin belirttigi ADET kadar asal sayi olusturup, array'de tutalim. Kullanicinin istedigi siradaki sayiyi yazalim, tekrar etsin.
-
+/*
 Console.WriteLine("Kac adet asal sayi olusturulsun?");
 var primeNumberCount = int.Parse(Console.ReadLine().Trim());
 while (primeNumberCount <= 0)
@@ -126,4 +126,5 @@ while (true)
         break;
     }
 }
+*/
 #endregion
