@@ -372,11 +372,42 @@ for (int i = 0; i < names.Length; i++)
 */
 #endregion
 
-#region 
-
+#region kopyalama islemi
+/*
 string[] stringDizi = { "Ali", "Mehmet", "Alper", "Kasim", "Kerem" };
 string[] newStringDizi = new string[15];
 
 Array.Copy(stringDizi, 0, newStringDizi, 5, stringDizi.Length);
+*/
+#endregion
+
+#region 
+/*
+using System.Collections;
+
+Queue cars = new Queue();
+cars.Enqueue("Renault");
+cars.Enqueue("Mercedes");
+cars.Enqueue("Audi");
+cars.Enqueue("BMW");
+cars.Enqueue("Opel");
+cars.Enqueue("Honda");
+cars.Enqueue("Tofas");
+cars.Enqueue("Togg");
+cars.Enqueue("Hyundai");
+
+var counter = cars.Count;
+for (int i = 0; i < counter; i++)
+{
+    Console.WriteLine("Diziden Eleman Cikarmak Icin Enter'a basiniz");
+    Console.ReadLine();
+    string item = cars.Dequeue().ToString();
+    Console.WriteLine(item);
+    Console.WriteLine("Kalan Eleman Sayisi => {0}", cars.Count);
+}
+*/
+#endregion
+
+#region 
 
 #endregion

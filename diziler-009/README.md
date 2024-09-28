@@ -139,3 +139,30 @@ var boolDizi = new bool[] {true,false,true,true};
 
 # Queue Dizisi
 
+* Icerisinde tutulan degerlerin object olarak tutuldugu bir dizidir.
+* Queue kuyruk (sira) mantigi ile calisir. (Akbil, Pide, Otobus kuyrugu gibi)
+* queue dizisi kullanabilmek icin, programin en basina `using System.Collections;` komutu girilmelidir
+    * 
+
+`Queue queueDizisi = new Queue();`
+
+* `Enqueue` Metodu, ile diziye eleman yerlestirildir. 
+```C#
+queueDizisi.Enqueue("Renault")
+queueDizisi.Enqueue("Mercedes")
+queueDizisi.Enqueue("Audi")
+queueDizisi.Enqueue("BMW")
+```
+* `Count` metodu ile dizinin eleman sayisini bilabiliriz
+* `Peek` metodu, kuyruktan cikacak ilk elemani verir, yani en on siradaki kim sorusuna cevap veriyor. Ancak queue dizisinde bir degisiklik yapmadi
+```C#
+string first = queue.Peek().ToString()
+// queue elemanlari obje olarak tuttugu icin unboxing yapilmali,
+// bu yuzden ToString() kullandik
+```
+* `Dequeue` metodu, hem kuyruktan cikarilacak ilk elemani dondurur, hemde kuyruktan cikarir.
+
+:warning: Diziler ile Kolleksiyonlar arasindaki en temel fark; kolleksiyon tanimlarken baslangic degeri vermek zorunlu degildir.
+
+Yarin Stack yapisi incelenecek. 
+Stack, Queue dan farkli olarak last in first out, yani tersten cikis yapilir, prensibiyle calisir. (LIFO)
