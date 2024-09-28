@@ -228,6 +228,155 @@ for (int i = 0; i < numbers.Length; i++)
 */
 #endregion
 
+#region 10 sayi alip tekse tek ciftse cift arrayde olusturunuz.
+/*
+var userInputs = new int[10];
+var evenNumbersCount = 0;
+var oddNumbersCount = 0;
+
+for (int i = 0; i < userInputs.Length; i++)
+{
+    Console.WriteLine("{0}. Sayiyi Giriniz:", i + 1);
+    userInputs[i] = int.Parse(Console.ReadLine());
+    if (userInputs[i] % 2 == 0)
+    {
+        evenNumbersCount++;
+    }
+    else
+    {
+        oddNumbersCount++;
+    }
+}
+var evenNumbers = new int[evenNumbersCount];
+var oddNumbers = new int[oddNumbersCount];
+
+
+var evenCounter = 0;
+var oddCounter = 0;
+for (int i = 0; i < userInputs.Length; i++)
+{
+    if (userInputs[i] % 2 == 0)
+    {
+        evenNumbers[evenCounter] = userInputs[i];
+        evenCounter++;
+        Console.WriteLine("{0}. Cift Sayi", evenCounter);
+
+    }
+    else
+    {
+        oddNumbers[oddCounter] = userInputs[i];
+        oddCounter++;
+        Console.WriteLine("{0}. Tek Sayi", oddCounter);
+    }
+}
+*/
+#endregion
+
+#region Bir String Dizisi icinde 10 adet isim yazin.( Kullanicidan almaya gerek yok). ilk harfi ve son harfi gosterip aradaki harfleri ** yapan (sansurleyen) uygulama
+/*
+var users = new string[10];
+users[0] = "Kasim";
+users[1] = "Emrah";
+users[2] = "Arda";
+users[3] = "Hayriye";
+users[4] = "Fatma";
+users[5] = "Jale";
+users[6] = "Orhan";
+users[7] = "Umit";
+users[8] = "Alp";
+users[9] = "Selcuk";
+
+var usersCensored = new string[users.Length];
+
+for (int i = 0; i < users.Length; i++)
+{
+    var firstLetter = users[i].Substring(0, 1);
+    var lastLetter = users[i].Substring(users[i].Length - 1, 1);
+    var censor = "";
+    for (int j = 0; j < users[i].Length - 2; j++)
+    {
+        censor += '*';
+    }
+    usersCensored[i] = firstLetter + censor + lastLetter;
+    Console.WriteLine(firstLetter + censor + lastLetter);
+}
+*/
+#endregion
+
+#region Uygulama 5 adet not istesin, ve bu notlari dizide tutalim, notlari aldiktan sonra kullaniciya asagidaki soruyu sorup, geregini yapalim. Degistirmek istediginiz not varsa 1 e basin, (hangi notun degisecegini sorup degeri sormak gerekecek) notlari siralanmis listelemek icin 2 e basin, cikmak icin 3 e basin.
+/*
+var notes = new int[5];
+
+for (int i = 0; i < notes.Length; i++)
+{
+    Console.WriteLine("{0}. Notunuzu Girin", i + 1);
+    notes[i] = int.Parse(Console.ReadLine().Trim());
+}
+
+Console.WriteLine("Girmis Oldugunuz Notlar:");
+for (int i = 0; i < notes.Length; i++)
+{
+    Console.WriteLine("{0} => {1}", i + 1, notes[i]);
+}
+
+while (true)
+{
+    Console.WriteLine("Degistirmek Istediginiz Not Varsa 1'e Basininiz");
+    Console.WriteLine("Notlari Siralamak Icin Not Varsa 2'e Basininiz");
+    Console.WriteLine("Cikmak Icin 3'e Basininiz");
+    var input = int.Parse(Console.ReadLine().Trim());
+
+    if (input == 1)
+    {
+        Console.WriteLine("Degistirmek Istediginiz Notun Sirasini Giriniz");
+        var editNumber = int.Parse(Console.ReadLine().Trim());
+        Console.WriteLine("Yeni Notu Giriniz");
+        notes[editNumber - 1] = int.Parse(Console.ReadLine().Trim());
+    }
+    if (input == 2)
+    {
+        Array.Sort(notes);
+        for (int i = 0; i < notes.Length; i++)
+        {
+            Console.WriteLine("{0} => {1}", i + 1, notes[i]);
+        }
+
+    }
+    if (input == 3)
+    {
+        break;
+    }
+
+
+}
+*/
+#endregion
+
+#region ornek string'in char dizisi olmasi ile alakali. 10 adet isim alin, daha sonra bu isimlerin tersten yazilislarini ekrana yazdirin
+/*
+var names = new string[10];
+for (int i = 0; i < names.Length; i++)
+{
+    Console.WriteLine("{0}. Ismi Giriniz :", i + 1);
+    var name = Console.ReadLine().Trim();
+
+    for (int j = name.Length - 1; j >= 0; j--)
+    {
+        names[i] += name[j];
+    }
+}
+for (int i = 0; i < names.Length; i++)
+{
+    Console.WriteLine("{0}. Isim => {1}", i + 1, names[i]);
+}
+*/
+#endregion
+
 #region 
+
+string[] stringDizi = { "Ali", "Mehmet", "Alper", "Kasim", "Kerem" };
+string[] newStringDizi = new string[15];
+
+Array.Copy(stringDizi, 0, newStringDizi, 5, stringDizi.Length);
 
 #endregion

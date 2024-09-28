@@ -91,10 +91,50 @@ Array.Sort(reverseArray)
     * Parametre olarak array alir.
 * `Copy()` Bir dizinin kopyasini olusturmak icin kullanilir. 
     * Alacagi parametreler sirasiyla; Kopyalanacak(kaynak) array, Kopyalanacagi (hedef) array, kacinci indexe kadar kopyalanacak
+    * Copy metodu, belli bir index araligi ile de calistirilabilir.  
 ```C#
 int [] reverseArray = new int[5]
 int [] destinationArray = new int[5]
 Array.Copy(reverseArray, destinationArray, reverseArray.Lenght)
 // reverse arrayi destination arraye reverse arrayin lenghti kadar kopyala
-
 ```
+```C#
+string[] stringDizi = { "Ali", "Mehmet", "Alper", "Kasim", "Kerem" };
+string[] newStringDizi = new string[15];
+
+Array.Copy(stringDizi, 0, newStringDizi, 5, stringDizi.Length);
+// stringDizi, 0.indexten itibaren kopyala, newStringDizinin 5. indexinden baslayarak, stringDizinin uzunlugu kadar eleman kopyala
+```
+
+
+### string - array iliskisi
+String aslinda bir char dizisidir. Bu yuzden bir string degerin icinde `[]` isareti ile index girerek string degerin o indexteki karakterine ulasabiliriz. 
+```C#
+string metin = "wissen besiktas"
+
+Console.WriteLine(deger[0]) 
+// => 'w' karakterini yazdirir
+Console.WriteLine(deger[2]) 
+// => 's' karakterini yazdirir (2. index)
+Console.WriteLine(deger[metin.Lenght -1 ]) 
+// => 's' karakterini yazdirir (son karakter)
+```
+* Arrayden aldigimiz string bir degiskenin belli indexteki karakterinede ulasabiliriz. `dizi[2][4]` => dizi'nin 2. indexteki elemaninin, 4. indexteki elemani(karakteri)
+
+## Farkli Tanimlama Sekillderi
+* Hem tanimlayip hemde dizi elemanlarini verebiliriz
+```C#
+int[] dizi = new int[3]{1,2,3};
+```
+* Hem tanimplayip, hemde dizi elemanlarini verebiliriz
+```C#
+string[] stringDizi = {"Ali", "Mehmet", "Alper"};
+```
+Bu tip tanimada dizi buyuklugunu girmeye gerek yoktur. 
+* `var` ile tanimlanimlanabilir
+```C#
+var boolDizi = new bool[] {true,false,true,true};
+```
+`var` ile tanimlarken sag tarafinda tip belirtmemiz gerekir, cunku `var` dizi icin kullanildiginda, derleyicide tipin ne oldugunu algilayamaz 
+
+# Queue Dizisi
