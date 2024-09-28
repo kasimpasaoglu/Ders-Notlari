@@ -138,3 +138,4 @@ var boolDizi = new bool[] {true,false,true,true};
 `var` ile tanimlarken sag tarafinda tip belirtmemiz gerekir, cunku `var` dizi icin kullanildiginda, derleyicide tipin ne oldugunu algilayamaz 
 
 # Queue Dizisi
+
