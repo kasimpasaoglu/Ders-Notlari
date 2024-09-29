@@ -136,8 +136,9 @@ Bu tip tanimada dizi buyuklugunu girmeye gerek yoktur.
 var boolDizi = new bool[] {true,false,true,true};
 ```
 `var` ile tanimlarken sag tarafinda tip belirtmemiz gerekir, cunku `var` dizi icin kullanildiginda, derleyicide tipin ne oldugunu algilayamaz 
+Bu orneklerde tanimladigimiz dizilerde sonradan buyutme sansimiz yoktur. Biz veri ekledikte buyuyebilen diziler icin `Collections` kullanacagiz...
 
-# Queue Dizisi
+# Queue Kolleksiyonu
 
 * Icerisinde tutulan degerlerin object olarak tutuldugu bir dizidir.
 * Queue kuyruk (sira) mantigi ile calisir. (Akbil, Pide, Otobus kuyrugu gibi)
@@ -162,7 +163,51 @@ string first = queue.Peek().ToString()
 ```
 * `Dequeue` metodu, hem kuyruktan cikarilacak ilk elemani dondurur, hemde kuyruktan cikarir.
 
-:warning: Diziler ile Kolleksiyonlar arasindaki en temel fark; kolleksiyon tanimlarken baslangic degeri vermek zorunlu degildir.
+:warning: Diziler ile Kolleksiyonlar arasindaki en temel fark; kolleksiyon tanimlarken baslangic degeri vermek zorunlu degildir. Eleman eklendikce kapasitesini arttirir
 
-Yarin Stack yapisi incelenecek. 
-Stack, Queue dan farkli olarak last in first out, yani tersten cikis yapilir, prensibiyle calisir. (LIFO)
+
+## ARA KONU (NameSpace - IsimUzayi)
+:bulb: Programlamada baslangic asamasinda ekstra hic bir kutuphane kullanmamiza igtiyac yoktur. Ancak Ilerleyen noktalarda bazi kutuphanelere ihtiyac duyariz. Bu kutuphaneler disaridan indirilen kutuphaneler olabilecegi gibi .net'in kendi icinde bulunan kutuphaneler olabilir. 
+**NameSpace** aslinda, ayni isimde olan tipleri birbirinden ayirmak ve icinde tutmak icin vardir. 
+Mesela Queue kullanmak icin Collections kutuphanesine ihtiyacimiz vardi. 
+`using System.Collections;`
+Bu namespace'leri cagirmak icin using ifadesi kullanir. Kodun en basina yazilmalidir.
+
+# Stack Kolleksiyonu
+* Bircok kolleksiyon gibi, Stack'te object deger alir.
+* queue gibi yine sira mantigi ile calisir, ancak burda Last In First Out,(LIFO) duzeni uygular. Yani stackten oge cikarmaya basladigimizda en son eklenen ogeyi ilk cikaracak, (index en buyukten baslayarak cikarmaya baslar)(Tir dorsesi ornegi).
+* `Push` fonskiyonu ile eleman eklenir
+ ```C#
+ Stack stackDizisi = new Stack();
+
+ stackDizisi.Push("Yuk 1");
+ stackDizisi.Push("Yuk 2");
+ stackDizisi.Push("Yuk 3");
+ stackDizisi.Push("Yuk 4");
+ stackDizisi.Push("Yuk 5");
+ stackDizisi.Push("Yuk 6");
+ stackDizisi.Push("Yuk 7");
+ ```
+ * `Peek` metodu listede silinecek olan (sirada olan) itemi dondurur, ancak silme islemini yapmaz
+ * `Pop` metodu listede silinme sirasi gelen itemi hem siler, hem dondurur.
+ * `Count` metodu ile eleman sayisi ogrenilir
+ # Array List
+* Icine object deger alan bir kolleksiyondur
+* `Add` metodu ile eleman eklenir. 
+* `Count` metodu icindeki eleman sayisini dondurur.
+* `Capacity` metodu alabilecegi maksimum eleman sayisini belirtir
+    * Eleman eklendikce artmaktadir.
+    * ArrayList in kapasitesi 4 ten basayarak eleman eklendikce, katlanarak artak (4-8-16-32).
+* ArrayList icindeki bir ogeye erismek icin normal arrayde oldugu gibi [] ile index verilir ve unboxing yapilmalidir. 
+* ArrayList Tanimlanirken parametre olarak kapatite belirtilebilir
+### Kolleksiyonlarla Birlikte Kullanilabilecek Hazir Metodlar
+` ArrayList liste = new ArrayList()` Ile hazirladigimiz bir kolleksiyon ile
+* `Clear()` Kolleksiyon icindeki verileri siler
+* `Sort()` ogeleri siralar
+* `Reverse()` kolleksiyonu ters cevirir
+* `ToArray()` kolleksiyonu diziye donusturur
+* `Contains("")` kolleksiyon icinde arama var, parametrede verilen deger varsa true doner(bool) 
+* `Insert()` kolleksiyon icinde belli bir yere veri eklemek icin kullanliri, Iki Parametre alir, ilki index bilgisi, ikincisi verinin kendisi.
+`GetRange()` Kolleksiyon icerisinden birden fazla veri getirmek icin kullanilir. Verinin gelecegi index ve bu indeksten sonra kac index veri getirilsin parametreleri ile calisir. 
+* `TrimToSize()` Kolleksiyonlarda count ve capacity 'i birbirine esitlemek icin kullanilir. 
+    * Ornek count :5, capacity 8 ise capacity'i 5 yapar.

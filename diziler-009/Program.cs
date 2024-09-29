@@ -381,7 +381,7 @@ Array.Copy(stringDizi, 0, newStringDizi, 5, stringDizi.Length);
 */
 #endregion
 
-#region 
+#region queue ile arac listesi
 /*
 using System.Collections;
 
@@ -408,6 +408,154 @@ for (int i = 0; i < counter; i++)
 */
 #endregion
 
-#region 
+#region stack
+/*
+using System.Collections;
 
+Stack stackDizisi = new Stack();
+
+stackDizisi.Push("Yuk 1");
+stackDizisi.Push("Yuk 2");
+stackDizisi.Push("Yuk 3");
+stackDizisi.Push("Yuk 4");
+stackDizisi.Push("Yuk 5");
+stackDizisi.Push("Yuk 6");
+stackDizisi.Push("Yuk 7");
+
+int counter = stackDizisi.Count;
+
+for (int i = 0; i < counter; i++)
+{
+    Console.WriteLine("Stack Kolleksiyonundan bir eleman cikarmak icin enter'a basiniz");
+    Console.ReadLine();
+    string currentItem = stackDizisi.Pop().ToString();
+    Console.WriteLine("Silinen => {0} -- Kolleksiyon Oge Sayisi => {1}", currentItem, stackDizisi.Count);
+}
+*/
+#endregion
+
+#region Array list
+/*
+using System.Collections;
+
+ArrayList arrayList = new ArrayList();
+
+arrayList.Add("Mercedes");
+arrayList.Add("Audi");
+arrayList.Add("Fiat");
+arrayList.Add("Opel");
+arrayList.Add("Honda");
+arrayList.Add("BMW");
+*/
+#endregion
+
+#region for dongusu ile array list doldurma
+/*
+using System.Collections;
+
+ArrayList arrayList = new ArrayList();
+for (int i = 0; i < 30; i++)
+{
+    Console.WriteLine("Eleman Giriniz");
+    arrayList.Add(Console.ReadLine());
+    Console.WriteLine("Count : {0} -- Capacity : {1}", arrayList.Count, arrayList.Capacity);
+}
+*/
+#endregion
+
+#region ogrenciden 10 adet not alip bu notlarin toplami ve ortalamsini yazdirin
+/*
+using System.Collections;
+
+ArrayList notes = new ArrayList();
+var total = 0;
+for (int i = 0; i < 10; i++)
+{
+    Console.WriteLine("{0}. Notu Giriniz", i + 1);
+    notes.Add(int.Parse(Console.ReadLine()));
+    total += (int)notes[i];
+}
+Console.WriteLine("Toplam => {0}", total);
+Console.WriteLine("Ortalama => {0}", total / notes.Count);
+*/
+#endregion
+
+#region random sayi oyununu array list ile yapalaim, tahminleri arrayde tutalim 
+/*
+using System.Collections;
+
+var rnd = new Random();
+ArrayList guesses = new ArrayList();
+
+var randomNumber = rnd.Next(0, 100);
+
+for (int i = 0; i < 10; i++)
+{
+    Console.WriteLine("{0}. Tahmininizi Girin", i + 1);
+    guesses.Add(int.Parse(Console.ReadLine()));
+    if ((int)guesses[i] == randomNumber)
+    {
+        Console.WriteLine("Tebrikler Kazandiniz");
+        break;
+    }
+    else if (i == 9)
+    {
+        Console.WriteLine("Kaybettiniz");
+        break;
+    }
+    else if ((int)guesses[i] > randomNumber)
+    {
+        Console.WriteLine("Asagi");
+    }
+    else if ((int)guesses[i] < randomNumber)
+    {
+        Console.WriteLine("Yukari");
+    }
+}
+
+Console.WriteLine("Yaptiginiz Tahminler :");
+for (int i = 0; i < guesses.Count; i++)
+{
+    Console.Write("-{0}-", guesses[i]);
+}
+*/
+#endregion
+
+#region sayisal loto ornegi
+/*
+using System.Collections;
+
+var rnd = new Random();
+ArrayList userInputs = new ArrayList(6);
+ArrayList random = new ArrayList(6);
+ArrayList correctAnswers = new ArrayList();
+
+for (int i = 0; i < userInputs.Capacity; i++)
+{
+    Console.WriteLine("{0}. Sayiyi Girin");
+    userInputs.Add(int.Parse(Console.ReadLine()));
+    random.Add(rnd.Next(1, 50));
+}
+
+Console.WriteLine("Tahminler Bitti, Cekilisi Gormek Icin Enter'a Basiniz");
+Console.ReadLine();
+
+for (int i = 0; i < userInputs.Count; i++)
+{
+    for (int j = 0; j < random.Count; j++)
+    {
+        if ((int)userInputs[i] == (int)random[j])
+        {
+            correctAnswers.Add(userInputs[i]);
+            continue;
+        }
+    }
+}
+
+Console.WriteLine("Bilinen Sayilar");
+for (int i = 0; i < correctAnswers.Count; i++)
+{
+    Console.Write("-{0}-", correctAnswers[i]);
+}
+*/
 #endregion
