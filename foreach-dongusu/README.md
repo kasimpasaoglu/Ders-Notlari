@@ -43,3 +43,12 @@ foreach (DictionaryEntry item in sortedList)
 }
 ```
 :bulb: `DictionaryEntry` bir veri tipi dusunebiliriz. Burda SortedList arrayinden gelen key ve valuelara erisebilmek icin item'i DictionaryEntry olarak tanimlamak gerekir. DictionaryEntry yerine `var` kullanilirsa, casting ile veri tipi donusumu yapip, sonucu `DictionaryEntry` olarak cevirmemiz lazim. item ogesini DictionaryEntry olarak tanimlarsak `.Key` ve `.Value` gibi metodlari cagirabiliriz. 
+* Sadece kolleksiyon degil diziler icinde de donebiliriz
+```C#
+string[] teknoloji = { "HTML", "CSS", "JavaScript", "C#", "React", " Java", "TypeScript", " Rust", };
+
+foreach (string tech in teknoloji)
+{
+    Console.WriteLine(tech);
+}
+```
