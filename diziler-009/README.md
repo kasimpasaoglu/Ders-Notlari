@@ -211,3 +211,5 @@ Bu namespace'leri cagirmak icin using ifadesi kullanir. Kodun en basina yazilmal
 `GetRange()` Kolleksiyon icerisinden birden fazla veri getirmek icin kullanilir. Verinin gelecegi index ve bu indeksten sonra kac index veri getirilsin parametreleri ile calisir. 
 * `TrimToSize()` Kolleksiyonlarda count ve capacity 'i birbirine esitlemek icin kullanilir. 
     * Ornek count :5, capacity 8 ise capacity'i 5 yapar.
+
+

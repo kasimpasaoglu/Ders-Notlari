@@ -559,3 +559,285 @@ for (int i = 0; i < correctAnswers.Count; i++)
 }
 */
 #endregion
+
+#region ders disi calisma
+/*
+using System.Collections;
+
+var rnd = new Random();
+var notes = new ArrayList(10);
+var names = new ArrayList(10) { "Ahmet", "Ayse", "Ali", "Merve", "Cansu", "Kasim", "Selcuk", "Burak", "Sahin", "Ozge", };
+
+double total = 0;
+
+for (int i = 0; i < notes.Capacity; i++)
+{
+    notes.Add(rnd.Next(0, 101));
+    total += (int)notes[i];
+}
+
+double avarage = Math.Round(total / notes.Count, 2);
+
+var studentsSuccess = new ArrayList();
+var studentsSuccessNames = new ArrayList();
+var studentsFail = new ArrayList();
+var studentsFailNames = new ArrayList();
+
+Console.WriteLine("Sinif Ortalamasi => {0}", avarage);
+Console.WriteLine("Gecme Notunu Giriniz:");
+var successNote = int.Parse(Console.ReadLine().Trim());
+for (int i = 0; i < notes.Count; i++)
+{
+    if ((int)notes[i] >= successNote)
+    {
+        studentsSuccess.Add(notes[i]);
+        studentsSuccessNames.Add(names[i]);
+    }
+    else
+    {
+        studentsFail.Add(notes[i]);
+        studentsFailNames.Add(names[i]);
+    }
+}
+Console.WriteLine("-------------------------------------");
+Console.WriteLine("Sinifi Gecen Ogrenciler:");
+
+for (int i = 0; i < studentsSuccess.Count; i++)
+{
+    Console.WriteLine("{0} => {1}", studentsSuccessNames[i], studentsSuccess[i]);
+    System.Threading.Thread.Sleep(100);
+}
+Console.WriteLine("-------------------------------------");
+Console.WriteLine("Sinifta Kalan Ogrenciler:");
+for (int i = 0; i < studentsFail.Count; i++)
+{
+    Console.WriteLine("{0} => {1}", studentsFailNames[i], studentsFail[i]);
+    System.Threading.Thread.Sleep(100);
+}
+
+*/
+#endregion
+
+#region Market sepeti simulasyonu
+/*
+using System.Collections;
+
+var products = new ArrayList() { "Elma", "Armut", "Muz", "Uzum", "Cilek", "Sut", "Ekmek", "Peynir", "Yogurt", "Yumurta" };
+var prices = new ArrayList() { 3.50, 3.75, 4.75, 2.98, 4.85, 6.15, 2.50, 4.95, 2.70, 2.45 };
+
+var cartProducts = new ArrayList();
+var cartPrices = new ArrayList();
+
+while (true)
+{
+    Console.WriteLine("Urunler :");
+    for (int i = 0; i < products.Count; i++)
+    {
+        Console.WriteLine("{0} -> {1}TL", products[i], prices[i]);
+        System.Threading.Thread.Sleep(100);
+    }
+    Console.WriteLine("Sepetinize urun eklemek icin, urunun adini yaziniz");
+    Console.WriteLine("Sonlandirmak ve odeme sayfasina gecmek icin 'exit' yaziniz");
+    var input = Console.ReadLine().Trim();
+
+
+    if (products.Contains(input))
+    {
+        var index = products.IndexOf(input);
+        cartProducts.Add(products[index]);
+        cartPrices.Add(prices[index]);
+    }
+    else if (input == "exit")
+    {
+        double total = 0;
+        Console.WriteLine("Alisveris Sepetiniz: ");
+        for (int i = 0; i < cartProducts.Count; i++)
+        {
+            Console.WriteLine("{0} -> {1}tl", cartProducts[i], cartPrices[i]);
+            total += (double)cartPrices[i];
+            System.Threading.Thread.Sleep(300);
+        }
+
+        Console.WriteLine("Toplam -> {0}tl", Math.Round(total, 2));
+        Console.WriteLine("-----------------------------");
+        while (true)
+        {
+            Console.WriteLine("Odeme yapmak icin tutar giriniz");
+            double payment = double.Parse(Console.ReadLine().Trim());
+            if (payment < total)
+            {
+                Console.WriteLine("Odemeniz gereken tutar => {0}tl", Math.Round(total, 2));
+                Console.WriteLine("Lutfen Tekrar Deneyiniz");
+            }
+            else
+            {
+                Console.WriteLine("Para ustu => {0}tl", Math.Round(payment - total, 2));
+                Console.WriteLine("TESEKKURLER");
+                break;
+            }
+        }
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Girdiginiz urun bulunamadi, lutfen tekrar deneyiniz.");
+    }
+
+}
+*/
+#endregion
+
+#region rasgele sayilar ile calisma
+using System.Collections;
+/*
+Console.WriteLine("Kac Adet Sayi Olusturulsun ?");
+var numberCount = int.Parse(Console.ReadLine().Trim());
+
+var rnd = new Random();
+
+var numbers = new ArrayList(numberCount);
+var oddNumbers = new ArrayList();
+var evenNumbers = new ArrayList();
+var maxValue = int.MinValue;
+var minValue = int.MaxValue;
+double total = 0;
+
+for (int i = 0; i < numbers.Capacity; i++)
+{
+    int number = rnd.Next(0, 101);
+    numbers.Add(number);
+    total += number;
+
+    if (number > maxValue) maxValue = number;
+    if (number < minValue) minValue = number;
+
+    if (number % 2 == 0)
+    {
+        evenNumbers.Add(number);
+    }
+    else
+    {
+        oddNumbers.Add(number);
+    }
+}
+evenNumbers.Sort();
+oddNumbers.Sort();
+Console.WriteLine("Uretilen Cift Sayilar ({0} Adet) :", evenNumbers.Count);
+
+for (int i = 0; i < evenNumbers.Count; i++)
+{
+    Console.Write("-{0}-", evenNumbers[i]);
+}
+
+Console.WriteLine();
+Console.WriteLine("------------------------------");
+Console.WriteLine("Uretilen Tek Sayilar ({0} adet) :", oddNumbers.Count);
+
+for (int i = 0; i < oddNumbers.Count; i++)
+{
+    Console.Write("-{0}-", oddNumbers[i]);
+}
+
+Console.WriteLine();
+Console.WriteLine("------------------------------");
+Console.WriteLine("En buyuk sayi : {0}", maxValue);
+Console.WriteLine("En kucuk sayi : {0}", minValue);
+Console.WriteLine("Sayilarin toplami : {0}", total);
+Console.WriteLine("Sayilarin ortalamasi : {0}", Math.Round(total / numbers.Count, 2));
+*/
+#endregion
+
+#region konu disina cikmak gerekti... metni ters cevirme, kelimeler ayni yerinde kalacak, ancak her kelime tersten yazilacak.
+/*
+Console.WriteLine("Bir Metin Giriniz");
+var text = Console.ReadLine().Trim();
+var inputArray = new ArrayList(text.Split(' '));
+
+for (int i = 0; i < inputArray.Count; i++)
+{
+    char[] charArray = inputArray[i].ToString().ToCharArray(); // inputArrayden aldigimiz objeyi stringe cevirip, sonra bir char arraye donusturuyoruz.
+    Array.Reverse(charArray); // olusturdugumuz charArrayi ters ceviriyoruz
+    inputArray[i] = new string(charArray); // inputArray[i]' ye charArrayi bir string olarak yaziyoruz. 
+}
+
+
+Console.WriteLine();
+*/
+#endregion
+
+#region Anagram Kontrolu Yapan Uygulama
+/*
+Console.WriteLine("1. Kelimeyi Girin");
+var firstLetter = Console.ReadLine().Trim().ToLower();
+
+Console.WriteLine("2. Kelimeyi Girin");
+var secondLetter = Console.ReadLine().Trim().ToLower();
+
+char[] firstArray = firstLetter.ToCharArray();
+char[] secondArray = secondLetter.ToCharArray();
+
+if (firstArray.Length != secondArray.Length)
+{
+    Console.WriteLine("Uzunluklari farkli, Anagram Degil!");
+}
+else
+{
+    Array.Sort(firstArray);
+    Array.Sort(secondArray);
+    string firstArraySorted = new string(firstArray);
+    string secondArraySorted = new string(secondArray);
+
+    if (firstArraySorted == secondArraySorted) Console.WriteLine("{0} ve {1} Anagramdir", firstLetter, secondLetter);
+    else Console.WriteLine("{0} ve {1} Anagram Degildir", firstLetter, secondLetter);
+}
+*/
+#endregion
+
+#region kutuphane uygulamasi
+/*
+var books = new ArrayList() { "Sefiller", "Suc ve Ceza", "Simyaci", "1984", "Hayvan Ciftligi" };
+var takenBooks = new Queue();
+
+while (true)
+{
+    Console.WriteLine("Mevcut Kitaplar:");
+    for (int i = 0; i < books.Count; i++)
+    {
+        Console.WriteLine("{0}. {1}", i + 1, books[i]);
+    }
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine("Cikmak Icin 'exit' yazin");
+    Console.WriteLine("Kitap Iade Etmek Icin 'return' yaziniz");
+    Console.WriteLine("Kitap Odunc Almak Icin Enter'a Basiniz");
+    Console.WriteLine("--------------------------------------------");
+    var input = Console.ReadLine().Trim().ToLower();
+    if (input == "exit")
+    {
+        if (takenBooks.Count > 0)
+        {
+            Console.WriteLine("Cikmadan Once Kitaplari Iade Ediniz");
+        }
+        else break;
+    }
+    else if (input == "return")
+    {
+        if (takenBooks.Count > 0)
+        {
+            var returnedBook = takenBooks.Dequeue();
+            books.Add(returnedBook);
+            Console.WriteLine("Kitap Iade Edildi : {0}", returnedBook);
+        }
+        else Console.WriteLine("Odunc Alinmis Kitap Yok");
+    }
+    else
+    {
+        Console.Write("Bir Kitap Secin (1-{0}): ", books.Count);
+        var choosenBookIndex = int.Parse(Console.ReadLine().Trim()) - 1;
+        Console.WriteLine("Kitap Odunc Alindi : {0}", books[choosenBookIndex]);
+        takenBooks.Enqueue(books[choosenBookIndex]);
+        books.RemoveAt(choosenBookIndex);
+        Console.WriteLine();
+    }
+}
+*/
+#endregion
