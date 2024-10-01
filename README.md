@@ -8,3 +8,4 @@
 7. [Kosullar](/kosullar-007/README.md)
 8. [Donguler](/donguler-008/README.md)
 9. [Diziler](/diziler-009/README.md)
+9. [Foreach Dongusu](/foreach-dongusu/README.md)
