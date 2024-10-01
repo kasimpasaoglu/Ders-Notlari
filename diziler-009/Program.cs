@@ -841,3 +841,114 @@ while (true)
 }
 */
 #endregion
+
+#region randevu olusturma uygulamasi
+/*
+var name = new Queue();
+var time = new Queue();
+
+var completedName = new ArrayList();
+var completedTime = new ArrayList();
+
+while (true)
+{
+    Console.WriteLine(" ");
+    Console.WriteLine("1. Yeni Randevu Ekle");
+    Console.WriteLine("2. Siradaki Randevuyu Tamamla");
+    Console.WriteLine("3. Gecmis Randevulari Goruntule");
+    Console.WriteLine("4. Cikis");
+    Console.WriteLine(" ");
+    Console.Write("Seciminizi Yapin (1-4) :");
+
+    var input = Console.ReadLine().Trim();
+
+
+    if (input == "1" || input == "2" || input == "3" || input == "4")
+    {
+        if (input == "1")
+        {
+            Console.WriteLine("Isim Giriniz :");
+            name.Enqueue(Console.ReadLine().Trim());
+            Console.WriteLine("Saat Giriniz (HH:mm) :");
+            time.Enqueue(TimeOnly.Parse(Console.ReadLine().Trim()));
+            Console.WriteLine("Randevu Basariyla Eklendi");
+        }
+        else if (input == "2")
+        {
+            if (name.Count > 0)
+            {
+                completedName.Add(name.Peek().ToString());
+                completedTime.Add(time.Peek().ToString());
+                Console.WriteLine("Siradaki Randevu : {0} - {1}", name.Dequeue(), time.Dequeue());
+                Console.WriteLine("Randevu Tamamlandi");
+            }
+            else Console.WriteLine("Bekleyen Randevu Bulunmamaktadir");
+        }
+        else if (input == "3")
+        {
+            if (completedName.Count > 0)
+            {
+                Console.WriteLine("Tamamlanmis Randevular :");
+                for (int i = 0; i < completedName.Count; i++)
+                {
+                    Console.WriteLine("Isim => {0} - Saat => {1}", completedName[i], completedTime[i]);
+                }
+            }
+            else Console.WriteLine("Henuz Bir Randevuyu Tamamlamadiniz");
+        }
+        else if (input == "4")
+        {
+            break;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Gecersiz Secim");
+    }
+}
+*/
+#endregion
+
+#region 
+/*
+SortedList sortedList = new SortedList();
+
+sortedList.Add(1, "Ali");
+sortedList.Add(9, "Hande");
+sortedList.Add(6, "Elif");
+sortedList.Add(7, "Selcuk");
+
+for (int i = 0; i < sortedList.Count; i++)
+{
+    string value = sortedList.GetByIndex(i).ToString();
+    Console.WriteLine(value);
+    string key = sortedList.GetKey(i).ToString();
+    Console.WriteLine(key);
+}
+*/
+#endregion
+
+#region Turkiye il plaka ve il adi listesini sorted list ile tanimlayiniz sonra ekrana yazdiriniz
+
+SortedList cities = new SortedList();
+
+string[] cityNames = { "Adana", "Adiyaman", "Afyonkarahisar", "Agri", "Amasya", "Ankara", "Antalya", "Artvin", "Aydin", "Balikesir", "Bilecik", "Bingol", "Bitlis" };
+
+for (int i = 0; i < cityNames.Length; i++)
+{
+    cities.Add(i + 1, cityNames[i]);
+}
+
+for (int i = 0; i < cities.Count; i++)
+{
+    if (i < 9)
+    {
+        Console.WriteLine("0{0}, {1}", cities.GetKey(i), cities.GetByIndex(i));
+    }
+    else
+    {
+        Console.WriteLine("{0}, {1}", cities.GetKey(i), cities.GetByIndex(i));
+    }
+}
+
+#endregion

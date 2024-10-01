@@ -213,3 +213,35 @@ Bu namespace'leri cagirmak icin using ifadesi kullanir. Kodun en basina yazilmal
     * Ornek count :5, capacity 8 ise capacity'i 5 yapar.
 
 
+# SortedList Kolleksiyonu (Sirali Liste)
+Bu gune kadar gordugumuz kolleksiyonlardan farkli olarak, **key** ve **value** bilgisi tasirlar.
+```C#
+SortedList sortedList= new SortedList();
+
+sortedList.Add(1, "Ali");
+sortedList.Add(9, "Hande");
+sortedList.Add(6, "Elif");
+sortedList.Add(7, "Selcuk");
+// key olarak ogrenci numarasi, value olarak isim girdik
+```
+* SortedList oge eklerken, Add fonskiyonu, key ve value, parametrelerini ister. Bu parametreleri object olarak aldigi icin her turlu degeri verebiliriz.
+* SortedList ogeleri **key** degerine gore siralayarak, saklar. Key degeri sayisal bir degerse, kucukten buyuge dogru, harf ise alfabetik siraya gore siralar. 
+```C#
+for (int i = 0; i < sortedList.Count; i++)
+{
+    string value = sortedList.GetByIndex(i).ToString();
+    Console.WriteLine(value);
+
+    string key = sortedList.GetKey(i).ToString();
+    Console.WriteLine(key);
+}
+```
+* `GetByIndex()` Metodu ile index girerek o indexteki **value** degerine ulasabiliyoruz,
+* `GetKey()` Metodu ile index girerek o indexteki **key** degerine usalabiliyoruz
+
+* Bu kolleksiyon key ve value olarak 2 ayri deger tuttugu icin `Contains()` fonksiyonu iki tanedir.
+    * `ContainsKey()` **key**'ler icinde arama yapar.
+    * `ContainsValue()` **value**'lar icinde arama yapar.
+* Key degeri unique olmalidir, ayni key degeri birden fazla ogeye verilmez. (Calisma Zamani Hatasi verir)
+
+:warning: Kolleksiyonlar konusuna bir sure ara veriyoruz, Generic Kolleksiyonlar konusuna geldigimizde tekrar kolleksiyonlar konusuna devam edecegiz.
