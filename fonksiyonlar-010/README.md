@@ -1,0 +1,1 @@
+# Metodlar (Fonksiyonlar)
