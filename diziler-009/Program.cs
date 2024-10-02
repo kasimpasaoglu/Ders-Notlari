@@ -127,7 +127,7 @@ var weeksPassed = 0;
 
 var date = DateTime.Now;
 
-for (int i = 0; i < 10000; i++)   // hafta
+for (int i = 0; i < int.MaxValue; i++)   // hafta
 {
     var correctAnswersCount = 0;
 
@@ -923,10 +923,10 @@ while (true)
 */
 #endregion
 
-#region 
+#region SortedList Ornek
+/*
 
 using System.Collections;
-/*
 
 SortedList sortedList = new SortedList();
 sortedList.Add(1, "Ali"); 
@@ -970,5 +970,46 @@ for (int i = 0; i < cities.Count; i++)
 */
 #endregion
 
+#region Sayisal Loto Tekrar
+/*
+int[] numbers = { 33, 45, 47, 15, 18, 21 };
+var random = new int[6];
+var rnd = new Random();
 
+DateTime time = DateTime.Now;
+var weeksPassed = 0;
+for (int i = 0; i < int.MaxValue; i++)
+{
+    time = time.AddDays(7);
+    weeksPassed++;
+    var correctAnswers = 0;
 
+    for (int j = 0; j < random.Length; j++)
+    {
+        random[j] = rnd.Next(0, 50);
+    }
+
+    foreach (var number in numbers)
+    {
+        foreach (var randomNumber in random)
+        {
+            if (number == randomNumber)
+            {
+                correctAnswers++;
+                continue;
+            }
+        }
+    }
+
+    Console.WriteLine($"{time.ToShortDateString()} => {correctAnswers} adet dogru tahmin");
+
+    if (correctAnswers == 5)
+    {
+        Console.WriteLine($"Tarih => {time.ToShortDateString()}");
+        Console.WriteLine($"{i / 4} Ay Sonra, 5 Adet Dogru Tahmin Geldi");
+        Console.WriteLine($"Toplam Bilet Maliyeti => {weeksPassed * 15}tl");
+        break;
+    }
+}
+*/
+#endregion
