@@ -107,7 +107,7 @@ foreach (int i in randoms)
 #endregion
 
 #region carpim tablosunu foreach ile yapiniz
-/*
+
 int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 
@@ -119,5 +119,5 @@ foreach (int i in numbers)
     }
     Console.WriteLine("-------------------");
 }
-*/
+
 #endregion

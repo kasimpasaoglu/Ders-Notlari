@@ -843,7 +843,7 @@ while (true)
 #endregion
 
 #region randevu olusturma uygulamasi
-/*
+
 var name = new Queue();
 var time = new Queue();
 
@@ -869,8 +869,10 @@ while (true)
         {
             Console.WriteLine("Isim Giriniz :");
             name.Enqueue(Console.ReadLine().Trim());
+
             Console.WriteLine("Saat Giriniz (HH:mm) :");
             time.Enqueue(TimeOnly.Parse(Console.ReadLine().Trim()));
+
             Console.WriteLine("Randevu Basariyla Eklendi");
         }
         else if (input == "2")
@@ -906,7 +908,7 @@ while (true)
         Console.WriteLine("Gecersiz Secim");
     }
 }
-*/
+
 #endregion
 
 #region 

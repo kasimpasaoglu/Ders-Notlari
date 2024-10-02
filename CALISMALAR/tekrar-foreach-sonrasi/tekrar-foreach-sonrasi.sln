@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tekrar-foreach-sonrasi", "tekrar-foreach-sonrasi.csproj", "{9950F684-D579-4010-A4EA-DE402A4BBC9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9950F684-D579-4010-A4EA-DE402A4BBC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9950F684-D579-4010-A4EA-DE402A4BBC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9950F684-D579-4010-A4EA-DE402A4BBC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9950F684-D579-4010-A4EA-DE402A4BBC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E1E0E81-166F-41A5-A4D1-3C18CF5AFF0B}
+	EndGlobalSection
+EndGlobal
