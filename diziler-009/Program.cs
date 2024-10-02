@@ -386,6 +386,7 @@ Array.Copy(stringDizi, 0, newStringDizi, 5, stringDizi.Length);
 using System.Collections;
 
 Queue cars = new Queue();
+
 cars.Enqueue("Renault");
 cars.Enqueue("Mercedes");
 cars.Enqueue("Audi");
@@ -396,13 +397,16 @@ cars.Enqueue("Tofas");
 cars.Enqueue("Togg");
 cars.Enqueue("Hyundai");
 
+
+
+
 var counter = cars.Count;
 for (int i = 0; i < counter; i++)
 {
+    // Console.WriteLine($"{cars.Peek()}");
     Console.WriteLine("Diziden Eleman Cikarmak Icin Enter'a basiniz");
     Console.ReadLine();
-    string item = cars.Dequeue().ToString();
-    Console.WriteLine(item);
+    Console.WriteLine(cars.Dequeue().ToString());
     Console.WriteLine("Kalan Eleman Sayisi => {0}", cars.Count);
 }
 */
@@ -446,6 +450,11 @@ arrayList.Add("Fiat");
 arrayList.Add("Opel");
 arrayList.Add("Honda");
 arrayList.Add("BMW");
+
+
+arrayList.TrimToSize();
+arrayList.GetRange(1, 3);
+Console.WriteLine(arrayList);
 */
 #endregion
 
@@ -453,8 +462,10 @@ arrayList.Add("BMW");
 /*
 using System.Collections;
 
+
 ArrayList arrayList = new ArrayList();
-for (int i = 0; i < 30; i++)
+
+for (int i = 0; i < 5; i++)
 {
     Console.WriteLine("Eleman Giriniz");
     arrayList.Add(Console.ReadLine());
@@ -468,6 +479,7 @@ for (int i = 0; i < 30; i++)
 using System.Collections;
 
 ArrayList notes = new ArrayList();
+
 var total = 0;
 for (int i = 0; i < 10; i++)
 {
@@ -688,7 +700,7 @@ while (true)
 #endregion
 
 #region rasgele sayilar ile calisma
-using System.Collections;
+
 /*
 Console.WriteLine("Kac Adet Sayi Olusturulsun ?");
 var numberCount = int.Parse(Console.ReadLine().Trim());
@@ -843,7 +855,7 @@ while (true)
 #endregion
 
 #region randevu olusturma uygulamasi
-
+/*
 var name = new Queue();
 var time = new Queue();
 
@@ -908,30 +920,33 @@ while (true)
         Console.WriteLine("Gecersiz Secim");
     }
 }
-
+*/
 #endregion
 
 #region 
-/*
-SortedList sortedList = new SortedList();
 
-sortedList.Add(1, "Ali");
-sortedList.Add(9, "Hande");
-sortedList.Add(6, "Elif");
-sortedList.Add(7, "Selcuk");
+using System.Collections;
+/*
+
+SortedList sortedList = new SortedList();
+sortedList.Add(1, "Ali"); 
+sortedList.Add(9, "Hande"); 
+sortedList.Add(6, "Elif"); 
+sortedList.Add(7, "Selcuk"); 
 
 for (int i = 0; i < sortedList.Count; i++)
 {
     string value = sortedList.GetByIndex(i).ToString();
     Console.WriteLine(value);
-    string key = sortedList.GetKey(i).ToString();
+    int key = (int)sortedList.GetKey(i);
     Console.WriteLine(key);
 }
 */
+
 #endregion
 
 #region Turkiye il plaka ve il adi listesini sorted list ile tanimlayiniz sonra ekrana yazdiriniz
-
+/*
 SortedList cities = new SortedList();
 
 string[] cityNames = { "Adana", "Adiyaman", "Afyonkarahisar", "Agri", "Amasya", "Ankara", "Antalya", "Artvin", "Aydin", "Balikesir", "Bilecik", "Bingol", "Bitlis" };
@@ -952,5 +967,8 @@ for (int i = 0; i < cities.Count; i++)
         Console.WriteLine("{0}, {1}", cities.GetKey(i), cities.GetByIndex(i));
     }
 }
-
+*/
 #endregion
+
+
+

@@ -37,6 +37,7 @@ foreach (DictionaryEntry i in sortedList)
     Console.WriteLine(i.Key + " -- " + i.Value);
 }
 */
+
 #endregion
 
 #region ogrenciden aldigimiz not sayisina gore, notlarin toplami ve ortalamasini ekrana yazalim
@@ -107,7 +108,7 @@ foreach (int i in randoms)
 #endregion
 
 #region carpim tablosunu foreach ile yapiniz
-
+/*
 int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 
@@ -119,5 +120,26 @@ foreach (int i in numbers)
     }
     Console.WriteLine("-------------------");
 }
+*/
+#endregion
 
+#region 
+/*
+using System.Collections;
+
+ArrayList cars = new ArrayList();
+cars.Add(1);
+cars.Add(2);
+cars.Add(3);
+cars.Add(4);
+cars.Add(5);
+cars.Add(6);
+
+int[] newArray = new int[] { 65, 66, 67, 68, 69, 70, 71 };
+
+foreach (char letter in newArray)
+{
+    Console.WriteLine(letter);
+}
+*/
 #endregion
