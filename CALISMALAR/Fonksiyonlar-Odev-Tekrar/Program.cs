@@ -369,6 +369,182 @@ static void ShowAppointments(SortedList list)
 */
 #endregion
 
-#region 
+#region Banka Sistemi Simulasyonu
+
+SortedList accounts = new();
+// Key = Hesap no, Array[0]= sifre, Array[1] Isim, Array[2] Bakiye
+accounts.Add("0123", new ArrayList() { "admin3", "Ahmet Yildirim", 19000.84 });
+accounts.Add("0124", new ArrayList() { "admin4", "Elif Demir", 27000.78 });
+accounts.Add("0125", new ArrayList() { "admin5", "Mehmet Kaya", 15000.48 });
+accounts.Add("0126", new ArrayList() { "admin6", "Ayse Celik", 38000.45 });
+accounts.Add("0127", new ArrayList() { "admin7", "Fatih Arslan", 45000.24 });
+
+var index = Login(accounts); // giris dogrulanirsa giris yapilan kullaniciya ait index degeri gelecek
+
+while (true)
+{
+    Console.WriteLine();
+    Console.WriteLine("ANA MENU");
+    Console.WriteLine("1. Para Cekme");
+    Console.WriteLine("2. Para Yatirma");
+    Console.WriteLine("3. Para Transferi");
+    Console.WriteLine("4. Bakiye Sorgulama");
+    Console.WriteLine("5. Cikis");
+    Console.WriteLine();
+
+    var input = Console.ReadLine().Trim();
+
+    if (input == "1")
+    {
+        Withdraw(accounts, index);   // para cekme fonksiyonu
+    }
+    else if (input == "2")
+    {
+        Deposit(accounts, index);    // para yatirma fonksiyonu
+    }
+    else if (input == "3")
+    {
+        int targetIndex = FindTargetIndex(accounts);   // dogrulamalardan sonra, hedef hesaba ait index numarasina ulasildi
+        Transfer(accounts, index, targetIndex);
+    }
+    else if (input == "4")
+    {
+        WriteAccount(accounts, index);
+    }
+    else if (input == "5")
+    {
+        Console.WriteLine("Cikis Yapiliyor");
+        System.Threading.Thread.Sleep(1000);
+        break;
+    }
+}
+
+static void Transfer(SortedList list, int sourceIndex, int targetIndex) // alici ve gonderici hesaplara ait index bilgisini aldiktan sonra transfer islemini yapan fonksiyon
+{
+    ArrayList sourceDetails = Balance(list, sourceIndex);  // Balance fonksiyonu ile hesap bakiyesi ekrana yazdirildi ve value degeri icindeki ArrayList unboxing yapilip cikarildi.
+    ArrayList targetDetails = (ArrayList)list.GetByIndex(targetIndex); // alici index bilgisi ile alici hesabin value degeri icindeki ArrayList unbox yapildi
+    while (true)
+    {
+        Console.WriteLine("Gondermek Istediginiz Tutari Giriniz");
+        var transferAmount = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+        if (transferAmount > (double)sourceDetails[2]) // gonderilecek tutar, gondericinin bakiyesinden fazla ise islem engellendi. Bu sorgulama yapilabilmesi icin ArrayList icindeki 2. indexteki bakiye bilgisini unboxing yapmak gerekiyor (double)
+        {
+            Console.WriteLine("Bakiyeniz bu islem icin yetersiz. Lutfen baska bir tutar giriniz.");
+        }
+        else
+        {
+            Console.WriteLine("Islem Gerceklesiyor Lutfen Bekleyiniz");
+            System.Threading.Thread.Sleep(2000);
+            sourceDetails[2] = (double)sourceDetails[2] - transferAmount;  // gonderici hesabindaki bakiye bilgisinin tutuldugu yerde cikarma islemi yapildi
+            targetDetails[2] = (double)targetDetails[2] + transferAmount; // alici hesabindaki bakiye bilgisinin tutuldugu yere toplama islemi yapildi
+            Console.WriteLine($"Gonderilen Tutar => {transferAmount} || Kalan Bakiyeniz => {Math.Round((double)sourceDetails[2], 2)} TL");
+            break;
+        }
+    }
+}
+
+static int FindTargetIndex(SortedList list) // alicinin hesap no(key) alip, alici hesabin indexini geri donen fonksiyon
+{
+    var targetIndex = 0; // baslangicta rasgele bir deger atandi
+    while (true)
+    {
+        Console.WriteLine("Alici Hesap No Giriniz");
+        var targetId = Console.ReadLine().Trim();
+        if (list.ContainsKey(targetId)) // alinan hesap numarasi sortlist icinde var mi yok mu kontrolu
+        {
+            ArrayList targetDetails = (ArrayList)list[targetId]; // alici hesap bilgilerine ulasildi, ArrayList olarak unboxing yapildi
+            Console.WriteLine($"Alici Adi Soyadi => {targetDetails[1]}");
+            Console.WriteLine("Onaylamak icin 'e' tekrar denemek icin 'h' yaziniz ");
+            var input = Console.ReadLine().Trim().ToLower();
+            if (input == "e") // onay alindi isleme devam
+            {
+                targetIndex = list.IndexOfKey(targetId); // key(hesap no) bilgisi kullanilarak index bilgisine ulasildi 
+                return targetIndex; // bulunan index degeri geri donduruldu ve donguden cikildi.
+            }
+            else
+            {
+                Console.WriteLine("Iptal Ediliyor");
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+        else Console.WriteLine("Hesap no bulunamadi, Lutfen Tekrar Deneyiniz");
+    }
+}
+
+static void Deposit(SortedList list, int index) // para yatirma islemini yapan fonksiyon
+{
+    ArrayList details = Balance(list, index); // Balance Fonksiyonu ile bakiye bilgisini ekrana yazdirip, hesap detaylarini sortlist icinden cikarip unboxing..
+    Console.WriteLine("Yatirmak istediginiz tutari giriniz:");
+    var depositAmount = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+    details[2] = (double)details[2] + depositAmount; // 2. indexte olan bakiye bilgisine , yatirilacak tutar eklendi, matematik islemi yapilabilmesi icin, (double) ile unboxing yapildi, bulunan deger tekrar ayni 2.indexe boxing yapilip gonderildi.
+    Console.WriteLine($"Yatirilan Tutar => {depositAmount} || Yeni Bakiyeniz => {Math.Round((double)details[2], 2)} TL");
+
+}
+// BU IKI FONKSIYON BIRLESTIREBILIR MI? Sanki evet??? (Deposit & Withdraw)
+static void Withdraw(SortedList list, int index) // para cekme islemini yapan fonksiyon
+{
+    ArrayList details = Balance(list, index); // Balance Fonksiyonu ile hem kullaniciya bakiye bilgisini yazdik, hemde hesap detaylarini array olarak geri donduruldu ve details olarak tanimlandi
+    Console.WriteLine("Cekmek istediginiz tutari giriniz:");
+    while (true)
+    {
+        var withdrawAmount = double.Parse(Console.ReadLine().Trim().Replace('.', ','));
+        if (withdrawAmount > (double)details[2]) // hesap bakiyesini tutan 2. index unboxing yapildi ve cekilmek istenen tutarla kiyaslandi.
+        {
+            Console.WriteLine("Bakiyeniz bu islem icin yetersiz. Lutfen baska bir tutar giriniz.");
+        }
+        else
+        {
+            Console.WriteLine("Islem Tamamlandi");
+            details[2] = (double)details[2] - withdrawAmount;
+            Console.WriteLine($"Cekilen Tutar => {withdrawAmount} || Kalan Bakiyeniz => {Math.Round((double)details[2], 2)} TL");
+            break;
+        }
+    }
+}
+
+static ArrayList Balance(SortedList list, int index) // sadece hesap bakiyesini yazan, ve detaylari ArrayList olarak donen fonksiyon
+{
+    ArrayList details = (ArrayList)list.GetByIndex(index);   // index bilgisini kullanarak SortedListteki' value Arrayine ulasilip, unboxin yapilarak kullanima hazir hale getirildi. 
+    Console.WriteLine($"Bakiyeniz => {Math.Round((double)details[2], 2)} TL");
+    return details; // acilan Array disari gonderildi.
+}
+
+static void WriteAccount(SortedList list, int index) // butun hesap bilgilerini sadece ekrana yazdiran fonksiyon
+{
+    ArrayList details = (ArrayList)list.GetByIndex(index); // yukardaki ile ayni islem
+
+    Console.WriteLine($"Hesap No => {list.GetKey(index)} || Sn. {details[1]} || Bakiye => {Math.Round((double)details[2], 2)} TL");
+}
+
+static int Login(SortedList list) // giris kullanici dogrulamasi yapan ve dogrulanmis kullanicinin verisinin tutuldugu yerin index bilgisini donen fonskiyon
+{
+    Console.WriteLine("Hesap No Giriniz:");
+    var index = 0;
+    while (true)
+    {
+        var idNumber = Console.ReadLine().Trim();
+        if (list.ContainsKey(idNumber))         // girilen hesap no var mi kontrolu
+        {
+            Console.WriteLine("Hesap No {0}", idNumber);
+
+            Console.WriteLine("Sifrenizi giriniz");
+            ArrayList details = (ArrayList)list[idNumber];  // hesap no(key) girerek value'ya ulasildi, array olarak unboxing yapildi
+            while (true)
+            {
+                var pwInput = Console.ReadLine().Trim();  // sifre girisi alindi
+                if (details[0].ToString() == pwInput) // arraylist icindeki 0. indexte bulunan ogeyi unboxing yap & kullanicinin girdgi sifre ile karsilastir
+                {
+                    Console.WriteLine("Giris Basarili Yonlendiriliyorsunuz");
+                    index = list.IndexOfKey(idNumber);  // giris basirili ise hesap no(key) bilgisini kullanarak index bilgisini al
+                    System.Threading.Thread.Sleep(2000);
+                    return index;                       // bu index bilgisi disari gonderildi ve dongu bitti.
+                }
+                else Console.WriteLine("Sifre Hatali, Lutfen Tekrar Deneyiniz");
+            }
+        }
+        else Console.WriteLine("Hesap No Bulunamadi, Lutfen Tekrar Deneyiniz");
+    }
+}
+
 
 #endregion
