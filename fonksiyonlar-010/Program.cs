@@ -380,3 +380,245 @@ MySubstring("0123456789", 5, 2);
 
 // HideString("Kasim");
 #endregion
+
+#region bir string ifadede hangi harfin kac defa tekrar ettigini bulan metod
+/*
+using System.Collections;
+
+static void CountLetters(string input)
+{
+    input = input.ToLower();
+    SortedList letters = new SortedList();
+    for (int i = 0; i < input.Length; i++)
+    {
+        if (letters.ContainsKey(input[i]))
+        {
+            letters[input[i]] = (int)letters[input[i]] + 1;
+        }
+        else
+        {
+            letters.Add(input[i], 1);
+        }
+    }
+    foreach (DictionaryEntry item in letters)
+    {
+        Console.WriteLine($"{item.Key} Harfi => {item.Value} defa tekrar ediyor.");
+    }
+}
+
+CountLetters("Araba");
+*/
+#endregion
+
+#region Sinif not durumuna gore ogrencileri ayiran metod
+/*
+using System.Collections;
+
+static void SortStudents(SortedList list, int passingGrade)
+{
+    SortedList passed = new();
+    SortedList failed = new();
+    foreach (DictionaryEntry item in list)
+    {
+        if ((int)item.Key >= passingGrade)
+        {
+            passed.Add(item.Key, item.Value);
+        }
+        else
+        {
+            failed.Add(item.Key, item.Value);
+        }
+    }
+    Console.WriteLine("Gecen Ogrenciler");
+    foreach (DictionaryEntry item in passed)
+    {
+        Console.WriteLine($"{item.Value,10} ==> {item.Key,3}");
+    }
+    Console.WriteLine();
+    Console.WriteLine("Kalan Ogrenciler");
+    foreach (DictionaryEntry item in failed)
+    {
+        Console.WriteLine($"{item.Value,10} ==> {item.Key,3}");
+    }
+}
+
+SortedList students = new();
+students.Add(50, "Kasim");
+students.Add(60, "Ali");
+students.Add(40, "Hasan");
+students.Add(55, "Orhan");
+students.Add(20, "Mehmet");
+students.Add(75, "Ahmet");
+students.Add(30, "Caner");
+students.Add(10, "Mert");
+
+SortStudents(students, 50);
+*/
+#endregion
+
+#region Diziye yeni ogrenci ekleyen, eklerken numara atamasi yapan, ogrenci adi dizide varsa isim degistirmeye yarayan bir fonksiyon
+/*
+using System.Collections;
+
+static SortedList StudentList(SortedList list, string name)
+{
+    if (list.ContainsValue(name))
+    {
+        var number = list.GetKey(list.IndexOfValue(name));
+        Console.WriteLine($"Degistirilecek Isim => {list[number]}");
+        Console.WriteLine("Yeni Ismi Giriniz");
+        list[number] = Console.ReadLine().Trim();
+    }
+    else
+    {
+        var rnd = new Random();
+
+        list.Add(rnd.Next(100000, 1000000), name);
+    }
+
+    Console.WriteLine($"Ogrenci No || Isim & Soyisim");
+    foreach (DictionaryEntry item in list)
+    {
+        Console.WriteLine($"{item.Key} || {item.Value}");
+    }
+    return list;
+}
+
+SortedList studens = new();
+studens.Add(362200, "Kasim Pasaoglu");
+studens.Add(444494, "Selcuk Yavuz");
+studens.Add(496436, "Seda Pasaoglu");
+studens.Add(555933, "CansuuPasaoglu");
+
+StudentList(studens, "Kerem Pasaoglu");
+StudentList(studens, "CansuuPasaoglu");
+*/
+#endregion
+
+#region Dogum Tarihini alip kac yasinda oldugunu tam olarak dogru hesaplayan ve bir sonraki dogum gununun ne zaman oldugunu gosteren fonksiyon
+/*
+static void AgeCalculator(DateTime birthday)
+{
+    DateTime now = DateTime.Now;
+    int yearDiff = now.Year - birthday.Year;
+    if (now.Month < birthday.Month)
+    {
+        yearDiff--;
+    }
+
+    else if (now.Month == birthday.Month && now.Day < birthday.Day)
+    {
+        yearDiff--;
+    }
+
+    DateTime nextBirthday = birthday.AddYears(yearDiff + 1);
+
+    Console.WriteLine($"{yearDiff} Yasindasiniz");
+    Console.WriteLine($"Bir Sonraki Dogum Gununuz {nextBirthday.ToLongDateString()}");
+}
+
+Console.WriteLine("Dogum Tarihinizi Yaziniz (gg.aa.yyyy)");
+DateTime input = DateTime.Parse(Console.ReadLine().Trim());
+AgeCalculator(input);
+*/
+#endregion
+
+#region Bir cumledeki en uzun kelimeyi bulan fonksiyon
+/*
+using System.Collections;
+
+static string LongestWord(string text)
+{
+    string[] array = text.Split(' ');
+    var longestWord = "";
+    foreach (var item in array)
+    {
+        if (item.Length > longestWord.Length)
+        {
+            longestWord = item;
+        }
+    }
+    return longestWord;
+}
+
+Console.WriteLine(LongestWord("Bu gun hava yagmurlu. Bu cumledeki en uzun kelime, gelemeyekmiscesine"));
+*/
+#endregion
+
+#region SortedList Icine ArrayList Ekleme
+/*
+using System.Collections;
+
+SortedList dersListesi = new();
+dersListesi.Add("1.Sinif", new ArrayList() { "Turkce, Matematik, Tarih" });
+dersListesi.Add("9.Sinif", new ArrayList() { "Fizik, Kimya, Edebiyat" });
+
+static void DersListele(SortedList dersler, string sinif)
+{
+    // sorted list icinde key verip value alabiliyorduk
+    ArrayList dersListe = (ArrayList)dersler[sinif];
+
+    foreach (var item in dersListe)
+    {
+        Console.WriteLine(item);
+    }
+}
+
+DersListele(dersListesi, "1.Sinif");
+*/
+#endregion
+
+#region Bir metod icinden baska bir metod cagirmak
+/*
+using System.Collections;
+
+// bu metod parametre olarak aldigi key degerindeki value'lar ile bir arraylist hazirlayip onu geri donduruyor
+static ArrayList Hazirla(string ders)
+{
+    SortedList dersler = new();
+    dersler.Add("1.Sinif", new ArrayList() { "Turkce", "Beden" });
+    dersler.Add("2.Sinif", new ArrayList() { "Turkce", "Matematik" });
+    dersler.Add("3.Sinif", new ArrayList() { "Fizik", "Biyoloji" });
+    dersler.Add("4.Sinif", new ArrayList() { "Kimya", "Tarih" });
+    ArrayList liste = (ArrayList)dersler[ders];
+    return liste;
+}
+
+// bu metod yukardaki hazirla metodunu calistiriyor. Ordan aldigi ArrayListi ekrana yazdiriyor. 
+static void DersleriGetir(string ders)
+{
+    ArrayList liste = Hazirla(ders);
+
+    foreach (var item in liste)
+    {
+        Console.WriteLine(item);
+    }
+}
+*/
+#endregion
+
+#region Bir string icinde kac tane rakam oldugunu bize soyleyen uygulama, 
+/*
+static bool IsNumber(char value)
+{
+    return char.IsDigit(value);
+}
+
+static void FindNumbers(string value)
+{
+    int totalDigits = 0;
+    for (int i = 0; i < value.Length; i++)
+    {
+        if (IsNumber(value[i]))
+        {
+            totalDigits++;
+        }
+    }
+
+    Console.WriteLine($"Girilen Metinde {totalDigits} adet rakam vardir");
+}
+
+FindNumbers("Bu or2n45kt3 yanlislikla 2rakam5 tuslanmis3t1r");
+*/
+#endregion
+

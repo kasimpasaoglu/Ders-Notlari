@@ -7,7 +7,7 @@ Bir is yapan kucuk program parcalaridir. C# jargonunda metod olarak isimlendiril
 > Gercek hayatta bir problemle karsilastigimizda bunlari cozmek icin bir yol arariz. Buyuk bir problemle ugrasmak daha zordur. Bu tarz durumlarda buyuk problemi kucuk parcalar haline bolup oyle cozmeye calismak onerilir.\
 Yazilim dunyasinda bu tarz buyuk isleri cozmek icin ufak parcalara ayirmak metodlarla yapilir. 
 
-**METOD TURLERI**
+## METOD TURLERI
 1. Parametre Alan Metodlar
     * `Next()` , `Replace()` gibi bu gune kadar kullandigimiz metodlardan parametre alarak calisan metodlara ornektir
 2. Deger Donduren Metodlar
@@ -35,7 +35,7 @@ erisim belirteci + static / static degil + geri donus tipi / deger donmeyecekse 
 * **Metod adi**: metodun yapacagi is ile ilgili isimlendirme yapilmalidir. Tek karakter ve ya anlamsiz isimler kodun okunabilirligini bozacagi icin, duzgun bir isimlendirme yapilmalidir. **Pascal** casing (WissenMetod) kullanilmalidir. 
 * **Metodun Parametreleri**: Bir metod, 1 veya birden cok parametre alabilir. Kac adet parametre alacaginin bir siniri yoktur. Ayni geri donus tipinde oldugu gibi, dotnet icindeki tum degisken tiplerini parametre olarak alabilir.
 
-**KURALLAR**
+## KURALLAR
 * Metod yazarken, metod icerisindeki kod satir sayisinin yaklasik 30'u asmamasina dikkat etmek gerekmektedir. Bu bir hataya sebep olmasa da genel kabul edilen, yazili olmayan kural 30 satirdir. Fazlasi hos karsilanmaz.
 * Metod parametrelerindede yazili olmayan baska bir kural olarak, metod parametre sayisi 4'u geciyorsa buna onlem alinmasi gerekmektedir. 
 * Hazirladigimiz metod geriye deger donecekse mutlaka `return` ifadesi kullanilir. 
@@ -87,4 +87,55 @@ static void reverseArray(string[] list)
 string[] names = { "kasim", "cansu", "sahin", "selcuk", "ceylin", "pelin", "orhan" };
 
 ReverseArray(names);
+```
+# ARA BILGI (SortedList Icine Bir ArrayList Ekleme)
+Ornegin Ders ve sinif bilgisine gore ders konusu iceren bir sorted list 
+```C#
+
+using System.Collections;
+
+SortedList dersListesi = new();
+dersListesi.Add("1.Sinif", new ArrayList() { "Turkce, Matematik, Tarih" });
+dersListesi.Add("9.Sinif", new ArrayList() { "Fizik, Kimya, Edebiyat" });
+
+static void DersListele(SortedList dersler, string sinif)
+{
+    // sorted list icinde key verip value alabiliyorduk
+    ArrayList dersListe = (ArrayList)dersler[sinif];
+
+    foreach (var item in dersListe)
+    {
+        Console.WriteLine(item);
+    }
+}
+
+DersListele(dersListesi, "1.Sinif");
+```
+
+## Bir metod icinde baska bir metodu cagirmak.
+C#' ta bir metod baska bir metodu cagirabilir. Bunda bir sinir yoktur.
+
+```C#
+// bu metod parametre olarak aldigi key degerindeki value'lar ile bir arraylist hazirlayip onu geri donduruyor
+static ArrayList Hazirla(string ders)
+{
+    SortedList dersler = new();
+    dersler.Add("1.Sinif", new ArrayList() { "Turkce", "Beden" });
+    dersler.Add("2.Sinif", new ArrayList() { "Turkce", "Matematik" });
+    dersler.Add("3.Sinif", new ArrayList() { "Fizik", "Biyoloji" });
+    dersler.Add("4.Sinif", new ArrayList() { "Kimya", "Tarih" });
+    ArrayList liste = (ArrayList)dersler[ders];
+    return liste;
+}
+
+// bu metod ise yukardaki hazirla metodunu calistiriyor. Ordan aldigi ArrayListi ekrana yazdiriyor. 
+static void DersleriGetir(string ders)
+{
+    ArrayList liste = Hazirla(ders);
+
+    foreach (var item in liste)
+    {
+        Console.WriteLine(item);
+    }
+}
 ```
