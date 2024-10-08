@@ -370,7 +370,7 @@ static void ShowAppointments(SortedList list)
 #endregion
 
 #region Banka Sistemi Simulasyonu
-
+/*
 SortedList accounts = new();
 // Key = Hesap no, Array[0]= sifre, Array[1] Isim, Array[2] Bakiye
 accounts.Add("0123", new ArrayList() { "admin3", "Ahmet Yildirim", 19000.84 });
@@ -545,6 +545,86 @@ static int Login(SortedList list) // giris kullanici dogrulamasi yapan ve dogrul
         else Console.WriteLine("Hesap No Bulunamadi, Lutfen Tekrar Deneyiniz");
     }
 }
+*/
+#endregion
 
+#region Ucgen Cozme
+
+Console.WriteLine("Birinci Kenar Uzunlugunu Giriniz (A) :");
+double sideA = Convert.ToDouble(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Ikinci Kenar Uzunlugunu Giriniz (B):");
+double sideB = Convert.ToDouble(Console.ReadLine().Trim().Replace('.', ','));
+
+Console.WriteLine("Bu iki kenar arasindaki Aciyi Giriniz (c):");
+double degreesC = Convert.ToDouble(Console.ReadLine().Trim().Replace('.', ','));
+
+double sideC = CosTheorem(sideA, sideB, DegreeToRadian(degreesC));
+double degreesA = SinTheorem(sideA, sideC, DegreeToRadian(degreesC));
+double degreesB = 180 - degreesA - degreesC;
+
+ArrayList sides = Sorter(sideA, sideB, sideC);
+ArrayList degrees = Sorter(degreesA, degreesB, degreesC);
+
+WriteResults(sides, degrees, CalcArea(sideA, sideB, DegreeToRadian(degreesC)), CalcPerimeter(sideA, sideB, sideC));
+
+static double DegreeToRadian(double degree)
+{
+    return degree * (Math.PI / 180);
+}
+
+static double RadianToDegree(double radian)
+{
+    return radian * (180 / Math.PI);
+}
+
+static double CosTheorem(double sideA, double sideB, double radianC) //(Kok icinde; A^2 + B^2 - 2(A*B*Cos(c)))
+{
+    return Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2) - 2 * sideA * sideB * Math.Cos(radianC));
+}
+
+static double SinTheorem(double sideB, double sideC, double radianC) //(arcsin(B/C * sin(c) * `Radyani Dereceye cevir`)
+{
+    return RadianToDegree(Math.Asin((sideB / sideC) * Math.Sin(radianC)));
+}
+
+static ArrayList Sorter(double a, double b, double c)
+{
+    var biggest = Math.Max(a, Math.Max(b, c));
+    var smallest = Math.Min(a, Math.Min(b, c));
+    var middle = a + b + c - biggest - smallest;
+    a = biggest;
+    b = middle;
+    c = smallest;
+    ArrayList results = [a, b, c];
+    results.TrimToSize();
+    return results;
+}
+
+static double CalcArea(double sideA, double sideB, double radianC)
+{
+    return sideA * sideB * Math.Sin(radianC) / 2;
+}
+
+static double CalcPerimeter(double sideA, double sideB, double sideC)
+{
+    return sideA + sideB + sideC;
+}
+
+static void WriteResults(ArrayList sides, ArrayList degrees, double area, double perimeter)
+{
+    Console.WriteLine("Olculer :");
+    double totalDegrees = 0;
+    for (int i = 0; i < sides.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. Kenar Uzunlugu => {Math.Round((double)sides[i], 2),-5} || Karsisindaki Aci => {Math.Round((double)degrees[i], 2),-5}");
+        totalDegrees += (double)degrees[i];
+    }
+    Console.WriteLine();
+    Console.WriteLine($"Ic Acilari Toplami ==> {Math.Round(totalDegrees, 2)}");
+    Console.WriteLine();
+    Console.WriteLine($"Alani ==> {Math.Round(area, 2)} ");
+    Console.WriteLine($"Cevresi ==> {Math.Round(perimeter, 2)} ");
+}
 
 #endregion
