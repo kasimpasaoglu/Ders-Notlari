@@ -75,7 +75,7 @@ int a;
 
 Console.WriteLine(MyTryParse("1234", out a) + " " + a);
 */
-
+/*
 int a; // disarda deger almayi bekleyen degisken
 static bool SayiMi(string s, out int a) // metod, s adinda bir string alacak, disari a adinda bir int deger gonderecek
 {
@@ -92,4 +92,5 @@ static bool SayiMi(string s, out int a) // metod, s adinda bir string alacak, di
 }
 Console.WriteLine(SayiMi("1234", out a)); // fonskiyon icine yazdigimiz stringin sayi olup olmadigina bakacak, burda sayi olmadigi icin false donecek , 
 Console.WriteLine(a); // ve a degiskenine 0 atayacak
+*/
 #endregion
