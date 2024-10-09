@@ -94,3 +94,7 @@ Console.WriteLine(SayiMi("1234", out a)); // fonskiyon icine yazdigimiz stringin
 Console.WriteLine(a); // ve a degiskenine 0 atayacak
 */
 #endregion
+
+#region 
+
+#endregion
