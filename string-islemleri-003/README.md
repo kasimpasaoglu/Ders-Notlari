@@ -1,3 +1,4 @@
+> [**INDEX'e DON**](/README.md)
 # String İslemleri
 
 string olarak yanımladığımız bir veriye bir metod uygulamak için değişkenin adını girdikten sonra (.) isareti ile metot çağırabiliriz.
@@ -69,3 +70,4 @@ Console.WriteLine(subString);
 string trimmedString = metin.Trim();
 Console.WriteLine(trimmedString);
 ```
+> [**INDEX'e DON**](/README.md)

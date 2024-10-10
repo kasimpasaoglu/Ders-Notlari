@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # DateTime Fonksiyonu
 
 * Bu gunun tarihini alabiliriz
@@ -63,3 +65,5 @@ TimeSpan diff = (firstDate - secondDate).Duration();
 *kullanicinin girdisini (31.05.1992 18:21:45) DateTime olarak tanimladi.*
 
 * Eger yazilim iki farkli ulkede entegrasyon yapilacaksa, saatlerin esit olmasi gerekir. Bu yuzden zaman ayarini UTC zamanina gore aliriz. UTC saatine ulasmak icin -> `DateTime.UtcNow`
+
+> [**INDEX'e DON**](/README.md)

@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Kosullar (Karar Mekanizmalari)
 
 - Bir yazilimin en onemli bilesenidir
@@ -207,3 +209,5 @@ Aciklama : Eger isOk True gelirse ( ? ), degiskene "Dogru" degerini ata, Degilse
         }
         break;
 ```
+
+> [**INDEX'e DON**](/README.md)

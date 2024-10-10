@@ -118,3 +118,4 @@ int stringAtananInt = "int tipine string vermek";
 ```
 ***NOT: bilinçli ve ya bilinçisiz tip atamalarını, tip dönüşümlerinde daha detaylı göreceğiz.***
 
+> [**INDEX'e DON**](/README.md)

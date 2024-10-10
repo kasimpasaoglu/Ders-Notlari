@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # HATA YONETIMI
 
 .Net icinde iki turlu hata vardir
@@ -67,3 +69,5 @@ catch (FormatException hata) // bu blok sadece formatexception hatasini yakalaya
 ```
 * `Catch` bloklarini istediginiz kadar cogaltabilirsiniz
 * Yukarida iki farkli case icin `Catch` yazdik, Hic Dusunmedigimiz bir hata meydana gelmesi durumunda `Exception` kullanip, geri kalan butun hatalari yakalamis olur
+
+> [**INDEX'e DON**](/README.md)

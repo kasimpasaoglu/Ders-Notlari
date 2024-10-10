@@ -12,9 +12,10 @@
 10. [Metodlar(Fonksiyonlar)](/fonksiyonlar-010/README.md)
     * [ref-out keywords](/fonksiyonlar-deger-referans%20tipi-010-1/README.md)
     * [Overloading, Params, default parameter](/fonksiyonlar-devam-010-2/README.md)
-
+11. [Exception (Hata) Yonetimi](/exception(hata)-yonetimi-011/README.md)
 ---
 [CALISMALAR](/CALISMALAR/)
+
 
 
 

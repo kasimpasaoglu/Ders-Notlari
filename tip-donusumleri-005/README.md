@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Tip Donusumleri
 C#'da 4 turlu tip donusumu vardir
 1. Convert
@@ -112,3 +114,5 @@ Cast tip donusumu ikiye ayrilir.
 * cast yontemi ile string tipi bir tipe donusturulemez. 
 * Convert C# ta onceden tanimli olan 15 adet tipi birbirine donusturmeye yarar
 * Cast ise hem bu 15 tanimli tipi birbirine cevirir(String istisna), hem de ileride gorecegimiz (kendi tipimizi yazma konusunda), diger tipleri de birbirine donusturur.
+
+> [**INDEX'e DON**](/README.md)

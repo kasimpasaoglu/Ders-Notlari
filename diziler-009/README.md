@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Diziler (Array)
 
 Birden fazla ayni tipte veriyi tasiyabilen yapilara dizi(Array) denir
@@ -245,3 +247,5 @@ for (int i = 0; i < sortedList.Count; i++)
 * Key degeri unique olmalidir, ayni key degeri birden fazla ogeye verilmez. (Calisma Zamani Hatasi verir)
 
 :warning: Kolleksiyonlar konusuna bir sure ara veriyoruz, Generic Kolleksiyonlar konusuna geldigimizde tekrar kolleksiyonlar konusuna devam edecegiz.
+
+> [**INDEX'e DON**](/README.md)

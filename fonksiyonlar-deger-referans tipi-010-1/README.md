@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Deger Tip ve Referans Tip Kavrami
 .Net icerisinde bazi tipler deger tiplidir, bazi tipler ise referans tiplidir. Bu iki tip bellekte durus sekli bakimindan birbirlerinden ayrilirlar.
 
@@ -69,3 +71,5 @@ bool isOk = int.TryParse("abc", out b);
 Console.WriteLine(isOk);
 Console.WriteLine(b);
 ```
+
+> [**INDEX'e DON**](/README.md)

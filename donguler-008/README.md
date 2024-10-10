@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Donguler
 Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar tekrar calistiran yapilardir.
 ```
@@ -133,3 +135,5 @@ int girilenSayi = 0;
         Console.WriteLine(number);
     }
 ```
+
+> [**INDEX'e DON**](/README.md)

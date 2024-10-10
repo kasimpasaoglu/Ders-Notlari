@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Metodlar (Fonksiyonlar)
 Bir is yapan kucuk program parcalaridir. C# jargonunda metod olarak isimlendirilir fakat genel yazilim dunyasinda fonksiyon olarak isimlendirilir. 
 
@@ -139,3 +141,5 @@ static void DersleriGetir(string ders)
     }
 }
 ```
+
+> [**INDEX'e DON**](/README.md)

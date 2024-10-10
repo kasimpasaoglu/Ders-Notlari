@@ -1,3 +1,5 @@
+> [**INDEX'e DON**](/README.md)
+
 # Foreach
 
 * Foreach dongusu for we while dongusunden farkli olarak bir dongu degiskenine ihtiyac duymazlar, 
@@ -52,3 +54,5 @@ foreach (string tech in teknoloji)
     Console.WriteLine(tech);
 }
 ```
+
+> [**INDEX'e DON**](/README.md)

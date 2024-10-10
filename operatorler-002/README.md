@@ -1,3 +1,4 @@
+> [**INDEX'e DON**](/README.md)
 # Operatorler
 
 ## Matematiksel Operatörler
@@ -135,3 +136,5 @@ Bır degiskene hızlıca 1 arttırmak ya da 1 eksiltmek icin kullanılır.
     int deger = 0;
     int sonuc = ++deger;
 ```
+
+> [**INDEX'e DON**](/README.md)
