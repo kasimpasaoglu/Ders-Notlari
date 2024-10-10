@@ -10,16 +10,10 @@
 9. [Diziler](/diziler-009/README.md)
     * [(Ara Konu) Foreach Dongusu](/foreach-dongusu/README.md)
 10. [Metodlar(Fonksiyonlar)](/fonksiyonlar-010/README.md)
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
+    * [ref-out keywords](/fonksiyonlar-deger-referans%20tipi-010-1/README.md)
+    * [Overloading, Params, default parameter](/fonksiyonlar-devam-010-2/README.md)
+
+---
 [CALISMALAR](/CALISMALAR/)
 
 
