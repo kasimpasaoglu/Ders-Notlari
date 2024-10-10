@@ -60,3 +60,4 @@ static void Cevre(int yariCap, double pi = Math.PI)
 // eger kullanici PI degerini manuel girmek istemezse, default olarak Math.PI degeri verildi. 
 */
 #endregion
+
