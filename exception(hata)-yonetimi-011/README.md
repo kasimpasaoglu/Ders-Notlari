@@ -69,5 +69,82 @@ catch (FormatException hata) // bu blok sadece formatexception hatasini yakalaya
 ```
 * `Catch` bloklarini istediginiz kadar cogaltabilirsiniz
 * Yukarida iki farkli case icin `Catch` yazdik, Hic Dusunmedigimiz bir hata meydana gelmesi durumunda `Exception` kullanip, geri kalan butun hatalari yakalamis olur
+## Throw
+* Bazi durumlarda kendimiz de bir `Exception` uretebiliriz.
+* `throw new Exception()` ile bir exception firlatabiliriz.
+* Firlatilan bu exceptionu catch ile yakalayabiliriz.
 
+```C#
+try
+{
+    int deger = int.Parse(Console.ReadLine().Trim());
+    if (deger < 50)
+    {
+        // kendi exceptionumuzu firtlattik, derleyici bu satira gelince uygulama bir exception firlatacak
+        throw new Exception("Degeriniz 50 den Kucuk");
+    }
+}
+catch (Exception ex) // firlatilan exceptionu yakalayacak
+{
+Console.WriteLine(ex.Message);
+}
+```
+## Hatayi Bir Dosyaya Yazma
+* Bu hatalari bir dosyaya kaydedebiliriz `File.AppendAllText("Dosya yolu", Yazilacak mesaj)`
+```C#
+try
+{
+    Console.WriteLine("Lutfen Bir Deger Giriniz");
+    int deger = int.Parse(Console.ReadLine().Trim());
+    Console.WriteLine(deger);
+}
+catch (Exception ex)
+{
+
+    DateTime errorTime = DateTime.Now;
+    File.AppendAllText("C:/Users/BRIGHT.DESKTOP-5789TGK/Downloads/Ders-Notlari/exception(hata)-yonetimi-011/LOGS.txt", "\n" + errorTime.ToLongDateString() + " --" + ex.Message);
+}
+```
+
+## Ic Ice Try Catch Kullanimi
+
+
+```C#
+Console.WriteLine("Bir Deger Giriniz");
+try
+{
+    int value = Cevir(Console.ReadLine().Trim());
+    int result = value / 0;
+}
+catch (DivideByZeroException ex)
+{
+    // disardaki try-catch'in bekledigimiz hatasini yaklayacak
+}
+catch (UnauthorizedAccessException ex)
+{
+    // icerdeki try-carch'in yollayacagi exception'u yakalayacak.
+}
+catch (Exception ex)
+{
+    // beklemedgimiz baska bir expection olursa onu burasi yakalayacak
+}
+
+static int Cevir(string deger)
+{
+    int value = 0;
+    try
+    {
+        value = int.Parse(deger);
+    }
+    catch (Exception ex)
+    {
+        throw new UnauthorizedAccessException(ex.Message); // burda yakaladigimiz exception'u bir ust seviyedeki try catch yakalamasi icin, disari firlattik.
+        // bunu yaparken icerdeki expectionun hata mesajini Baska bir Exception tipine yazdik, 
+
+        //throw ex; 
+        // bu sekilde yazarsak burda yakaladigimiz exceptionu dogrudan bir degisiklik yapmadan bir ust try-catch'e gonderdik
+    }
+    return value;
+}
+```
 > [**INDEX'e DON**](/README.md)
