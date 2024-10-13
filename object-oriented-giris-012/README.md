@@ -96,3 +96,100 @@ for (int i = 0; i < ogrenciler.Length; i++)
     Console.WriteLine($"{ogrenciler[i].name} {ogrenciler[i].lastname} {ogrenciler[i].age}");
 }
 ```
+* Bir nesne olustururken `degisken = new Nesne(){ name = "asd", price = 10};` syntaxi kullanilabilir.
+    * degisken array icindeki bir index'te olabilir.  
+```C#
+productsArray[0] = new Product()
+{
+    name = "Gozluk",
+    image = "http://www.google.com",
+    details = "Gunes Gozlugu",
+    price = 999.99,
+    discount = 0.10
+};
+```
+:warning: Bu sekilde sadece nesnenin degiskenlerine erisilebilir, class icinde bir metod varsa bu sekilde erisilemez.
+
+C# ta katmanlama asagidaki sekilde yapilir
+```C#
+namespace Ornek{
+    // class ya da struct olabiir
+    public class ClassOrnek
+    {
+        //degiskenler olabilir
+        int a;
+        //metodlar olabilir
+        public static void Metod(){
+
+        }
+    }
+    public struct StructOrnek
+    {
+
+    }
+}
+```
+* Classta yazilmis bir metodu cagirmak icin once classi bir degiskene atiyoruz, tipki `Random rnd = new Random()` da oldugu gibi
+```C#
+ClassOrnek ornek = new ClassOrnek();
+```
+Daha sonra bu degiskeni kullanarak icine yazili metoda ulsabiliriz
+```C#
+ornek.Metod();
+```
+# OOP Constructor
+Yukaridaki orneklerde olusturdugunmuz nesnelirn icine veri yazarken, her veri icin heap bolgesine gidip geliyoruz. *Constructor (Ctor)* Ile biz nesneyi bellege cikarirken icindeki degiskenleri de beraberinde  gondermemizi saglar.
+* Ctor : Metoda benzer ancak geri donus degeri yoktur
+* Ctorun adi sinifin adi ile ayni olmak zorundadur
+* Ilerde gorecegimiz, farkli parametreler alan ctrolar olabilir.
+```C#
+public class Personel
+{
+    public string ad;
+    public string soyad;
+    public string yas;
+
+    public Personel()
+    {
+        //ctor
+    }
+}
+```
+* Defaut Ctro: Nesne heap alanina giderken bu ctoru calistirir, bu ctor bizim tarafimizdan yazilmasa derleyici bir tane ctor otomatik olarak yazar/
+* Biz bir ctor yazdigimiz anda artik derleyici bizim yazdigimiz ctoru kullanir. 
+**Ctor'un amaci nedir**
+* Nesne bellege cikarken nesneye ait verilerinde bellege goturulmesini saglar.
+    * boylece nesne icerisindeki her bir degiskenin degerini tek tek heap anlanina git-gel yapmadan tek seferde yazdirmis oluruz. 
+* Ornek olarak yukaridaki ornekte ctor icerisine bir baslangic degeri verelim;
+
+```C#
+public class Personel
+{
+    public string ad;
+    public string soyad;
+    public string yas;
+
+    public Personel()
+    {
+        ad = "Muhittin";
+        soyad = "Kemal";
+        yas = 70;
+    }
+}
+```
+* Bu sekilde bir baslangic degeri atamasi yaparsak, nesneyi bellege ilk cikardigimiz anda, yani; `Personel p1 = new Personel();` komutu ile birlikte p1 nesnesinin icine ad soyad ve yas bilgisini de Ctor icine yazdigimiz gibi gondermis oluruz.
+:bulb: Burda default ctor icinde bir deger tanimlamasi yapildigi icin her nesne o tanimlarla bellge gidecektir. Ancak biz bellege cikacak degerleri nesneyi olusturuken vermek istiyoruz, Bunun icin bir ctor daha yazmamiz lazim
+## Parametre Alan Ctor
+* Aslinda default Ctor' a overload yaparak, parametre alan bir ctor yaziyoruz
+```C#
+    public Personel(string a, string b, int c)
+    {
+        // burada atamalari yapiyoruz tipki metod gibi
+        ad = a;
+        soyad = b;
+        yas = c;
+    }
+```
+
+* Bu parametreli ctor'u kullanmak icin `Personel p1 = new Personel("Muhittin", "Yilmaz", 30);` seklinde cagiriyoruz.
+:bulb: nesne ornegi alinirken gonderilen parametreler nesne icindeki degiskenlere aktarilir, nesne bu degiskenlerle bellege cikar. Dolayisiyla nesne uretilirken degerlerde yanlarinda gitmis olurlar.

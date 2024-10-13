@@ -50,7 +50,7 @@ for (int i = 0; i < ogrenciler.Length; i++)
 #endregion
 
 #region yukaridaki ogrenci isimli ogrencileri bir Sorted List Kolleksiyopnu icine yerlestirip for each ile ekrana yazdiriniz
-
+/*
 using System.Collections;
 
 Ogrenci ogrenci1 = new Ogrenci();
@@ -94,4 +94,80 @@ foreach (DictionaryEntry item in ogrenciler)
     Ogrenci ogrenci = (Ogrenci)item.Value;
     Console.WriteLine($"Ogrenci no: {item.Key} || Ogrenci Ad&Soyad => {ogrenci.name} {ogrenci.lastname} || Yas {ogrenci.age}");
 }
+*/
+#endregion
+
+#region product sinifi yazip 5 degisken tanimla, sonra product sinifindan 5 adet nesne ornegi alip ekrana yazdirin
+/*
+Product[] productsArray = new Product[5];
+
+
+productsArray[0] = new Product()
+{
+    name = "Gozluk",
+    image = "http://www.google.com",
+    details = "Gunes Gozlugu",
+    price = 999.99,
+    discount = 0.10
+};
+productsArray[1] = new Product()
+{
+    name = "Telefon",
+    image = "http://www.google.com",
+    details = "IPhone",
+    price = 53488.55,
+    discount = 0.5
+};
+productsArray[2] = new Product()
+{
+    name = "Laptop",
+    image = "http://www.google.com",
+    details = "HP",
+    price = 5500,
+    discount = 0.30
+};
+productsArray[3] = new Product()
+{
+    name = "Kiyafet",
+    image = "http://www.google.com",
+    details = "Gomlek",
+    price = 655.99,
+    discount = 0.20
+};
+productsArray[4] = new Product()
+{
+    name = "Araba",
+    image = "http://www.google.com",
+    details = "Tesla",
+    price = 2150000.99,
+    discount = 0.10
+};
+
+foreach (Product item in productsArray)
+{
+    Console.WriteLine($"BASLIK => {item.name}");
+    Console.WriteLine($"Aciklama => {item.details}");
+    Console.WriteLine($"Resim => {item.image}");
+    Console.WriteLine($"Liste Fiyati => {item.price}");
+    Console.WriteLine($"Indirim Orani => {item.discount}");
+    Console.WriteLine($"Sepetteki Tutar => {Math.Round(item.price * (1 - item.discount), 2)}");
+    Console.WriteLine("---------------------------------------------------------");
+}
+*/
+#endregion
+
+#region 
+Cone cone = new();
+double coneArea = cone.ConeArea(5, 4);
+double conePerimeter = cone.ConePerimeter(5);
+Console.WriteLine($"Koninin Alani => {coneArea}");
+Console.WriteLine($"Koninin Cevresi => {coneArea}");
+
+Trapezoid trapezoid = new();
+double trapezoidArea = trapezoid.TrapezoidArea(10, 12, 7);
+double trapezoidPerimeter = trapezoid.TrapezoidPerimeter(10, 12, 14, 13);
+Console.WriteLine($"Yamugun Alani => {trapezoidArea}");
+Console.WriteLine($"Yamugun Cevresi => {trapezoidPerimeter}");
+
+Personel p1 = new Personel("Muhittin", "Yilmaz", 30);
 #endregion
