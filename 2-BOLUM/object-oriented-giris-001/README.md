@@ -37,6 +37,7 @@ public class Ogrenci{
 > * Program.cs dosyasindan ogrenci sinifindan nesneler olusturacagiz
 
 :bulb: **Sinif (Class)** => Nesne icerisinde olmasi gereken ozelliklerin tanimli oldugu sablondur.
+
 :bulb: **Sinif (Class)** => Insaat ornegindeki mimarin cizimidir, yani ozelliklerin durmus oldugu sablondur, Nesne ise sinif icerisinde duran sablondan uretilmis ogelerdir.
 * Yani bu siniftan uretilecek nesnelerin hangi ozellikleri olacagini class ile belirtiryoruz.
 * simdi yukarda olusturdugmuz ogrenci classindan bir kac nesne uretelim
