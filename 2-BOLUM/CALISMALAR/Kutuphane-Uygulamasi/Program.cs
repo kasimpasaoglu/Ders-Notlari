@@ -11,18 +11,13 @@ kutuphane.Add(new Kitap("War and Peace", "Leo Tolstoy", 1225, new DateTime(1869,
 kutuphane.Add(new Kitap("The Hobbit", "J.R.R. Tolkien", 310, new DateTime(1937, 9, 21)));
 kutuphane.Add(new Kitap("The Lord of the Rings", "J.R.R. Tolkien", 1137, new DateTime(1954, 7, 29)));
 kutuphane.Add(new Kitap("Brave New World", "Aldous Huxley", 268, new DateTime(1932, 8, 31)));
+
 while (true)
 {
-    Console.WriteLine();
-    Console.WriteLine("ANA MENU");
-    Console.WriteLine("Bir Secim Yapiniz");
-    Console.WriteLine("1 => Kitaplari Listele");
-    Console.WriteLine("2 => Kitap Ekle");
-    Console.WriteLine("3 => Kitap Sil");
-    Console.WriteLine("4 => Cikis");
+    Kitap.ShowMainMenu();
 
     int input;
-    while (!int.TryParse(Console.ReadLine().Trim(), out input) || input <= 0 || input > 4)
+    while (!int.TryParse(Console.ReadLine().Trim(), out input) || input <= 0 || input > 5)
     {
         Console.WriteLine("Gecersiz Secim, Tekrar Deneyin");
     }
@@ -40,6 +35,10 @@ while (true)
         Kitap.RemoveBook(kutuphane);
     }
     if (input == 4)
+    {
+        Kitap.EditBook(kutuphane);
+    }
+    if (input == 5)
     {
         break;
     }
