@@ -79,6 +79,7 @@ public class Kitap
         Console.WriteLine("Kitap Basariyla Silindi.");
         System.Threading.Thread.Sleep(500);
     }
+
     public static int FindIndexById(ArrayList list)
     {
         while (true)
@@ -86,7 +87,11 @@ public class Kitap
             ShowBooks(list);
             Console.WriteLine();
             Console.WriteLine("Lutfen Kitabin ID numarasini giriniz");
-            int idInput = int.Parse(Console.ReadLine().Trim());
+            int idInput;
+            while (!int.TryParse(Console.ReadLine().Trim(), out idInput))
+            {
+                Console.WriteLine("Gecerli Bir ID Numarasi Giriniz");
+            }
 
             int index = -1;
             for (int i = 0; i < list.Count; i++)
@@ -172,6 +177,7 @@ public class Kitap
         Console.WriteLine("Guncelleme Basarili");
         System.Threading.Thread.Sleep(500);
     }
+
     public static void ChangeName(Kitap book)
     {
         Console.WriteLine("Yeni Isim Giriniz");
@@ -179,6 +185,7 @@ public class Kitap
         Console.WriteLine("Guncelleme Basarili");
         System.Threading.Thread.Sleep(500);
     }
+
     public static void ChangeAuthor(Kitap book)
     {
         Console.WriteLine("Yeni Yazar Giriniz");
@@ -186,6 +193,7 @@ public class Kitap
         Console.WriteLine("Guncelleme Basarili");
         System.Threading.Thread.Sleep(500);
     }
+
     public static void ChangePageCount(Kitap book)
     {
         Console.WriteLine("Yeni Sayfa Sayisi Giriniz");
@@ -198,6 +206,7 @@ public class Kitap
         Console.WriteLine("Guncelleme Basarili");
         System.Threading.Thread.Sleep(500);
     }
+
     public static void ChangeDate(Kitap book)
     {
         Console.WriteLine("Yeni Basim Tarihi Giriniz");
@@ -214,6 +223,7 @@ public class Kitap
             System.Threading.Thread.Sleep(500);
         }
     }
+
     public static void ShowMainMenu()
     {
         Console.WriteLine();
@@ -232,4 +242,5 @@ public class Kitap
         Console.WriteLine("5 => Cikis");
         System.Threading.Thread.Sleep(100);
     }
+
 }
