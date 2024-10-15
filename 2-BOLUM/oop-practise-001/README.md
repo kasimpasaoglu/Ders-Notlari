@@ -1,3 +1,4 @@
+# `this`
 * Bazen ctor olustururken, ctor'a gelen parametreler ile class degiskenleri ayni isim olabilir. Bu Bir sorun olacagi icin, ctor parametrelerini farkli isimlendirebiliriz.
 ```C#
 public class Product
@@ -24,7 +25,7 @@ public class Product
     }
 ```
 :bulb: bu sekilde this keywordu alan degerler classa ait olan degeri temsil eder, yani class degeri olan id'ye, parametre olarak gelen id'yi atamis olur.
-## Birden fazla ctor kullanimi
+# Birden fazla ctor kullanimi `:this`
 * Bazen nesneyi farkli bilgiler ile bellege cikarmak isteyebiliriz, 
     * Sadece ad vererek
     * Sadece soyad vererek
@@ -34,7 +35,7 @@ public class Product
 * ctor'un parametre alanina `:this(degisken)` syntaxi ile yonlendirme yapilabilir.
 Ornek : [Ogrenci.cs](/Ogrenci.cs)
 
-## Private Constructor
+# Private Constructor `private`
 Eger dafult ctor icerisinde diger ctor'lara yardimci bazi islemler yapilacaksa, yani default ctor'tek basina bir islem yapmayip, diger ctorlara ile baglantili calisiyorsa, default ctor'un nesne uretmesini kapatabiliriz.
 * Default ctor'un nesne uretilirken tek basina kullanimini kapatmak icin `public` keyvordu yerine `private` keywordunu kullaniriz.
 ```C#

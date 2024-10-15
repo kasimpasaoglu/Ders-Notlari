@@ -20,6 +20,7 @@
 ---
 ### 2-Bolum
 1. [Object Oriented Programlama](/2-BOLUM/object-oriented-giris-001/README.md)
+    * [this & private keywords](/2-BOLUM/oop-practise-001/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
