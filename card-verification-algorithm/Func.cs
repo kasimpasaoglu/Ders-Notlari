@@ -35,7 +35,7 @@ public class Func
         }
         return numbers;
     }
-    public static bool LuhnAlgoritm(string numberString)
+    public static bool LuhnAlgorithm(string numberString)
     {
         int total = 0;
         bool digit = false;

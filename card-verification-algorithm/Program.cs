@@ -6,7 +6,7 @@ while (true)
     string cardNumberString = cardNumber.ToString();
     Func.PrintArray(Func.StringToArray(cardNumberString));
     System.Threading.Thread.Sleep(400);
-    if (Func.LuhnAlgoritm(cardNumberString))
+    if (Func.LuhnAlgorithm(cardNumberString))
     {
         Console.WriteLine("The Card Number Entered is VALID");
     }

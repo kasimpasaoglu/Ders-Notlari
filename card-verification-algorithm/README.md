@@ -9,7 +9,7 @@ This is a simple console application for a given credit card number verifier. Th
 - Input validation allows users to correct input upon failure with an appropriate hint.
 
 ## How It Works
-The spine of the application is the Luhn algorithm, which is implemented in the `LuhnAlgoritm` method. This method checks whether a given number of cards is valid by:
+The spine of the application is the Luhn algorithm, which is implemented in the `LuhnAlgorithm` method. This method checks whether a given number of cards is valid by:
 1. Doubling every second digit from right to left.
 2. Summing all the digits of the resulting numbers along with the undoubled digits.
 3. Checking if the total is divisible by 10.
