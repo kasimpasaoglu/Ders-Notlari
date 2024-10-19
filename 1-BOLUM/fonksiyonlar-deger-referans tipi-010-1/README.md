@@ -1,6 +1,5 @@
-> [**INDEX'e DON**](/README.md)
-
 # Deger Tip ve Referans Tip Kavrami
+
 .Net icerisinde bazi tipler deger tiplidir, bazi tipler ise referans tiplidir. Bu iki tip bellekte durus sekli bakimindan birbirlerinden ayrilirlar.
 
 * **Deger** tipli degiskenler bellegin **stack** bolgesinde yer alirlar
@@ -9,8 +8,9 @@
 * **Referans** tipinde ise degerin kendisi kopyalanmaz, degeri isaret eden pointer kopyalanir. Boylece bir fonksiyonda ve ya baska bir bilesende gonderildigi zaman, islem yapildiginda deger degistirilmis olur
 * Genelde referans tipler, agir veriler icerir, deger tipler ise daha hafif veriler icerdiginden dolayi bu sekilde bir ayrim vardir. Yani daha agir veri tasiyacak tipler kopyalanmaz, sadece referansi(pointer) ' i kopyalanir. Ancak daha hafif veri tasiyan deger tipler direk kopyalanir.
 * Daha sonra gorecegimiz konularda su iki kavram ile karsilacagiz
-    * Deger Tip : *Struct*
-    * Referans Tip : *Class*
+  * Deger Tip : *Struct*
+  * Referans Tip : *Class*
+
 ```C#
 int a = 10;
 
@@ -35,9 +35,13 @@ static void DiziDegistir(string[] dizi)
     dizi[0] = "degistirildi";
 }
 ```
+
 * Burda simdilik deger tip ve referans tipin birbirine gore farkliliklarini ve bellekte nasil durduklarini gorduk.
-# ref ve out
+
+## ref ve out
+
 * `ref` keywordu deger tipli degiskenleri referans tipli gibi davranmaya zorlar.
+
 ```C#
 int a = 10;
 Console.WriteLine(a); // 10
@@ -49,8 +53,10 @@ static void IntDegistir(ref int degisken)
     degisken = 11;
 }
 ```
+
 * `ref` keywordu referans tipli degiskenlerde bir ise yaramiyor(simdilik)
 * `out` keywordu bir metod icinden deger cikarabilmek icin kullanilan bir yontemdir.
+
 ```C#
 int a;  // baslangic degeri vermedik
 DegerAta(out a); // deger atamasi yapildi
@@ -61,9 +67,11 @@ static void DegerAta(out int a)
     a = 10;
 }
 ```
+
 * `out` ta baslangic degeri verilmeyebilir ancak `ref` te baslangic degeri girilmesi zorunludur.
 **ORNEK `TryParse()` metodu**
 * TryParse metodu, strign'i int'e dondurmeye calisir, ancak donusturebiliyorsa donusum yapar, donusmuyorsa bool deger olarak false verir. Eger donusum yapilamazsa tanimlanmis degiskene bir deger atamasi yapmaz
+
 ```C#
 int b;
 bool isOk = int.TryParse("abc", out b);

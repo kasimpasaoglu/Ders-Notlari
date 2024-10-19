@@ -1,4 +1,5 @@
 > [**INDEX'e DON**](/README.md)
+>
 # Operatorler
 
 ## Matematiksel Operatörler
@@ -11,7 +12,8 @@ Degişkenleri kullanarak toplama çıkarma çarpma bölme ve mod alma işlemi ya
 
 (>,<,<=, >=, &&,||, ==, !=)
 Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mantıksal operatorler her zaman bool tipinde *true* ve ya *false* döner. *Örnek:*
-`bool isOkay =false;` 
+`bool isOkay =false;`
+
 * bool tipi true ve ya false dısında bir değer alamaz.
 * (>) Büyükse true döner, (>=) büyük ve eşitse true döner
 * (<) Küçükse true döner, (<=) küçük ve eşitse true döner
@@ -21,7 +23,8 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
 * (||) ve ya anlamına gelir. İki kosuldan herhangi biri doğruya true döner.
 
 ### Buyuk,Kucuk,Esit operatorleri
-```
+
+```C#
     int buyukSayi = 100;
     int kucukSayi = 8;
     
@@ -36,9 +39,12 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
     Console.WriteLine(" {0} esit mi {1} :  {2}", kucukSayi, buyukSayi, esitMi);
     Console.WriteLine(" {0} esit değil mi {1} :  {2}", kucukSayi, buyukSayi, esitDegilMi);
 ```
+
 ### ve (&) operatoru
+
 * Bu operator kullanıldıgında sorgulanan bütün kosulların sağlanıp sağlanmadığına bakar. Sadece bütün koşullar sağlandığında true döner.
-```
+
+```C#
     string veriTabanindakiUserName, veriTabanindakiPassword, kullanicidanGelenUserName, kullanicidanGelenPassword;
     
     veriTabanindakiUserName = "root";
@@ -49,24 +55,30 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
     
     bool girisOk = kullanicidanGelenUserName == veriTabanindakiUserName && kullanicidanGelenPassword == veriTabanindakiPassword; 
 ```
+
 * true && false => false
 * **true && true => true**
 * false && false => false
 * false && true => false
 
-### ve ya (||) operatörü.
+### ve ya (||) operatörü
+
 * Kosullardan herhangi biri true olması sonucu true döndürmesi için yeterlidir. Kaç tane false olmasının bir önemi yok. Şartlarda tek bir true varsa. Hepsinin true dönmesine gerek yok.
-```
+
+```C#
     bool girisOrOk = kullanicidanGelenUserName == veriTabanindakiUserName || kullanicidanGelenPassword == veriTabanindakiPassword;
 ```
+
 * true && false => true
 * true && true => true
 * **false && false => false**
 * false && true => true
 
-### Aynı anda hem (&&) hemde (||) operatorlerının aynı anda kullanılması.
+### Aynı anda hem (&&) hemde (||) operatorlerının aynı anda kullanılması
+
 İslem önceliklerini belirlemek icin **parantez** kullanırız. (Normalde bir işlem önceliği var zaten ama biz garantiye alıyoruz)
-```
+
+```C#
     int sayi1 = 4;
     int sayi2 = 5;
     int sayi3 = 6;
@@ -77,48 +89,58 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
     
     bool result = (sayi1 != sayi4 && sayi2 == sayi6) || (sayi4 < sayi5 || sayi3 >= sayi7);
 ```
+
 ## Atama Operatorleri
+
 Bir değişken tanımlayıp bu değişkene bir değer verip bu değeri 1 arttılarım
-```
+
+```C#
     int degisken = 10
     degisken = degisken +1 
 ```
 
-Bu yöntem çalışıyor olsa bile pratik değil. 
+Bu yöntem çalışıyor olsa bile pratik değil.
 Bunu daha pratik yapmak için bazı operatörlerden yararlanabiliriz.
+
 ### Arttırma Operatörü
 
-```
+```C#
     int degisken = 10;
     degisken += 1;
 ```
 
 Bir değişkenin değerini diğeri kadar arttırmak icin
-```
+
+```C#
     int birinciDegisken = 10;
     int ikinciDegisken = 80;
     
     birinciDegisken += ikinciDegisken;
 ```
+
 burda birinci degisken 90 olarak döner artık. Yani ikinci degiskeni birinci degiskenin üstüne eklemiş olduk. Yani birinciDegisken degerini değiştirdik. \
 Cıkarma çarpma bölme işlemleri aynı şekilde yapabiliriz.
-``` 
+
+```C#
     int birinciDegisken = 10;
     birinciDegisken -=5;
 ```
-```
+
+```C#
     int birinciDegisken = 10;
     birinciDegisken *=5;
 ```
-```
+
+```C#
     int birinciDegisken = 10;
     birinciDegisken /= 5;
 ```
 
 ### Atama Operatörleri (++, --)
-Bır degiskene hızlıca 1 arttırmak ya da 1 eksiltmek icin kullanılır. 
 
-```
+Bır degiskene hızlıca 1 arttırmak ya da 1 eksiltmek icin kullanılır.
+
+```C#
     int deger=0;
     deger++;
     deger--;
@@ -126,13 +148,15 @@ Bır degiskene hızlıca 1 arttırmak ya da 1 eksiltmek icin kullanılır.
 
 * ++ ve ya -- operatörü degiskenin basında yazılırsa ne değişir.
 
-```
+```C#
     int deger = 0;
     int sonuc = deger++;
 ```
+
 * Bu sekilde yazılırsa once atama sonra arttırma yapılır. Yani önce deger degiskenini sonuc degiskenine yazar. sonuc = 0 olur sonra degeri 1 arttırır. Yani sonuc bu örnek için istediğimiz gibi gelmez.
-* Ancak once arttırmayı sonra atamayı yapmasını ıstıyorsak ++ ve ya -- operatorunu degiskenin soluna atılması lazım. 
-```
+* Ancak once arttırmayı sonra atamayı yapmasını ıstıyorsak ++ ve ya -- operatorunu degiskenin soluna atılması lazım.
+
+```C#
     int deger = 0;
     int sonuc = ++deger;
 ```

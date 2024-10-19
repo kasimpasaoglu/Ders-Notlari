@@ -1,5 +1,7 @@
 # Properties yontemi ile Encapsulation
+
 * getter ve setter metodlarini uzun uzun yazmak is yukunu ve hata yapilmasi ihtimalini arttirdigi icin, zamanla C# muhendisleri tarafindan gelistirilmis bir diger encapsulation yontemi proterties yazmaktir.
+
 ```C#
 public class Personel
 {
@@ -32,22 +34,27 @@ public class Personel
     }
 }
 ```
+
 * get ve set adinda 2 metodu tek bir proterty icine aldik.
 
 > * Personel nesnesindeki id isimli propertiese eriserek deger atadik,
-> * Id, isimli proterties'de nesne icerisindeki private olan id fieldina deger atamasi yapariz. 
+> * Id, isimli proterties'de nesne icerisindeki private olan id fieldina deger atamasi yapariz.
 > * Proplar uzerinden get ve set yapmak kolaydir. Ilk ogrendigimiz yontem gibi, sanki gorudan erisiyormus gibi davranarak get ve set yapabilir.
+>
 ```C#
 Personel p = new();
 p.Age = 30;
 Console.WriteLine("Yas : {0}", p.Age);
 ```
+
 ## `private get` ve ya `private set` Olarak Yazma
+
 * Property yazarken set ya da get degerlerini kapatabiliriz.
 * Yani `readonly` bir property yazabiliriz. Get metodu calisir ancak set metodu olmaz.
-* ve ya `setonly` olarak yazmak isteyebiliriz. 
-* Bunun ici iki yontem vardir, ya saklamak istedigimiz metodun onune private keywordu eklemek, 
+* ve ya `setonly` olarak yazmak isteyebiliriz.
+* Bunun ici iki yontem vardir, ya saklamak istedigimiz metodun onune private keywordu eklemek,
 * ya da istemedigimiz blogu tamamen kaldirabiliriz
+
 ```C#
     public int Id
     {
@@ -55,6 +62,7 @@ Console.WriteLine("Yas : {0}", p.Age);
         private set { this.id = value; }
     }
 ```
+
 ve ya
 
 ```C#
@@ -63,8 +71,11 @@ ve ya
         get { return this.id; }
     }
 ```
+
 ## Calculated Proterty
+
 * Bu yontemde propery bir degeri koruma altina almaz sadece hesaplanmis degeri doner.
+
 ```C#
     public int Maas
     {
@@ -76,9 +87,12 @@ ve ya
         get {return this.maas * 1.7;}
     }
 ```
+
 Erismek icin
+
 ```C#
 p.Maas = 3000; // maas degerini atadik
 Console.WriteLine("Yeni Maas : {0}", p.ZamliMaas); // zamli maasi ekrana aldik.
 ```
 
+> [**INDEX'e DON**](/README.md)
