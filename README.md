@@ -30,7 +30,7 @@
     * [Modern Encapsulation](/2-BOLUM/OOP-encapculation-002-03/README.md)
 3. [Class Degerlendirme](/2-BOLUM/OOP-Class-Degerlendirme-003/README.md)
 4. [`partial` keyworld](/2-BOLUM/OOP-Ara-partial-004-01/README.md)
-5. [Destructor](/2-BOLUM/OOP-Ara-Destructor-005/README.md)
+5. [Destructor](/2-BOLUM/OOP-Ara-Destructor-004-02/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
