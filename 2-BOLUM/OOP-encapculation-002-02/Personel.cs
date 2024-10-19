@@ -3,6 +3,7 @@ public class Personel
     private int id;
     private string name;
     private int age;
+    private int maas;
 
     // public int Id
     // {
@@ -23,5 +24,14 @@ public class Personel
     {
         get { return this.age; }
         set { this.age = value; }
+    }
+    public int Maas
+    {
+        get { return this.maas; }
+        set { this.maas = value; }
+    }
+    public double ZamliMaas
+    {
+        get { return this.maas * 1.7; }
     }
 }

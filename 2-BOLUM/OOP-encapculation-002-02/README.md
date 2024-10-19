@@ -8,6 +8,7 @@ public class Personel
     private int id;
     private string name;
     private int age;
+    private int maas;
     // 3 adet degisken icin 3 adet property yazilacak
     public int Id
     {
@@ -24,6 +25,11 @@ public class Personel
         get{return this.age;}
         set{this.age = value;}
     }
+        public int Maas
+    {
+        get {return this.maas;}
+        set { this.maas = value;}
+    }
 }
 ```
 * get ve set adinda 2 metodu tek bir proterty icine aldik.
@@ -36,7 +42,7 @@ Personel p = new();
 p.Age = 30;
 Console.WriteLine("Yas : {0}", p.Age);
 ```
-# `private get` ve ya `private set` Olarak Yazma
+## `private get` ve ya `private set` Olarak Yazma
 * Property yazarken set ya da get degerlerini kapatabiliriz.
 * Yani `readonly` bir property yazabiliriz. Get metodu calisir ancak set metodu olmaz.
 * ve ya `setonly` olarak yazmak isteyebiliriz. 
@@ -57,5 +63,22 @@ ve ya
         get { return this.id; }
     }
 ```
-
+## Calculated Proterty
+* Bu yontemde propery bir degeri koruma altina almaz sadece hesaplanmis degeri doner.
+```C#
+    public int Maas
+    {
+        get {return this.maas;}
+        set { this.maas = value;}
+    }
+    public double ZamliMaas
+    {
+        get {return this.maas * 1.7;}
+    }
+```
+Erismek icin
+```C#
+p.Maas = 3000; // maas degerini atadik
+Console.WriteLine("Yeni Maas : {0}", p.ZamliMaas); // zamli maasi ekrana aldik.
+```
 

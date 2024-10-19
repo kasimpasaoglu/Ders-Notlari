@@ -3,8 +3,13 @@ public class Car
     private int chasisNo;
     private string modelName;
     private int modelYear;
-    double cylinderVolume;
+    private double cylinderVolume;
+    private double price;
 
+    public Car()
+    {
+        this.chasisNo = new Random().Next(100000, 1000000);
+    }
     public int ChasisNo
     {
         get { return this.chasisNo; }
@@ -19,6 +24,10 @@ public class Car
             {
                 this.modelName = value;
             }
+            else
+            {
+                throw new ArgumentException("Model Name Must be over 5 chars");
+            }
         }
     }
     public double CylinderVolume
@@ -30,7 +39,20 @@ public class Car
             {
                 this.cylinderVolume = value;
             }
+            else
+            {
+                throw new ArgumentException("Cylinder Volume must be between 1, 2.5");
+            }
         }
+    }
+
+    public double Price
+    {
+        set { this.price = value; }
+    }
+    public double SalesPrice
+    {
+        get { return price * 1.20; }
     }
 
 }
