@@ -8,7 +8,6 @@ public class Car
     public int ChasisNo
     {
         get { return this.chasisNo; }
-        set { this.chasisNo = new Random().Next(100000, 1000000); ; }
     }
     public string ModelName
     {
