@@ -1,7 +1,7 @@
-# Enum(Sabitler)
+# Sabitler
 
 Yazilim icerisinde bazen sabit degerler vermek isteyebiliriz. Ornegin; Banka eft kodlari
->
+
 ```C#
 if (secim=="Akbank")
 {
@@ -13,6 +13,8 @@ if (secim=="Akbank")
 ```
 
 > Her yazilimci "Akbank" i farkli sekilde yazabilir...
+
+## Enum
 
 Bu gibi durumlarda degisken atamasini yazilimciya birakmak yerine degiskenin her yerde ayni sekilde yazilabilmesi icin bir sabit deger atamasi yapilabilir. Bu sabit degiskenlere `enum` denir.
 
@@ -56,7 +58,7 @@ public enum Departmanlar : short
 }
 ```
 
-## Enum icindeki sabitler icinde dongu ile donmek
+### Enum icindeki sabitler icinde dongu ile donmek
 
 ```C#
 string[] enumSabitleri = typeof(Departmanlar).GetEnumNames();
@@ -67,7 +69,7 @@ foreach (string item in enumSabitleri)
 
 ```
 
-## Enum sabitlerinin rakamsal degerine ulasmak
+### Enum sabitlerinin rakamsal degerine ulasmak
 
 * Enum'in sayisal degerine ulasmak icin tip donusumu yapilabilir;
 `short muhasebe = (short)Departmanlar.Muhasebe;`
@@ -94,3 +96,27 @@ foreach (string item in enumSabitleri)
 
 > * Burda yaptigimiz islem; Enum.Parse ile dongunun o anki elemanini enum turune donusturduk. *Enum.Parse, object dondugu icin `(Departmanlar)` casting'i ile unboxing yaptik, adligimiz enum degerini `seciliDepartman` olarak tanimladik*
 > * Aldigimiz enum'un sayisal degerine ulasmak icin tekrar tip donusumu yaptik `(short)`
+
+---
+
+## Constant(`const`)
+
+* `const` keywordu ile bir class icinde olmak sarti ile, degistirilemez bir deger atamasi yapilabilir. Tanimlandigi class ici disinda hic bir yerde bu deger degistirilemez.
+
+>*Const.cs* Dosyasi
+
+```C#
+public class Const
+{
+    public const string UserName = "WissenBesiktas";
+}
+```
+
+* Bu deger cagrilabilir, okunabilir, ancak disardan degistirilemez.
+* :warning: `const` keywordu sadece primitive tiplerle birlikte kullanilabilir.
+
+```C#
+var username = Const.UserName; // bu sekilde alabiliriz
+Const.UserName = "Besiktas"; // bu sekilde deger atamasi yapilamaz. 
+Math.PI // => pi sayisi da bir const'tur . Math classi icinde atamasi yapilmistir ve disardan degistirilemez.
+```
