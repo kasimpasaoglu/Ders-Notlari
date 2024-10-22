@@ -4,7 +4,7 @@ ArrayList personelList = new();
 
 while (true)
 {
-    Console.WriteLine("Enter 'y' for Add new personel, 'n' for stop adding");
+    Console.Write("Enter 'y' for Add new personel, 'n' for stop adding: ");
     char input;
     while (!char.TryParse(Console.ReadLine().Trim(), out input))
     {
@@ -20,7 +20,7 @@ while (true)
     }
     else
     {
-        Console.WriteLine("Incorrect input. enter 'y' or 'n'");
+        Console.WriteLine("Incorrect input. Please try again.");
     }
 }
 foreach (Personel p in personelList)

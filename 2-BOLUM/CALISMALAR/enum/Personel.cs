@@ -35,7 +35,7 @@ public class Personel(string name, Department dep, Title pos)
     }
     private static string GetName()
     {
-        Console.WriteLine("Enter Name Surname (Seperate with space)");
+        Console.Write("Enter Name Surname (Seperate with space): ");
         while (true)
         {
             var input = Console.ReadLine().Trim();
@@ -62,7 +62,7 @@ public class Personel(string name, Department dep, Title pos)
     }
     private static Department GetDepartment()
     {
-        Console.WriteLine("Enter department name. (IT, Accounting, HR, Marketing, Sales)");
+        Console.Write("Enter department name. (IT, Accounting, HR, Marketing, Sales): ");
         while (true)
         {
             var input = Console.ReadLine().Trim();
@@ -80,7 +80,7 @@ public class Personel(string name, Department dep, Title pos)
     }
     private static Title GetTitle()
     {
-        Console.WriteLine("Enter title. (Intern, Junior, Senior, Director)");
+        Console.Write("Enter title. (Intern, Junior, Senior, Director): ");
         while (true)
         {
             var input = Console.ReadLine().Trim();
@@ -96,7 +96,6 @@ public class Personel(string name, Department dep, Title pos)
             }
         }
     }
-
 
 }
 
