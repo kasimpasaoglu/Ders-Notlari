@@ -18,7 +18,7 @@ static void Degistir(Ogrenci o)
 }
 ```
 
-> Ogrenci bir class oldugu icin, referans tiplidir, ve referans tipte bellekte aslinda pointer kopyalandigi icin, metod ile bir degisiklik yaptigimizda bellegin heap bolgesinde i pointere karsilik gelen degeri degistirmis oluruz.
+> Ogrenci bir class oldugu icin, referans tiplidir, ve referans tipte bellekte aslinda pointer kopyalandigi icin, metod ile bir degisiklik yaptigimizda bellegin heap bolgesinde o pointere karsilik gelen degeri degistirmis oluruz.
 Yani yukardaki ornekte baslandigcta bos gelecekken, Degistir(o) metodundan sonra "o" nesnesinin bellekte isaret ettigi yeri gidip degistirip gelmis oluyoruz, sonra tekrar baktigimizda artik degerin degistigini gorebiliyoruz.
 
 > [**INDEX'e DON**](/README.md)
