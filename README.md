@@ -32,6 +32,7 @@
 4. [`partial` keyworld](/2-BOLUM/OOP-Ara-partial-004-01/README.md)
 5. [Destructor](/2-BOLUM/OOP-Ara-Destructor-004-02/README.md)
 6. [Sabitler `enum` & `const`](/2-BOLUM/enum-005/README.md)
+7. [Inheritance (Kalitim)](/2-BOLUM/Inheritance-006/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 

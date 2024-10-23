@@ -1,4 +1,4 @@
-# Inheritence (Kalitim)
+# Inheritance (Kalitim)
 
 * Kalitim ust gruplardan alt gruplara miras yolu ile gecen bir yapidir.
 * Bir ust soya ait bir ozelligin daha alt soylara gecmesidir.
