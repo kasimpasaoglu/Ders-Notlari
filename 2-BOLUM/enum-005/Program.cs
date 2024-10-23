@@ -14,3 +14,5 @@ foreach (string item in enumSabitleri)
     Console.WriteLine($"Departman Adi: {item} || Kodu: {departmanId}");
 }
 
+Sabit c = new Sabit("FirmaX");
+Console.WriteLine(c.FirmaAdi);
