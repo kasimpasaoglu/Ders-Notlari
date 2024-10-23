@@ -4,6 +4,8 @@
     - [Enum sabitlerinin rakamsal degerine ulasmak](#enum-sabitlerinin-rakamsal-degerine-ulasmak)
     - [String Degeri Enum'a cevirmek](#string-degeri-enuma-cevirmek)
   - [Constant (`const`)](#constantconst)
+  - [Readonly (`readonly`)](#readonlyreadonly)
+  - [Class/Nesne Kavramlari Hatirlatma](#hatirlatma)
 
 # Sabitler
 
@@ -131,7 +133,7 @@ Math.PI // => pi sayisi da bir const'tur . Math classi icinde atamasi yapilmisti
 - Bir `const` degisken tanimlanirken baslangic degeri verilmelidir. Yani constant tanimlari derleme asamasinda, kod yazilirken verilmelidir. Verilmezse derleme zamani hatasi alinir.
   - Bu yuzden sonradan bir constant degisken yazilamaz. (ornegin kullanicidan alinan deger gibi)
 
-## Readonly keywordu
+## Readonly(`readonly`)
 
 - Tanimlamasi icin asagidaki syntax ile yazilir.
 `public readonly string firmaAdi;`
@@ -143,8 +145,9 @@ Math.PI // => pi sayisi da bir const'tur . Math classi icinde atamasi yapilmisti
 ```C#
 Sabit c = new Sabit();
 c.firmaAdi = "sdfsd";
-// bu sekilde atama yapilamaz
 ```
+
+> bu sekilde atama yapilamaz
 
 ```C#
 public class Sabit
@@ -158,29 +161,27 @@ public class Sabit
 }
 ```
 
-> Class icinde bu sekilde ctor ile yazilirsa,
+> Class icinde bu sekilde ctor ile yazilmalidir.
 
 ```C#
 Sabit c = new Sabit("FirmaX");
 ```
 
-> bu sekilde olusturulan ctor ile birlikte deger atamasi yapilabilir.
+> Olusturulan ctor ile birlikte deger atamasi yapilabilir.
 
-- `const` bir sinifin elemanidir, `readonly` bir nesnenin elemanidir. Not: static konusunda detayli konusulacak.
+- :bulb:`const` bir sinifin elemanidir, `readonly` bir nesnenin elemanidir. **Not: static konusunda detayli konusulacak.**
 
-```md
-    **Kavramlar Hatirlatma**
+### Hatirlatma
 
-    - **Class** : Bir Sablondur. Insan bir siniftir. Icinde bir cok ozellik barindirir. (iki bacagi iki kolu var gibi)
+- **Class** : Bir Sablondur. Insan bir siniftir. Icinde bir cok ozellik barindirir. (iki bacagi iki kolu var gibi)
 
-    - **Nesne** : Classtan aldigi sablona gore olusturulmus elemanlardir. Ahmet, Ayse gibi ogeler insan classi ile olusturulmus nesnelerdir. Ozelliklerini insan classindan alarak meydana gelmis ogelere nesne denir.
+- **Nesne** : Classtan aldigi sablona gore olusturulmus elemanlardir. Ahmet, Ayse gibi ogeler insan classi ile olusturulmus nesnelerdir. Ozelliklerini insan classindan alarak meydana gelmis ogelere nesne denir.
 
-    ```C#
-    Insan ahmet = new Insan()
-    // insan classindan uretilen ahmet nesnesi...
-    // Ahmet nesnesinin, yas cinsiyet, boy, kilo gibi ozellikleri olabilir.
-    // Nesnelerin tasidiklari degerler farkli olabilir. Yas, kilo boy gibi ozellikler birbirinden farkli olabilir. 
-    ```
+```C#
+Insan ahmet = new Insan()
+// insan classindan uretilen ahmet nesnesi...
+// Ahmet nesnesinin, yas cinsiyet, boy, kilo gibi ozellikleri olabilir.
+// Nesnelerin tasidiklari degerler farkli olabilir. Yas, kilo boy gibi ozellikler birbirinden farkli olabilir. 
 ```
 
 - Simdi son yazdigimiz maddeyi biraz acalim.
