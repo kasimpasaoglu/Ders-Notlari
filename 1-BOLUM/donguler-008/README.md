@@ -1,3 +1,15 @@
+# Table Of Contents
+
+- [Donguler](#donguler)
+  - [Dongu Cesitleri](#dongu-cesitleri)
+  - [`for` Dongusu](#for-dongusu)
+  - [Ara Konu (char metodlari)](README(char-metodlari).md)
+  - [Ara Konu (`break` ve `continue` kavramlari)](README(break-continue).md)
+  - [`do / while` Dongusu](#do--while-dongusu)
+  - [Boxing Unboxing(Ara Konu)](README(boxing-unboxing).md)
+  - [Var Keyword(Ara Konu)](README(var-keyword).md)
+  - [`while` Dongusu](#while-dongusu)
+
 # Donguler
 
 Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar tekrar calistiran yapilardir.
@@ -11,7 +23,7 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
     }
 ```
 
-## **DONGU CESITLERI**
+## DONGU CESITLERI
 
  1. for dongusu (mantiksal operator)
  2. forEach dongusu (veri kaynagi) (dizilerden sonra ogrenecegiz)
@@ -32,7 +44,7 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
 
  `for ( degisken, kosul, her dongude degiskene yapilacak islem)`
 
-* Degisken her zaman dongunun icinde tanimlanmak zorunda degildir
+- Degisken her zaman dongunun icinde tanimlanmak zorunda degildir
 
  ```C#
     int i;
@@ -43,7 +55,7 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
     }
  ```
 
-* Hic bir kosul vermeden bir dongu olusturulabilir. **(Sonsuz Dongu)**
+- Hic bir kosul vermeden bir dongu olusturulabilir. **(Sonsuz Dongu)**
 
  ```C#
     int a = 10;
@@ -54,9 +66,9 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
     }
  ```
 
-* Donen bir donguyu durdurma
-  * Kacis Keyworldleri ile (`break;`, `continue;`, `return;`)
-  * Mevcut Kosulu Bozarak
+- Donen bir donguyu durdurma
+  - Kacis Keyworldleri ile (`break;`, `continue;`, `return;`)
+  - Mevcut Kosulu Bozarak
 
 ```C#
     for (int i = 10; i < 100; i++)
@@ -70,7 +82,7 @@ Verilen sart saglanmadigi surece, belirli kod bloklarini, sart saglanana kadar t
     }
 ```
 
-* Ic ice `for` kullanimi
+- Ic ice `for` kullanimi
 \
 *Carpim Tablosu Ornegi*
 
@@ -111,9 +123,9 @@ int girilenSayi = 0;
 
 :warning: Gercek hayatta, cok kullanisli olmasina ragmen, bu donguyu pek goremezsiniz
 
-* While dongusu icinde `break` ve `continue` operatorleri kullanilabilir
-* while dongusune kosul olarak `true` verilebilir, bu durumda dongu sonsuz dongu olur.
-  * Yani bir while dongusune kosul olarak `true` verip icerde `break` ile donguyu bitecek sekilde de yazilabilir.
+- While dongusu icinde `break` ve `continue` operatorleri kullanilabilir
+- while dongusune kosul olarak `true` verilebilir, bu durumda dongu sonsuz dongu olur.
+  - Yani bir while dongusune kosul olarak `true` verip icerde `break` ile donguyu bitecek sekilde de yazilabilir.
 
 ## [Boxing Unboxing(Ara Konu)](README(boxing-unboxing).md)
 
@@ -121,8 +133,8 @@ int girilenSayi = 0;
 
 ## `while` Dongusu
 
-* Diger tum donguler gibi bir kosul saglandigi surece icindeki kod bloklarini tekrarlar.
-* Kullanimi cok yaygin degildir.
+- Diger tum donguler gibi bir kosul saglandigi surece icindeki kod bloklarini tekrarlar.
+- Kullanimi cok yaygin degildir.
 
 >*syntax*
 
@@ -133,8 +145,8 @@ int girilenSayi = 0;
     }
 ```
 
-* `for` dongusunden farkli olarak dongu degiskeni ve arttirim/ azaltim ifadeleri barindirmaz,
-* sadece kosula baglidir, ve kosul saglandigi surece doner.
+- `for` dongusunden farkli olarak dongu degiskeni ve arttirim/ azaltim ifadeleri barindirmaz,
+- sadece kosula baglidir, ve kosul saglandigi surece doner.
 
 ```C#
     while(true) // kosul true verildigi icin sonsuza kadar doner

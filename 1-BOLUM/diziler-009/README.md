@@ -1,3 +1,21 @@
+# Table Of Contents
+
+- [Diziler (Array)](#diziler-array)
+  - [Kurallar](#kurallar)
+  - [Dizinin Icindeki Elemana Ulasmak](#dizinin-icindeki-elemana-ulasmak)
+  - [Dizi Icerisine Eleman Atamak](#dizi-icerisine-eleman-atamak)
+  - [Dizi'nin butun elemanlarina erismek. (for dongusu)](#dizinin-butun-elemanlarina-erismek-for-dongusu)
+    - [Ara Bilgi (Derleyiciyi Bekletme Fonksiyonu)](#ara-bilgi-derleyiciyi-bekletme-fonksiyonu)
+    - [Diziler Ile Birlikte Kullanilabilen Metodlar(Fonksiyonlar)](#diziler-ile-birlikte-kullanilabilen-metodlarfonksiyonlar)
+      - [string - array iliskisi](#string---array-iliskisi)
+    - [Farkli Tanimlama Sekillderi](#farkli-tanimlama-sekillderi)
+    - [Queue Kolleksiyonu](#queue-kolleksiyonu)
+    - [ARA KONU (NameSpace - IsimUzayi)](#ara-konu-namespace---isimuzayi)
+    - [Stack Kolleksiyonu](#stack-kolleksiyonu)
+    - [Array List](#array-list)
+      - [Kolleksiyonlarla Birlikte Kullanilabilecek Hazir Metodlar](#kolleksiyonlarla-birlikte-kullanilabilecek-hazir-metodlar)
+      - [SortedList Kolleksiyonu (Sirali Liste)](#sortedlist-kolleksiyonu-sirali-liste)
+
 # Diziler (Array)
 
 Birden fazla ayni tipte veriyi tasiyabilen yapilara dizi(Array) denir
@@ -59,16 +77,16 @@ for (int i = 0; i < intArray.Length; i++)
 System.Threading.Thread.Sleep(milisaniye);
 ```
 
-* Bu fonksiyon milisaniye cinsinden verecegimiz degere gore, derleyici bir sonraki satira gecmek icin bekleme yapacaktir
+- Bu fonksiyon milisaniye cinsinden verecegimiz degere gore, derleyici bir sonraki satira gecmek icin bekleme yapacaktir
 
 ## Diziler Ile Birlikte Kullanilabilen Metodlar(Fonksiyonlar)
 
 Diziler ile ilgili yapilacak islemleri yapan hazir fonksiyonlar vardir. Bu fonksiyonlara `Array` sinifi ile erisilebilir.
 
-* `IndexOf()` array ve deger parametrelerini alir, o array icinde aradigimiz degerin hangi indexte oldugu bilgisini int olarak doner. `Array.IndexOf(arrayin adi, object deger)`
-  * Aranan deger array icinde birden fazla varsa, ilk bulundugu indexi doner.
-* `LastIndexOf()` array, ve deger parametrelerini alir. Aranan degerin gorundugu son index numarasini doner.
-* `Reverse()`  Parametre olarak arrayin adini alir
+- `IndexOf()` array ve deger parametrelerini alir, o array icinde aradigimiz degerin hangi indexte oldugu bilgisini int olarak doner. `Array.IndexOf(arrayin adi, object deger)`
+  - Aranan deger array icinde birden fazla varsa, ilk bulundugu indexi doner.
+- `LastIndexOf()` array, ve deger parametrelerini alir. Aranan degerin gorundugu son index numarasini doner.
+- `Reverse()`  Parametre olarak arrayin adini alir
 
 ```C#
 int [] reverseArray = new int[5]
@@ -84,8 +102,8 @@ Array.Reverse(reverseArray);
 
 >:warning: Aslinda reverse direk calisti, geriye birsey vermedi. Fonksiyonlar konusunda geriye birsey donmeyen fonksiyonlar ile ilgili konusacaz. Cumartesi gunu arada, isleyecegiz. Deger tip ve Referans tip konusu.
 
-* `Sort()` dizinin icindeki rakamlari kucukten buyuge, harfleri ise alfabetik siraya gore siralar.
-  * Parametre olarak arrayin adini alir.
+- `Sort()` dizinin icindeki rakamlari kucukten buyuge, harfleri ise alfabetik siraya gore siralar.
+  - Parametre olarak arrayin adini alir.
 
 ```C#
 Array.Sort(reverseArray)
@@ -93,16 +111,16 @@ Array.Sort(reverseArray)
 
 ```
 
-* Kabarcik Siralama(Bubble)
-* Hizli Siralama (Quick Sorting)
+- Kabarcik Siralama(Bubble)
+- Hizli Siralama (Quick Sorting)
 
 > ODEV: BOBBLE SORTING ILE 20 ELEMANLI BIR DIZIYI SIRALAYINIZ.
 
-* `Clear()` Dizi icindeki tum elemanlar silinir.
-  * Parametre olarak array alir.
-* `Copy()` Bir dizinin kopyasini olusturmak icin kullanilir.
-  * Alacagi parametreler sirasiyla; Kopyalanacak(kaynak) array, Kopyalanacagi (hedef) array, kacinci indexe kadar kopyalanacak
-  * Copy metodu, belli bir index araligi ile de calistirilabilir.  
+- `Clear()` Dizi icindeki tum elemanlar silinir.
+  - Parametre olarak array alir.
+- `Copy()` Bir dizinin kopyasini olusturmak icin kullanilir.
+  - Alacagi parametreler sirasiyla; Kopyalanacak(kaynak) array, Kopyalanacagi (hedef) array, kacinci indexe kadar kopyalanacak
+  - Copy metodu, belli bir index araligi ile de calistirilabilir.  
 
 ```C#
 int [] reverseArray = new int[5]
@@ -134,17 +152,17 @@ Console.WriteLine(deger[metin.Lenght -1 ])
 // => 's' karakterini yazdirir (son karakter)
 ```
 
-* Arrayden aldigimiz string bir degiskenin belli indexteki karakterinede ulasabiliriz. `dizi[2][4]` => dizi'nin 2. indexteki elemaninin, 4. indexteki elemani(karakteri)
+- Arrayden aldigimiz string bir degiskenin belli indexteki karakterinede ulasabiliriz. `dizi[2][4]` => dizi'nin 2. indexteki elemaninin, 4. indexteki elemani(karakteri)
 
 ## Farkli Tanimlama Sekillderi
 
-* Hem tanimlayip hemde dizi elemanlarini verebiliriz
+- Hem tanimlayip hemde dizi elemanlarini verebiliriz
 
 ```C#
 int[] dizi = new int[3]{1,2,3};
 ```
 
-* Hem tanimplayip, hemde dizi elemanlarini verebiliriz
+- Hem tanimplayip, hemde dizi elemanlarini verebiliriz
 
 ```C#
 string[] stringDizi = {"Ali", "Mehmet", "Alper"};
@@ -152,7 +170,7 @@ string[] stringDizi = {"Ali", "Mehmet", "Alper"};
 
 Bu tip tanimada dizi buyuklugunu girmeye gerek yoktur.
 
-* `var` ile tanimlanimlanabilir
+- `var` ile tanimlanimlanabilir
 
 ```C#
 var boolDizi = new bool[] {true,false,true,true};
@@ -163,14 +181,14 @@ Bu orneklerde tanimladigimiz dizilerde sonradan buyutme sansimiz yoktur. Biz ver
 
 ## Queue Kolleksiyonu
 
-* Icerisinde tutulan degerlerin object olarak tutuldugu bir dizidir.
-* Queue kuyruk (sira) mantigi ile calisir. (Akbil, Pide, Otobus kuyrugu gibi)
-* queue dizisi kullanabilmek icin, programin en basina `using System.Collections;` komutu girilmelidir
+- Icerisinde tutulan degerlerin object olarak tutuldugu bir dizidir.
+- Queue kuyruk (sira) mantigi ile calisir. (Akbil, Pide, Otobus kuyrugu gibi)
+- queue dizisi kullanabilmek icin, programin en basina `using System.Collections;` komutu girilmelidir
     *
 
 `Queue queueDizisi = new Queue();`
 
-* `Enqueue` Metodu, ile diziye eleman yerlestirildir.
+- `Enqueue` Metodu, ile diziye eleman yerlestirildir.
 
 ```C#
 queueDizisi.Enqueue("Renault")
@@ -179,8 +197,8 @@ queueDizisi.Enqueue("Audi")
 queueDizisi.Enqueue("BMW")
 ```
 
-* `Count` metodu ile dizinin eleman sayisini bilabiliriz
-* `Peek` metodu, kuyruktan cikacak ilk elemani verir, yani en on siradaki kim sorusuna cevap veriyor. Ancak queue dizisinde bir degisiklik yapmadi
+- `Count` metodu ile dizinin eleman sayisini bilabiliriz
+- `Peek` metodu, kuyruktan cikacak ilk elemani verir, yani en on siradaki kim sorusuna cevap veriyor. Ancak queue dizisinde bir degisiklik yapmadi
 
 ```C#
 string first = queue.Peek().ToString()
@@ -188,7 +206,7 @@ string first = queue.Peek().ToString()
 // bu yuzden ToString() kullandik
 ```
 
-* `Dequeue` metodu, hem kuyruktan cikarilacak ilk elemani dondurur, hemde kuyruktan cikarir.
+- `Dequeue` metodu, hem kuyruktan cikarilacak ilk elemani dondurur, hemde kuyruktan cikarir.
 
 :warning: Diziler ile Kolleksiyonlar arasindaki en temel fark; kolleksiyon tanimlarken baslangic degeri vermek zorunlu degildir. Eleman eklendikce kapasitesini arttirir
 
@@ -202,9 +220,9 @@ Bu namespace'leri cagirmak icin using ifadesi kullanir. Kodun en basina yazilmal
 
 ## Stack Kolleksiyonu
 
-* Bircok kolleksiyon gibi, Stack'te object deger alir.
-* queue gibi yine sira mantigi ile calisir, ancak burda Last In First Out,(LIFO) duzeni uygular. Yani stackten oge cikarmaya basladigimizda en son eklenen ogeyi ilk cikaracak, (index en buyukten baslayarak cikarmaya baslar)(Tir dorsesi ornegi).
-* `Push` fonskiyonu ile eleman eklenir
+- Bircok kolleksiyon gibi, Stack'te object deger alir.
+- queue gibi yine sira mantigi ile calisir, ancak burda Last In First Out,(LIFO) duzeni uygular. Yani stackten oge cikarmaya basladigimizda en son eklenen ogeyi ilk cikaracak, (index en buyukten baslayarak cikarmaya baslar)(Tir dorsesi ornegi).
+- `Push` fonskiyonu ile eleman eklenir
 
  ```C#
  Stack stackDizisi = new Stack();
@@ -218,34 +236,34 @@ Bu namespace'leri cagirmak icin using ifadesi kullanir. Kodun en basina yazilmal
  stackDizisi.Push("Yuk 7");
  ```
 
-* `Peek` metodu listede silinecek olan (sirada olan) itemi dondurur, ancak silme islemini yapmaz
-* `Pop` metodu listede silinme sirasi gelen itemi hem siler, hem dondurur.
-* `Count` metodu ile eleman sayisi ogrenilir
+- `Peek` metodu listede silinecek olan (sirada olan) itemi dondurur, ancak silme islemini yapmaz
+- `Pop` metodu listede silinme sirasi gelen itemi hem siler, hem dondurur.
+- `Count` metodu ile eleman sayisi ogrenilir
 
 ## Array List
 
-* Icine object deger alan bir kolleksiyondur
-* `Add` metodu ile eleman eklenir.
-* `Count` metodu icindeki eleman sayisini dondurur.
-* `Capacity` metodu alabilecegi maksimum eleman sayisini belirtir
-  * Eleman eklendikce artmaktadir.
-  * ArrayList in kapasitesi 4 ten basayarak eleman eklendikce, katlanarak artak (4-8-16-32).
-* ArrayList icindeki bir ogeye erismek icin normal arrayde oldugu gibi [] ile index verilir ve unboxing yapilmalidir.
-* ArrayList Tanimlanirken parametre olarak kapatite belirtilebilir
+- Icine object deger alan bir kolleksiyondur
+- `Add` metodu ile eleman eklenir.
+- `Count` metodu icindeki eleman sayisini dondurur.
+- `Capacity` metodu alabilecegi maksimum eleman sayisini belirtir
+  - Eleman eklendikce artmaktadir.
+  - ArrayList in kapasitesi 4 ten basayarak eleman eklendikce, katlanarak artak (4-8-16-32).
+- ArrayList icindeki bir ogeye erismek icin normal arrayde oldugu gibi [] ile index verilir ve unboxing yapilmalidir.
+- ArrayList Tanimlanirken parametre olarak kapatite belirtilebilir
 
 ### Kolleksiyonlarla Birlikte Kullanilabilecek Hazir Metodlar
 
 `ArrayList liste = new ArrayList()` Ile hazirladigimiz bir kolleksiyon ile
 
-* `Clear()` Kolleksiyon icindeki verileri siler
-* `Sort()` ogeleri siralar
-* `Reverse()` kolleksiyonu ters cevirir
-* `ToArray()` kolleksiyonu diziye donusturur
-* `Contains("")` kolleksiyon icinde arama var, parametrede verilen deger varsa true doner(bool)
-* `Insert()` kolleksiyon icinde belli bir yere veri eklemek icin kullanliri, Iki Parametre alir, ilki index bilgisi, ikincisi verinin kendisi.
+- `Clear()` Kolleksiyon icindeki verileri siler
+- `Sort()` ogeleri siralar
+- `Reverse()` kolleksiyonu ters cevirir
+- `ToArray()` kolleksiyonu diziye donusturur
+- `Contains("")` kolleksiyon icinde arama var, parametrede verilen deger varsa true doner(bool)
+- `Insert()` kolleksiyon icinde belli bir yere veri eklemek icin kullanliri, Iki Parametre alir, ilki index bilgisi, ikincisi verinin kendisi.
 `GetRange()` Kolleksiyon icerisinden birden fazla veri getirmek icin kullanilir. Verinin gelecegi index ve bu indeksten sonra kac index veri getirilsin parametreleri ile calisir.
-* `TrimToSize()` Kolleksiyonlarda count ve capacity 'i birbirine esitlemek icin kullanilir.
-  * Ornek count :5, capacity 8 ise capacity'i 5 yapar.
+- `TrimToSize()` Kolleksiyonlarda count ve capacity 'i birbirine esitlemek icin kullanilir.
+  - Ornek count :5, capacity 8 ise capacity'i 5 yapar.
 
 ## SortedList Kolleksiyonu (Sirali Liste)
 
@@ -261,8 +279,8 @@ sortedList.Add(7, "Selcuk");
 // key olarak ogrenci numarasi, value olarak isim girdik
 ```
 
-* SortedList oge eklerken, Add fonskiyonu, key ve value, parametrelerini ister. Bu parametreleri object olarak aldigi icin her turlu degeri verebiliriz.
-* SortedList ogeleri **key** degerine gore siralayarak, saklar. Key degeri sayisal bir degerse, kucukten buyuge dogru, harf ise alfabetik siraya gore siralar.
+- SortedList oge eklerken, Add fonskiyonu, key ve value, parametrelerini ister. Bu parametreleri object olarak aldigi icin her turlu degeri verebiliriz.
+- SortedList ogeleri **key** degerine gore siralayarak, saklar. Key degeri sayisal bir degerse, kucukten buyuge dogru, harf ise alfabetik siraya gore siralar.
 
 ```C#
 for (int i = 0; i < sortedList.Count; i++)
@@ -275,13 +293,13 @@ for (int i = 0; i < sortedList.Count; i++)
 }
 ```
 
-* `GetByIndex()` Metodu ile index girerek o indexteki **value** degerine ulasabiliyoruz,
-* `GetKey()` Metodu ile index girerek o indexteki **key** degerine usalabiliyoruz
+- `GetByIndex()` Metodu ile index girerek o indexteki **value** degerine ulasabiliyoruz,
+- `GetKey()` Metodu ile index girerek o indexteki **key** degerine usalabiliyoruz
 
-* Bu kolleksiyon key ve value olarak 2 ayri deger tuttugu icin `Contains()` fonksiyonu iki tanedir.
-  * `ContainsKey()` **key**'ler icinde arama yapar.
-  * `ContainsValue()` **value**'lar icinde arama yapar.
-* Key degeri unique olmalidir, ayni key degeri birden fazla ogeye verilmez. (Calisma Zamani Hatasi verir)
+- Bu kolleksiyon key ve value olarak 2 ayri deger tuttugu icin `Contains()` fonksiyonu iki tanedir.
+  - `ContainsKey()` **key**'ler icinde arama yapar.
+  - `ContainsValue()` **value**'lar icinde arama yapar.
+- Key degeri unique olmalidir, ayni key degeri birden fazla ogeye verilmez. (Calisma Zamani Hatasi verir)
 
 :warning: Kolleksiyonlar konusuna bir sure ara veriyoruz, Generic Kolleksiyonlar konusuna geldigimizde tekrar kolleksiyonlar konusuna devam edecegiz.
 

@@ -1,6 +1,15 @@
-> [**INDEX'e DON**](/README.md)
->
 # Operatorler
+
+- [Operatorler](#operatorler)
+  - [Matematiksel Operatörler](#matematiksel-operatörler)
+  - [Mantıksal Operatörler](#mantıksal-operatörler)
+    - [Buyuk,Kucuk,Esit operatorleri](#buyukkucukesit-operatorleri)
+    - [ve (&) operatoru](#ve--operatoru)
+    - [ve ya (||) operatörü](#ve-ya--operatörü)
+    - [Aynı anda hem (&&) hemde (||) operatorlerının aynı anda kullanılması](#aynı-anda-hem--hemde--operatorlerının-aynı-anda-kullanılması)
+      - [Atama Operatorleri](#atama-operatorleri)
+        - [Arttırma Operatörü](#arttırma-operatörü)
+        - [Atama Operatörleri (++, --)](#atama-operatörleri----)
 
 ## Matematiksel Operatörler
 
@@ -14,13 +23,13 @@ Degişkenleri kullanarak toplama çıkarma çarpma bölme ve mod alma işlemi ya
 Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mantıksal operatorler her zaman bool tipinde *true* ve ya *false* döner. *Örnek:*
 `bool isOkay =false;`
 
-* bool tipi true ve ya false dısında bir değer alamaz.
-* (>) Büyükse true döner, (>=) büyük ve eşitse true döner
-* (<) Küçükse true döner, (<=) küçük ve eşitse true döner
-* tek (=) isaretini atama yapmak icin kullanmıstık. İki esittir (==) ise esitse true doner.
-* (!=) Esit değilse true döner
-* (&&) ve anlamına gelir. İki kosulun ikisinin de doğru olması gerekir.
-* (||) ve ya anlamına gelir. İki kosuldan herhangi biri doğruya true döner.
+- bool tipi true ve ya false dısında bir değer alamaz.
+- (>) Büyükse true döner, (>=) büyük ve eşitse true döner
+- (<) Küçükse true döner, (<=) küçük ve eşitse true döner
+- tek (=) isaretini atama yapmak icin kullanmıstık. İki esittir (==) ise esitse true doner.
+- (!=) Esit değilse true döner
+- (&&) ve anlamına gelir. İki kosulun ikisinin de doğru olması gerekir.
+- (||) ve ya anlamına gelir. İki kosuldan herhangi biri doğruya true döner.
 
 ### Buyuk,Kucuk,Esit operatorleri
 
@@ -42,7 +51,7 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
 
 ### ve (&) operatoru
 
-* Bu operator kullanıldıgında sorgulanan bütün kosulların sağlanıp sağlanmadığına bakar. Sadece bütün koşullar sağlandığında true döner.
+- Bu operator kullanıldıgında sorgulanan bütün kosulların sağlanıp sağlanmadığına bakar. Sadece bütün koşullar sağlandığında true döner.
 
 ```C#
     string veriTabanindakiUserName, veriTabanindakiPassword, kullanicidanGelenUserName, kullanicidanGelenPassword;
@@ -56,23 +65,23 @@ Bütün mantıksal operatörler evet/hayır sorusuna cevap verir. Bu yuzden mant
     bool girisOk = kullanicidanGelenUserName == veriTabanindakiUserName && kullanicidanGelenPassword == veriTabanindakiPassword; 
 ```
 
-* true && false => false
-* **true && true => true**
-* false && false => false
-* false && true => false
+- true && false => false
+- **true && true => true**
+- false && false => false
+- false && true => false
 
 ### ve ya (||) operatörü
 
-* Kosullardan herhangi biri true olması sonucu true döndürmesi için yeterlidir. Kaç tane false olmasının bir önemi yok. Şartlarda tek bir true varsa. Hepsinin true dönmesine gerek yok.
+- Kosullardan herhangi biri true olması sonucu true döndürmesi için yeterlidir. Kaç tane false olmasının bir önemi yok. Şartlarda tek bir true varsa. Hepsinin true dönmesine gerek yok.
 
 ```C#
     bool girisOrOk = kullanicidanGelenUserName == veriTabanindakiUserName || kullanicidanGelenPassword == veriTabanindakiPassword;
 ```
 
-* true && false => true
-* true && true => true
-* **false && false => false**
-* false && true => true
+- true && false => true
+- true && true => true
+- **false && false => false**
+- false && true => true
 
 ### Aynı anda hem (&&) hemde (||) operatorlerının aynı anda kullanılması
 
@@ -146,15 +155,15 @@ Bır degiskene hızlıca 1 arttırmak ya da 1 eksiltmek icin kullanılır.
     deger--;
 ```
 
-* ++ ve ya -- operatörü degiskenin basında yazılırsa ne değişir.
+- ++ ve ya -- operatörü degiskenin basında yazılırsa ne değişir.
 
 ```C#
     int deger = 0;
     int sonuc = deger++;
 ```
 
-* Bu sekilde yazılırsa once atama sonra arttırma yapılır. Yani önce deger degiskenini sonuc degiskenine yazar. sonuc = 0 olur sonra degeri 1 arttırır. Yani sonuc bu örnek için istediğimiz gibi gelmez.
-* Ancak once arttırmayı sonra atamayı yapmasını ıstıyorsak ++ ve ya -- operatorunu degiskenin soluna atılması lazım.
+- Bu sekilde yazılırsa once atama sonra arttırma yapılır. Yani önce deger degiskenini sonuc degiskenine yazar. sonuc = 0 olur sonra degeri 1 arttırır. Yani sonuc bu örnek için istediğimiz gibi gelmez.
+- Ancak once arttırmayı sonra atamayı yapmasını ıstıyorsak ++ ve ya -- operatorunu degiskenin soluna atılması lazım.
 
 ```C#
     int deger = 0;

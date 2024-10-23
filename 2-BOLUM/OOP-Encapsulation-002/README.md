@@ -1,10 +1,13 @@
+- [Encapsulation (Kapsulleme)](#encapsulation-kapsulleme)
+  - [Setter ve Getter Metodlari Iliskisi](#setter-ve-getter-metodlari-iliskisi)
+
 # Encapsulation (Kapsulleme)
 
 Encapsulation, nesneler ve bu nesnelerin icerisindeki degiskenlerle ilgili bir konudur.
 
-* Temel olarak nesneler icindeki degiskenlerin, kontrolsuz bir sekilde dis dunyaya acilmasini engellemek amaciyla dusunulmustur.
-* Bir nesne icindeki uyelerin dis dunya ile direk baglantili olmasi OOP'ye ters bir durumdur.
-* Kapsulleme iki asamadan olusur.
+- Temel olarak nesneler icindeki degiskenlerin, kontrolsuz bir sekilde dis dunyaya acilmasini engellemek amaciyla dusunulmustur.
+- Bir nesne icindeki uyelerin dis dunya ile direk baglantili olmasi OOP'ye ters bir durumdur.
+- Kapsulleme iki asamadan olusur.
     1. Nesneyi kapsullemek icin once erisim belirtecini `private` olarak ayarlariz.
     2. Nesneye erismek icin metod yazariz.
 
@@ -47,11 +50,11 @@ public class Personel
 
 :warning: Encapsulation ozellikle veri girisi yapilirken gerceklesebilecek hatalarin onune gecilmesi icin onemli bir kavramdir. Mesela personelin yasi icin veri girisi alirken, kullanici hatali olarak `person.age = 500` girisi yapabilir. ancak bir setter metod icinde kontrol saglarsak, (yas en fazla 80 olabilir gibi) artik boyle bir riski ortadan kaldirmis oluruz.
 
-## Ctor - Setter/Getter Metodlari Iliskisi
+## Setter ve Getter Metodlari Iliskisi
 
-* Ctor ile Encapsulation yanyana geldigi zaman genelde algi Ctor'larin nesnenin uyelerini koruduklaridir. Ancak Ctor verileri degiskenlere iletmekten baska birsey yapmaz
-* Eger biz kapsulledigimiz degiskenlere ctor ile deger atarsak kapsullemenin bir anlami kalmaz.
-* Bunu yapmanin dogru yolu, setter metodunu ctor icinden cagirmak gerekir.
+- Ctor ile Encapsulation yanyana geldigi zaman genelde algi Ctor'larin nesnenin uyelerini koruduklaridir. Ancak Ctor verileri degiskenlere iletmekten baska birsey yapmaz
+- Eger biz kapsulledigimiz degiskenlere ctor ile deger atarsak kapsullemenin bir anlami kalmaz.
+- Bunu yapmanin dogru yolu, setter metodunu ctor icinden cagirmak gerekir.
 
 ```C#
     public Personel(int id, string name)

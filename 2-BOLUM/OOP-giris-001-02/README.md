@@ -1,6 +1,10 @@
+- [`this`](#this)
+  - [Birden fazla ctor kullanimi `:this`](#birden-fazla-ctor-kullanimi-this)
+  - [Private Constructor `private`](#private-constructor-private)
+
 # `this`
 
-* Bazen ctor olustururken, ctor'a gelen parametreler ile class degiskenleri ayni isim olabilir. Bu Bir sorun olacagi icin, ctor parametrelerini farkli isimlendirebiliriz.
+- Bazen ctor olustururken, ctor'a gelen parametreler ile class degiskenleri ayni isim olabilir. Bu Bir sorun olacagi icin, ctor parametrelerini farkli isimlendirebiliriz.
 
 ```C#
 public class Product
@@ -19,7 +23,7 @@ public class Product
 
 :bulb: bu sekilde atama yaparken degerler ayni oldugu icin hangi id ye hangi idyi verecegini bilemez.
 
-* Farkli isim vermek istemiyorsak, `this` keywordu kullanabiliriz.
+- Farkli isim vermek istemiyorsak, `this` keywordu kullanabiliriz.
 
 ```C#
     public Product(int id, string name, decimal price)
@@ -34,20 +38,20 @@ public class Product
 
 ## Birden fazla ctor kullanimi `:this`
 
-* Bazen nesneyi farkli bilgiler ile bellege cikarmak isteyebiliriz,
-  * Sadece ad vererek
-  * Sadece soyad vererek
-* Bu islem icin ctorlari birbirine yonlendirme islemi yapabiliriz,
-* Bir ctor calismaya baslamadan once baska bir ctora yonlendirebilir ve o ctorun calismasi bittiken sonra , istedigimiz ctor'u calistirabiliriz
-* Bu islemi ctorlar arasi parametre gondererek yapabiliriz.
-* ctor'un parametre alanina `:this(degisken)` syntaxi ile yonlendirme yapilabilir.
+- Bazen nesneyi farkli bilgiler ile bellege cikarmak isteyebiliriz,
+  - Sadece ad vererek
+  - Sadece soyad vererek
+- Bu islem icin ctorlari birbirine yonlendirme islemi yapabiliriz,
+- Bir ctor calismaya baslamadan once baska bir ctora yonlendirebilir ve o ctorun calismasi bittiken sonra , istedigimiz ctor'u calistirabiliriz
+- Bu islemi ctorlar arasi parametre gondererek yapabiliriz.
+- ctor'un parametre alanina `:this(degisken)` syntaxi ile yonlendirme yapilabilir.
 Ornek : [Ogrenci.cs](/2-BOLUM/oop-practise-001/Ogrenci.cs)
 
 ## Private Constructor `private`
 
 Eger dafult ctor icerisinde diger ctor'lara yardimci bazi islemler yapilacaksa, yani default ctor'tek basina bir islem yapmayip, diger ctorlara ile baglantili calisiyorsa, default ctor'un nesne uretmesini kapatabiliriz.
 
-* Default ctor'un nesne uretilirken tek basina kullanimini kapatmak icin `public` keyvordu yerine `private` keywordunu kullaniriz.
+- Default ctor'un nesne uretilirken tek basina kullanimini kapatmak icin `public` keyvordu yerine `private` keywordunu kullaniriz.
 
 ```C#
 public class Student

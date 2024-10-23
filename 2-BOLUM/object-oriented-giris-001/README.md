@@ -1,17 +1,22 @@
+- [OOP (Objcet Oriented Programming)](#oop-objcet-oriented-programming)
+  - [Class](#class)
+  - [OOP Constructor](#oop-constructor)
+  - [Parametre Alan Ctor](#parametre-alan-ctor)
+
 # OOP (Objcet Oriented Programming)
 
 Dunyadaki her seye object olarak bakan bir bakis acisidir. (**Nesne Yonelimli Programlama**) OOP'nin en tepedeki tipi `object` tipidir
 
-* OOP 3 ana basliktan olusur
+- OOP 3 ana basliktan olusur
 
 1. Kalitim : `Inheritance` : Bir nesneye ait olan butun ozelliklerin tipki bir DNA gibi baska objelere tasinmasidir
-    * ust soydan ozellik aktarimi
+    - ust soydan ozellik aktarimi
 2. Kapsullemek : `Encapsulation` : Bir nesnenin ana ozelliklerinin disaridan erisilmesinin engellenmesidir. Bu ozelliklerin disardan okunup degistirilmesini kontrollu bir sekilde yapmak (ornegin yetki kontrolu)
-    * ozelliklerin kapsullenerek dis dunyaya acilmasi
+    - ozelliklerin kapsullenerek dis dunyaya acilmasi
 3. Cok Bicimlilik : `Polymorphism` : Miras yolu ile gelen ozelliklerin *must* olup, *must* olmamasiyla ilgili bir durumdur. Yani hangi ozelliklerin miras olarak alinmasini hangilerinin alinmamasini, hangilerinin degistirlecegi belirlemektir. Kalitim konusunun icindedir
-    * ozelliklerin nasil kullanilacagi (zorunlu ? opsiyonel ? zorunlu ise davranisi degistirmek vb.)
+    - ozelliklerin nasil kullanilacagi (zorunlu ? opsiyonel ? zorunlu ise davranisi degistirmek vb.)
 
-* Bu Bolumdeki ilk Konumuz **Nesne Olusturma**
+- Bu Bolumdeki ilk Konumuz **Nesne Olusturma**
 
 ## Class
 
@@ -30,8 +35,8 @@ public class Ogrenci{
 }
 ```
 
-* Clasi'i urettik simdi icine degerleri girleim
-* class icerisinde degiskenler tanimlanir ve bu degiskenler classin uyesi olur
+- Clasi'i urettik simdi icine degerleri girleim
+- class icerisinde degiskenler tanimlanir ve bu degiskenler classin uyesi olur
 
 ```C#
 public class Ogrenci{
@@ -41,18 +46,18 @@ public class Ogrenci{
 }
 ```
 >
-> * Ogrenci.cs isimli dosyada bir Ogrenci isimli class yazdik.
-> * Program.cs dosyasindan ogrenci sinifindan nesneler olusturacagiz
+> - Ogrenci.cs isimli dosyada bir Ogrenci isimli class yazdik.
+> - Program.cs dosyasindan ogrenci sinifindan nesneler olusturacagiz
 
 :bulb: **Sinif (Class)** => Nesne icerisinde olmasi gereken ozelliklerin tanimli oldugu sablondur.
 
 :bulb: **Sinif (Class)** => Insaat ornegindeki mimarin cizimidir, yani ozelliklerin durmus oldugu sablondur, Nesne ise sinif icerisinde duran sablondan uretilmis ogelerdir.
 
-* Yani bu siniftan uretilecek nesnelerin hangi ozellikleri olacagini class ile belirtiryoruz.
-* simdi yukarda olusturdugmuz ogrenci classindan bir kac nesne uretelim
+- Yani bu siniftan uretilecek nesnelerin hangi ozellikleri olacagini class ile belirtiryoruz.
+- simdi yukarda olusturdugmuz ogrenci classindan bir kac nesne uretelim
 `Ogrenci o1 = new Ogrenci();`
-* bu esitligin sol tarafi bellekte stack bolgesinde bir pointer olusturur
-* esitligin sag tarafin, stack bolgesinde olusan pointerin isaret ettigi heap bolgesindeki alanda bir bellek allocation'u yapar. Ayni zamanda bu nesnenin tasimis oldugu degiskenlerin baskalngic degerlerini bellege yazar.
+- bu esitligin sol tarafi bellekte stack bolgesinde bir pointer olusturur
+- esitligin sag tarafin, stack bolgesinde olusan pointerin isaret ettigi heap bolgesindeki alanda bir bellek allocation'u yapar. Ayni zamanda bu nesnenin tasimis oldugu degiskenlerin baskalngic degerlerini bellege yazar.
 
 ```C#
 Ogrenci o1 = new Ogrenci();
@@ -88,7 +93,7 @@ ogrenci4.age = 25;
 // bu 4 ogrenci nesnesini bir dizi icine yerlestirlerim
 ```
 
-* Ogrenciler adinda olusturulan array sadece ogrenci classina ait nesneleri alir. Baska tipte bir deger alamazsiniz.
+- Ogrenciler adinda olusturulan array sadece ogrenci classina ait nesneleri alir. Baska tipte bir deger alamazsiniz.
 
 ```C#
 Ogrenci[] ogrenciler = new Ogrenci[4];
@@ -110,8 +115,8 @@ for (int i = 0; i < ogrenciler.Length; i++)
 }
 ```
 
-* Bir nesne olustururken `degisken = new Nesne(){ name = "asd", price = 10};` syntaxi kullanilabilir.
-  * degisken array icindeki bir index'te olabilir.  
+- Bir nesne olustururken `degisken = new Nesne(){ name = "asd", price = 10};` syntaxi kullanilabilir.
+  - degisken array icindeki bir index'te olabilir.  
 
 ```C#
 productsArray[0] = new Product()
@@ -147,7 +152,7 @@ namespace Ornek{
 }
 ```
 
-* Classta yazilmis bir metodu cagirmak icin once classi bir degiskene atiyoruz, tipki `Random rnd = new Random()` da oldugu gibi
+- Classta yazilmis bir metodu cagirmak icin once classi bir degiskene atiyoruz, tipki `Random rnd = new Random()` da oldugu gibi
 
 ```C#
 ClassOrnek ornek = new ClassOrnek();
@@ -163,9 +168,9 @@ ornek.Metod();
 
 Yukaridaki orneklerde olusturdugunmuz nesnelirn icine veri yazarken, her veri icin heap bolgesine gidip geliyoruz. *Constructor (Ctor)* Ile biz nesneyi bellege cikarirken icindeki degiskenleri de beraberinde  gondermemizi saglar.
 
-* Ctor : Metoda benzer ancak geri donus degeri yoktur
-* Ctorun adi sinifin adi ile ayni olmak zorundadur
-* Ilerde gorecegimiz, farkli parametreler alan ctrolar olabilir.
+- Ctor : Metoda benzer ancak geri donus degeri yoktur
+- Ctorun adi sinifin adi ile ayni olmak zorundadur
+- Ilerde gorecegimiz, farkli parametreler alan ctrolar olabilir.
 
 ```C#
 public class Personel
@@ -181,12 +186,12 @@ public class Personel
 }
 ```
 
-* Defaut Ctro: Nesne heap alanina giderken bu ctoru calistirir, bu ctor bizim tarafimizdan yazilmasa derleyici bir tane ctor otomatik olarak yazar/
-* Biz bir ctor yazdigimiz anda artik derleyici bizim yazdigimiz ctoru kullanir.
+- Defaut Ctro: Nesne heap alanina giderken bu ctoru calistirir, bu ctor bizim tarafimizdan yazilmasa derleyici bir tane ctor otomatik olarak yazar/
+- Biz bir ctor yazdigimiz anda artik derleyici bizim yazdigimiz ctoru kullanir.
 **Ctor'un amaci nedir**
-* Nesne bellege cikarken nesneye ait verilerinde bellege goturulmesini saglar.
-  * boylece nesne icerisindeki her bir degiskenin degerini tek tek heap anlanina git-gel yapmadan tek seferde yazdirmis oluruz.
-* Ornek olarak yukaridaki ornekte ctor icerisine bir baslangic degeri verelim;
+- Nesne bellege cikarken nesneye ait verilerinde bellege goturulmesini saglar.
+  - boylece nesne icerisindeki her bir degiskenin degerini tek tek heap anlanina git-gel yapmadan tek seferde yazdirmis oluruz.
+- Ornek olarak yukaridaki ornekte ctor icerisine bir baslangic degeri verelim;
 
 ```C#
 public class Personel
@@ -204,12 +209,12 @@ public class Personel
 }
 ```
 
-* Bu sekilde bir baslangic degeri atamasi yaparsak, nesneyi bellege ilk cikardigimiz anda, yani; `Personel p1 = new Personel();` komutu ile birlikte p1 nesnesinin icine ad soyad ve yas bilgisini de Ctor icine yazdigimiz gibi gondermis oluruz.
+- Bu sekilde bir baslangic degeri atamasi yaparsak, nesneyi bellege ilk cikardigimiz anda, yani; `Personel p1 = new Personel();` komutu ile birlikte p1 nesnesinin icine ad soyad ve yas bilgisini de Ctor icine yazdigimiz gibi gondermis oluruz.
 :bulb: Burda default ctor icinde bir deger tanimlamasi yapildigi icin her nesne o tanimlarla bellge gidecektir. Ancak biz bellege cikacak degerleri nesneyi olusturuken vermek istiyoruz, Bunun icin bir ctor daha yazmamiz lazim
 
 ## Parametre Alan Ctor
 
-* Aslinda default Ctor' a overload yaparak, parametre alan bir ctor yaziyoruz
+- Aslinda default Ctor' a overload yaparak, parametre alan bir ctor yaziyoruz
 
 ```C#
     public Personel(string a, string b, int c)
@@ -221,7 +226,7 @@ public class Personel
     }
 ```
 
-* Bu parametreli ctor'u kullanmak icin `Personel p1 = new Personel("Muhittin", "Yilmaz", 30);` seklinde cagiriyoruz.
+- Bu parametreli ctor'u kullanmak icin `Personel p1 = new Personel("Muhittin", "Yilmaz", 30);` seklinde cagiriyoruz.
 :bulb: nesne ornegi alinirken gonderilen parametreler nesne icindeki degiskenlere aktarilir, nesne bu degiskenlerle bellege cikar. Dolayisiyla nesne uretilirken degerlerde yanlarinda gitmis olurlar.
 
 > [**INDEX'e DON**](/README.md)

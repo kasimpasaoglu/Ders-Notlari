@@ -1,6 +1,10 @@
+- [Properties yontemi ile Encapsulation](#properties-yontemi-ile-encapsulation)
+  - [`private get` ve ya `private set` Olarak Yazma](#private-get-ve-ya-private-set-olarak-yazma)
+  - [Calculated Proterty](#calculated-proterty)
+
 # Properties yontemi ile Encapsulation
 
-* getter ve setter metodlarini uzun uzun yazmak is yukunu ve hata yapilmasi ihtimalini arttirdigi icin, zamanla C# muhendisleri tarafindan gelistirilmis bir diger encapsulation yontemi proterties yazmaktir.
+- getter ve setter metodlarini uzun uzun yazmak is yukunu ve hata yapilmasi ihtimalini arttirdigi icin, zamanla C# muhendisleri tarafindan gelistirilmis bir diger encapsulation yontemi proterties yazmaktir.
 
 ```C#
 public class Personel
@@ -35,11 +39,11 @@ public class Personel
 }
 ```
 
-* get ve set adinda 2 metodu tek bir proterty icine aldik.
+- get ve set adinda 2 metodu tek bir proterty icine aldik.
 
-> * Personel nesnesindeki id isimli propertiese eriserek deger atadik,
-> * Id, isimli proterties'de nesne icerisindeki private olan id fieldina deger atamasi yapariz.
-> * Proplar uzerinden get ve set yapmak kolaydir. Ilk ogrendigimiz yontem gibi, sanki gorudan erisiyormus gibi davranarak get ve set yapabilir.
+> - Personel nesnesindeki id isimli propertiese eriserek deger atadik,
+> - Id, isimli proterties'de nesne icerisindeki private olan id fieldina deger atamasi yapariz.
+> - Proplar uzerinden get ve set yapmak kolaydir. Ilk ogrendigimiz yontem gibi, sanki gorudan erisiyormus gibi davranarak get ve set yapabilir.
 >
 ```C#
 Personel p = new();
@@ -49,11 +53,11 @@ Console.WriteLine("Yas : {0}", p.Age);
 
 ## `private get` ve ya `private set` Olarak Yazma
 
-* Property yazarken set ya da get degerlerini kapatabiliriz.
-* Yani `readonly` bir property yazabiliriz. Get metodu calisir ancak set metodu olmaz.
-* ve ya `setonly` olarak yazmak isteyebiliriz.
-* Bunun ici iki yontem vardir, ya saklamak istedigimiz metodun onune private keywordu eklemek,
-* ya da istemedigimiz blogu tamamen kaldirabiliriz
+- Property yazarken set ya da get degerlerini kapatabiliriz.
+- Yani `readonly` bir property yazabiliriz. Get metodu calisir ancak set metodu olmaz.
+- ve ya `setonly` olarak yazmak isteyebiliriz.
+- Bunun ici iki yontem vardir, ya saklamak istedigimiz metodun onune private keywordu eklemek,
+- ya da istemedigimiz blogu tamamen kaldirabiliriz
 
 ```C#
     public int Id
@@ -74,7 +78,7 @@ ve ya
 
 ## Calculated Proterty
 
-* Bu yontemde propery bir degeri koruma altina almaz sadece hesaplanmis degeri doner.
+- Bu yontemde propery bir degeri koruma altina almaz sadece hesaplanmis degeri doner.
 
 ```C#
     public int Maas

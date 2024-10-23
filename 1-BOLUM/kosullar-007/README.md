@@ -1,3 +1,12 @@
+# Table Of Contents
+
+- [Kosullar (Karar Mekanizmalari)](#kosullar-karar-mekanizmalari)
+  - [`if`](#if)
+  - [`if-else`](#if-else)
+  - [else if](#else-if)
+  - [Ternary Operatoru](#ternary-operatoru)
+  - [Switch Case](#switch-case)
+
 # Kosullar (Karar Mekanizmalari)
 
 - Bir yazilimin en onemli bilesenidir

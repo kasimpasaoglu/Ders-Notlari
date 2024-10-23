@@ -1,3 +1,9 @@
+
+- [Hazirlik & Giris](#hazirlik-giris)
+  - [Degiskenler](#degiskenler)
+  - [Degisken Tanimlama Kurallari](#degisken-tanimlama-kurallari)
+  - [Matematiksel Islemler ( +, -, *, /, %,)](#matematiksel-islemler-)
+
 # Hazirlik & Giris
 
 Dotnet’i indirdikten sonra vscode icinde `dotnet new list` komutunu yazarak templateleri listeledik. (Tample projenin ana yapisi)
@@ -33,15 +39,15 @@ Tabi ki guncel bilgisayarlarin islem gucu goz onune alindiginda bu kadar mikro o
 
 ## Degisken Tanimlama Kurallari
 
-* Degisken isimlendirilirken, turkce karakter kullanilmamalidir
-* Degisken isminde, bosluk olmamalidir
-* Degisken ismine, kesinlikle rakam ile baslanmaz
-* Degisken ismi, iki kelimeden olusacaksa `camelCase` sekildine yazilmalidir. Tamami buyuk yazilmamalidir. Sadece tek kelimelik degisken isimlerinde tamami kucuk yazilmalidir. (or; `wissenBrightBesiktas`) (ilk kelimenin bas harfi kucuk ikinci ve sonraki kelimelerin ilk harfleri buyuk yazilmalidir)
-* Degisken isimlendirilirken, cok uzun isimler kullanilmamalidir
-* Degisken, tasidigi deger ile ilgili isimlendirilmelidir.
-* Degisken isimlendirilirken asla anlamsiz isimler verilmemelidir ('x', 'asd')
-* Degisken isimleri birbirinden farkli olmalidir.
-* Degisken tanimlarken syntax asagidaki sekilde yazilmalidir. \
+- Degisken isimlendirilirken, turkce karakter kullanilmamalidir
+- Degisken isminde, bosluk olmamalidir
+- Degisken ismine, kesinlikle rakam ile baslanmaz
+- Degisken ismi, iki kelimeden olusacaksa `camelCase` sekildine yazilmalidir. Tamami buyuk yazilmamalidir. Sadece tek kelimelik degisken isimlerinde tamami kucuk yazilmalidir. (or; `wissenBrightBesiktas`) (ilk kelimenin bas harfi kucuk ikinci ve sonraki kelimelerin ilk harfleri buyuk yazilmalidir)
+- Degisken isimlendirilirken, cok uzun isimler kullanilmamalidir
+- Degisken, tasidigi deger ile ilgili isimlendirilmelidir.
+- Degisken isimlendirilirken asla anlamsiz isimler verilmemelidir ('x', 'asd')
+- Degisken isimleri birbirinden farkli olmalidir.
+- Degisken tanimlarken syntax asagidaki sekilde yazilmalidir. \
 `degisken tipi (bosluk) degisken adi = degiskenin degeri;` \
 *Ornek;*
 
@@ -69,8 +75,8 @@ Bu ornekler (+,-,*,/,%) operatorleri ile cogaltilabilir.
 
 ***NOT***
 
-* '+' operatoru iki matematiksel veriyi birbiri ile toplar
-* ancak '+' operatoru iki metinsel veriyi birbiri ile birlestirir.
+- '+' operatoru iki matematiksel veriyi birbiri ile toplar
+- ancak '+' operatoru iki metinsel veriyi birbiri ile birlestirir.
 Ornek;
 
 ```C#
@@ -81,7 +87,7 @@ Console.WriteLine(wissen + besiktas)
 // cikti: WissenBesiktas
 ```
 
-* metinsel veri ile rakamsal veri arasindaki '+' operatoru birlestirme islemi yapar.
+- metinsel veri ile rakamsal veri arasindaki '+' operatoru birlestirme islemi yapar.
 ornek;
 
 ```C#
@@ -91,9 +97,9 @@ Console.WriteLine("Toplam :" + birinciSayi + ikinciSayi )
 
 Araya bir string ifade girdigimiz icin artik toplama islemi yapmiyor birlestirme yapiyor.
 
-* bir değişkeni tanımlamadan daha sonra tanımlacak sekilde açık bırakabiliriz `sting city;`
-* tanımlamayı başka bir satırda yapabiliriz. `city = "Istanbul"`
-* Birden fazla tanımlama aynı aynda yapılabilir
+- bir değişkeni tanımlamadan daha sonra tanımlacak sekilde açık bırakabiliriz `sting city;`
+- tanımlamayı başka bir satırda yapabiliriz. `city = "Istanbul"`
+- Birden fazla tanımlama aynı aynda yapılabilir
 
 ```C#
    int birinciDegisken,ikinciDegisken,ucuncuDegisken;
@@ -103,15 +109,15 @@ Araya bir string ifade girdigimiz icin artik toplama islemi yapmiyor birlestirme
    ucuncuDegisken = 70;
 ```
 
-* Bir değişkene farklı zamanarda birden fazla değer atanırsa her zaman en son satırda atanan değeri taşır.
-* farklı tiplerdeki verileri farklı tip değişkenlere atarsak
-* C# dilinde iki tip hatayla karşılaşabiliriz.
+- Bir değişkene farklı zamanarda birden fazla değer atanırsa her zaman en son satırda atanan değeri taşır.
+- farklı tiplerdeki verileri farklı tip değişkenlere atarsak
+- C# dilinde iki tip hatayla karşılaşabiliriz.
 
 1. Derleme hatası (syntax) farklı tiplerdeki verileri farklı tip değişkenlere atarsak derleme hatası olur. => `int stringAtananInt = "int tipine string vermek";`
 
 2. Mantık hatası (Kod yapısal olarak doğru yazılmıs ancak )kodun çalışma mantığında hatalar olduğu için doğru çalışmıyor.
 
-* boyut farkından dolayı byte tipine int atayamayız. int verisi byte ın icine sığmaz. Burda derleyici hata verir, onay ister.
+- boyut farkından dolayı byte tipine int atayamayız. int verisi byte ın icine sığmaz. Burda derleyici hata verir, onay ister.
 
 ```C#
     byte byteAtanacak;
@@ -121,7 +127,7 @@ Araya bir string ifade girdigimiz icin artik toplama islemi yapmiyor birlestirme
     //hata
 ```
 
-* Eger şartlar uygun ise C# tip donusumunu otomatık yapar. Yani aynı tip veriyi ve ya daha kücük olan veri tipini daha büyük veri tipine atayabiliriz. derleyici tip dönüştürme işlemini kendi kendine yapar.
+- Eger şartlar uygun ise C# tip donusumunu otomatık yapar. Yani aynı tip veriyi ve ya daha kücük olan veri tipini daha büyük veri tipine atayabiliriz. derleyici tip dönüştürme işlemini kendi kendine yapar.
 
 ```C#
     int buyukSayı ;

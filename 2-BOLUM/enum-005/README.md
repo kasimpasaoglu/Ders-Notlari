@@ -1,3 +1,10 @@
+- [Sabitler](#sabitler)
+  - [Enumeration (`Enum`)](#enum)
+    - [Enum icindeki sabitler icinde dongu ile donmek](#enum-icindeki-sabitler-icinde-dongu-ile-donmek)
+    - [Enum sabitlerinin rakamsal degerine ulasmak](#enum-sabitlerinin-rakamsal-degerine-ulasmak)
+    - [String Degeri Enum'a cevirmek](#string-degeri-enuma-cevirmek)
+  - [Constant (`const`)](#constantconst)
+
 # Sabitler
 
 Yazilim icerisinde bazen sabit degerler vermek isteyebiliriz. Ornegin; Banka eft kodlari
@@ -18,7 +25,7 @@ if (secim=="Akbank")
 
 Bu gibi durumlarda degisken atamasini yazilimciya birakmak yerine degiskenin her yerde ayni sekilde yazilabilmesi icin bir sabit deger atamasi yapilabilir. Bu sabit degiskenlere `enum` denir.
 
-* Tanimlamak icin, yeni bir dosya acilip asagidaki syntax kullanilir;
+- Tanimlamak icin, yeni bir dosya acilip asagidaki syntax kullanilir;
 
 ```C#
 public enum HaftaninGunleri{
@@ -32,7 +39,7 @@ public enum HaftaninGunleri{
 }
 ```
 
-* Kullanmak icin, `EnumAdi.deger` syntaxi kullanilir.
+- Kullanmak icin, `EnumAdi.deger` syntaxi kullanilir.
 
 ```C#
 string pazartesi = HaftaninGunleri.Pazartesi.ToString();
@@ -42,12 +49,12 @@ Console.WriteLine(pazartesi);
 C# icinde bazi hazir enumlar vardir `
 Console.ForegroundColor = ConsoleColor.DarkBlue;` gibi.
 
-* Enum sabitleri arka planinda bir deger tasirlar.
-* Enum sabitlerine bir tip bildirilmedigi surece tasidiklari deger int olur,
-* Eger farkli bir tip deger verilirse o tipte deger tasiyabilirler.
-  * Degerlere tip atamasinini enum'u olustururken veririz.
-  * :warning:Bu deger atamalarinda tipler tamsayi degisken tipleri olmak zorundadir. *string, double vs. verilemez.*
-* Hic bir deger verilmezse otomatik olarak index numaralari alirlar.  
+- Enum sabitleri arka planinda bir deger tasirlar.
+- Enum sabitlerine bir tip bildirilmedigi surece tasidiklari deger int olur,
+- Eger farkli bir tip deger verilirse o tipte deger tasiyabilirler.
+  - Degerlere tip atamasinini enum'u olustururken veririz.
+  - :warning:Bu deger atamalarinda tipler tamsayi degisken tipleri olmak zorundadir. *string, double vs. verilemez.*
+- Hic bir deger verilmezse otomatik olarak index numaralari alirlar.  
 
 ```C#
 public enum Departmanlar : short
@@ -71,15 +78,15 @@ foreach (string item in enumSabitleri)
 
 ### Enum sabitlerinin rakamsal degerine ulasmak
 
-* Enum'in sayisal degerine ulasmak icin tip donusumu yapilabilir;
+- Enum'in sayisal degerine ulasmak icin tip donusumu yapilabilir;
 `short muhasebe = (short)Departmanlar.Muhasebe;`
-* Dongu icindeyken, her dongude o anki degeri Enum'a cevirmek icin `Enum.Parse()` metodunu cagiririz.
-* Bu metod tipki diger Parse metodlari gibi calisir, ancak iki parametre alir, biri Enum'un tipi, digeri ise string deger.
-  * Dolayisiyla `typeof(Departmalar)` ile tip bilgisini alip, dongu degiskenini de string olarak verirsek, Departmanlar tipindeki degere ulasmis olacagiz. Sonra bu degeri int ve ye; bu ornekte short oldugu icin o tipe donustursek sayisal degere ulasmis olacagiz.
+- Dongu icindeyken, her dongude o anki degeri Enum'a cevirmek icin `Enum.Parse()` metodunu cagiririz.
+- Bu metod tipki diger Parse metodlari gibi calisir, ancak iki parametre alir, biri Enum'un tipi, digeri ise string deger.
+  - Dolayisiyla `typeof(Departmalar)` ile tip bilgisini alip, dongu degiskenini de string olarak verirsek, Departmanlar tipindeki degere ulasmis olacagiz. Sonra bu degeri int ve ye; bu ornekte short oldugu icin o tipe donustursek sayisal degere ulasmis olacagiz.
 
 ### String Degeri Enum'a cevirmek
 
-* Bunu yapmak icin Enum icindeki Parse metodunu kullanabiliriz.
+- Bunu yapmak icin Enum icindeki Parse metodunu kullanabiliriz.
 
 `typeof()` Bir C# nesnesinin tip bilgisini doner.
 :warning: `typeof()` kullanmamizin sebebi, calisma zamaninda bir turun meta verisini (type nesnesi) elde etmek ve bu tur bilgisine gore dinamik isler yapabilmektir. Ornegin; **Enum.Parse** metodu turun tam adini degil, tur bilgisini kullanarak stringleri enum turune donusturur.
@@ -94,14 +101,14 @@ foreach (string item in enumSabitleri)
 }
 ```
 
-> * Burda yaptigimiz islem; Enum.Parse ile dongunun o anki elemanini enum turune donusturduk. *Enum.Parse, object dondugu icin `(Departmanlar)` casting'i ile unboxing yaptik, adligimiz enum degerini `seciliDepartman` olarak tanimladik*
-> * Aldigimiz enum'un sayisal degerine ulasmak icin tekrar tip donusumu yaptik `(short)`
+> - Burda yaptigimiz islem; Enum.Parse ile dongunun o anki elemanini enum turune donusturduk. *Enum.Parse, object dondugu icin `(Departmanlar)` casting'i ile unboxing yaptik, adligimiz enum degerini `seciliDepartman` olarak tanimladik*
+> - Aldigimiz enum'un sayisal degerine ulasmak icin tekrar tip donusumu yaptik `(short)`
 
 ---
 
 ## Constant(`const`)
 
-* `const` keywordu ile bir class icinde olmak sarti ile, degistirilemez bir deger atamasi yapilabilir. Tanimlandigi class ici disinda hic bir yerde bu deger degistirilemez.
+- `const` keywordu ile bir class icinde olmak sarti ile, degistirilemez bir deger atamasi yapilabilir. Tanimlandigi class ici disinda hic bir yerde bu deger degistirilemez.
 
 >*Const.cs* Dosyasi
 
@@ -112,8 +119,8 @@ public class Const
 }
 ```
 
-* Bu deger cagrilabilir, okunabilir, ancak disardan degistirilemez.
-* :warning: `const` keywordu sadece primitive tiplerle birlikte kullanilabilir.
+- Bu deger cagrilabilir, okunabilir, ancak disardan degistirilemez.
+- :warning: `const` keywordu sadece primitive tiplerle birlikte kullanilabilir.
 
 ```C#
 var username = Const.UserName; // bu sekilde alabiliriz
