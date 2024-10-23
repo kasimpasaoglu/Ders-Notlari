@@ -1,7 +1,7 @@
 public class LoginDB
 {
-    public const string username = "wissenBesiktas";
-    public const string password = "Bright**";
+    private const string username = "wissenBesiktas";
+    private const string password = "Bright**";
 
 
     public static bool isLoggedIn()
