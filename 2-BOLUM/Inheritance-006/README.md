@@ -118,3 +118,5 @@ be.Aciklama = "Tureyen sinif";
 
 * A sinifinda bulunan Aciklama ozelligi B sinifina kalitildi.
 * :bulb: Derleyici B sinifini bellege cikmak istediginde once kalitildigi sinif olan A sinifini bellege cikaracaktir, ozelliklerini alip ondan sonra B sinifini bellege cikarir.
+* Her zaman ilk olarak tureyen sinif, yani kalitimin en ust mertebesindeki sinif bellege cikmak zorundadir.
+  * A sinifi `Base Class` olarak tanimlanir, B sinifi `Drived` olarak tanimlanir.
