@@ -57,10 +57,10 @@ public class BankBase
 }
 ```
 
-[Akbank.cs](/2-BOLUM/Inheritance-006/Akbank.cs)
-[Garanti.cs](/2-BOLUM/Inheritance-006/Garanti.cs)
-[SekerBank.cs](/2-BOLUM/Inheritance-006/SekerBank.cs)
-[YapiKredi.cs](/2-BOLUM/Inheritance-006/YapiKredi.cs)
+[Akbank.cs](/2-BOLUM/Inheritance-006/Akbank.cs)\
+[Garanti.cs](/2-BOLUM/Inheritance-006/Garanti.cs)\
+[SekerBank.cs](/2-BOLUM/Inheritance-006/SekerBank.cs)\
+[YapiKredi.cs](/2-BOLUM/Inheritance-006/YapiKredi.cs)\
 [Ziraat.cs](/2-BOLUM/Inheritance-006/Ziraat.cs) -> Ziraat Bankasinda fazladan bir prop eklendi
 
 ```C#
