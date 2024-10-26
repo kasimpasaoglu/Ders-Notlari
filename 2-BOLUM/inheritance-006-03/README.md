@@ -75,3 +75,14 @@ static void TasitMetod(Tasit tasit)
 
 * `is` keywordu iki tipi birbiri ile kiyaslar.
   * Aslinda sordugu soru, "tasit degiskenin icinde bir Mercedes var mi?" seklindedir. bool doner.
+
+## `override` Keyword
+
+Kalitim yolu ile gelen metodlarin davranislarini degistirmek icin `override` keyword kullanilir.
+
+```C#
+public override strinf ToString()
+{
+    return "bu metod mercedes sinifinda degistirilmistir";
+}
+```
