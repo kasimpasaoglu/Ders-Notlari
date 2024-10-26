@@ -1,11 +1,4 @@
-﻿/*
-interface, yapisal itibariyle kalitim gibi gorunse de, aslinda miras alip verme durumu ya da siniflarin kendi iclerinde hiyerarsisi yoktur.
-
-Interface: Yazilacak olan siniflara yon gostermek ve yazilacak olan siniflarin sablonu olmak icin vardir.
-Interface yazilirken kesinlikle 'I' on eki ile yazilmalidir.
-Ornek: IAraba, IOgrenci.
-
-*/
+﻿
 
 
 // Bir interface pointeri kendisini implemet etmis tum siniflari isaret edebilir.

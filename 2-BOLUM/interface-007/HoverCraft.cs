@@ -20,5 +20,3 @@ public class HoverCraft : IHavaTasit, IDenizTasit
         throw new NotImplementedException();
     }
 }
-
-// hovercraft hem denizde hem de havada gidebilen bir arac oldugu icin, birden fazla interface implement edebilir.

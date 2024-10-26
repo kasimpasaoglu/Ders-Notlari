@@ -34,7 +34,11 @@
 6. [Sabitler `enum` & `const`](/2-BOLUM/enum-005/README.md)
 7. [Inheritance (Kalitim)](/2-BOLUM/Inheritance-006/README.md)
     * [Inheritance (`base` Keyword)](/2-BOLUM/inheritence-006-02/README.md)
-    * [Inheritance - Metodlar (`is` Keyword)](/2-BOLUM/inheritance-006-03/README.md)
+    * [Inheritance - Metodlar (`is` & `override` Keyword)](/2-BOLUM/inheritance-006-03/README.md)
+8. [Polymorphism](#index)
+    * [`interface` Keyword](/2-BOLUM/interface-007/README.md)
+    * [`abstract` Keyword](/2-BOLUM/abstract-008/README.md)
+    * [`sealed` Keyword](/2-BOLUM/sealed-009/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
