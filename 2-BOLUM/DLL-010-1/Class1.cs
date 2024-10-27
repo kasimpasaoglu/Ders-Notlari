@@ -2,7 +2,7 @@
 // exe ile dll arasindaki en onemli fark dll' de main metodu yoktur. bu yuzden dll dosyalari tek baslarina calistirilamazlar.
 // zaten varolus amaclari baska uygulamalara yardimci olmaktir, calistirilmak degil.
 
-namespace DLL_KodKutuphanesi;
+namespace DLL_010_1;
 
 public class Ogrenci
 {
