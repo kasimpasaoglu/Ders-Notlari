@@ -8,9 +8,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DLL-010-1.dll">
-      <HintPath>C:\Users\BRIGHT.DESKTOP-5789TGK\Downloads\Ders-Notlari\2-BOLUM\DLL-import-proje\libs\DLL-010-1.dll</HintPath>
+    <Reference Include="dll_kutuphanesi">
+      <HintPath>D:\GIT\Ders-Notlari\2-BOLUM\DLL-import-proje\libs\DLL-010-1.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AgeCalculator" Version="1.4.1" />
   </ItemGroup>
 </Project>
 

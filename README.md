@@ -39,6 +39,9 @@
     * [`interface` Keyword](/2-BOLUM/interface-007/README.md)
     * [`abstract` Keyword](/2-BOLUM/abstract-008/README.md)
     * [`sealed` Keyword](/2-BOLUM/sealed-009/README.md)
+9. [`static` Keyword](/2-BOLUM/static-010/README.md)
+10. [Access Modifiers (Erisim Belirtecleri)](/2-BOLUM/access-modifiers-011/README.md)
+    * [DLL Kod Kutuphanesi(AraKonu)](/2-BOLUM/DLL-010-1/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 

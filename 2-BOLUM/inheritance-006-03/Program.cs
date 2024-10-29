@@ -2,7 +2,19 @@
 
 static void TasitMetod(Tasit tasit)
 {
+    Mercedes merco = new();
+    Bmw bmw = new();
+    if (tasit is Mercedes)
+    {
+        merco = (Mercedes)tasit;
+    }
+    if (tasit is Bmw)
+    {
+        bmw = (Bmw)tasit;
+    }
 
+    Console.WriteLine(merco.Konfor);
+    Console.WriteLine(bmw.Performans);
 }
 
 
@@ -11,7 +23,14 @@ static void TasitMetod(Tasit tasit)
 // ornegin mercedes sinifini yukaridaki metoda parametre olarak gonderelim.
 
 Mercedes m = new();
-TasitMetod(m);
+m.Konfor = "konfor100";
+m.Metod();
+
+Bmw bmw = new();
+bmw.Performans = "performans100";
+
+// TasitMetod(bmw);
+// TasitMetod(m);
 
 
 // mercedes sinifi Tasit sinifindan turetildigi icin, parametre olarak Tasit verdigimiz metoda Mercedes classini gonderebiliriz.

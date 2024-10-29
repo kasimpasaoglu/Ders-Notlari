@@ -14,4 +14,14 @@ public class Personel
         Yas = yas;
         IsYeri = isYeri;
     }
+
+    public void NesneMetodu()
+    {
+
+    }
+
+    public static void Metod()
+    {
+
+    }
 }
