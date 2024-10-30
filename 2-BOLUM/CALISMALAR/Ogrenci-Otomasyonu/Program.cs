@@ -1,40 +1,24 @@
-﻿
-/*
-List<int> degisken = new List<int>();
-degisken.Add(1);
-degisken.Add(10);
-
-
-List<string> stringKolleksiyon = new List<string>();
-stringKolleksiyon.Add("Ayse");
-stringKolleksiyon.Add("Fatma");
-
-List<Ogrenci> ogrenciKolleksiyon = new List<Ogrenci>();
-
-ogrenciKolleksiyon.Add(new Ogrenci() { Id = 10, Name = "Ali" });
-*/
-
-List<Ogrenci> ogrenciler = new();
-
-while (true)
+﻿while (true)
 {
-    int input = Ogrenci.Menu();
-
+    int input = StudentHelper.Menu();
     if (input == 1)
     {
-        var name = Ogrenci.GetName();
-        Ogrenci.AddStudent(name, ogrenciler);
+        StudentHelper.PrintStudents();
     }
     else if (input == 2)
     {
-
+        StudentHelper.DeleteStudent();
     }
     else if (input == 3)
     {
-
+        StudentHelper.AddStudent();
     }
     else if (input == 4)
     {
-
+        StudentHelper.UpdateStudent();
+    }
+    else if (StudentHelper.IsExiting())
+    {
+        break;
     }
 }
