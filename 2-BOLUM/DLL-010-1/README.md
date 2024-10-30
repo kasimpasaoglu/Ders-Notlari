@@ -1,5 +1,7 @@
 # DLL Kod Kutuphanesi
 
+**Dynamic Link Liblary** exe uzantili programlarin calisirken disardan ve ya kendi yazdigimiz bazi siniflari kullanmak icin bu siniflari DLL dosyasi icerisinde toplayabiliriz.
+
 * exe ile dll arasindaki en onemli fark dll' de main metodu yoktur. bu yuzden dll dosyalari tek baslarina calistirilamazlar.
 * zaten varolus amaclari baska uygulamalara yardimci olmaktir, calistirilmak degil.
 * `dotnet new classlib` komutu ile bir class liblary olusturduk.
@@ -50,6 +52,8 @@ public class Ogrenci
 * Bu islem bittikten sonra projeyi bir kez build yapmak icin `dotnet build` komutu calistirilir
 * dll icindeki siniflari kullanmak icin namespace'i eklemek gerekmektedir
 `using dll_kutuphanesi;`
+  * using satiri eklemek istenmezse ;
+  `dll_kutuphanesi.Ogrenci o = new dll_kutuphanesi.Ogrenci()`
 * Artik dll icine yazdigimiz classlar kullanilabilir
 
 ```C#

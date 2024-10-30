@@ -32,4 +32,6 @@
 ## internal
 
 - Kutuphaneler icerisinde birbirine ulas, farkli kutuphane ise ulasma.
+- Ayni proje icinden erisilebilir, farkli projelerden erisilemez
 - Kutuphane nedir? [DLL kod kutuphanesi Ara Konu](/2-BOLUM/DLL-010-1/README.md)
+- DLL olarak hazirlanan classlar icinde bir classta `internal` etiketi ile bir uye yazilirsa, diger classtan da bu uyeye erisilebilir, ancak DLL'in import edildigi projede bu uyeye erisilemez. Sadece kendi projesinden erisilebilir. Farkli bir projede referans edilse bile erisilemez.
