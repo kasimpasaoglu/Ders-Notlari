@@ -29,3 +29,6 @@ ogrenciKolleksiyon.Add(new Ogrenci(){Id=10, Name="Ali"});
 ```
 
 > Kendi classlarimizi da verebiliyoruz
+
+- Generic list kollesiyonu `ArrayList` kolleksiyonun generik halidir. ArrayList gibi kullanabilirsiniz.
+`List<object> liste = new List<object>();`
