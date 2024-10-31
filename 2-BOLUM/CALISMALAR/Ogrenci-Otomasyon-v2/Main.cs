@@ -67,11 +67,9 @@ public class Main
         int index = -1;
         while (index == -1)
         {
-            int id;
-            string name;
             if (Input == 3 || Input == 4)
             {
-                id = GetId();
+                int id = GetId();
                 foreach (Student item in list)
                 {
                     if (item.Id == id)
@@ -86,7 +84,7 @@ public class Main
             }
             else if (Input == 7)
             {
-                name = GetName();
+                string name = GetName();
                 foreach (Student item in list)
                 {
                     if (item.Name == name)
@@ -121,6 +119,7 @@ public class Main
     public static int Menu()
     {
         Console.WriteLine(Messages.Separator);
+        Console.WriteLine(Messages.PromptMakeChoice);
         Console.WriteLine(Messages.Menu1PrintStudents);
         Console.WriteLine(Messages.Menu2AddStudent);
         Console.WriteLine(Messages.Menu3DeleteStudent);
@@ -195,4 +194,38 @@ public class Main
         }
         SetCounter();
     }
+    public static void FindStudent()
+    {
+        int index = FindIndex();
+        Console.WriteLine(Messages.SuccessFound + Messages.GetStudentMessage(list[index]));
+    }
+    public static void SortStudents()
+    {
+        Console.WriteLine(Messages.Separator);
+        Console.WriteLine(Messages.PromptMakeChoice);
+        Console.WriteLine(Messages.PromtSort1ByGrade);
+        Console.WriteLine(Messages.PromtSort2ByName);
+        Console.WriteLine(Messages.Separator);
+        int sortInput;
+        while (!int.TryParse(Console.ReadLine().Trim(), out sortInput) || Input < 1 || Input > 2)
+        {
+            Console.WriteLine(Messages.ErrorWrongInput);
+        }
+
+        if (sortInput == 1)
+        {
+            SortList(list, sortByGrade: true, descending: true);
+        }
+        else if (sortInput == 2)
+        {
+            SortList(list, sortByGrade: false);
+        }
+    }
+
+    private static void SortList(List<Student> list, bool sortByGrade, bool descending = false)
+    {
+        var comparer = new StudentComparer(sortByGrade, descending);
+        list.Sort(comparer);
+    }
+
 }

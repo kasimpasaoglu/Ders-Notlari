@@ -13,16 +13,19 @@ public class Messages
     public const string SuccessSortedByGrade = "Students sorted by grade average.";
     public const string SuccessAdded = "Succesfully added => ";
     public const string SuccessDeleted = "Succesfully deleted => ";
-    public const string SuccessFound = "Updating student => ";
+    public const string SuccessFound = "Student found => ";
     public const string SuccessUpdated = "Succesfully updated => ";
     public const string ErrorFileNotFound = "File not found.";
     public const string ErrorCollectionEmpty = "The student list is empty.";
     public const string ErrorWrongInput = "Wrong input, please try again.";
     public const string ErrorCannotFindId = "Can not find student with given ID. Please try again.";
     public const string ErrorCannotFindName = "Can not find student with given Name & Surname. Please try again.";
+    public const string PromptMakeChoice = "Please enter your choice:";
     public const string PromptEnterStudentName = "Enter the student's name & surname:";
     public const string PromptEnterStudentGrade = "Enter the student's grade :";
     public const string PromptEnterId = "Enter the ID of the student :";
+    public const string PromtSort1ByGrade = "1 -> Sory By Grade";
+    public const string PromtSort2ByName = "2 -> Add Student";
     public const string Separator = "----------------------------------------------";
     public const string JsonPath = "data/students.json";
 
