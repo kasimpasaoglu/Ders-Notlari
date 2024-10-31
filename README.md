@@ -46,6 +46,7 @@
     * [`Dictionary` Kolleksiyonu](/2-BOLUM/generic-dictionary-012-01/README.md)
     * [`SortedDictionary` Kolleksiyonu](/2-BOLUM/generic-sorteddictionary-012-02/README.md)
     * [`SortedList` Kolleksiyonu](/2-BOLUM/generic-SortedList-012-03/README.md)
+12. [Generic Metodlar & `dynamic` `where` keywordleri](/2-BOLUM/Generic-Metodlar-013/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
