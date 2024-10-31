@@ -1,4 +1,4 @@
-# SortedKolleksiyonu
+# SortedDictionary Kolleksiyonu
 
 Dictionary kolleksiyonunun, key degerine gore siralanmis versiyonudur.
 

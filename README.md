@@ -42,6 +42,10 @@
 9. [`static` Keyword](/2-BOLUM/static-010/README.md)
 10. [Access Modifiers (Erisim Belirtecleri)](/2-BOLUM/access-modifiers-011/README.md)
     * [DLL Kod Kutuphanesi(AraKonu)](/2-BOLUM/DLL-010-1/README.md)
+11. [Generic Kavrami & `list` Kolleksiyonu](/2-BOLUM/generic-kavrami-012/README.md)
+    * [`Dictionary` Kolleksiyonu](/2-BOLUM/generic-dictionary-012-01/README.md)
+    * [`SortedDictionary` Kolleksiyonu](/2-BOLUM/generic-sorteddictionary-012-02/README.md)
+    * [`SortedList` Kolleksiyonu](/2-BOLUM/generic-SortedList-012-03/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
