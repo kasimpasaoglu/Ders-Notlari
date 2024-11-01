@@ -29,14 +29,14 @@ while (true)
     }
     else if (input == 7)
     {
-
+        Main.FindStudent();
     }
     else if (input == 8)
     {
-
+        Main.SortStudents();
     }
     else if (input == 9)
     {
-
+        break;
     }
 }

@@ -207,7 +207,7 @@ public class Main
         Console.WriteLine(Messages.PromtSort2ByName);
         Console.WriteLine(Messages.Separator);
         int sortInput;
-        while (!int.TryParse(Console.ReadLine().Trim(), out sortInput) || Input < 1 || Input > 2)
+        while (!int.TryParse(Console.ReadLine().Trim(), out sortInput) && Input <= 0 && Input >= 3)
         {
             Console.WriteLine(Messages.ErrorWrongInput);
         }
@@ -215,10 +215,12 @@ public class Main
         if (sortInput == 1)
         {
             SortList(list, sortByGrade: true, descending: true);
+            Console.WriteLine(Messages.SuccessSortedByGrade);
         }
         else if (sortInput == 2)
         {
             SortList(list, sortByGrade: false);
+            Console.WriteLine(Messages.SuccessSortedByName);
         }
     }
 

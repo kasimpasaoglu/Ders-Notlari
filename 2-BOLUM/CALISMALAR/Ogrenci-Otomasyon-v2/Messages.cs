@@ -7,10 +7,11 @@ public class Messages
     public const string Menu5SaveStudents = "5 -> Save to File";
     public const string Menu6GetStudents = "6 -> Load from File";
     public const string Menu7FindStudent = "7 -> Search Student by Name";
-    public const string Menu8SortStudents = "8 -> Sort by Grade Average";
+    public const string Menu8SortStudents = "8 -> Sort students list";
     public const string Menu9Exit = "9 -> Exit";
     public const string SuccessLoadedFromFile = "Students successfully loaded from file.";
     public const string SuccessSortedByGrade = "Students sorted by grade average.";
+    public const string SuccessSortedByName = "Students sorted by name.";
     public const string SuccessAdded = "Succesfully added => ";
     public const string SuccessDeleted = "Succesfully deleted => ";
     public const string SuccessFound = "Student found => ";
@@ -24,8 +25,8 @@ public class Messages
     public const string PromptEnterStudentName = "Enter the student's name & surname:";
     public const string PromptEnterStudentGrade = "Enter the student's grade :";
     public const string PromptEnterId = "Enter the ID of the student :";
-    public const string PromtSort1ByGrade = "1 -> Sory By Grade";
-    public const string PromtSort2ByName = "2 -> Add Student";
+    public const string PromtSort1ByGrade = "1 -> Sort by grade";
+    public const string PromtSort2ByName = "2 -> Sort by name";
     public const string Separator = "----------------------------------------------";
     public const string JsonPath = "data/students.json";
 
