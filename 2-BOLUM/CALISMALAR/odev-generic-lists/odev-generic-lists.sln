@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "odev-generic-lists", "odev-generic-lists.csproj", "{135B4FF2-74BA-465B-BFE0-C1BC14AAFD9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{135B4FF2-74BA-465B-BFE0-C1BC14AAFD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135B4FF2-74BA-465B-BFE0-C1BC14AAFD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135B4FF2-74BA-465B-BFE0-C1BC14AAFD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135B4FF2-74BA-465B-BFE0-C1BC14AAFD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1D8E19B-75ED-4DE8-BDD5-7AA63B2E9FB9}
+	EndGlobalSection
+EndGlobal
