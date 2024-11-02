@@ -13,7 +13,7 @@ static void GenericMetod1<T, K, L>(T value1, K value2, L value3)
 
 }
 
-GenericMetod1<string, char, Personel>("String Parametre", 'c', new Personel());
+GenericMetod1<string, char, Personel>("String Parametre", 'c', new Personel(10, "Hamit"));
 
 
 static K GenericMetod2<K, L>(K value)
@@ -82,3 +82,29 @@ Console.WriteLine(EnBuyuk<string>("Ahmet", "Zeynep"));
 
 var enBuyuk = EnBuyuk<Ogrenci>(new Ogrenci() { OgrenciId = 19 }, new Ogrenci() { OgrenciId = 5 });
 Console.WriteLine("En Büyük : " + enBuyuk.OgrenciId);
+
+static void CtorKisit<T>(T value1) where T : new()
+{
+
+}
+
+// CtorKisit<Personel>(new Personel(10, "Ahmet")); // personel classinda default ctor olmadigi icin hata verir.
+
+static void Kalitim<T>(T value1) where T : BaseClass
+{
+
+}
+// int bir BaseClass degildir hata verir
+// Kalitim<int>(10);
+
+Kalitim<Personel>(new Personel(20, "Nalan"));
+
+static void SinifKisit<T>(T value) where T : class
+{
+
+}
+
+// SinifKisit<bool>(true); // hataverir
+SinifKisit<string>("Kemal"); // string bir referans tip oldugu icin metoda parametre olarak gonderilebilir
+// SinifKisit<Wissen>(new Wissen()); // wissen bir struck olarak yazildigi icin hata verir
+SinifKisit<Personel>(new Personel(10, "Ahmet")); // personel sinifi bir referans tip oldugu icin 

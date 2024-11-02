@@ -55,7 +55,7 @@ static L Toplama<T, K, L>(T value1, K value2)
 - Bu keyword olmadan derleyici gelen degerlerin + operatoru ile isleme alinip alinamayacagini bilmez.
 - `dynamic` keywordu ile artik bu degisken
 
-## Kisitlamalar `where` Keyword
+## Kisitlamalar  & `where` Keyword
 
 - Bu tarz kisitlanmamis metodlarda icerde yapabilecegimiz islem cok kisitlaniyor.
 - Ancak metoda gelebilecek parametrelerde bir kisitlama yaparsak daha rahat hareket edebiliriz
@@ -91,7 +91,7 @@ Console.WriteLine(EnBuyuk<int>(20, 10));
 Console.WriteLine(EnBuyuk<string>("Ahmet", "Zeynep"));
 ```
 
-### Kendi Class'imiza `IComparable' Eklemek
+#### Kendi Class'imiza `IComparable' Eklemek
 
 Implementasyonu yaptiktan sonra, C# bizden CompareTo metodunu yazmamizi isteyecek.
 
@@ -123,4 +123,81 @@ Bu tanimlamanin ardindan artik daha once hazirladigimiz `EnBuyuk()` metodunu art
 var enBuyuk = EnBuyuk<Ogrenci>(new Ogrenci(){   OgrenciId=19},new Ogrenci(){ OgrenciId=5});
 
 Console.WriteLine("En Büyük : "+enBuyuk.OgrenciId);
+```
+
+## Generic Kisitlar : Default ctor Kisiti
+
+Generic metodumuza default Ctor kisiti koyalaim. Yani Default ctoru olmayan classlar ile birlikte calismasin
+
+```C#
+static void CtorKisit<T>(T value1) where T : new()
+{
+
+}
+```
+
+Personel classinda ise default ctor yok
+
+```C#
+public class Personel
+{
+    public int Id { get; set; }
+    public string Ad { get; set; }
+    public Personel(int id, string name)
+    {
+        Id = id;
+        Ad = name;
+    }
+}
+```
+
+Bu yuzden personel sinifi ile bu metodu kullanmaya calistigimizda hata verecektir.
+
+```C#
+CtorKisit<Personel>(new Personel(10, "Ahmet"));
+```
+
+## Generic Kisitlar : Kalitilma Kisiti
+
+- Kalitim kisitinda 2 kosul vardir;
+  - Ya o siniftan kalitilmis olmak, ya da direk o sinifi kullanmak
+
+BaseClass isimli classtan kalitilmis olma sarti ve ya BaseClass sinifinin parametre olarak gelme sarti eklendi
+
+```C#
+static void Kalitim<T>(T value1) where T:BaseClass
+{
+
+}
+```
+
+int bir BaseClass degildir hata verir -> `Kalitim<int>(10);`
+
+- Daha once yazdigimiz Personel classina base class kalitimi ekledikten sonra;
+`Kalitim<Personel>(new Personel(20,"Nalan"));`
+- Artik personel classi, BaseClass' tan kalitim aldigi icin bu metoda parametre olarak gonderilebilir.
+
+## Generic Kisitlar : Referans Tip(class) ve ya Deger Tip(struct) Olma Kisiti
+
+```C#
+static void SinifKisit<T>(T value)where T: class
+{
+
+}
+```
+
+- `SinifKisit<bool>(true);` -> deger tip(struct) oldugu icin  **hata verir**
+- `SinifKisit<string>("Kemal");` -> string bir referans tip oldugu icin metoda parametre olarak **gonderilebilir**
+- `SinifKisit<Personel>(new Personel(10, "Ahmet"));` -> personel sinifi bir referans tip oldugu icin **gonderilebilir**.
+- `SinifKisit<Wissen>(new Wissen());` -> wissen bir struck olarak yazildigi icin **hata verir**
+
+### Coklu kisitlama ornegi
+
+- T Tipi hem referenas tip olmali, hem IDisposable'dan kalitilmis olmali, K tipi deger tipli olmalidir.
+
+```C#
+static void CokluKisit<T, K>(T value, K value1)where T: class, IDisposable where K: struct
+{
+
+}
 ```
