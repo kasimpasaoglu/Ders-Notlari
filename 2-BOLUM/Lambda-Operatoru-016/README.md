@@ -1,3 +1,11 @@
+# Table Of Contents
+
+- [Lambda Operatoru `=>`](#lambda-operatoru-)
+  - [`SingleOrDefault()` && `FirstOrDefault()` Metodlari](#singleordefault--firstordefault-metodlari)
+  - [Birden Fazla Kosul Ile Lambda Calistirma](#birden-fazla-kosul-ile-lambda-calistirma)
+  - [`OrderBy` Metodlari](#orderby-metodlari)
+  - [`Select` Metodu](#select-metodu)
+
 # Lambda Operatoru `=>`
 
 - Temel islevi kolleksiyonlarin icerisinde sorgulama yapabilmektir.
@@ -99,6 +107,8 @@ foreach (var item in reverseOrderedList)
     Console.WriteLine($"{item.Id} -> {item.Name} -> {item.Age}");
 }
 ```
+
+:warning: baska metodlar var yazamadim
 
 ## `Select` Metodu
 
