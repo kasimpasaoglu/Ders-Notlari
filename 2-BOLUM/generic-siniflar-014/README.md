@@ -25,5 +25,5 @@ public class Ogrenci<T, K, M>
     - o.KProp -> string oldu
     - o.MProp -> byte oldu
 
-:warning: Arastirma odev; Generic bir sinif yazip bu sinigi kendi kolleksiyonunuz haline donusturun, Kendi generic kolleksiyonunuzu yaziniz. (Indexer nedir? Yield Nedir? Yield return nedir?)
+:warning: Arastirma odev; Generic bir sinif yazip bu sinigi kendi kolleksiyonunuz haline donusturun, Kendi generic kolleksiyonunuzu yaziniz. arkada list generic kolleksiyonu kullanin (Indexer nedir? Yield Nedir? Yield return nedir?)
 Yield: bir sinifin icierisinde foreach ile gezebilme yetenegidir.
