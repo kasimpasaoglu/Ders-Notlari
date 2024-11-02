@@ -47,6 +47,9 @@
     * [`SortedDictionary` Kolleksiyonu](/2-BOLUM/generic-sorteddictionary-012-02/README.md)
     * [`SortedList` Kolleksiyonu](/2-BOLUM/generic-SortedList-012-03/README.md)
 12. [Generic Metodlar & `dynamic` `where` keywordleri](/2-BOLUM/Generic-Metodlar-013/README.md)
+13. [Generic Class](/2-BOLUM/generic-siniflar-014/README.md)
+14. [Generic Interface](/2-BOLUM/generic-interface-015/README.md)
+15. [Lambda Operatoru](/2-BOLUM/Lambda-Operatoru-016/README.md)
 
 [CALISMALAR](/2-BOLUM/CALISMALAR/)
 
