@@ -80,4 +80,5 @@ Console.WriteLine(EnBuyuk<string>("Ahmet", "Zeynep"));
 // ODEV: Bir liste alip bu listedeki en buyuk sayiyi veren bir generic metod.
 
 
-
+var enBuyuk = EnBuyuk<Ogrenci>(new Ogrenci() { OgrenciId = 19 }, new Ogrenci() { OgrenciId = 5 });
+Console.WriteLine("En Büyük : " + enBuyuk.OgrenciId);

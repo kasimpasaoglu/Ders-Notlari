@@ -51,6 +51,7 @@ static L Toplama<T, K, L>(T value1, K value2)
  iki string verirsek bu metod yine calisacaktir
 
 - `dynamic` tipki var gibi ancak daha gucli bir keyword'tur.
+- Aslinda generic ile alakasi yok.
 - Bu keyword olmadan derleyici gelen degerlerin + operatoru ile isleme alinip alinamayacagini bilmez.
 - `dynamic` keywordu ile artik bu degisken
 
@@ -88,4 +89,38 @@ Kontrol Edelim
 Console.WriteLine(EnBuyuk<int>(20, 10));
 // string te IComparable interface implementasyonu icerdigi icin string ile de calistirabiliriz
 Console.WriteLine(EnBuyuk<string>("Ahmet", "Zeynep"));
+```
+
+### Kendi Class'imiza `IComparable' Eklemek
+
+Implementasyonu yaptiktan sonra, C# bizden CompareTo metodunu yazmamizi isteyecek.
+
+```C#
+public class Ogrenci : IComparable
+{
+    public int OgrenciId { get; set; }
+    public int CompareTo(object? obj)
+    {
+        Ogrenci parametreOgrenci = (Ogrenci)obj;
+        if(this.OgrenciId>parametreOgrenci.OgrenciId)
+        {
+             return 1;
+        }
+        else if(this.OgrenciId<parametreOgrenci.OgrenciId){
+            return -1;
+        }
+        else 
+        {
+            return 0;
+        }
+    }
+}
+```
+
+Bu tanimlamanin ardindan artik daha once hazirladigimiz `EnBuyuk()` metodunu artik Ogrenci sinifi icin de kullanabilir hale getirdik.
+
+```C#
+var enBuyuk = EnBuyuk<Ogrenci>(new Ogrenci(){   OgrenciId=19},new Ogrenci(){ OgrenciId=5});
+
+Console.WriteLine("En Büyük : "+enBuyuk.OgrenciId);
 ```
