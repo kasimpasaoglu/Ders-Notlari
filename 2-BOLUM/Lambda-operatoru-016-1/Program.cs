@@ -15,16 +15,14 @@ personels.Add(new Personel() { Id = 7, departmanId = 1, Name = "Nuray", Age = 40
 personels.Add(new Personel() { Id = 6, departmanId = 3, Name = "Burak", Age = 20, Salary = 60 });
 
 #region anonim
-
+/*
 var anonim = new
 {
     Id = 1,
     Name = "Metin",
     Age = 30
 };
-// Select metodundan geriye farkli bir tip dondurmek istedigimizde, her defasinda yeni bir tip yazmamak icin anonim tip yazabiliriz.
-// Anonim tip bir sinif nesne ornegi gibi davranir, ancak sinif yoktur.
-// Anonim tiplerde propertyler istenildigi kadar istenildigi tiple yazilabilir
+
 
 var liste = personels.Where(s => s.Name.Contains('a')).Select(s => new
 {
@@ -32,8 +30,7 @@ var liste = personels.Where(s => s.Name.Contains('a')).Select(s => new
     Name = s.Name,
 }).ToList();
 
-// erisirken yine `var` keywordu kullanilir
-/*
+
 foreach (var item in liste)
 {
     Console.WriteLine($"{item.Id} -> {item.Name}");
@@ -73,25 +70,31 @@ foreach (var item in salaryIncrease)
 
 
 #region any
+/*
 bool isOk = workers.Any(x => x.Name.Contains("Mehmet") && x.WeeklyWage == 58000);
-// Console.WriteLine(isOk);
+Console.WriteLine(isOk);
+*/
 #endregion
 
 #region sum
+/*
 double totalWage = workers.Sum(x => x.WeeklyWage);
 
-// Console.WriteLine($"Total Salary : {totalWage}");
+Console.WriteLine($"Total Salary : {totalWage}");
+*/
 #endregion
 
 #region count
+/*
 int salaryCount = workers.Where(s => s.WeeklyWage <= 50000).Count();
 
-// Console.WriteLine(salaryCount);
+Console.WriteLine(salaryCount);
 
-//
+
 int salaryCount1 = workers.Count(x => x.WeeklyWage <= 50000);
 
-// Console.WriteLine(salaryCount1);
+Console.WriteLine(salaryCount1);
+*/
 #endregion
 
 #region GroupBy Gruplama ornegi, hangi maastan kac tane var
@@ -100,14 +103,13 @@ var group = workers.GroupBy(s => s.WeeklyWage).Select(s => new
     Salary = s.Key,
     Count = s.Count(),
 });
-/*
+
 foreach (var item in group)
 {
     Console.WriteLine($"Adet : {item.Count} || Maas : {item.Salary}");
 }
-*/
-// Gruplanan ogelerdeki grubu olusturacak parametreleri Key olarak yazar. 
-// 10 elemanli bir Kolleksiyonda gruplamayi yapacak olan parametreye gore kac farkli deger varsa o adette yeni bir kolleksiyon olusturuyor, Bu parametrelerin her birini bir key degeri olarak aliyor, ve her bir keye karsilik gelen value kisminda bu parametreyi karsilayan yeni bir list olustuyor.
+
+
 #endregion
 
 #region iki degere gore gruplama
@@ -149,6 +151,7 @@ foreach (var item in joinResult)
 #endregion
 
 #region grupjoin
+#region 1.ornek
 var groupJoinResult = departmans.GroupJoin(personels,
 s => s.Id,
 s => s.departmanId,
@@ -162,8 +165,9 @@ foreach (var item in groupJoinResult)
 {
     Console.WriteLine($"Departman: {item.DepartmanAdi} || Calisan Sayisi: {item.KacKisi}");
 }
-
+#endregion
 // Bu sorguda kac personel oldugu bilgisi var ancak departmanda kimler var sorgusu yapmak icin;
+#region 2.ornek
 var groupJoinNameResult = departmans.GroupJoin(personels,
 s => s.Id,
 s => s.departmanId,
@@ -185,4 +189,24 @@ foreach (var item in groupJoinNameResult)
     }
     Console.WriteLine("------");
 }
+#endregion
+// her departmanda en yaşlı personelleri getirelim
+#region ornek3 
+var groupJoinResult = departmans.GroupJoin(personels // bağlanacak tablo
+, departman => departman.Id                           // ilk tablodaki ortak alan
+, personel => personel.departmanId                  // ikinci tablodaki ortak alan
+, (departman, personel) => new
+{
+    DepartmanAd = departman.Name,
+    EnYasliPersonel = personel.OrderByDescending(x => x.Age).FirstOrDefault(),
+    Sayi = personel.Count(),
+    DepartmanYastoplam = personel.Sum(s => s.Age)
+});
+foreach (var item in groupJoinResult)
+{
+    Console.WriteLine("{0}---{1}", item.DepartmanAd, item.EnYasliPersonel.Name);
+
+    Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-");
+}
+#endregion
 #endregion

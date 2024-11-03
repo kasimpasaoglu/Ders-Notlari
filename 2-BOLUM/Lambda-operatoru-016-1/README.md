@@ -75,6 +75,8 @@ int salaryCount = workers.Where(s => s.WeeklyWage <= 50000).Count();
 Console.WriteLine(salaryCount);
 ```
 
+ve ya
+
 ```C#
 int salaryCount1 = workers.Count(x => x.WeeklyWage <= 50000);
 
@@ -96,6 +98,22 @@ var group = workers.GroupBy(s => s.WeeklyWage).Select(s => new
 foreach (var item in group)
 {
     Console.WriteLine($"Adet : {item.Count} || Maas : {item.Salary}");
+}
+```
+
+**Iki degere gore gruplama**
+
+```C#
+var groupped = personels.GroupBy(s => new { s.Salary, s.Age }).Select(s => new
+{
+    s.Key.Salary,
+    s.Key.Age,
+    toplam = s.Count(),
+});
+
+foreach (var item in groupped)
+{
+    Console.WriteLine($"Salary: {item.Salary} - Age: {item.Age} => Count: {item.toplam}");
 }
 ```
 
@@ -143,3 +161,45 @@ foreach (var item in joinResult)
 ## `GrouopJoin` Metodu
 
 * Iki tabloyu birbirine baglayip, ayni zamanda iki tablo uzerinden gruplama yapabilmeyi saglar.
+
+```C#
+var groupJoinResult = departmans.GroupJoin(personels,
+s => s.Id,
+s => s.departmanId,
+(x, y) => new
+{
+    DepartmanAdi = x.Name,
+    KacKisi = y.Count(),
+});
+
+foreach (var item in groupJoinResult)
+{
+    Console.WriteLine($"Departman: {item.DepartmanAdi} || Calisan Sayisi: {item.KacKisi}");
+}
+```
+
+Bu sorguda kac personel oldugu bilgisi var ancak departmanda kimler var sorgusu yapmak icin;
+
+```C#
+var groupJoinNameResult = departmans.GroupJoin(personels,
+s => s.Id,
+s => s.departmanId,
+(departman, personel) => new
+{
+    DepartmanAdi = departman.Name,
+    DepartmanYasToplami = personel.Sum(s => s.Age),
+    Sayi = personel.Count(),
+    Personeller = personel.Select(s => new { s.Name, s.Age }).ToList()
+});
+
+foreach (var item in groupJoinNameResult)
+{
+    Console.WriteLine($"Departman: {item.DepartmanAdi} || Kisi Sayisi: {item.Sayi} || Yas Toplamlari: {item.DepartmanYasToplami}");
+
+    foreach (var pers in item.Personeller)
+    {
+        Console.WriteLine($" Ad: {pers.Name} || Yas: {pers.Age}");
+    }
+    Console.WriteLine("------");
+}
+```
