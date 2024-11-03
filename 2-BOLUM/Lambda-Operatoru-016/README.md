@@ -284,7 +284,7 @@ foreach (var item in groupped)
 
 - Iki ya da daha fazla kolleksiyonu tek bir kolleksiyona birlestirmek.
 
-[Yeni bir class yazalim](/2-BOLUM/Lambda-Operatoru-016/Departman.cs)
+[Yeni bir class yazalim](/2-BOLUM/Lambda-Operatoru-016/Departman.cs)\
 [Personel classina departmanId ekledik](/2-BOLUM/Lambda-Operatoru-016/Personel.cs)
 
 - Departmanlar listesini olusturlarim
