@@ -1,5 +1,16 @@
 # Kurulum
 
+```md
+Docker icin kurulum;
+`docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name mssql_container -d mcr.microsoft.com/mssql/server:2022-latest`\
+Açıklama
+* ACCEPT_EULA=Y: Microsoft’un kullanım şartlarını kabul ediyorsun.
+* SA_PASSWORD=YourStrong!Passw0rd: sa kullanıcısı için güçlü bir şifre belirlemen gerekli (şifre en az 8 karakter, büyük/küçük harf, rakam ve özel karakter içermeli).
+* -p 1433:1433: Konteynerin 1433 portunu ana makinenin 1433 portuna yönlendirir.
+* --name mssql_container: Konteynere bir isim verir (istediğin ismi kullanabilirsin).
+* -d: Konteyneri arka planda çalıştırır.
+```
+
 SQL server iki parcadan olusur
 
 1. SQL Server Engine => Motor; tum veri tabani islemlerini yurutmekten sorumludur
