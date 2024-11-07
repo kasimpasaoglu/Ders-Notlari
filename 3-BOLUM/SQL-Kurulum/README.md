@@ -331,7 +331,7 @@ SELECT AVG(Maas) FROM Personel
 SELECT SUM(Maas)/COUNT(Maas) FROM Personel
 ```
 
-:bulb: Bu metodlar agrigate metodlardir ve tek baslarina kullanir. Yani en dusuk maasa sahip personelin ad ve ya soyad kolonunu dogrudan alamiyoruz.
+:bulb: Bu metodlar aggragete metodlardir ve tek baslarina kullanir. Yani en dusuk maasa sahip personelin ad ve ya soyad kolonunu dogrudan alamiyoruz.
 
 :bulb: bir tablonun butun kolonlarini getirmek icin kolon adini yazmamiza gerek yoktur.
 
@@ -448,3 +448,118 @@ SELECT Ad, SUBSTRING(Ad,1,1)+REPLICATE('*', LEN(Ad)-2)+SUBSTRING(Ad,LEN(Ad),1) F
 ```
 
 - Replicate belirli bir karakteri, belirlenen adet kadar olusturmak icin kullanilir. (Ornekte: '*' karakterini Len(Ad)'in -2 si kadar bastik)
+
+## `LIKE` Keyword
+
+- `WHERE` ile kolon bazli bir kosul ekleme islemi yapiyorduk
+- `LIKE` komutu ise kolon bazli degilde hucre bazli bir arama yapmaya yarar.
+
+```SQL
+-- Adi 'M' Harfi ile baslayan Personelleri getirir
+SELECT * FROM Personel WHERE Ad LIKE 'M%'
+
+-- Adi 'K' Harfi ile biten personelleri getir
+SELECT * FROM Personel WHERE Ad Like '%k'
+
+-- Ad alaninin icinde 'a' gecen personeller
+SELECT * FROM Personel WHERE Ad Like '%a%'
+```
+
+:Bulb: Buyuk kucuk harf farketmez.
+
+Diger Kullanim Ornekleri;
+
+```SQL
+-- adi b ve ya m ile baslayan personeller
+SELECT * FROM Personel WHERE Ad LIKE '[BM]%'
+
+-- adi n ya da k ile bitenler
+SELECT * FROM Personel WHERE Ad LIKE '%[NK]'
+
+-- adinin bas harfi a-e arasinda olanlar
+SELECT * FROM Personel WHERE Ad LIKE '[A-E]%'
+
+-- adinin bas harfi a-e arasinda olmayanlar
+SELECT * FROM Personel WHERE Ad LIKE '[^A-E]%'
+
+-- adinin 3. karakteri L olanlar
+SELECT * FROM Personel WHERE Ad LIKE '__L%'
+
+-- 2.harfi e ve 5. harf e olanlar
+SELECT * FROM Personel WHERE Ad LIKE '_e__e%'
+```
+
+`LIKE` keywordune `NOT` oneki eklendigi zaman sorgu tam tersine cevrilebilir
+
+```SQL
+
+-- adinin bas harfi a-e arasinda olmayanlar
+SELECT * FROM Personel WHERE Ad LIKE '[^A-E]%'
+
+-- Ayni islemi NOT ile yapabiliriz
+SELECT * FROM Personel WHERE Ad NOT LIKE '[A-E]%'
+```
+
+### (ARA BILGI) Kolonlara Gecici Isimler Vermek
+
+- Aggragete Function yazdigimizda;
+
+```SQL
+SELECT COUNT(Ad) as 'Personel Sayisi' FROM Personel
+```
+
+> Personel sayisi, toplam maas ve ortalama maasi ekrana yazdirlarim
+
+```SQL
+SELECT COUNT(Ad) as 'Personel Sayisi', SUM(Maas) as 'Toplam Maas', AVG(Maas) as 'Ortalama Maas' FROM Personel
+```
+
+## DateTime Sorgulari
+
+### `GETDATE()`
+
+Su anki tarihi verir
+
+```SQL
+SELECT GETDATE() as 'Time & Date'
+```
+
+### `DATEDIFF()`
+
+- SQL'de o anki tarih ve zaman bilgisini ekrana yazdirmak icin `SELECT GETDATE()` kullanilir
+- Iki tarih arasindaki farki dondurur. 3 Parametre alir
+
+1. Parametre (farkin cinsi, ay yil gun gibi)
+2. Parametre Tarih alani
+3. parametre tarig alani
+:bulb: Tarih alanlari manuel girilebildigi gibi bir sogrudandan gelen kolonuda parametre olarak kullanabilirsiniz
+
+- Id degeri 5 olan personelin yasi nedir?
+
+```SQL
+SELECT *, DATEDIFF(YEAR, DogumTarihi, GETDATE()) as 'Yas' FROM Personel WHERE Id=5
+```
+
+- DATEDIFF metodunda ilk parametre YEAR, MONTH, DAY HOUR gibi parametreler alabilir. Aldigi parametre cinsinden sonuc verir
+
+### `DATEADD()`
+
+Bir tahir uzerinde belirlirli bir sure ekleme islemini yapar
+
+1. parametre eklenecek surenin cinsi(year,day gibi)
+2. parametre eklenecek sure
+3. hangi tarihe eklenecek
+
+```SQL
+-- bu gunun tarihine 18 yil ekleme
+SELECT DATEADD(YEAR,18,GETDATE())
+```
+
+### `DATEPART()`
+
+Bir tarihin sadece belirli bir bolumunu almamizi saglar
+
+```SQL
+-- dogumtarihi kolonundan sadece yil bilgisini getir
+SELECT DATEPART(YEAR, DogumTarihi) From Personel
+```
