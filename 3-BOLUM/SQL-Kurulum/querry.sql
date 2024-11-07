@@ -1,16 +1,17 @@
 
 -- create database FirstDatabase
 
-use FirstDatabase
+-- use FirstDatabase
 
--- CREATE TABLE Personel
--- (
--- 	Id int,
--- 	Ad nvarchar(20),
--- 	Soyad nvarchar(20),
--- 	TC nvarchar(11),
--- 	Eposta nvarchar(30)
--- )
+CREATE TABLE Personel
+(
+	Id int,
+	Ad nvarchar(20),
+	Soyad nvarchar(20),
+	TC nvarchar(11),
+	Eposta nvarchar(30),
+	Maas int
+)
 
 insert into Personel
 	(Id,Ad,Soyad,TC,Eposta)
@@ -20,7 +21,7 @@ insert into Personel
 	(Id,Ad,Soyad,TC,Eposta)
 values(2, 'Selcuk', 'Dinc', '10987654321', 'test@selcuk.com')
 
-select Id, Ad, Soyad, TC, Eposta, Maas
+select Id, Ad, Soyad, TC, Eposta
 from Personel
 
 select Ad, Eposta
@@ -118,7 +119,7 @@ SELECT SUM(Maas)/COUNT(Maas) FROM Personel
 
 SELECT * FROM Personel ORDER BY Id DESC
 
-SELECT * FROM Personel WHERE Id != 5
+SELECT * FROM Personel WHERE Id <> 5
 
 UPDATE Personel Set Maas=Maas*1.50 WHERE Id=6
 
@@ -144,3 +145,4 @@ SELECT Ad, SUBSTRING(Ad,1,1) FROM PERSONEL
 SELECT Ad, SUBSTRING(Ad, LEN(Ad), 1) FROM Personel
 
 SELECT Ad, SUBSTRING(Ad,1,1)+REPLICATE('*', LEN(Ad)-2)+SUBSTRING(Ad,LEN(Ad),1) FROM Personel
+
