@@ -1,15 +1,34 @@
+
+# Table Of Contents
+
+- [Kurulum](#kurulum)
+  - [DateBase Nedir](#datebase-nedir)
+  - [Yeni DataBase Olusturma](#yeni-database-olusturma)
+    - [Tablo olusturma](#tablo-olusturma)
+    - [WHERE komutu](#where-komutu)
+    - [SQL Server Matematik Fonksiyonlari](#sql-server-matematik-fonksiyonlari)
+      - [`COUNT()`](#count)
+      - [`SUM()`](#sum)
+      - [`MAX()` & `MIN()` & `AVG()`](#max--min--avg)
+    - [`ORDER BY [kolon]`](#order-by-kolon)
+    - [`TOP` Keyword](#top-keyword)
+    - [`LEN()`](#len)
+    - [`SUBSTRING()`](#substring)
+    - [`REPLICATE()`](#replicate)
+
+---
+
 # Kurulum
 
-```md
-Docker icin kurulum;
-`docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name mssql_container -d mcr.microsoft.com/mssql/server:2022-latest`\
-Açıklama
-* ACCEPT_EULA=Y: Microsoft’un kullanım şartlarını kabul ediyorsun.
-* SA_PASSWORD=YourStrong!Passw0rd: sa kullanıcısı için güçlü bir şifre belirlemen gerekli (şifre en az 8 karakter, büyük/küçük harf, rakam ve özel karakter içermeli).
-* -p 1433:1433: Konteynerin 1433 portunu ana makinenin 1433 portuna yönlendirir.
-* --name mssql_container: Konteynere bir isim verir (istediğin ismi kullanabilirsin).
-* -d: Konteyneri arka planda çalıştırır.
-```
+>Docker icin kurulum;
+>`docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name mssql_container -d mcr.microsoft.com/mssql/server:2022-latest`\
+>Açıklama:
+>
+>- ACCEPT_EULA=Y: Microsoft’un kullanım şartlarını kabul ediyorsun.
+>- SA_PASSWORD=YourStrong!Passw0rd: sa kullanıcısı için güçlü bir şifre belirlemen gerekli (şifre en az 8 karakter, büyük/küçük harf, rakam ve özel karakter içermeli).
+>- -p 1433:1433: Konteynerin 1433 portunu ana makinenin 1433 portuna yönlendirir.
+>- --name mssql_container: Konteynere bir isim verir (istediğin ismi kullanabilirsin).
+>- -d: Konteyneri arka planda çalıştırır.
 
 SQL server iki parcadan olusur
 
@@ -320,7 +339,7 @@ SELECT SUM(Maas)/COUNT(Maas) FROM Personel
 SELECT * FROM Personel
 ```
 
-### `ORDER BY [kolon]`
+## `ORDER BY [kolon]`
 
 - Ad kolonuna gore siralayalim
 
@@ -366,7 +385,7 @@ SELECT * FROM Personel WHERE Id not in (2,6,9)
 SELECT * FROM Personel WHERE Id <> 5
 ```
 
-### TOP Keyword
+## `TOP` Keyword
 
 Cok satirli bir sonuc icerisinden istediginiz kadarini almamimzi saglar
 
@@ -378,7 +397,7 @@ SELECT TOP 2 Id,Ad,Soyad FROM Personel WHERE Maas=10000
 
 En cok maas alan personelin adi nedir? => `SELECT TOP 1 * FROM Personel ORDER BY Maas DESC`
 
-### `LEN()`
+## `LEN()`
 
 - Metinsel degerlerin uzunlugunu verir
 
@@ -396,7 +415,7 @@ SELECT * FROM Personel ORDER BY LEN(Ad) DESC
 SELECT TOP 1 * FROM Personel ORDER BY LEN(Ad) DESC
 ```
 
-### `SUBSTRING()`
+## `SUBSTRING()`
 
 - Metnin belli bir parcasini almak icin kullanilir
 Ornek; Ad kolonundakilerin sadece bas harflerini alalim
@@ -420,7 +439,7 @@ SELECT Ad, SUBSTRING(Ad, LEN(Ad), 1) FROM Personel
 SELECT Ad, SUBSTRING(Ad,1,1)+'****'+SUBSTRING(Ad,LEN(Ad),1) FROM Personel
 ```
 
-### `REPLICATE()`
+## `REPLICATE()`
 
 >Yildizlari personelin adi kadar yapalim
 
