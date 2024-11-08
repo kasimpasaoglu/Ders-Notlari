@@ -57,4 +57,8 @@
 
 ## 3.Bolum
 
-1. [MsSql Giris & Kurulum](/3-BOLUM/SQL-Kurulum/README.md)
+1. [Kurulum & Giris](/3-BOLUM/SQL-Kurulum/Kurulum-Giris.md)
+2. [Tablo Olusturma](/3-BOLUM/SQL-Kurulum/Tablo-Olusturma.md)
+3. [Matematik Fonksiyonlari](/3-BOLUM/SQL-Kurulum/Matematik-Fonk.md)
+4. [Keywords - 1](/3-BOLUM/SQL-Kurulum/Keywords1.md)
+5. [DateTime Fonksiyonlari](/3-BOLUM/SQL-Kurulum/DateTime.md)
