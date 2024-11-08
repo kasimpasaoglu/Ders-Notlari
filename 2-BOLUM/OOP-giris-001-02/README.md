@@ -45,7 +45,7 @@ public class Product
 - Bir ctor calismaya baslamadan once baska bir ctora yonlendirebilir ve o ctorun calismasi bittiken sonra , istedigimiz ctor'u calistirabiliriz
 - Bu islemi ctorlar arasi parametre gondererek yapabiliriz.
 - ctor'un parametre alanina `:this(degisken)` syntaxi ile yonlendirme yapilabilir.
-Ornek : [Ogrenci.cs](/2-BOLUM/oop-practise-001/Ogrenci.cs)
+Ornek : [Ogrenci.cs](/2-BOLUM/OOP-giris-001-02/Ogrenci.cs)
 
 ## Private Constructor `private`
 
