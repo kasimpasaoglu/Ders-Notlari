@@ -277,14 +277,15 @@ foreach (var item in joinResult)
 #region grupjoin
 #region 1.ornek
 /*
-var groupJoinResult = departmans.GroupJoin(personels,
-s => s.Id,
-s => s.departmanId,
-(x, y) => new
-{
-    DepartmanAdi = x.Name,
-    KacKisi = y.Count(),
-});
+var groupJoinResult = departmans.GroupJoin(
+    personels,
+    s => s.Id,
+    s => s.departmanId,
+    (x, y) => new
+    {
+        DepartmanAdi = x.Name,
+        KacKisi = y.Count(),
+    });
 
 foreach (var item in groupJoinResult)
 {
