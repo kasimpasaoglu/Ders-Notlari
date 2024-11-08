@@ -10,7 +10,7 @@ Eger bir sekilde field yazip kapsillemek istersek get ve set bloklarinin icerisi
 - read only erisimler icin read ve ya get bloklarindan herhangi birini yazmayabiliriz, ya da bu bloklarin onune private keywordu eklenebilir
 - istenirse proplara baslangic degeri verilebilir.
 
-:bulp: kisayol snippet `prop`
+:bulb: kisayol snippet `prop`
 
  ```C#
 public class Personel
