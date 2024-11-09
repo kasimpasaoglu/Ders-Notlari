@@ -27,7 +27,8 @@ create table Personel(
     Ad nvarchar(20),
     Soyad nvarchar(20),
     TC nvarchar(11),
-    Eposta nvarchar(30)
+    Eposta nvarchar(30),
+    DATETIME DogumTarihi
 )
 ```
 

@@ -3,16 +3,16 @@ create database FirstDatabase
 
 use FirstDatabase
 
--- CREATE TABLE Personel
--- (
--- 	Id int,
--- 	Ad nvarchar(20),
--- 	Soyad nvarchar(20),
--- 	TC nvarchar(11),
--- 	Eposta nvarchar(30),
--- 	Maas int,
--- 	DogumTarihi DATETIME
--- )
+CREATE TABLE Personel
+(
+	Id int,
+	Ad nvarchar(20),
+	Soyad nvarchar(20),
+	TC nvarchar(11),
+	Eposta nvarchar(30),
+	Maas int,
+	DogumTarihi DATETIME
+)
 
 insert into Personel
 	(Id,Ad,Soyad,TC,Eposta)
