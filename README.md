@@ -62,3 +62,8 @@
 3. [Matematik Fonksiyonlari](/3-BOLUM/SQL-Kurulum/Matematik-Fonk.md)
 4. [Keywords - 1](/3-BOLUM/SQL-Kurulum/Keywords1.md)
 5. [DateTime Fonksiyonlari](/3-BOLUM/SQL-Kurulum/DateTime.md)
+6. [GROUP BY](/3-BOLUM/SQL-Kurulum/Groupby.md)
+7. [JOIN](/3-BOLUM/SQL-Kurulum/JOIN.md)
+8. [Inner Querry](/3-BOLUM/SQL-Kurulum/Inner-Queer.md)
+9. [Degisken Tanimlama](/3-BOLUM/SQL-Kurulum/Degisken-tanimlama.md)
+10. [Store Procedure](/3-BOLUM/SQL-Kurulum/Store-Procedure.md)

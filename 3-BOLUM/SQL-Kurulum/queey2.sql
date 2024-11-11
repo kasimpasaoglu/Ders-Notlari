@@ -1,3 +1,14 @@
+DROP TABLE Personel
+CREATE TABLE Personel
+(
+    Id int,
+    Ad nvarchar(20),
+    Soyad nvarchar(20),
+    TC nvarchar(11),
+    Eposta nvarchar(30),
+    Maas int,
+    DogumTarihi DATETIME
+)
 -- GROUP BY
 -- Ayni Maasi alan kisilerin grup sayisi
 SELECT Maas, COUNT(Maas)
@@ -15,7 +26,7 @@ FROM Personel
 GROUP BY DATEPART(YEAR, DogumTarihi)
 
 
-USE FirstDatabase
+
 -- CREATE TABLE Category
 -- (
 --     category_id INT,
@@ -366,16 +377,19 @@ SELECT @enPahaliFiyat, @enUcuzFiyat
 -- SQL'deki metodlardir.
 -- Belirli kod bloklarini store procedure olarak yazip daha sonra calistirabiliriz.
 -- Bir store procedure yazalim
-CREATE PROCEDURE SP_First
-AS
-BEGIN
-    SELECT * FROM Product
-END
+
+-- CREATE PROCEDURE SP_First
+-- AS
+-- BEGIN
+--     SELECT *
+--     FROM Product
+-- END
+
 -- Begin/End C#'taki parantez ac ve parantez kapa gibidir.
 -- Bunu Stored Procedures klasorune kaydeder
 -- Calistirmak icin 
 
-EXECUTE SP_First
+-- EXECUTE SP_First
 
 -- Performansi kotu etkileyecek olan karmasik bir sorgu yapilacaksa kesinlikle Store Procedure yazilmasi tavsiye edilir. Cunku SQL bu sayede bu sorguyu yapabilmek icin gerekli ilk 3 adimi hafizaye onceden atmis olur. Geriye sadece sonuclari getirme kismi kalir
 
