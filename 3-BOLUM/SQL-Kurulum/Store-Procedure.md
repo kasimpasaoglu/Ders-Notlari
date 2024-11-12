@@ -13,9 +13,11 @@ BEGIN
 END
 ```
 
+> `PROCEDURE` yerine `PROC` yazilabilir
+
 - Begin/End C#'taki parantez ac ve parantez kapa gibidir.
 - Bunu Stored Procedures klasorune kaydeder
-- `EXECUTE` Komutu ile bu SP cagrilabilir
+- `EXECUTE` ve ya `EXEC` komutu ile bu SP cagrilabilir
 
 ```SQL
 EXECUTE SP_First
