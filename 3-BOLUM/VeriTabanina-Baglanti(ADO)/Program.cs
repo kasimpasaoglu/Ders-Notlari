@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.Data.SqlClient;
 
-SqlConnection con = new SqlConnection("Server=db4856.public.databaseasp.net; Database=db4856; User Id=db4856; Password=Ni4!7@wA-E2r; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;"); //Connection Stringi dogru birsekilde alip buraya ekliyoruz.
+SqlConnection con = new SqlConnection("Server=tcp:kasim.database.windows.net,1433;Initial Catalog=azuredb;Persist Security Info=False;User ID=Emrah;Password=Wissen2409**;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"); //Connection Stringi dogru birsekilde alip buraya ekliyoruz.
 SqlCommand command = new SqlCommand("select product_name from Product", con); // SQL'e bir komut gondermek icin select komutunu bir degiskene tanimladik. Yukaridaki 'con' degiskenini kullanarak select komutunu gonderecek
 
 con.Open(); // yukarda bilgileri girilen db'ye baglanti atiyoruz.
