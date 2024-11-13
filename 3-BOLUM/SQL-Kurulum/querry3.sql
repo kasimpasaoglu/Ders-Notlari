@@ -181,3 +181,4 @@ SP_Category2 'Books'
 -- SQL'de tablolar cok buyukse tablo performansini arttirmak icin SQL Partition yapilabilir.
 -- SQL Partition bir tablo icindeki verileri parcalara bolmektir.
 -- Partition yapildiginda her bir partition'un durdugu fiziksel dosyalar NDF'tir.
+
