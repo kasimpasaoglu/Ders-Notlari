@@ -67,3 +67,8 @@
 8. [Inner Querry](/3-BOLUM/SQL-Kurulum/Inner-Queer.md)
 9. [Degisken Tanimlama](/3-BOLUM/SQL-Kurulum/Degisken-tanimlama.md)
 10. [Store Procedure](/3-BOLUM/SQL-Kurulum/Store-Procedure.md)
+11. [`IF`-`ELSE` & `EXISTS`](/3-BOLUM/SQL-Kurulum/IF-Else-12.md)
+12. [`IDENTITY` & `UNIQUE`](/3-BOLUM/SQL-Kurulum/Identity-Unique-13.md)
+13. [Functions](/3-BOLUM/SQL-Kurulum/Function-14.md)
+14. [Schema Kavrami](/3-BOLUM/SQL-Kurulum/Schema-15.md)
+15. [ADO.Net ile Veri Tabani'na Baglanma](/3-BOLUM/VeriTabanina-Baglanti(ADO)/README.md)

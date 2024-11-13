@@ -68,4 +68,13 @@ SP_Category2 'Books'                        -- Calistirma komutu
 
 - Sistemde olan hazir prosedurler sayesinde bir cok islem yapilabilir
 - `sp_help` ve `sp_helptext` proclari ile bir procun icine ve bilgilerine bakabiliriz
-- ODEV: Yazdigimiz metodunun icini kimse gormesin istiyorsak bir encrypted procedure olarak yapabiliyoruz.  
+- ODEV: Yazdigimiz metodunun icini kimse gormesin istiyorsak bir encrypted procedure olarak yapabiliyoruz.
+
+## VeriTabani Dosya Sistemi (Ara Bilgi)
+
+- Veritabani dosya sistemi iki dosyadan olusur. LDF uzantili dosya log dosyasidir. Yapilan tum islemlere ait log kayitlari burda tutulur. Digeri MDF uzantili dosya ise verilerin durdugu yerdir.
+- Log dosyasi oldugu icin LDF uzantili dosya daha buyuktur ve daha cok yer kaplar. Bu yuzden bazen `shrink` yapilir. Yani log dosyasi silinir.
+- MDF ve LDF dosyalarina ek olarak NDF dosyasi olabilir.
+- SQL'de tablolar cok buyukse tablo performansini arttirmak icin SQL Partition yapilabilir.
+- SQL Partition bir tablo icindeki verileri parcalara bolmektir.
+- Partition yapildiginda her bir partition'un durdugu fiziksel dosyalar NDF'tir.

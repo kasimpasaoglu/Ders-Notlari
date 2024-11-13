@@ -1,7 +1,13 @@
--- SQL Function
--- Ornek;
--- Personellerin maaslarina %30 zam yapan bir Func yazalim
-GO
+# SQL FUNCTIONS
+
+- Function'lar, procedure'lere benzer ancak iki temel fark var
+- 1. Func'lar geriye bir deger donebilir.
+- 2. Func'lar selec sorgulari icerisinde kullanilabilir
+
+- Ornek;
+- Personellerin maaslarina %30 zam yapan bir Func yazalim
+
+```SQL
 CREATE FUNCTION Fn_ZamYap(@maas money)
 RETURNS money
 AS
@@ -10,31 +16,30 @@ BEGIN
     SET @newMaas = @maas*1.30
     RETURN @newMaas
 END
-GO
 
-
-SELECT dbo.Fn_ZamYap(10)
-
--- Select sorgusu icin calistiralaim
-
+SELECT dbo.Fn_ZamYap(10) -- sabit bir deger girip calistirdik
 SELECT Ad, Soyad, Maas, dbo.Fn_ZamYap(Maas) AS 'Yeni Maas'
-FROM Personel
+FROM Personel   -- Sorgu icinde calistirilir
+```
 
--- Personelin Dogum Tarihini alip geriye yasini donduren Func yaziniz
-GO
+- Personelin Dogum Tarihini alip geriye yasini donduren Func yaziniz
+
+```SQL
 CREATE FUNCTION Fn_YasHesapla(@birth DATETIME)
 RETURNS INT
 AS
 BEGIN
     RETURN DATEDIFF(YEAR, @birth, GETDATE())
 END
-GO
+
 
 SELECT Ad, Soyad, Maas, dbo.Fn_YasHesapla(DogumTarihi) AS 'YAS'
 FROM Personel
+```
 
--- Categori Adi alip o kategoride kac adet urun oldugunu soyleyen bir func yaziniz
-GO
+- Categori Adi alip o kategoride kac adet urun oldugunu soyleyen bir func yaziniz
+
+```SQL
 CREATE FUNCTION Fn_CategoryCount(@name nvarchar(MAX))
 RETURNS INT
 AS
@@ -47,14 +52,16 @@ BEGIN
     FROM Product
     WHERE category_id = @id )
 END
-GO
+
 
 SELECT dbo.Fn_CategoryCount('Electronics')
+```
 
--- Functionlardan geriye bir tablo dondurebilirsiniz
+- :bulb: Functionlardan geriye bir tablo dondurebilirsiniz
+  - Belirli bir harf ile baslayan urunleri getiren bir function yazalim
 
--- Belirli bir harf ile baslayan urunleri getiren bir function yazalim
-GO
+```SQL
+
 CREATE FUNCTION Fn_GetProductByFirstChar(@startsWith NVARCHAR(1))
 RETURNS TABLE
 AS
@@ -62,34 +69,15 @@ AS
     SELECT *
     FROM Product
     WHERE product_name LIKE @startsWith+'%'
-GO
+```
 
--- Artik fonksiyon bir tablo donecegi icin su sekilde cagrilir;
+- Artik fonksiyon bir tablo donecegi icin su sekilde cagrilir;
+
+```SQL
 
 SELECT * FROM dbo.Fn_GetProductByFirstChar('S') 
 
 SELECT * FROM dbo.Fn_GetProductByFirstChar('S') WHERE product_name LIKE '%m%'
 
 SELECT * FROM dbo.Fn_GetProductByFirstChar('S') WHERE price > 100
-
--- SCHEMA Kavrami
-
-GO
-CREATE SCHEMA csharp
-GO
-
--- olusturdugumuz yeni semayi kullanan bir funcion yazalim
-GO
-CREATE FUNCTION csharp.Fn_StokTopla(@stok INT, @price MONEY)
-RETURNS money
-AS
-BEGIN
-DECLARE @toplam MONEY
-SET @toplam = @stok*@price
-RETURN @toplam
-END
-GO
-
-SELECT product_name, stock, price, csharp.Fn_StokTopla(stock, price) AS 'Toplam Tutar' FROM Product
-
-
+```
