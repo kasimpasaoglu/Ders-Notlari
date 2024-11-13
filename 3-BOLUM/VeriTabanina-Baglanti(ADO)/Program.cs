@@ -7,7 +7,7 @@
 
 using Microsoft.Data.SqlClient; // nugetten sqlClient paketini indiriyoruz
 
-SqlConnection con = new SqlConnection("data source=.;initial catalog=Product;integrated security=true"); //Connection Stringi dogru birsekilde alip buraya ekliyoruz.
+SqlConnection con = new SqlConnection("Server=db4856.public.databaseasp.net; Database=db4856; User Id=db4856; Password=Ni4!7@wA-E2r; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;"); //Connection Stringi dogru birsekilde alip buraya ekliyoruz.
 SqlCommand command = new SqlCommand("select product_name from Product", con); // SQL'e bir komut gondermek icin select komutunu bir degiskene tanimladik. Yukaridaki 'con' degiskenini kullanarak select komutunu gonderecek
 
 con.Open(); // yukarda bilgileri girilen db'ye baglanti atiyoruz.
