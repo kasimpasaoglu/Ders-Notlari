@@ -66,7 +66,7 @@
 7. [JOIN](/3-BOLUM/SQL-Kurulum/JOIN.md)
 8. [Inner Querry](/3-BOLUM/SQL-Kurulum/Inner-Queer.md)
 9. [Degisken Tanimlama](/3-BOLUM/SQL-Kurulum/Degisken-tanimlama.md)
-10. [Store Procedure](/3-BOLUM/SQL-Kurulum/Store-Procedure.md)
+10. [Store Procedure](/3-BOLUM/SQL-Kurulum/Store-Procedure-11.md)
 11. [`IF`-`ELSE` & `EXISTS`](/3-BOLUM/SQL-Kurulum/IF-Else-12.md)
 12. [`IDENTITY` & `UNIQUE`](/3-BOLUM/SQL-Kurulum/Identity-Unique-13.md)
 13. [Functions](/3-BOLUM/SQL-Kurulum/Function-14.md)
