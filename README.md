@@ -64,6 +64,7 @@
 5. [DateTime Fonksiyonlari](/3-BOLUM/SQL-Kurulum/DateTime.md)
 6. [GROUP BY](/3-BOLUM/SQL-Kurulum/Groupby.md)
 7. [JOIN](/3-BOLUM/SQL-Kurulum/JOIN.md)
+    -[RIGHT & LEFT & CROSS](/3-BOLUM/SQL-Kurulum/Join2.md)
 8. [Inner Querry](/3-BOLUM/SQL-Kurulum/Inner-Queer.md)
 9. [Degisken Tanimlama](/3-BOLUM/SQL-Kurulum/Degisken-tanimlama.md)
 10. [Store Procedure](/3-BOLUM/SQL-Kurulum/Store-Procedure-11.md)
@@ -72,3 +73,5 @@
 13. [Functions](/3-BOLUM/SQL-Kurulum/Function-14.md)
 14. [Schema Kavrami](/3-BOLUM/SQL-Kurulum/Schema-15.md)
 15. [ADO.Net ile Veri Tabani'na Baglanma](/3-BOLUM/VeriTabanina-Baglanti(ADO)/README.md)
+16. [CONSTRAINTS](/3-BOLUM/SQL-Kurulum/Constraints-16.md)
+17. [TRIGGER](/3-BOLUM/SQL-Kurulum/Triggers-17.md)
