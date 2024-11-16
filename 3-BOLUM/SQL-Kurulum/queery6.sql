@@ -1,0 +1,12 @@
+-- MS SQL'de degisken tiplerinde metinsel veri tasiyan birkac tane farkli tip vardir.
+-- nchar, varchar, nvarchar, char gibi
+-- char hep metinsel bir tipi temsil eder.
+-- Ancak char'in basina gelen 'n' ve ya 'var' keywordlerinin bir anlami vardir.
+-- `var` ifadesi metinsel degerin unicod ya da unicod olmama durumunu belirler
+-- `n` ifadesi ise metinsel degerin uzunlugunun degisken oldugunu belirler
+---- degisken uzunluk ne demektir
+-- Ornek; nvarchar(50) boyutunda bir kolon olusturuldu ancak bunun icine 10 karaketrli bir deger girildi. Bu durumda 40 karakter bosluk oludu. 
+-- n ile bir char tanimlanirsa bu uzunluk degisken olur. Yani 50 karakter uzunlugnda bir alani n keywordu ile olusturulursa ve oraya 10 karakter girilirse verinin o veri icin uzunlugu 10'a duser. 
+
+-- Unicode bir karakter setidir. Ozellikle kullanilan iki karakter set vardir. 
+-- Biri ASCII (ingilizce alfabenin hepsini kapsar, Turkce karakterlerin bazilarini kapsar) digeri UNICODE (tum dunya ulkelerinin tum karakterlerini kapsar).
