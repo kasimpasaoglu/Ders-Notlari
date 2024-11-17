@@ -1,0 +1,192 @@
+<!-- HTML 2 Parcadan Olusur -->
+<html>
+
+<head>
+    <!-- CSS kodu head kisminda <style> taglerinin icine yazilir -->
+    <style>
+        p {
+            background-color: red;
+        }
+
+        #ilkH {
+            background-color: yellowgreen;
+        }
+
+        .ulstyle {
+            background-color: aquamarine;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .table_rotate {
+            animation: spin 3s infinite;
+            text-align: center;
+        }
+
+        /* Sadece div elementi olan ve classlari ortadiv olanlari etkileyecek */
+        div.ortadiv {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Grup selector -> birden fazla element, class ve ya id ye ayni css ozellikleri verilebilir */
+        h1,
+        h2,
+        h5 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 40px;
+            background-color: coral;
+            color: chartreuse;
+        }
+
+        /* main classi olan div elementi icindeki p lere ozellik verme */
+        div.main p {
+            color: blanchedalmond;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        /* ul icinde classi liste olan li */
+        ul li.liste {
+            border: 2px solid red;
+        }
+
+        /* Tablo icindeki td nin icindeki tr icindeki ul'un icindeki li'nin icindeki a */
+        table tr td ul li a {
+            text-decoration: none;
+            color: yellow;
+            background: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    ul>li*4^a
+
+
+    <table>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="">LINK 1</a></li>
+                    <li><a href="">LINK 2</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="">LINK 3</a></li>
+                    <li><a href="">LINK 4</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <div>
+            <ul>
+                <li>1.LI</li>
+                <li id="ikincili">2.LI</li>
+                <li>3.LI</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <p>Ben Div Icindeki p'yim</p>
+    </div>
+
+    <ul>
+        <li>Ul icindeki li</li>
+        <li class="liste">Ul icindeki classi liste olan li</li>
+        <li>Ul icindeki li</li>
+    </ul>
+    <h1 id="ilkH">Baslik-1</h1>
+    <h2>Baslik-2</h2>
+    <h3>Baslik-3</h3>
+    <h4>Baslik-4</h4>
+    <h5>Baslik-5</h5>
+    <h6>Baslik-6</h6>
+    <p>Paragraf</p>
+    <b>Kalin yazi tipi</b>
+    <i>Italik yazi tipi</i>
+    <strong>farkli tarayicilar icin kalin yazi</strong>
+
+    <h3>Sirali olmayan listeler</h3>
+    <ul class="ulstyle">
+        <li>Madde</li>
+        <li>Madde</li>
+        <li>Madde</li>
+        <li>Madde</li>
+    </ul>
+
+    <h3>sirali liste</h3>
+    <ol>
+        <li>Madde</li>
+        <li>Madde</li>
+        <li>Madde</li>
+        <li>Madde</li>
+    </ol>
+
+    <a href="https://www.google.com" target="_blank">LINKE TIKLA</a>
+
+
+
+
+    <table border="2px" class="table_rotate">
+        <tr>
+            <td>1. Satir 1.sutun</td>
+            <td>1. Satir 2.sutun</td>
+        </tr>
+        <tr>
+            <td>2. Satir 1.sutun</td>
+            <td>
+
+                <table border="2px">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>3. Satir tek sutun</td>
+        </tr>
+    </table>
+
+
+    <input type="button" value="Ben bir buttonum" name="adbutton">
+
+
+    <input type="text" placeholder="Buraya yazi yazilabilir">
+    <input type="password" placeholder="sifrenizi girin">
+
+    <input type="hidden" value="Ekranda gounmem, ama html olarak varim">
+
+
+    <input type="file">
+
+    <input type="radio">
+
+    <input type="checkbox" value="checkbox">
+
+
+    <textarea name="" id="" placeholder="Metin Girin">Daha uzun metin girisleri yapilmasina olanak saglar</textarea>
+
+    <img src="https://picsum.photos/200/300" alt="resim">
+    <div>1.Div</div>
+    <div class="ortadiv">2.Div</div>
+    <div>3.Div</div>
+</body>
+
+</html>
