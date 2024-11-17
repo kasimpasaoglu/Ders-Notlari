@@ -4,9 +4,9 @@
 <head>
     <!-- CSS kodu head kisminda <style> taglerinin icine yazilir -->
     <style>
-        p {
+        /* p {
             background-color: red;
-        }
+        } */
 
         #ilkH {
             background-color: yellowgreen;
@@ -68,14 +68,114 @@
             border-radius: 10px;
         }
 
+        /* Dogrudan example isimli ul icindeki li icindeki a icin bu sekilde gosteririz. Bu sekilde gosterince direkt bu yeri arar */
         ul.example>li>a {
             background-color: red;
             font-size: 20;
         }
+
+        /* bir elementin mause uzerine getirldiginde almasini istedigimiz ozellik icin */
+        .image:hover {
+            opacity: 0.2;
+            border: 10px solid red;
+            border-radius: 20px;
+        }
+
+        /* `:hover` gibi secicilere `pseudo selector` denir */
+
+        /* id'si aelement olan elemente hover ekleyelim */
+        #aelement:hover {
+            border: 3px solid gray;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+        }
+
+        /* dome icindeki sadece ilk p elementi */
+
+        #p_first::before {
+            background-color: red;
+            content: 'Ilk eleman';
+        }
+
+        #p_first::after {
+            background-color: yellow;
+            content: 'Son eleman';
+        }
+
+        /* verilen elementin icinde yazan yazinin sadece ilk satiri stillendirmek icin */
+        .letter::first-line {
+            background-color: purple;
+        }
+
+        .paragraf::first-letter {
+            font-size: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: deeppink;
+        }
+
+        /* Attricute Selector */
+        /* HTML elementinin attributelarina gore bir element yakalayabiliriz. Ornegin img ler arasinda alt attribute'u Random Image olan elementi yakalayalim */
+
+        img[alt='Random Image'] {
+            border: 5px solid blue;
+        }
+
+        /* sadece href kismi http ile baslayan a linkerine ozellik ekliyoruz */
+        a[href^=http] {
+            border: 3px solid deeppink;
+        }
+
+        /* sadece href attribute u net ile biten a linklernie ozellik ekleme */
+        a[href$=net] {
+            border: 3px solid black;
+        }
+
+        /* `!important` bir ozelligin baska bir yerden degistirilmesini engeller   */
+
+        #importantDiv {
+            background-color: yellow;
+            border: 3px solid black;
+            width: 200px;
+            height: 200px;
+        }
+
+        #importantDiv {
+
+            background-color: deeppink !important;
+        }
     </style>
+
 </head>
 
 <body>
+    <div id="importantDiv"></div>
+    <br>
+    <a href="https://www.google.com">LINK</a>
+    <a href="https://www.microsoft.com">LINK</a>
+    <a href="https://www.microsoft.net">LINK</a>
+    <a href="www.yahoo.com">LINK</a>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem accusantium nesciunt blanditiis
+        dolore veniam officia fuga laudantium ipsum, ex hic iure, quos temporibus ipsa, soluta rerum voluptatum iste vel
+        libero?</p>
+    <textarea
+        class="letter">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni incidunt, modi velit ut nisi delectus ullam exercitationem quasi maiores esse architecto sint? Sint, a delectus! Atque, nesciunt laudantium magni repudiandae ducimus ratione iure tenetur tempora. Repellat, at. Recusandae nemo tenetur, at nulla nam in corrupti cupiditate dolore praesentium quisquam beatae placeat distinctio, quos sapiente suscipit aspernatur reiciendis earum, quam iste animi! Obcaecati voluptate sequi, eligendi omnis saepe, dolores atque sed minus labore sit aliquam? Id eveniet officiis nobis voluptate placeat deserunt sequi rerum odio temporibus aperiam, velit, autem hic expedita iure? Rem deleniti placeat obcaecati? Cupiditate consectetur ducimus nobis commodi!</textarea>
+    <p id="p_first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nemo pariatur alias, porro
+        sapiente aspernatur nam sint, odit veritatis asperiores hic quibusdam odio enim delectus culpa itaque
+        nesciunt
+        ratione reprehenderit eum facilis esse rem est? Totam amet animi tempore cumque, porro omnis at fugit in
+    </p>
+    <a id="aelement" href="">Ben bir 'A' linkiyim</a>
+    <br>
+
+
+
+
+
+    <img src="https://picsum.photos/200/300" alt="Random Image" class="image">
+    <img src="https://picsum.photos/200/300" alt="image" class="image">
+    <img src="https://picsum.photos/200/300" alt="image" class="image">
+    <img src="https://picsum.photos/200/300" alt="image" class="image">
 
     <ul class="example">
         <li>
