@@ -67,12 +67,29 @@
             background: black;
             border-radius: 10px;
         }
+
+        ul.example>li>a {
+            background-color: red;
+            font-size: 20;
+        }
     </style>
 </head>
 
 <body>
 
-    ul>li*4^a
+    <ul class="example">
+        <li>
+            <a>1. seviye a</a>
+            <ul>
+                <li><a>2. seviye a</a></li>
+                <li><a>2. seviye a</a></li>
+                <li><a>2. seviye a</a></li>
+            </ul>
+        </li>
+        <li><a>1. seviye a</a></li>
+        <li><a>1. seviye a</a></li>
+        <li><a>1. seviye a </a></li>
+    </ul>
 
 
     <table>
