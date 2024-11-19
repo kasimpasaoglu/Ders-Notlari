@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ARKA PLAN  */
+        div {
+            width: 300px;
+            height: 400px;
+            border: 3px solid black;
+            background-image: url('https://picsum.photos/50/50');
+            /* resmi div icinde tekrar etmesini engellemek */
+            background-repeat: no-repeat;
+            /* resmin div icindeki konumunu ayarlamak icin */
+            background-position: center;
+            /* resmi divin icine sigdirmak icin gerekirse cekistirip buyutur, ilk 100% genislik icin ikincisi yukseklik icin */
+            background-size: 100% 100%;
+        }
+
+        /* METIN STILLENDIRME */
+        p {
+            /* satir araliklari*/
+            line-height: 3;
+            /*paragraf baslangicinin girintisi*/
+            text-indent: 100px;
+            /* harfler arasindaki bosluk */
+            letter-spacing: 3px;
+            /*metnin alti cizgili*/
+            text-decoration: underline;
+            /* asagidaki ozellik usttekini ezer*/
+            text-decoration: overline;
+        }
+
+        h2 {
+            /* Icerigindeki metnin tum harflerini buyuk yap */
+            text-transform: uppercase;
+            /* golge ekle; gelecek olan golgenin konumu, bulanikligi ve rengi icin 4 parametre. Sirasiyla -> yataydan mesafe, dikeyden mesefe, bulaniklik, renk */
+            text-shadow: 5px 5px 10px black;
+        }
+
+        p>.alticiz {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p><span class="alticiz">Lorem</span> ipsum dolor sit amet consectetur adipisicing elit. <span
+            class="alticiz">Lorem</span>, labore delectus officia ullam sint nobis nulla accusantium delectus
+        necessitatibus sed ipsam hic quis atque maiores. Excepturi perspiciatis dolor <span class="alticiz">Lorem</span>
+        ipsum modi </p>
+    <h2>Lorem, ipsum dolor.</h2>
+</body>
+
+</html>
