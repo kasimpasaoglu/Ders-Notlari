@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* Sayfanin butun satirini kaplamayan, yani ayni satirda baska elemente izin veren elementler `display:block;` ozelligi aldiginda butun satiri kullanirlar, yanlarina baska birsey gelmesine izin vermezler   */
+            display: block;
+        }
+
+        div {
+            /* tam tersi olarak, normalde block olan bir elementi inline-block ozelligi vererek yan yana gelmesini saglayabiliriz. */
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, iusto?</span>
+    <b>Lorem ipsum dolor sit amet.</b>
+
+    <div></div>
+    <div></div>
+
+    <h5>Lorem ipsum dolor sit amet.</h5>
+</body>
+
+</html>
