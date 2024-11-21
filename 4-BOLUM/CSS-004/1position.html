@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            margin: 20px;
+        }
+
+        /* Position degerleri; Absolute, Relative, Static, Fixed */
+        .birinci {
+            background-color: red;
+            /* z-index degeri ne kadar buyuk verilirse ust uste gelen elementlerden z-index'i en yuksek olan gorunecektir. */
+            /* z-index calismasi icin elemente bir position ozelligi verilmedilir. Default olarak static position olan elementlere z-index verilmez */
+            z-index: 99;
+        }
+
+        .ikinci {
+            background-color: blue;
+            /* position: relative; */
+            /* elementin yerini degistiriken sayfada baslangicta kapladigi alani korur, yani diger elemanlar bu pozisyonlama sonrasi olusacak bosluga girmezler */
+
+            /* position: absolute; */
+            /* elementin yerini degistirirken baslangicta oldugu yeri fiziki olarak bosaltir, baska bir element onun biraktigi boslugu otomatik olarak doldurur */
+            z-index: 10;
+            position: fixed;
+            /* elementi ekran! uzerindeki bir yerde sabitler */
+            left: 100px;
+            top: 100px;
+        }
+
+        .ucuncu {
+            background-color: gray;
+        }
+
+        .alt {
+            width: 100%;
+            height: 30px;
+            position: sticky;
+            /* element ekranda gorundundukten sonra verilen top-right-left-bottom gibi ozelliklerde verilen alana geldikten sonra ekrana yapisir tekrar kendi yerine gelene kadar ekrana yapisik kalir */
+            background-color: coral;
+            top: 100px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box birinci"></div>
+    <div class="box ikinci"></div>
+    <div class="box ucuncu"></div>
+    <div class="alt"></div>
+
+    <ul>
+        <li>Lorem.</li>
+        <li>Officia!</li>
+        <li>Dolore.</li>
+        <li>Harum.</li>
+        <li>Aspernatur.</li>
+        <li>Cumque.</li>
+        <li>Perspiciatis?</li>
+        <li>Consequatur.</li>
+        <li>Adipisci.</li>
+        <li>Quidem?</li>
+        <li>Totam.</li>
+        <li>Magni?</li>
+        <li>Quasi!</li>
+        <li>Reprehenderit.</li>
+        <li>Quam!</li>
+        <li>Laborum?</li>
+        <li>Necessitatibus.</li>
+        <li>Excepturi?</li>
+        <li>Voluptas?</li>
+        <li>Voluptas.</li>
+        <li>Laborum?</li>
+        <li>Adipisci?</li>
+        <li>Asperiores.</li>
+        <li>Molestiae!</li>
+        <li>Cum.</li>
+        <li>Officia.</li>
+        <li>Fugiat!</li>
+        <li>Similique.</li>
+        <li>Ipsam!</li>
+        <li>Ex.</li>
+        <li>Maxime!</li>
+        <li>Voluptas?</li>
+        <li>Perferendis!</li>
+        <li>Quam!</li>
+        <li>Quod!</li>
+        <li>Quisquam!</li>
+        <li>Molestiae?</li>
+        <li>Praesentium.</li>
+        <li>Quidem!</li>
+        <li>Reiciendis?</li>
+        <li>Laudantium.</li>
+        <li>Eos.</li>
+        <li>Corporis!</li>
+        <li>Voluptas!</li>
+        <li>Natus.</li>
+        <li>Optio!</li>
+        <li>Illum.</li>
+        <li>Adipisci?</li>
+        <li>Eaque.</li>
+        <li>Nesciunt.</li>
+        <li>Pariatur!</li>
+        <li>Accusamus?</li>
+        <li>Voluptates!</li>
+        <li>Quaerat.</li>
+        <li>Esse.</li>
+        <li>Obcaecati.</li>
+        <li>Accusantium?</li>
+        <li>Nemo.</li>
+        <li>Corrupti.</li>
+        <li>Dolorem!</li>
+        <li>Ad?</li>
+        <li>Illo!</li>
+        <li>Ex!</li>
+        <li>Ab.</li>
+        <li>Laborum.</li>
+        <li>Rerum.</li>
+        <li>Doloremque.</li>
+        <li>Iste?</li>
+        <li>Asperiores.</li>
+        <li>Sequi.</li>
+        <li>Quaerat!</li>
+        <li>Voluptatibus.</li>
+        <li>Quidem?</li>
+        <li>Facere.</li>
+        <li>Dolores!</li>
+        <li>Corrupti.</li>
+        <li>Odio.</li>
+        <li>Obcaecati.</li>
+        <li>Quos!</li>
+        <li>Veritatis!</li>
+        <li>Dignissimos?</li>
+        <li>Minus?</li>
+        <li>Modi.</li>
+        <li>Porro?</li>
+        <li>Quis.</li>
+        <li>Consequatur!</li>
+        <li>Iusto?</li>
+        <li>Sit.</li>
+        <li>Quas?</li>
+        <li>Neque.</li>
+        <li>Laborum.</li>
+        <li>Porro.</li>
+        <li>Nisi.</li>
+        <li>Explicabo.</li>
+        <li>Sed!</li>
+        <li>Repellendus.</li>
+        <li>Autem.</li>
+        <li>Similique!</li>
+        <li>Quae?</li>
+        <li>Quibusdam!</li>
+    </ul>
+</body>
+
+</html>
