@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        function KeyPress() {
+            var textarea = document.getElementById("area");
+
+            var p = document.getElementById("sayac");
+
+            p.innerHTML = textarea.value.length + 1
+        }
+
+
+        // 140 karakterlik bir uzunluk siniri olsun, 140 tan geriye dogru saysin
+
+        function CharLeft() {
+            var textarea = document.querySelector("#sms");
+            var counter = document.querySelector("#counter");
+
+            counter.innerHTML = 140 - textarea.value.length
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <!-- Bir text Area icindeki yazinin uzunlugunu baska bir elementin icinde yazdiralim -->
+
+    <textarea onkeypress="KeyPress()" cols="30" rows="10" id="area"></textarea>
+    <p id="sayac"> </p>
+
+    <textarea onkeypress="CharLeft()" name="odev" id="sms" cols="30" rows="10" maxlength="140"></textarea>
+    <p>Kalan Karakter : <span id="counter"></span></p>
+
+
+</body>
+
+</html>
