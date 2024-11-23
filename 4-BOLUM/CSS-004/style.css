@@ -1,0 +1,28 @@
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    margin: 50px auto;
+    cursor: pointer;
+    transition: 200ms linear 50ms;
+}
+
+.box:hover {
+
+    scale: 1.1;
+
+}
+
+
+.birinci {
+    background-color: red;
+}
+
+.ikinci {
+    background-color: green;
+}
+
+.ucuncu {
+    background-color: blue;
+}
