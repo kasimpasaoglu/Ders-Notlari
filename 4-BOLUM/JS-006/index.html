@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function DiviKapat() {
+            // Divi yakalayalim
+            var secilenDiv = document.getElementById("birinciDiv");
+            // display none css'i vererek divi kapatalim
+            secilenDiv.style.display = "none"
+        }
+        function DiviAc() {
+            // Divi yakalayalim
+            var secilenDiv = document.getElementById("birinciDiv");
+            // display block css'i vererek divi acalim
+            secilenDiv.style.display = "block"
+        }
+
+        // div kapandiktan 3 saniye sonra tekrar acilsin
+        function DiviKapatGecici() {
+            // Divi yakalayalim
+            var secilenDiv = document.getElementById("birinciDiv");
+            // display none css'i vererek divi kapatalim
+            secilenDiv.style.display = "none";
+            setTimeout(function () {
+                secilenDiv.style.display = "block";
+            }, 2500)
+        }
+        // set timeout iki parametre alan bir fonsiyondur. ilk parametrede gerceklesmesini istedigimiz eylemi yaziyoruz, ikinci parametre ise milisaniye cinsinden sure girilir.
+        // bu bir callback fonksiyondur. 
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>JS Uygulama : EVENT</title>
+</head>
+
+<body>
+    <!-- EVENT: Bir olay oldugunda -> Bir buttona basildiginda, bir elementin ustune geldiginde, input icine bir veri girildiginde-->
+
+    <input ondblclick="alert('Merhaba Butona Double Click Oldu')" type="button" value="Button">
+    <!-- onclick, ve ya ondblclick birer event'tir -->
+
+    <!-- ikinci buttona basildiginda container classi olan divin kaybolmasi istiyorum -->
+    <input onclick="DiviKapat()" type="button" value="Gizle">
+    <input onclick="DiviAc()" type="button" value="Ac">
+    <input onclick="DiviKapatGecici()" type="button" value="Gecici Kapat">
+    <div class="container" id="birinciDiv">
+
+    </div>
+</body>
+
+</html>
