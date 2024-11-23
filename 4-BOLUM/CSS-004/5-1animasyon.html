@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: silver;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        #button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 0px solid white;
+            border-radius: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                scale: 1;
+            }
+
+            50% {
+                scale: 1.05;
+            }
+
+            100% {
+                scale: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="button" name="button" id="button" value="Sepete Ekle">
+    </div>
+</body>
+
+</html>

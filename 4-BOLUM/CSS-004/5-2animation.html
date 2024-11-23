@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tekerlek {
+            width: 235px;
+            height: 235px;
+            border-radius: 100%;
+            background-image: url('https://w7.pngwing.com/pngs/556/709/png-transparent-car-flat-tire-wheel-tire-s-truck-bicycle-car-tires-thumbnail.png');
+            background-position: center;
+            animation: wheelspin 3s linear infinite;
+        }
+
+        @keyframes wheelspin {
+            form {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tekerlek"></div>
+</body>
+
+</html>

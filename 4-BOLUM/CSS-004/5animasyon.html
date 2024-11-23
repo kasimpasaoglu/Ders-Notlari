@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 50px auto;
+            width: 400px;
+            height: 400px;
+            background-color: antiquewhite;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 2px solid white;
+            background-color: silver;
+            cursor: pointer;
+            animation: shadowEffect 2s linear infinite;
+
+        }
+
+        .button2 {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 2px solid white;
+            background-color: silver;
+            cursor: pointer;
+        }
+
+        .button2:hover {
+            animation: shadowEffect 1.5s linear infinite;
+        }
+
+
+
+        @keyframes shadowEffect {
+            0% {
+                box-shadow: -5px -5px 5px black;
+            }
+
+            25% {
+                box-shadow: -5px 5px 5px black;
+            }
+
+            50% {
+                box-shadow: 5px 5px 5px black;
+            }
+
+            75% {
+                box-shadow: 5px -5px 5px black;
+            }
+
+            100% {
+                box-shadow: -5px -5px 5px black;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Bir div icinerisinde bir input button olsun ve button farkli acilardan shadow alsin, ve shadow surekli hareket etsin -->
+
+    <div class="container">
+        <input class="button" type="button" value="Sepete Ekle">
+        <input class="button2" type="button" value="Sepete Ekle">
+    </div>
+</body>
+
+</html>
