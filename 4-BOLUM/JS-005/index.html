@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // browserin console kismina birsey yazdirmak icin 
+        console.log('Merhaba Dunya')
+
+        // sayfaya yazi yazdirmak
+        document.write('Merhaba Dunya')
+
+        var ilkDegisken = 10;
+        var ikinciDegisken = 20;
+        var toplam = ilkDegisken + ikinciDegisken;
+
+        console.log(toplam)
+        // if kullanimi
+        if (toplam > 20) {
+            console.log("Toplam 20'den buyuktur.");
+        };
+
+        // dizi tanimlama
+        var isimler = ["Ayse", "Fatma", "Ali", "Mehmet", "Ahmet"];
+        console.log(isimler[2])
+
+        // sinif tanimi
+        var ogrenci = {
+            Ad: "Kemal",
+            Soyad: "Yasar",
+            Yas: "15"
+        }
+
+        // ogrencinin soyadini yazdiralim
+        console.log(ogrenci.Soyad)
+
+
+        // bir fonksiyon yazalim
+        function SayHello() {
+            console.log('Hello');
+        };
+        // fonksiyonu cagiralim
+        SayHello();
+
+        // parametre alan ve geri deger donduren fonskiyon olsun
+        function Topla(sayi1, sayi2) {
+            return sayi1 + sayi2;
+        }
+
+        // kullanalim
+        console.log(Topla(10, 5))
+
+        // dongu: for dongusu
+        // for (var i = 0; i < isimler.length; i++) {
+        //     console.log(isimler[i])
+
+        // }
+
+        // dongu: while dongusu
+        // let i = 0;
+        // while (i < isimler.length) {
+        //     isimler[i]
+        //     i++;
+        // }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
