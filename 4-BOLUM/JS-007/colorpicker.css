@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.btn {
+    width: 100px;
+    height: 50px;
+    border: 0px solid white;
+    border-radius: 10px;
+}
+
+#kirmizi {
+    background-color: red;
+    color: white;
+}
+
+#sari {
+    background-color: yellow;
+    color: black;
+}
+
+#siyah {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 5px black;
+    background-color: white;
+}
