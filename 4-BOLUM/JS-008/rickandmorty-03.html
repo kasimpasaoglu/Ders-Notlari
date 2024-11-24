@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #controls {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+            margin: 20px auto 0 0;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="controls">
+        <input onclick="verileriGetir(prevbtn.getAttribute('url'))" id="prev" type="button" value="Prev">
+        <input onclick="verileriGetir(nextbtn.getAttribute('url'))" id="next" type="button" value="Next">
+    </div>
+
+    <div id="container">
+
+    </div>
+
+    <script>
+        var container = document.getElementById('container')
+        var nextbtn = document.getElementById('next')
+        var prevbtn = document.getElementById('prev')
+
+        var urlDefault = 'https://rickandmortyapi.com/api/character'
+
+        verileriGetir(urlDefault);
+
+        function verileriGetir(link) {
+
+
+
+            container.innerHTML = "";
+            fetch(link)
+                .then(response => response.json())
+                .then(data => {
+
+                    nextbtn.setAttribute('url', data.info.next)
+                    if (data.info.prev == null) {
+                        prevbtn.setAttribute('url', urlDefault)
+                    }
+                    else {
+                        prevbtn.setAttribute('url', data.info.prev)
+                    }
+
+                    for (var i = 0; i < data.results.length; i++) {
+                        var resultSet = data.results[i];
+                        var createdImg = document.createElement('img');
+                        createdImg.src = resultSet.image;
+                        createdImg.style.margin = '20px';
+                        createdImg.style.borderRadius = '10px';
+
+                        container.appendChild(createdImg);
+
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

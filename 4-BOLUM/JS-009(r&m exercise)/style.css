@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    background-color: #e4a788;
+    font-family: "Comic Neue", cursive;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    gap: 10px;
+    margin: 20px auto;
+    position: sticky;
+    top: 5px;
+    z-index: 1;
+}
+
+#controls>input {
+    font-size: 20px;
+    font-family: "Comic Neue", cursive;
+    padding: 10px 50px;
+    background-color: #97ce4c;
+    border: 1px solid #e89ac7;
+    box-shadow: 0 0 10px #f0e14a;
+    color: #44281d;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+
+#controls>input:hover {
+    box-shadow: 0 0 20px #f0e14a;
+    scale: 1.1;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+#container>img {
+    border: 3px solid #e89ac7;
+    box-shadow: 0 0 10px #f0e14a;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    width: 300px;
+}
+
+#container>img:hover {
+    box-shadow: 0 0 20px #f0e14a;
+    scale: 1.1;
+}
+
+/* Details Sayfasi */
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #e89ac7;
+    padding: 25px;
+    border: 1px solid #f0e14a;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #f0e14a;
+    max-width: 500px;
+}
+
+.card>img {
+    border: 1px solid #f0e14a;
+    box-shadow: 0 0 10px #f0e14a;
+    border-radius: 30px;
+    transition: all 200ms ease-in-out;
+}
+
+td {
+    padding: 5px 10px;
+}
+
+td:first-child {
+    border-radius: 15px 0 0 15px;
+    border: 2px solid #f0e14a;
+    border-right: none;
+}
+
+td:last-child {
+    border-radius: 0 15px 15px 0;
+    border: 2px solid #f0e14a;
+    border-left: none;
+    text-decoration: underline;
+}
+
+.key {
+    font-weight: 900;
+    text-decoration: none;
+}
+
+table {
+    cursor: default;
+    max-width: 300px;
+    border-spacing: 0 5px;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px 50px;
+    background-color: #97ce4c;
+    border: 1px solid #e89ac7;
+    box-shadow: 0 0 10px #f0e14a;
+    color: #44281d;
+    border-radius: 20px;
+    font-size: larger;
+    transition: all 200ms ease-in-out;
+
+}
+
+a:hover {
+    box-shadow: 0 0 20px #f0e14a;
+    scale: 1.1;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+#44281d	(68,40,29) brown
+#e4a788	(228,167,136) fusya
+#f0e14a	(240,225,74) sari
+#97ce4c	(151,206,76) yesil
+#e89ac7	(232,154,199) pembe
+
+*/
