@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="colorpicker.css">
+    <title>Document</title>
+    <script>
+        function buttonClick() {
+            var selectedButton = event.target;
+
+            var selectedDiv = document.getElementById("color");
+
+
+            selectedDiv.style.backgroundImage = `url(${selectedButton.getAttribute('imageurl')})`;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input onclick="buttonClick()" type="button" imageurl="https://picsum.photos/id/10/400/400" value="Resim1"
+            id="kirmizi" class="btn">
+        <input onclick="buttonClick()" type="button" imageurl="https://picsum.photos/id/20/400/400" value="Resim2"
+            id="sari" class="btn">
+        <input onclick="buttonClick()" type="button" imageurl="https://picsum.photos/id/30/400/400" value="Resim3"
+            id="siyah" class="btn">
+    </div>
+
+    <div id="color" class="container"></div>
+</body>
+
+</html>

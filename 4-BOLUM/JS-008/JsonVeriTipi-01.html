@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var userJson = '{"name" : "Ayse", "age": 30, "isStudent" : true}'
+
+        // bu ifade js tarafinda ilk basta duz bir string olarak okunur. 
+        // bu json'u okumak icin once JSON tipine donusturmek gerekiyor;
+
+        var jsonObj = JSON.parse(userJson);
+
+        console.log(jsonObj.name)
+        console.log(jsonObj.age)
+        console.log(jsonObj.isStudent)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
