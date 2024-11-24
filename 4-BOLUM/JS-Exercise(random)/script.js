@@ -21,10 +21,15 @@ submitButton.addEventListener('click', () => {
 
     if (!userguess || userguess < 1 || userguess > 100) {
         feedback.textContent = "Lutfen 1 ile 100 arasi bir tahmin girin.";
+        feedback.classList.add('animate-fadeIn');
         return;
     }
     if (userguess === randomNumber) {
-        feedback.textContent = `🎉 🏆 ✨ Tebrikler!!! Dogru tahmin => ${randomNumber}`;
+        feedback.textContent = `Dogru tahmin:  ${randomNumber}`;
+        endMessage.textContent = "🎉 🏆 ✨ Tebrikler!!!";
+        feedback.classList.add('animate-pulse', 'animate-fadeIn');
+        endMessage.classList.add('animate-fadeIn');
+        endGame();
     }
     else if (userguess > randomNumber) {
         feedback.textContent = "⬇️ Daha kucuk bir sayi dene ⬇️";
@@ -32,14 +37,18 @@ submitButton.addEventListener('click', () => {
     else {
         feedback.textContent = "⬆️ Daha buyuk bir sayi dene ⬆️";
     }
+    feedback.classList.add('animate-fadeIn');
     remainingGuess--;
     remainingGuessesElement.innerHTML = `Kalan Tahmin Hakki : ${remainingGuess}`;
 
     if (remainingGuess === 0) {
         feedback.textContent = `Tahmin Hakkiniz Kalmadi. Dogru sayi: ${randomNumber}`;
+        feedback.classList.add('animate-pulse');
         endMessage.textContent = "😢 💔 🕳️ Kaybettiniz !!!";
+        endMessage.classList.add('animate-fadeIn');
         endGame();
     }
+    setTimeout(() => feedback.classList.remove('animate-fadeIn'), 500);
 })
 
 restartButton.addEventListener('click', () => {
@@ -50,9 +59,11 @@ restartButton.addEventListener('click', () => {
     submitButton.disabled = false;
     restartButton.style.display = 'none'
 
-    guessInput.textContent = "";
+    guessInput.value = "";
     feedback.textContent = "";
+    feedback.classList.remove('animate-pulse')
     endMessage.textContent = "";
+    endMessage.classList.remove('animate-fadeIn');
 
     remainingGuessesElement.innerHTML = `Kalan Tahmin Hakki : ${remainingGuess}`
 })

@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.3rem;
+}
+
+body {
+    width: 100%;
+    background-color: #bbbbbb;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+.description {
+    font-size: 0.9rem
+}
+
+.container {
+    margin: 50px auto;
+    padding: 100px 50px;
+    align-items: center;
+    max-width: 800px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #8B8C89;
+    border: 1px solid #E7ECEF;
+    box-shadow: 0 0 10px #E7ECEF;
+    border-radius: 50px;
+}
+
+.inputWrapper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#guess,
+#submitGuess,
+#restartGame {
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+#submitGuess {
+    background-color: #274C77;
+    color: #E7ECEF;
+    border: 1px solid #274C77;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#submitGuess:hover {
+    background-color: #A3CEF1;
+    color: black;
+    border: 1px solid #A3CEF1;
+}
+
+#restartGame {
+    background-color: #035e00;
+    color: #E7ECEF;
+    border: 1px solid #035e00;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#restartGame:hover {
+    background-color: #a1ffa0;
+    color: black;
+    border: 1px solid #a1ffa0;
+}
+
+.animate-pulse {
+    animation: pulse 1s linear infinite;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
