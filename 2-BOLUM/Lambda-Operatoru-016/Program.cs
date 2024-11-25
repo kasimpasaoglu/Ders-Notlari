@@ -16,7 +16,7 @@ personels.Add(new Personel() { Id = 6, departmanId = 3, Name = "Burak", Age = 20
 
 
 #region where
-/*
+
 var result = personels.Where(x => x.Name.Contains('e'));
 Console.WriteLine("Adinda 'e' harfi olan personel");
 foreach (var item in result)
@@ -41,7 +41,7 @@ foreach (var item in nameLenght)
 }
 Console.WriteLine();
 // var asd = nameLenght[0]; // nameLenght indexer'i olmadigi icin kabul etmedi.
-*/
+
 #endregion
 
 #region odev 
