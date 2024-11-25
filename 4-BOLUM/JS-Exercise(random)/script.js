@@ -22,6 +22,7 @@ submitButton.addEventListener('click', () => {
     if (!userguess || userguess < 1 || userguess > 100) {
         feedback.textContent = "Lutfen 1 ile 100 arasi bir tahmin girin.";
         feedback.classList.add('animate-fadeIn');
+        console.logass()
         return;
     }
     if (userguess === randomNumber) {
