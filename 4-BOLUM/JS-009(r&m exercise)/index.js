@@ -7,8 +7,6 @@ verileriGetir(urlDefault);
 
 function verileriGetir(link) {
 
-
-
     container.innerHTML = "";
     fetch(link)
         .then(response => response.json())
@@ -28,13 +26,15 @@ function verileriGetir(link) {
                 createdImg.src = resultSet.image;
 
                 createdImg.addEventListener('click', function () {
-                    window.location.href = "detail.html?id=" + resultSet.id;
+                    window.location.href = "detail.html?id=" + resultSet.id; //query string yontemi ile bu sayfadan diger sayfaya id parametresini gonderiyoruz
                 });
 
                 container.appendChild(createdImg);
             }
 
 
+            // var tanimladindigi blok disindan erisilebilir,
+            // let sadece tanimlandigi block icersinden tanimlanabilir
         });
 
 }
