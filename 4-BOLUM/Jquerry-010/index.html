@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Jquerry i projemize CDN ile ekliyoruz -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <input class="show" type="button" value="Goster">
+    <input class="hide" type="button" value="Gizle">
+
+    <script>
+        $('.show').click(function () {
+            // classi show olan elemente basildiginda
+            $('.container').fadeIn('slow');
+            // classi container olan element gizlenir
+
+            // yeni bir element olusturma
+            var newDiv = $('<div>', {
+                id: '4',
+                class: 'container'
+            });
+
+            // olusturulan yeni divi dom'a ekleyelim
+            $('body').append(newDiv);
+        });
+
+        $('.hide').click(function () {
+            // classi hide olan elemente basildiginda
+            $('.container').fadeOut('slow');
+            // classi container olan element gizlenir 
+
+        });
+    </script>
+</body>
+
+</html>
