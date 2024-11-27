@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Schwifty;
+    src: url('../src/fonts/get_schwifty.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
