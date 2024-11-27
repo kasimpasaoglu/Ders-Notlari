@@ -66,3 +66,17 @@ ORNEK: Olusturdugumuz Ogrenci classindan bir liste olusturup view'a gonderelim
         return View(ogrenciler);
     }
 ```
+
+```cshtml
+@model List<Ogrenci>;
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+```
+
+- :warning:`@model List<Ogrenci>;` kodu sayfanin basina yazilmadan controllerden gelen veriye erisemeyiz.
+- `@model 'veritipi'` sekilinde veri tipi belirtilmesi gereklidir
