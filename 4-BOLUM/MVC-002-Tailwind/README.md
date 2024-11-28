@@ -65,6 +65,8 @@ module.exports = {
 npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch
 ```
 
+> `wwwroot/css/` dizininde bir output.css diye dosya gelmis olmali!
+
 - `Views/Shared/_Layout.cshtml` dosyasinda head kisminda asagidaki satiri ekle
 
 ```HTML
