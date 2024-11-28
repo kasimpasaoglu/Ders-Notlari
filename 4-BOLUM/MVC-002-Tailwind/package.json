@@ -1,11 +1,10 @@
 {
   "name": "mvc-002-tailwind",
   "version": "1.0.0",
-  "description": "",
+  "description": "- node ve npm yuklu olmali kotrol et",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

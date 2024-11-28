@@ -113,3 +113,5 @@ npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch
 - Ancak burda sayfaha her degisiklik yapilip kaydedildiginde, yeniden derleme yapar, daha uzun surebilir sayfanin yenilenmesi.
 
 - Bir baska yontem olarak [BrowserSynch](https://browsersync.io/) kullanilabilir.
+
+- Yeni bir middleware yontemi mevcut [Westwint.AspnetCore.LiveReload](https://github.com/RickStrahl/Westwind.AspnetCore.LiveReload)
