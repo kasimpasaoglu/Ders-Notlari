@@ -12,7 +12,11 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
@@ -25,27 +29,35 @@ html {
   font-family: 'WubbaLubbaDubDub';
   /* Fontun proje içindeki adı */
   src: url('/fonts/WubbaLubbaDubDub.ttf') format('truetype'),
-      url('/fonts/WubbaLubbaDubDub.otf') format('opentype');
+    url('/fonts/WubbaLubbaDubDub.otf') format('opentype');
 }
 
 body {
   font-family: 'WubbaLubbaDubDub', sans-serif;
   /* Yedek olarak sans-serif eklenebilir */
-  @apply bg-darkBrown
+  @apply bg-darkBrown text-darkBrown
 }
 
 h1 {
   @apply text-7xl
 }
+
 h2 {
   @apply text-6xl
 }
+
 h3 {
   @apply text-5xl
 }
+
 h4 {
   @apply text-4xl
 }
+
 h5 {
   @apply text-3xl
+}
+
+p {
+  @apply text-xl
 }

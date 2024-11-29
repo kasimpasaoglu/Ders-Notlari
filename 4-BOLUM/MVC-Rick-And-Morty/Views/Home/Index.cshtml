@@ -7,29 +7,48 @@
 }
 
 
-<div class="max-w-[1400px] mx-auto bg-lightPeach text-center p-10">
+<div
+    class="max-w-[1700px] mx-auto bg-lightPeach text-center p-10 border-r-limeGreen border-l-limeGreen border-r-2 border-l-2 shadow-2xl shadow-limeGreen ">
     @if (Model == null)
     {
         <h1>!!! REQUEST ERROR !!!</h1>
     }
     else
     {
-        <h1 class="mb-10">Rick and Morty API</h1>
+        <h1 class="mb-10 shadow-limeGreen drop-shadow-2xl">Rick and Morty API</h1>
         <div id="content" class="w-full flex flex-col gap-10">
             <div class="w-full flex flex-row justify-evenly items-center">
 
-                <button type="button" id="prevButton" data-url="@Model.Info.Prev" @prevDisabled>
+                <button
+                    class="bg-pastelPink py-5 px-10 text-2xl border border-lemonYellow rounded-3xl shadow-md shadow-lemonYellow transition-all duration-200 disabled:cursor-not-allowed enabled:hover:shadow-2xl enabled:hover:shadow-lemonYellow enabled:hover:scale-105"
+                    type="button" id="prevButton" data-url="@Model.Info.Prev" @prevDisabled>
                     Previous Page
                 </button>
-                <button type="button" id="nextButton" data-url="@Model.Info.Next" @nextDisabled>
+                <button
+                    class="bg-pastelPink py-5 px-10 text-2xl border border-lemonYellow rounded-3xl shadow-md shadow-lemonYellow transition-all duration-200 disabled:cursor-not-allowed enabled:hover:shadow-2xl enabled:hover:shadow-lemonYellow enabled:hover:scale-105"
+                    type="button" id="nextButton" data-url="@Model.Info.Next" @nextDisabled>
                     Next Page
                 </button>
             </div>
-            <div class="w-full flex flex-row flex-wrap justify-center items-center gap-7">
+            <div class="w-full flex flex-row flex-wrap justify-center items-center gap-20">
 
                 @foreach (var item in Model.Results)
                 {
-                    <img src="@item.Image" alt="Image of @item.Name" id="@item.Id">
+                    <div id="imgWrapper"
+                        class="relative lg:w-3/12 rounded-3xl border border-lemonYellow hover:scale-110 hover:shadow-2xl hover:shadow-limeGreen transition-all duration-500">
+                        <img class="object-cover w-full rounded-3xl" src="@item.Image" alt="Image of @item.Name" id="@item.Id">
+                        <div
+                            class="rounded-3xl absolute top-0 left-0 w-full h-full z-10 bg-darkBrown flex flex-col justify-between items-center text-limeGreen py-4 px-2 opacity-0 hover:opacity-90 transition-opacity duration-500">
+                            <h5>@item.Name</h5>
+                            <p>Status : @item.Status</p>
+                            <p>Species : @item.Species</p>
+                            <p>Type : @item.Type</p>
+                            <p>Gender : @item.Gender</p>
+                            <p>Origin : <a href="@item.Origin.Url" target="_blank">@item.Origin.Name</a></p>
+                            <p>Location : <a href="@item.Location.Url" target="_blank">@item.Location.Name</a></p>
+
+                        </div>
+                    </div>
                 }
             </div>
 
