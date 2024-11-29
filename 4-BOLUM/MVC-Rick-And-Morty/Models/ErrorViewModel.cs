@@ -1,4 +1,4 @@
-namespace MVC_003__rm_deneme_.Models;
+namespace MVC_Rick_And_Morty.Models;
 
 public class ErrorViewModel
 {

@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>MVC_003__rm_deneme_</RootNamespace>
+    <RootNamespace>MVC_Rick_And_Morty</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

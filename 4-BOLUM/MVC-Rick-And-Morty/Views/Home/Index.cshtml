@@ -1,0 +1,42 @@
+﻿@model MainContentViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    var prevDisabled = Model.Info.Prev == null ? "disabled" : "";
+    var nextDisabled = Model.Info.Next == null ? "disabled" : "";
+}
+
+
+<div class="max-w-[1400px] mx-auto bg-lightPeach text-center p-10">
+    @if (Model == null)
+    {
+        <h1>!!! REQUEST ERROR !!!</h1>
+    }
+    else
+    {
+        <h1 class="mb-10">Rick and Morty API</h1>
+        <div id="content" class="w-full flex flex-col gap-10">
+            <div class="w-full flex flex-row justify-evenly items-center">
+
+                <button type="button" id="prevButton" data-url="@Model.Info.Prev" @prevDisabled>
+                    Previous Page
+                </button>
+                <button type="button" id="nextButton" data-url="@Model.Info.Next" @nextDisabled>
+                    Next Page
+                </button>
+            </div>
+            <div class="w-full flex flex-row flex-wrap justify-center items-center gap-7">
+
+                @foreach (var item in Model.Results)
+                {
+                    <img src="@item.Image" alt="Image of @item.Name" id="@item.Id">
+                }
+            </div>
+
+        </div>
+
+    }
+</div>
+<script>
+
+</script>
