@@ -1,4 +1,6 @@
 ﻿
+// next ve prev buttonlar icin fonksioyn
+
 $(document).on("click", "#nextButton, #prevButton", function () {
     const link = $(this).data("url"); // buttonun data-url attributundan linki al
     if (!link) return; // url yoksa bi islem yapma
