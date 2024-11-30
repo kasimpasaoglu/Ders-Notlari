@@ -1,0 +1,32 @@
+﻿@model DropdownViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    @* asagida select options dropdown olarak gorunecektir. Kullanici acilir liste icinden elemen secebilir *@
+    @* <select>
+        <option>Klima</option>
+        <option>Bilgisayar</option>
+        <option>Televizyon</option>
+        <option>PlayStation</option>
+        <option>Xbox</option>
+    </select> *@
+
+@* daha dinamik ve kontrol edilen bir yapi icin *@
+    @if (Model != null)
+    {
+
+        <form action="/Home/Index" method="post">
+            @Html.DropDownListFor(
+                     s => s.SelectedCarId, // kullanicinin sectigi degere ait olan Id yi yakalamak icin
+                     new SelectList(Model.Cars, "Id", "Name"), // secim yapilacak listeyi olusturma
+                     "Lutfen Araci Seciniz")
+            <input type="submit" value="Secimi Gonder">
+
+        </form>
+    }
+
+</div>
