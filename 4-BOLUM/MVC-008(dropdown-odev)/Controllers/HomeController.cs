@@ -13,11 +13,12 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public SelectorViewModel CreateModelValues()
     {
         List<City> cities = new()
         {
             new City(){Id = 1, Name="Istanbul" },
+
             new City(){Id = 2, Name="Bursa" }
         };
 
@@ -53,8 +54,38 @@ public class HomeController : Controller
             Neighborhoods = neighborhoods
         };
 
+        return main;
+    }
+
+    public IActionResult Index()
+    {
+        var main = CreateModelValues();
 
         return View(main);
+    }
+    [HttpPost]
+    public IActionResult Index(SelectorViewModel model)
+    {
+
+        var returnModel = CreateModelValues();
+        if (model.SelCityId != 0)
+        {
+            returnModel.SelCityId = model.SelCityId;
+            returnModel.Disricts = returnModel.Disricts.Where(s => s.CityId == model.SelCityId).ToList(); // ToList iyi bir kullanim degil!
+        }
+        else if (model.SelDisrictId != 0)
+        {
+            // ayri input ile bu deger gelecegi icin, bu degerin geldigi inputta cityId degeri olmayacak, sadece disrictid degeri olacak
+            // dogru calismasi icin city id degerine de ihtiyacimiz var.
+            // bu yuzden disrictid den tersine dogru ilerleyip ciry id yi bulmaliyiz
+            var selCityId = CreateModelValues().Disricts.Where(s => s.Id == model.SelDisrictId).SingleOrDefault().CityId;
+
+            returnModel.SelCityId = selCityId;
+            returnModel.SelDisrictId = model.SelDisrictId;
+            returnModel.Neighborhoods = returnModel.Neighborhoods.Where(s => s.DisrictId == model.SelDisrictId).ToList();
+        }
+
+        return View(returnModel);
     }
 
     public IActionResult Privacy()

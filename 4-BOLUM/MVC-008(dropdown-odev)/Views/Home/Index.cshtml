@@ -1,8 +1,24 @@
-﻿@{
+﻿@model SelectorViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form action="/Home/Index" method="post">
+        @Html.DropDownListFor(s => s.SelCityId, new SelectList(Model.Cities, "Id", "Name"), "Sehir Seciniz")
+        <input type="submit" value="Secim Yap">
+    </form>
+
+    <form action="/Home/Index" method="post">
+        @Html.DropDownListFor(s => s.SelDisrictId, new SelectList(Model.Disricts.Where(x => x.CityId == Model.SelCityId), "Id", "Name"), "Ilce Seciniz")
+        <input type="submit" value="Secim Yap">
+    </form>
+    
+    <form action="/Home/Index" method="post">
+        @Html.DropDownListFor(s => s.SelNbhoodId, new SelectList(Model.Neighborhoods.Where(x => x.DisrictId == Model.SelDisrictId), "Id", "Name"), "Semt Seciniz")
+        <input type="submit" value="Secim Yap">
+    </form>
+
+
 </div>
