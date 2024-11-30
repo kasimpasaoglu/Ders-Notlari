@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <a href="/Home/GetContent" target="_blank" rel="noopener noreferrer">Siteye Git</a>
+</div>
+
+<script>
+    window.onload = function () {
+
+        fetch('/Home/GetContent')
+            .then(res => res.json())
+            .then(data => {
+                debugger
+            })
+    }
+</script>
