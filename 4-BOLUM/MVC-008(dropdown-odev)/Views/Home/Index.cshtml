@@ -9,16 +9,24 @@
         @Html.DropDownListFor(s => s.SelCityId, new SelectList(Model.Cities, "Id", "Name"), "Sehir Seciniz")
         <input type="submit" value="Secim Yap">
     </form>
+    @if (Model.SelCityId != 0)
+    {
 
-    <form action="/Home/Index" method="post">
-        @Html.DropDownListFor(s => s.SelDisrictId, new SelectList(Model.Disricts.Where(x => x.CityId == Model.SelCityId), "Id", "Name"), "Ilce Seciniz")
-        <input type="submit" value="Secim Yap">
-    </form>
-    
-    <form action="/Home/Index" method="post">
-        @Html.DropDownListFor(s => s.SelNbhoodId, new SelectList(Model.Neighborhoods.Where(x => x.DisrictId == Model.SelDisrictId), "Id", "Name"), "Semt Seciniz")
-        <input type="submit" value="Secim Yap">
-    </form>
+        <form action="/Home/Index" method="post">
+            @Html.DropDownListFor(s => s.SelDisrictId,
+                     new SelectList(Model.Disricts.Where(x => x.CityId == Model.SelCityId), "Id", "Name"), "Ilce Seciniz")
+            <input type="submit" value="Secim Yap">
+        </form>
+        @if (Model.SelDisrictId != 0)
+        {
+
+            <form action="/Home/Index" method="post">
+                @Html.DropDownListFor(s => s.SelNbhoodId,
+                         new SelectList(Model.Neighborhoods.Where(x => x.DisrictId == Model.SelDisrictId), "Id", "Name"), "Semt Seciniz")
+                <input type="submit" value="Secim Yap">
+            </form>
+        }
+    }
 
 
 </div>

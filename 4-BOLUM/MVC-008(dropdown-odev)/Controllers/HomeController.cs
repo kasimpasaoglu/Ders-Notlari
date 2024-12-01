@@ -71,7 +71,7 @@ public class HomeController : Controller
         if (model.SelCityId != 0)
         {
             returnModel.SelCityId = model.SelCityId;
-            returnModel.Disricts = returnModel.Disricts.Where(s => s.CityId == model.SelCityId).ToList(); // ToList iyi bir kullanim degil!
+            returnModel.Disricts = returnModel.Disricts.Where(s => s.CityId == model.SelCityId).ToList();
         }
         else if (model.SelDisrictId != 0)
         {
