@@ -1,0 +1,41 @@
+@model LoginViewModel
+
+@* Olusturulan inputlara model mapingi olmasi icin name isimli attribute un verilmesi lazim
+Eger name attribute verilmezse mapleme yapmaz,
+
+Name mapping icin farkli yontemler var
+1. Name attribute'une elle "Emal Yazmak"
+2. Degeri modelin icindeki propun adindan almasini istiyorsaniz `asp-for="@Model.Email"` seklinde attribute ile yazilabilir. bu komut modelin icindeki prop adini inputa name olarak ekleyecektir.
+3. Yontem jquery ve ya js ile post yapilip, veriler orda maplenembilri
+4. Daha once gordugumuz @Html.TextBoxFor ile olusturulabilir.
+ *@
+<form method="post" action="/Home/Login">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input asp-for="@Model.Email" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input asp-for="@Model.Password" type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="@Model.Remember" type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    window.onload = function () {
+        // Razor'da Model null kontrolü yapılıyor ve JS'ye boolean aktarılıyor.
+        var modelIsNull = @((Model == null).ToString().ToLower());
+        debugger;
+        if (modelIsNull) {
+            alert("Incorrect E-Mail Or Password");
+        }
+    }
+
+
+</script>

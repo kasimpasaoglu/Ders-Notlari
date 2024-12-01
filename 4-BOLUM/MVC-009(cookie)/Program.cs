@@ -13,6 +13,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCookiePolicy(); // stratup dosyasinda uygulama bazli cerezlere izin verildi.
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -22,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();
