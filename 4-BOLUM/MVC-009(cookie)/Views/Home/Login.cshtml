@@ -10,6 +10,10 @@ Name mapping icin farkli yontemler var
 4. Daha once gordugumuz @Html.TextBoxFor ile olusturulabilir.
  *@
 <form method="post" action="/Home/Login">
+    @if (Model == null)
+    {
+        <input id="model" type="hidden" value="0">
+    }
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input asp-for="@Model.Email" type="email" class="form-control" id="exampleInputEmail1"
@@ -30,12 +34,21 @@ Name mapping icin farkli yontemler var
 <script>
     window.onload = function () {
         // Razor'da Model null kontrolü yapılıyor ve JS'ye boolean aktarılıyor.
-        var modelIsNull = @((Model == null).ToString().ToLower());
-        debugger;
-        if (modelIsNull) {
+    @* var hiddenValue = document.getElementById("model")).value;
+
+        if (hiddenValue == 0) {
             alert("Incorrect E-Mail Or Password");
         }
-    }
+    } *@
+
+            // ayni kodun jquerry ile yazilisi
+            $(document).ready(function () {
+                var hiddenValue = $("#model").val();
+
+                if (hiddenValue == '0') {
+                    alert("Incorrect E-Mail Or Password")
+                }
+            })
 
 
 </script>
