@@ -13,7 +13,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseCookiePolicy(); // stratup dosyasinda uygulama bazli cerezlere izin verildi.
+app.UseCookiePolicy(); // Program.cs dosyasinda uygulama bazli cerezlere izin verildi.
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
