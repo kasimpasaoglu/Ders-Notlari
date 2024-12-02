@@ -1,0 +1,76 @@
+﻿@model Main
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <h2>User Form</h2>
+    @if(Model.LastSavedUserId != 0)
+    {
+        <h2 class="mt-5 text-success">User Saved Succesfully with Id: @Model.LastSavedUserId</h2>
+    }
+    <form action="/Home/Index" method="post">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="User.Name" class="form-label">Name</label>
+                @Html.TextBoxFor(model => model.User.Name, new { @class = "form-control", placeholder = "Enter Name" })
+            </div>
+            <div class="col-md-6">
+                <label asp-for="User.LastName" class="form-label">Last Name</label>
+                @Html.TextBoxFor(model => model.User.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="User.Email" class="form-label">Email</label>
+                @Html.TextBoxFor(model => model.User.Email, new { @class = "form-control", placeholder = "Enter Email", type = "email" })
+            </div>
+            <div class="col-md-6">
+                <label asp-for="SelectedCarId" class="form-label">Select Car</label>
+                @Html.DropDownListFor(model => model.SelectedCarId,
+                    new SelectList(Model.CarsList, "Id", "Name"),
+                    "Select a Car",
+                    new { @class = "form-select" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="User.SalesDate" class="form-label">Sales Date</label>
+                @Html.TextBoxFor(model => model.User.SalesDate, new { @class = "form-control", type = "date" })
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>Request User</h2>
+    <form action="/Home/Index" method="post">
+            <label asp-for="RequestedUserId" class="form-label">ID:</label>
+            @Html.TextBoxFor(model => model.RequestedUserId, new { @class = "form-control", placeholder = "Enter ID of User" })
+    </form>
+
+    @if(Model.User != null)
+    {
+        @if(Model.IsIdFound)
+        {
+            <p>
+                UserName = @Model.User.Name @Model.User.LastName // Id => @Model.User.Id // Mail =>  @Model.User.Email
+            </p>
+            <p>
+                Car = @Model.User.SelectedCar  // SalesDate = @Model.User.SalesDate
+            </p>
+        }
+        else
+        {
+            <h4 class="text-danger"> Cannot Find Records With Id => @Model.RequestedUserId</h4>
+        }
+    }
+
+    
+    
+</div>
