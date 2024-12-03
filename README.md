@@ -93,4 +93,7 @@
 10. [MVC Giris-1](/4-BOLUM/MVC-001/README.md)
 11. [MVC (Get-Post Kavrami)](/4-BOLUM/MVC-002/README.md)
     1. [Ornek](/4-BOLUM/MVC-003(GetPost)/README.md)
-    2. [MCV - Tailwind Kurma](/4-BOLUM/MVC-002-Tailwind/README.md)
+    2. [MVC - Tailwind Kurma](/4-BOLUM/MVC-002-Tailwind/README.md)
+12. [MVC - Partial](/4-BOLUM/MVC-004(partial-view)/README.md)
+13. [MVC - Redirect](/4-BOLUM/MVC-005(redirect)/README.md)
+14. [MVC - ReturnContent](/4-BOLUM/MVC-006(returncontent)/README.md)

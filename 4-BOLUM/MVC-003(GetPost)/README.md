@@ -43,7 +43,7 @@ public class AuthController : Controller
 
 ## 3. View Kismi
 
-- Views klasorunde [Saceuser.cshtml](/4-BOLUM/MVC-003(GetPost)/Views/Auth/SaveUser.cshtml) dosyasini olusturalim.
+- Views klasorunde [Saveuser.cshtml](/4-BOLUM/MVC-003(GetPost)/Views/Auth/SaveUser.cshtml) dosyasini olusturalim.
 
 - Viewslar cshtml denen gelismis bir html yapisi ile olusturulur.
 - cshtml dosyalari hem c# hem de html kodlarinin birlikte yazilabilecegi dosyalardir.
