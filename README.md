@@ -92,4 +92,5 @@
     3. [JavaScript-SayiTahmin](/4-BOLUM/JS-Exercise(random)/)
 10. [MVC Giris-1](/4-BOLUM/MVC-001/README.md)
 11. [MVC (Get-Post Kavrami)](/4-BOLUM/MVC-002/README.md)
-    1. [MCV - Tailwind Kurma](/4-BOLUM/MVC-002-Tailwind/README.md)
+    1. [Ornek](/4-BOLUM/MVC-003(GetPost)/README.md)
+    2. [MCV - Tailwind Kurma](/4-BOLUM/MVC-002-Tailwind/README.md)
