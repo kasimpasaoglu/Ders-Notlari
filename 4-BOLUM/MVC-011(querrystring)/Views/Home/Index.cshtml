@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a href="/Home/QuerryString?name=Hasan&lastName=Ayaz" target="_blank" rel="noopener noreferrer"></a>
+    @* 
+    Querry string sayfalar arasi veri tasimak icin kullanilabiilir.
+    querry string key-value olacak sekilde yazilabilir 
+    Home/ Querry string denen controller'a name ve lastname olan iki adet parametre gonderildi. 
+    Querry string session gibi gizli olarak gonderilmez, browser'in adres cubugunda gorunur, 
+    Bu sebeple sifre gibi gizli veriler bu yontemle gonderilmemelidir
+    *@
+</div>
