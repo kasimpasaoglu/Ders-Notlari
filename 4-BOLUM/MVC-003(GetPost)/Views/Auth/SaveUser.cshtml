@@ -1,40 +1,27 @@
 @model SaveUserViewModel
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<form action="/Auth/SaveUser" method="post" class="container mt-5">
 
-<body>
-    <form action="/Auth/SaveUser" method="post" class="container mt-5">
-
-        @if (Model != null)
+    @if (Model != null)
+    {
+        @if (Model.IsOk)
         {
-            @if (Model.IsOk)
-            {
-                <div class="alert alert-primary" role="alert">
-                    Succesfully Saved! @DateTime.Now
-                </div>
-            }
+            <div class="alert alert-primary" role="alert">
+                Succesfully Saved! @DateTime.Now
+            </div>
         }
+    }
 
-        @Html.TextBoxFor(s => s.Name, new { @class = "form-control mb-3", placeholder = "Enter Your Name" })
-
-
-        @Html.TextBoxFor(s => s.Email, new { @class = "form-control mb-3", placeholder = "Enter You E-Mail" })
+    @Html.TextBoxFor(s => s.Name, new { @class = "mb-3 form-control", placeholder = "Enter Your Name" })
 
 
-        @Html.PasswordFor(s => s.Password, new { @class = "form-control mb-3", placeholder = "Enter Your Password" })
+    @Html.TextBoxFor(s => s.Email, new { @class = "mb-3 form-control", placeholder = "Enter You E-Mail" })
+
+
+    @Html.PasswordFor(s => s.Password, new { @class = "mb-3 form-control", placeholder = "Enter Your Password" })
 
 
 
-        <input type="submit" value="Save" class="btn btn-primary">
-    </form>
-
-</body>
-
-</html>
+    <input type="submit" value="Save" class="btn btn-primary">
+</form>
