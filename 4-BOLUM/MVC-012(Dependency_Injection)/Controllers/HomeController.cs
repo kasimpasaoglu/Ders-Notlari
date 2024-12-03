@@ -6,7 +6,6 @@ namespace MVC_012_Dependency_Injection_.Controllers;
 
 public class HomeController : Controller
 {
-    // bu interface tipinde bir degisken belirliyoruz (onemli!)
     public IHelper _helper;
     private readonly ILogger<HomeController> _logger;
 
@@ -28,7 +27,6 @@ public class HomeController : Controller
         help.SayHello();
         // her kullandigimiz yerde boyle newlemeye kalkarsak ortalik cok karisir. 
         // bunu yapmamak icin DI(Dependency Injection) teknolojisini kullaniriz.
-
         // simdi yeni yontem ctor ile nesne ornegi aldik
         _helper.SayHello();
 

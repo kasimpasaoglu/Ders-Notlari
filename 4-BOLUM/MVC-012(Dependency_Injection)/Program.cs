@@ -4,9 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // app tanimindan once yazilmali.
-// sinifinin bir interface'i varsa (buyuk projelerde her zaman olmali)
-// AddScoped generic metoduna, interface'i ve classi veriyoruz
-// artik action icerisinde bu sinifi daha kolay kullanabiliriz.
 builder.Services.AddScoped<IHelper, Helper>();
 
 var app = builder.Build();
