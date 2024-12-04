@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+//db ayarlarini yapalim
+builder.Services.AddDbContext<BooksDBContext>(option => option.UseSqlServer("Server=db10895.public.databaseasp.net; Database=db10895; User Id=db10895; Password=E?y72gM%fC!4; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
