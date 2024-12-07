@@ -6,26 +6,34 @@ namespace MVC_014_Action_Filter_.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+
+    public HomeController()
     {
-        _logger = logger;
+
     }
 
     public IActionResult Index()
     {
-        return View();
+        IndexViewModel model = new() { IsCorrrect = true }; // ilk acilmada view'a gidecek olan modelde view tarafinda hata mesaji olmadigi icin isCorrect alani true olarak gonderildi.
+        return View(model);
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    [ServiceFilter(typeof(IndexActionFilter))] // Asagidaki action'un, action filter'a yonlendirmesini yaptik
+    public IActionResult Index(IndexViewModel model)
     {
-        return View();
+        // Action Filter'dan gelen mesaji burada yakalayabiliriz.
+        if (HttpContext.Items["FilterExceptionMessage"] != null)
+        {
+            var actionFilterMessage = HttpContext.Items["FilterExceptionMessage"].ToString(); // actiondan gelen mesaji string'e cevirip degiskene atadik
+            if (!string.IsNullOrWhiteSpace(actionFilterMessage)) // kontrol ettik, null ve ya bosluk varsa bir hata var demektir.
+            {
+                model.ActionFilterErrorrMessage = actionFilterMessage; // gelen hata mesajini modele koyduk
+                model.IsCorrrect = false; // hata oldugunu viewda gormek icin modelin icindeki bool degiskenini false yaptik. 
+            }
+        }
+        return View(model);
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }
