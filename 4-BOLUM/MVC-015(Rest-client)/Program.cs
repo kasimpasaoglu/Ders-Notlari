@@ -2,6 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IWebApiRepository, WebApiRepository>();
+builder.Services.AddScoped<IWebApiService, WebApiService>();
+
 
 var app = builder.Build();
 

@@ -1,31 +1,19 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MVC_015_Rest_client_.Models;
 
 namespace MVC_015_Rest_client_.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    public IWebApiService _webApiService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IWebApiService webApiService)
     {
-        _logger = logger;
+        _webApiService = webApiService;
     }
 
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        RickAndMortyDMO result = _webApiService.GetAll();
+        return View(result);
     }
 }
