@@ -210,7 +210,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 - :warning: `AddAutoMapper()` fonksiyonuna gonderdigimiz `AppDomain.CurrentDomain.GetAssemblies()` parametresi, ile `Profile` classindan kalitilan butun profilleri tarar ve hepsini ekler. Daha hassas bir ekleme yapmak, yani sadece bizim belirleyecegimiz profilleri eklemek icin parametre olarak `builder.Services.AddAutoMapper(typeof(RickAndMortyMappingProfile).Assembly);` girebiliriz.
 - :warning: Bu noktada artik Automapper kullanilmaya hazir. Ancak daha once yaptigimiz, Services katmanindaki json'dan modele donusturme islemini Repository katmanina tasidik. Simdi artik Repository katmaninda DMO olarak aldigimiz veriyi Service katmaninda DTO'ya cevirecegiz.
 
-- [Service](/Service/WebAbiService.cs) katmaninda mapperi kullanmak icin daha once yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
+- [Service](/Service/WebApiService.cs) katmaninda mapperi kullanmak icin daha once yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
 
 ```C#
     public IWebApiRepository _webApiRepo;
