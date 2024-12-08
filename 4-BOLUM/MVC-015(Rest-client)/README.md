@@ -1,6 +1,6 @@
-# 3 Katman
+# 3 Katman Mimaride Web-Api ile Calisma
 
-- Daha once bahsettigimiz `Model`ler icin, `DMO`, `DTO` ve `ViewModel` denilen 3 farkli modelden bahsetmistik.
+- Daha once `Model`ler icin, `DMO`, `DTO` ve `ViewModel` denilen 3 farkli modelden bahsetmistik.
 - Sadece modeller icin degil, veri alinmasi ve gonderilmesi gibi islemler icin yani `Controller`lar icinde 3 katman yapisi olmalidir.
 
 1. Repository
@@ -10,12 +10,14 @@
     - Bu veri baska bir web sitesinden de gelebilir, bir veritabanina baglandiktan sonra cekilen veri de olabilir, dosya sistemindeki bir dosyadan okuma/yazma islemi olabilir. Yani her sey olabilir.
 
 2. Services
-    - Gelen veriyi islemekk, ayiklamak vs islemle icin `Services` kullanilir.
+    - Gelen veriyi islemek, ayiklamak vs islemler icin `Services` kullanilir.
 
 3. Controllers
     - Islenmis veriyi ViewModeline koyup view'a gondermek icin kullanilir.
 
-# Web API Kavrami
+---
+
+## Web API Kavrami
 
 - Bazi durumlarda baska bir uygulamadan, ve ya data saglayiciladan veri cekebiliriz. Mesela Rick and Morty API.
 - Bu API'lar aslinda arkaplanda kendi sunucularinda sakladiklari verileri, disariya paylasirlar.
@@ -177,6 +179,25 @@ public class RickAndMortyMappingProfile : Profile
     }
 }
 
+```
+
+- Bizim ornegimiz modeller birebir ayni oldugu icin ve bir filtreleme yapmadigimiz icin aslinda bu mapleme islemini cift yonlu yazarak daha basit hale getirebiliriz. Bir mapleme isleminin cift yonlu calisabilmesi icin sonuna `ReverseMap()` fonksiyonu eklenebilir
+
+```C#
+public RickAndMortyMappingProfile()
+    {
+        CreateMap<RickAndMortyDMO, RickAndMortyDTO>().ReverseMap();
+        CreateMap<RickAndMortyDTO, RickAndMortyVM>().ReverseMap();
+
+        CreateMap<DMO.Info, DTO.Info>().ReverseMap();
+        CreateMap<DTO.Info, VM.Info>().ReverseMap();
+
+        CreateMap<DMO.Detail, DTO.Detail>().ReverseMap();
+        CreateMap<DTO.Detail, VM.Detail>().ReverseMap();
+
+        CreateMap<DMO.Location, DTO.Location>().ReverseMap();
+        CreateMap<DTO.Location, VM.Location>().ReverseMap();
+    }
 ```
 
 - :warning: **Eger modelimizin icinde kendi yazdigimiz tipler varsa (bu ornekte, Info, Detail, Location gibi) bunlarin eslesmesini sagalamak icin profilde bu siniflari da eslestirmek gerekir.**
