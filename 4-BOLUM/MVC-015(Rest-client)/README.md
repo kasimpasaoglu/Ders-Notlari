@@ -96,9 +96,9 @@ public class HomeController : Controller
 - Simdi gelen veriyi JSON'dan bir Tipe donusturmek isiyoruz. Yukada bahsettigimiz [NewtonSoft](https://www.nuget.org/packages/Newtonsoft.Json) paketini kullanacagiz.
 - Once bu json verisine uygun bir [MODEL](/Models/DMO/RickAndMortyDMO.cs) yazmamiz lazim.
   - Modellerin karismamasi icin farkli namespace icinde tanimlayalim
-    - [DMO](/Models/DMO/RickAndMortyDMO.cs)
-    - [DTO](/Models/DTO/RickAndMortyDTO.cs)
-    - [ViewModel](/Models/RickAndMortyVM.cs)
+    - [DMO](/4-BOLUM/MVC-015(Rest-client)/Models/DMO/RickAndMortyDMO.cs)
+    - [DTO](/4-BOLUM/MVC-015(Rest-client)/Models/DTO/RickAndMortyDTO.cs)
+    - [ViewModel](/4-BOLUM/MVC-015(Rest-client)/Models/RickAndMortyVM.cs)
 - Simdi Repository kisminda string olarak aldigimiz sonucu kendi hazirladigimiz tipe donusturelim.
 
 ```C#
@@ -210,7 +210,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 - :warning: `AddAutoMapper()` fonksiyonuna gonderdigimiz `AppDomain.CurrentDomain.GetAssemblies()` parametresi, ile `Profile` classindan kalitilan butun profilleri tarar ve hepsini ekler. Daha hassas bir ekleme yapmak, yani sadece bizim belirleyecegimiz profilleri eklemek icin parametre olarak `builder.Services.AddAutoMapper(typeof(RickAndMortyMappingProfile).Assembly);` girebiliriz.
 - :warning: Bu noktada artik Automapper kullanilmaya hazir. Ancak daha once yaptigimiz, Services katmanindaki json'dan modele donusturme islemini Repository katmanina tasidik. Simdi artik Repository katmaninda DMO olarak aldigimiz veriyi Service katmaninda DTO'ya cevirecegiz.
 
-- [Service](/Service/WebApiService.cs) katmaninda mapperi kullanmak icin daha once yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
+- [Service](/4-BOLUM/MVC-015(Rest-client)/Service/WebApiService.cs) katmaninda mapperi kullanmak icin daha once yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
 
 ```C#
     public IWebApiRepository _webApiRepo;
