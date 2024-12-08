@@ -18,8 +18,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        RickAndMortyDTO result = _webApiService.GetAll(); // service katmanindaki GetAll metodundan gelen veri DTO olarak burda,
-        RickAndMortyVM model = _mapper.Map<RickAndMortyVM>(result); // result isimli DTO'yu al, model isimli VM'e maple.
+        RickAndMortyDTO dtoModel = _webApiService.GetAll(); // service katmanindaki GetAll metodundan gelen veri DTO olarak burda,
+        RickAndMortyVM model = _mapper.Map<RickAndMortyVM>(dtoModel); // result isimli DTO'yu al, model isimli VM'e maple.
 
         return View(model);
     }

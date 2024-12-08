@@ -186,10 +186,10 @@ public class RickAndMortyMappingProfile : Profile
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 ```
 
-- :warning: `AddAutoMapper()` fonksiyonuna gonderdigimiz `AppDomain.CurrentDomain.GetAssemblies()` parametresi, ile `Profile` classindan kalitilan butun profilleri tarar ve hepsini ekler. Daha hassas bir ekleme yapmak, yani sadece bizim belirleyecegimiz profilleri eklemek icin parametre olarak `services.AddAutoMapper(typeof(RickAndMortyMappingProfile).Assembly);` girebiliriz.
+- :warning: `AddAutoMapper()` fonksiyonuna gonderdigimiz `AppDomain.CurrentDomain.GetAssemblies()` parametresi, ile `Profile` classindan kalitilan butun profilleri tarar ve hepsini ekler. Daha hassas bir ekleme yapmak, yani sadece bizim belirleyecegimiz profilleri eklemek icin parametre olarak `builder.Services.AddAutoMapper(typeof(RickAndMortyMappingProfile).Assembly);` girebiliriz.
 - :warning: Bu noktada artik Automapper kullanilmaya hazir. Ancak daha once yaptigimiz, Services katmanindaki json'dan modele donusturme islemini Repository katmanina tasidik. Simdi artik Repository katmaninda DMO olarak aldigimiz veriyi Service katmaninda DTO'ya cevirecegiz.
 
-- [Service](/Service/WebAbiService.cs) katmaninda mapperi kullanmak icin daha ince yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
+- [Service](/Service/WebAbiService.cs) katmaninda mapperi kullanmak icin daha once yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
 
 ```C#
     public IWebApiRepository _webApiRepo;
@@ -213,3 +213,18 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 ```
 
 - Bu ornekte bir is plani olmadan ilerledigimiz icin gelen veri icinde bir degisiklik yapmadan direk return verdik. Simdi controller (action) katmanina gidip oraya da ayni sekilde mapperi ekleyip, DTO olarak gelen veriyi, ViewModel'e cevirelim
+
+```C#
+    public IActionResult Index()
+    {
+        RickAndMortyDTO dtoModel = _webApiService.GetAll(); // service katmanindaki GetAll metodundan gelen veri DTO olarak burda,
+        RickAndMortyVM model = _mapper.Map<RickAndMortyVM>(dtoModel); // result isimli DTO'yu al, model isimli VM'e maple.
+
+        return View(model);
+    }
+```
+
+- Boylece, bu ornekte bir WEB-Api'den RestSharp ile bir sorgu yapip json yaniti aldik.
+- Json yanitini Repo katmaninda NewtonSoft paketi ile DMO modelimize donusturduk.
+- 3 katmanli yaklasimina uygun olmasi icin automapper yardimi ile, modeller arasi gecisi yaptik DMO -> DTO -> VM
+- Her katman icin ayri bir controller yazdik, Repo -> Service -> Action
