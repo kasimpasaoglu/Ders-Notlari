@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿@using VM;
+@model RickAndMortyVM
+<div class="container d-flex flex-wrap gap-2 justify-content-center">
+    @foreach (var item in Model.Results)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@item.Image" class="card-img-top" alt="@item.Name">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <h5 class="card-title">@item.Species</h5>
+                <h5 class="card-title">@item.Gender</h5>
+                <h5 class="card-title">@item.Status</h5>
+                <h5 class="card-title">@item.Location.Name</h5>
+            </div>
+        </div>
+    }
 </div>
