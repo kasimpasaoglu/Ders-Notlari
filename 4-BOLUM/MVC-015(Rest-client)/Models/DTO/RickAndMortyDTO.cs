@@ -1,6 +1,6 @@
-namespace DMO
+namespace DTO
 {
-    public class RickAndMortyDMO
+    public class RickAndMortyDTO
     {
         public Info Info { get; set; }
         public List<Detail> Results { get; set; }

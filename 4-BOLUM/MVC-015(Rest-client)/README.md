@@ -70,7 +70,7 @@ public interface IWebApiService
 }
 ```
 
-- Son olarrrak servicesten donen veriyi (SIMDILIK STRING OLARAK) controllerda yakalayalim
+- Son olarak servicesten donen veriyi (SIMDILIK STRING OLARAK) controllerda yakalayalim
 
 ```C#
 // Controller Katmani
@@ -93,32 +93,123 @@ public class HomeController : Controller
 
 - Simdi gelen veriyi JSON'dan bir Tipe donusturmek isiyoruz. Yukada bahsettigimiz [NewtonSoft](https://www.nuget.org/packages/Newtonsoft.Json) paketini kullanacagiz.
 - Once bu json verisine uygun bir [MODEL](/Models/DMO/RickAndMortyDMO.cs) yazmamiz lazim.
-- Daha sonra simdi Repository kisminda string olarak aldigimiz sonucu services katmaninda kendi hazirladigimiz tipe donusturelim.
+  - Modellerin karismamasi icin farkli namespace icinde tanimlayalim
+    - [DMO](/Models/DMO/RickAndMortyDMO.cs)
+    - [DTO](/Models/DTO/RickAndMortyDTO.cs)
+    - [ViewModel](/Models/RickAndMortyVM.cs)
+- Simdi Repository kisminda string olarak aldigimiz sonucu kendi hazirladigimiz tipe donusturelim.
 
 ```C#
-// Services Katmani guncellendi
+// Repository Katmani guncellendi
+using DMO;
 using Newtonsoft.Json;
+using RestSharp;
 
-public class WebApiService : IWebApiService
+public class WebApiRepository : IWebApiRepository
 {
-    public IWebApiRepository _webApiRepo;
-    public WebApiService(IWebApiRepository webApiRepo)
-    {
-        _webApiRepo = webApiRepo;
-    }
-
+    
     public RickAndMortyDMO GetAll()
     {
-        string jsonString = _webApiRepo.GetAll(); // string tipinde json verimiz burda
-        RickAndMortyDMO resultData = JsonConvert.DeserializeObject<RickAndMortyDMO>(jsonString); // newtonsoft paketi ile bu veriyi RickAndMoryDMO tipine donustuduk.
-        return resultData; // ve bunu geri dondurduk.
+        var options = new RestClientOptions("https://rickandmortyapi.com/api/");
+        var client = new RestClient(options);
+        var request = new RestRequest("character");
+        request.Method = Method.Get;
+        var result = client.Get(request);
+        string jsonData = result.Content; // string tipinde json verimiz burda
+        RickAndMortyDMO resultData = JsonConvert.DeserializeObject<RickAndMortyDMO>(jsonData); // newtonsoft paketi ile bu veriyi RickAndMoryDMO tipine donustuduk.
+        return resultData; // ve modeli donduk.
     }
+    // Sonuc olarak bu metodumuz, Api sorgusunu yapacak, aldigi sonucu json veri tipinden bizim DMO modelimize yazacak.
 }
-public interface IWebApiService
+
+public interface IWebApiRepository
 {
     public RickAndMortyDMO GetAll();
 }
 ```
 
-- Bu adimdan sonra artik `Controller` icinde istedgimizi yapabiliriz.
-- Buraya kadar, DMO uzerinden calistik. Simdi ayni katmanli yapiyi modeller icinde uygulayip DTO ve ViewModeli kullanalim
+- Bu adimdan sonra artik `Service` ve `Controller` katmaninda istedgimizi yapabiliriz. Ancak biz bu modeli'de 3 katmanli mimariye uygun olmasi icin DMO,DTO ve VM olarak ayirmamik istiyoruz.
+
+---
+
+- Buraya kadar, DMO uzerinden calistik. Simdi ayni katmanli yapiyi modeller icinde uygulayip DTO ve ViewModeli kullanalim.
+- Simdi Service katmaninda DMO'yu DTO'ya cevirelim
+- Gelen verileri, bu katmanda olusturacagimiz DTO ya tek tek elle mapleyebiliriz.
+- Ancak daha iyi bir yontem olarak [AutoMapper](https://www.nuget.org/packages/AutoMapper) kullanacagiz.
+- [AutoMapper dokumantasyon sayfasi](https://docs.automapper.org/en/latest/Getting-started.html)ndaki yonergeleri gozden gecirip uygulayacagiz.
+
+## AutoMapper Konfigrasyonu
+
+- Maplemeyi yapabilmek icin, bir profil olustumamiz lazim, bunun icin bir class yaziyoruz ve ctor'una `CreateMap<>()`, generic metodu ile modeller arasi mappingi olustuyoruz
+
+```C#
+using DMO;
+using DTO;
+using VM;
+using AutoMapper;
+
+public class RickAndMortyMappingProfile : Profile
+{
+    public RickAndMortyMappingProfile()
+    {
+        // Ana Siniflar Icin Eslesme Profili
+        CreateMap<RickAndMortyDMO, RickAndMortyDTO>();
+        CreateMap<RickAndMortyDTO, RickAndMortyVM>();
+        CreateMap<RickAndMortyVM, RickAndMortyDTO>();
+        CreateMap<RickAndMortyDTO, RickAndMortyDMO>();
+
+        // Alt Siniflar icin Eslesme Profili
+        CreateMap<DMO.Info, DTO.Info>();
+        CreateMap<DTO.Info, VM.Info>();
+        CreateMap<VM.Info, DTO.Info>();
+        CreateMap<DTO.Info, DMO.Info>();
+
+        CreateMap<DMO.Detail, DTO.Detail>();
+        CreateMap<DTO.Detail, VM.Detail>();
+        CreateMap<VM.Detail, DTO.Detail>();
+        CreateMap<DTO.Detail, DMO.Detail>();
+
+        CreateMap<DMO.Location, DTO.Location>();
+        CreateMap<DTO.Location, VM.Location>();
+        CreateMap<VM.Location, DTO.Location>();
+        CreateMap<DTO.Location, DMO.Location>();
+        // Alt siniflarin isimleri ayni oldugu icin baslarina namespace belirtilmeli!!!
+    }
+}
+
+```
+
+- :warning: **Eger modelimizin icinde kendi yazdigimiz tipler varsa (bu ornekte, Info, Detail, Location gibi) bunlarin eslesmesini sagalamak icin profilde bu siniflari da eslestirmek gerekir.**
+- Sonraki adimda Program.cs dosyasinda `DI(Dependency Injection)` ile profili bagliyoruz
+
+```C#
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+```
+
+- :warning: `AddAutoMapper()` fonksiyonuna gonderdigimiz `AppDomain.CurrentDomain.GetAssemblies()` parametresi, ile `Profile` classindan kalitilan butun profilleri tarar ve hepsini ekler. Daha hassas bir ekleme yapmak, yani sadece bizim belirleyecegimiz profilleri eklemek icin parametre olarak `services.AddAutoMapper(typeof(RickAndMortyMappingProfile).Assembly);` girebiliriz.
+- :warning: Bu noktada artik Automapper kullanilmaya hazir. Ancak daha once yaptigimiz, Services katmanindaki json'dan modele donusturme islemini Repository katmanina tasidik. Simdi artik Repository katmaninda DMO olarak aldigimiz veriyi Service katmaninda DTO'ya cevirecegiz.
+
+- [Service](/Service/WebAbiService.cs) katmaninda mapperi kullanmak icin daha ince yaptigimiz gibi mapper'i bir prop olarak alip, ctorun icine yaziyoruz.
+
+```C#
+    public IWebApiRepository _webApiRepo;
+    public IMapper _mapper;
+    public WebApiService(IWebApiRepository webApiRepo, IMapper mapper)
+    {
+        _webApiRepo = webApiRepo;
+        _mapper = mapper;
+    }
+```
+
+- Artik `_mapper.Map<>()` generic metodunu burda kullanarak Repository katmanindan gelen DMO'yu DTO'ya cevirebilecegiz.
+
+```C#
+    public RickAndMortyDTO GetAll()
+    {
+        RickAndMortyDMO data = _webApiRepo.GetAll(); // repo katmanindan gelen DMO datasi
+        var dtoData = _mapper.Map<RickAndMortyDTO>(data); // automapper ile DTO'ya cevrildi.
+        return dtoData;
+    }
+```
+
+- Bu ornekte bir is plani olmadan ilerledigimiz icin gelen veri icinde bir degisiklik yapmadan direk return verdik. Simdi controller (action) katmanina gidip oraya da ayni sekilde mapperi ekleyip, DTO olarak gelen veriyi, ViewModel'e cevirelim
