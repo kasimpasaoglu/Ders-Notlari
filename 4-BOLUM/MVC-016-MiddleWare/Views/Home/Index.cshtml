@@ -1,8 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model PostModel
+<form method="post" action="/Home/Privacy">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    @Html.TextBoxFor(s => s.Id)
+    @Html.TextBoxFor(s => s.Name)
+    @Html.TextBoxFor(s => s.Age)
+    <input type="submit" value="gönder">
+</form>
