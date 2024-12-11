@@ -5,17 +5,18 @@
     @Html.TextBoxFor(s => s.Name)
     @Html.ValidationMessageFor(s => s.Name)
     <br>
-    @Html.TextAreaFor(s => s.Email)
+    @Html.TextBoxFor(s => s.Email)
     @Html.ValidationMessageFor(s => s.Email)
     <br>
-    @Html.TextAreaFor(s => s.Age)
+    @Html.TextBoxFor(s => s.Age)
     @Html.ValidationMessageFor(s => s.Age)
     <br>
-    @Html.TextAreaFor(s => s.Password)
+    @Html.TextBoxFor(s => s.Password)
     @Html.ValidationMessageFor(s => s.Password)
     <br>
-    @Html.TextAreaFor(s => s.ConfirmPassword)
+    @Html.TextBoxFor(s => s.ConfirmPassword)
     @Html.ValidationMessageFor(s => s.ConfirmPassword)
     <br>
     <input type="submit" value="Gonder">
+    @Html.TextBoxFor(s => s.Description)
 </form>

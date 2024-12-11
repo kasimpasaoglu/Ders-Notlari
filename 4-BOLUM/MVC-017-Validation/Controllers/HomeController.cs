@@ -13,6 +13,14 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    public IActionResult GetValidationMsg(string desc)
+    {
+        if (desc.Length < 10)
+        {
+            return Json("karakter uzunlugu minimum 10 karakter olmalidir");
+        }
+        return Json(true);
+    }
     public IActionResult Index()
     {
         return View();

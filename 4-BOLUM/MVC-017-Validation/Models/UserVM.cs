@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 public class UserVM
 {
@@ -19,4 +20,7 @@ public class UserVM
     public string Password { get; set; }
     [Compare("Password", ErrorMessage = "Sifreler ayni degil")]
     public string ConfirmPassword { get; set; }
+
+    [Remote(action: "GetValidationMsg", controller: "Home")]
+    public string Description { get; set; }
 }
