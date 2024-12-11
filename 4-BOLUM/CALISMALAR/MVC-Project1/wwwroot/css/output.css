@@ -664,6 +664,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-3 {
   gap: 0.75rem;
 }
@@ -674,18 +678,6 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.place-self-center {
-  place-self: center;
-}
-
-.self-center {
-  align-self: center;
 }
 
 .rounded {
@@ -714,11 +706,6 @@ video {
 
 .border {
   border-width: 1px;
-}
-
-.border-gray-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
 .border-navyBlue {
@@ -859,24 +846,13 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.shadow-darkNavy {
+  --tw-shadow-color: #293241;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .shadow-navyBlue {
   --tw-shadow-color: #3D5A80;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-coral {
-  --tw-shadow-color: #EE6C4D;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-darkNavy {
-  --tw-shadow-color: #293241;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -947,6 +923,23 @@ p {
   line-height: 1.75rem;
 }
 
+.addStudent {
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(61 90 128 / var(--tw-bg-opacity, 1));
+  padding: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(224 251 252 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -958,14 +951,14 @@ p {
   background-color: rgb(238 108 77 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-skyBlue:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(152 193 217 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-navyBlue:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(61 90 128 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-skyBlue:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(152 193 217 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-darkNavy:hover {
