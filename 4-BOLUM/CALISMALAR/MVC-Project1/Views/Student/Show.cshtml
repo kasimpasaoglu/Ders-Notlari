@@ -1,0 +1,34 @@
+@model List<VM.Student>
+
+<div class="m-6 text-center max-w-7xl">
+    <h1>Students List</h1>
+    <table class="w-full text-center border border-collapse table-auto border-navyBlue">
+        <thead>
+            <tr class="bg-navyBlue text-aqua">
+                <th class="p-2 border border-navyBlue">ID</th>
+                <th class="p-2 border border-navyBlue">NAME</th>
+                <th class="p-2 border border-navyBlue">LASTNAME</th>
+                <th class="p-2 border border-navyBlue">EMAIL</th>
+                <th class="p-2 border border-navyBlue">PHONE</th>
+                <th class="p-2 border border-navyBlue">CITIZENSHIP ID</th>
+                <th class="p-2 border border-navyBlue">BIRTH DATE</th>
+                <th class="p-2 border border-navyBlue">REGISTRATION DATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td class="p-2 border border-navyBlue">@student.Id</td>
+                    <td class="p-2 border border-navyBlue">@student.Name</td>
+                    <td class="p-2 border border-navyBlue">@student.LastName</td>
+                    <td class="p-2 border border-navyBlue">@student.Email</td>
+                    <td class="p-2 border border-navyBlue">@student.Phone</td>
+                    <td class="p-2 border border-navyBlue">@student.CitizenshipId</td>
+                    <td class="p-2 border border-navyBlue">@student.BirthDate.ToShortDateString()</td>
+                    <td class="p-2 border border-navyBlue">@student.RegDate.ToString("yyyy-MM-dd HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

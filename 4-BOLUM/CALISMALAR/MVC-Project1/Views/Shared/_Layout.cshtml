@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC_Project1</title>
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVC_Project1.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="p-3 text-center bg-darkNavy">
+            <div class="flex justify-between max-w-6xl mx-auto">
+                <div class="flex gap-3">
+                    <a class="py-2 text-center duration-200 w-44 bg-navyBlue text-aqua rounded-xl hover:bg-skyBlue hover:text-darkNavy"
+                        href="/Student/Show">Show
+                        Students</a>
+                    <a class="py-2 text-center duration-200 w-44 bg-navyBlue text-aqua rounded-xl hover:bg-skyBlue hover:text-darkNavy"
+                        href="/Student/Edit">Add & Remove
+                        Student</a>
+                </div>
+                <div class="flex gap-3">
+                    <a class="py-2 font-bold text-center duration-200 w-44 bg-navyBlue text-aqua rounded-xl hover:bg-skyBlue hover:text-darkNavy"
+                        href="/Home/Index">Home</a>
+                </div>
+                <div class="flex gap-3">
+                    <a class="py-2 text-center duration-200 w-44 bg-navyBlue text-aqua rounded-xl hover:bg-skyBlue hover:text-darkNavy"
+                        href="/Auth/Login">Login</a>
+                    <a class="py-2 text-center duration-200 w-44 bg-navyBlue text-aqua rounded-xl hover:bg-skyBlue hover:text-darkNavy"
+                        href="/Auth/SignIn">Sign-In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="flex flex-col justify-center items-center min-h-[calc(100vh-100px)]">
+        @RenderBody()
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+# build klasorleri
+bin/
+obj/
+
+# connection string
+appsettings.Development.json

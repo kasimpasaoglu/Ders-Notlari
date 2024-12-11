@@ -1,0 +1,28 @@
+@model VM.Login
+<div class="flex flex-col items-center justify-center gap-5">
+
+    <h1>Sign-In</h1>
+
+    @if (!string.IsNullOrWhiteSpace(Model.UserName))
+    {
+        @if (Model.IsSaved)
+        {
+            <h4>User Saved</h4>
+        }
+        else
+        {
+            <h4>This username already exists</h4>
+        }
+    }
+    <div class="p-4 m-5 shadow-xl bg-skyBlue rounded-3xl shadow-darkNavy">
+        <form action="/Auth/SignIn" method="post" class="flex flex-col items-center justify-center gap-2">
+            <div>
+                <input type="text" name="UserName" class="p-3 rounded-xl" placeholder="Enter Your UserName">
+                <input type="password" name="Password" class="p-3 rounded-xl" placeholder="Enter Your Password">
+            </div>
+            <input
+                class="px-8 py-3 font-extrabold duration-200 cursor-pointer rounded-xl bg-darkNavy text-aqua hover:bg-navyBlue"
+                type="submit" value="Sign-In User">
+        </form>
+    </div>
+</div>

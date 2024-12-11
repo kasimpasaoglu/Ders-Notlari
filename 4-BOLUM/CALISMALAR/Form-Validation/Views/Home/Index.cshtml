@@ -1,0 +1,75 @@
+﻿@model UserVM
+
+<form action="/Home/Index" method="post"
+    class="flex flex-col gap-3 p-2 w-2/3 mx-auto bg-slate-200 rounded-xl shadow-lg py-4 px-2 items-center">
+
+    <div class="flex flex-row gap-3 px-3 items-center justify-between w-full">
+        <div class="flex-1">
+            @Html.TextBoxFor(s => s.Name, new
+                {
+                    @class = "border rounded-xl px-1 py-2 w-full focus:shadow-xl",
+                    @placeholder = "Name"
+                })
+        </div>
+        <div class="flex-1 text-right text-red-500">
+            @Html.ValidationMessageFor(s => s.Name)
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-3 px-3 items-center justify-between w-full">
+        <div class="flex-1">
+            @Html.TextBoxFor(s => s.LastName, new
+                {
+                    @class = "border rounded-xl px-1 py-2 w-full focus:shadow-xl",
+                    @placeholder = "Last Name"
+                })
+        </div>
+        <div class="flex-1 text-right text-red-500">
+            @Html.ValidationMessageFor(s => s.LastName)
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-3 px-3 items-center justify-between w-full">
+        <div class="flex-1">
+            @Html.TextBoxFor(s => s.Email, new
+                {
+                    @class = "border rounded-xl px-1 py-2 w-full focus:shadow-xl",
+                    @placeholder = "E-Mail"
+                })
+        </div>
+        <div class="flex-1 text-right text-red-500">
+            @Html.ValidationMessageFor(s => s.Email)
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-3 px-3 items-center justify-between w-full">
+        <div class="flex-1">
+            @Html.TextBoxFor(s => s.Password, new
+                {
+                    @class = "border rounded-xl px-1 py-2 w-full focus:shadow-xl",
+                    @type = "password",
+                    @placeholder = "Password"
+                })
+        </div>
+        <div class="flex-1 text-right text-red-500">
+            @Html.ValidationMessageFor(s => s.Password)
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-3 px-3 items-center justify-between w-full">
+        <div class="flex-1">
+            @Html.TextBoxFor(s => s.RePassword, new
+                {
+                    @class = "border rounded-xl px-1 py-2 w-full focus:shadow-xl",
+                    @type = "password",
+                    @placeholder = "Confirm Password"
+                })
+        </div>
+        <div class="flex-1 text-right text-red-500">
+            @Html.ValidationMessageFor(s => s.RePassword)
+        </div>
+    </div>
+
+    <input type="submit" value="Send"
+        class="bg-slate-600 text-white rounded-lg w-1/3 hover:bg-black hover:scale-100 duration-500 px-10 py-3 mt-4">
+</form>
