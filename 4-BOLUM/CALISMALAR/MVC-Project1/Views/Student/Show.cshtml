@@ -1,18 +1,81 @@
 @model List<VM.Student>
 
 <div class="m-6 text-center max-w-7xl">
-    <h1>Students List</h1>
     <table class="w-full text-center border border-collapse table-auto border-navyBlue">
         <thead>
+            <tr>
+                <th><input name="Id" class="w-full p-2 border border-navyBlue" placeholder="Id"></input></th>
+                <th><input name="Name" class="w-full p-2 border border-navyBlue" placeholder="Name"></input></th>
+                <th><input name="LastName" class="w-full p-2 border border-navyBlue" placeholder="Lastname"></input>
+                </th>
+                <th><input name="Email" class="w-full p-2 border border-navyBlue" placeholder="E-Mail"></input></th>
+                <th><input name="Phone" class="w-full p-2 border border-navyBlue" placeholder="Phone"></input></th>
+                <th><input name="CitizenshipId" class="w-full p-2 border border-navyBlue"
+                        placeholder="Citizenship Id"></input>
+                </th>
+                <th><input name="BirthDate" class="w-full p-2 border border-navyBlue" placeholder="Birth Date"></input>
+                </th>
+                <th><input name="RegDate" class="w-full p-2 border border-navyBlue"
+                        placeholder="Registration Date"></input>
+                </th>
+            </tr>
             <tr class="bg-navyBlue text-aqua">
-                <th class="p-2 border border-navyBlue">ID</th>
-                <th class="p-2 border border-navyBlue">NAME</th>
-                <th class="p-2 border border-navyBlue">LASTNAME</th>
-                <th class="p-2 border border-navyBlue">EMAIL</th>
-                <th class="p-2 border border-navyBlue">PHONE</th>
-                <th class="p-2 border border-navyBlue">CITIZENSHIP ID</th>
-                <th class="p-2 border border-navyBlue">BIRTH DATE</th>
-                <th class="p-2 border border-navyBlue">REGISTRATION DATE</th>
+                <th class="px-2 py-4 border border-aqua">
+                    ID
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(0, event, 'number')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    NAME
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(1, event, 'string')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    LASTNAME
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(2, event, 'string')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    EMAIL
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(3, event, 'string')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    PHONE
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(4, event, 'number')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    CITIZENSHIP ID
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(5, event, 'string')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    BIRTH DATE
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(6, event, 'date')">
+                        <->
+                    </button>
+                </th>
+                <th class="px-2 py-4 border border-aqua">
+                    REGISTRATION DATE
+                    <button class="self-end duration-200 rotate-90" type="button"
+                        onclick="toggleSort(7, event, 'date')">
+                        <->
+                    </button>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -32,3 +95,62 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    const sortStates = {}; // siralama durumlarini bu dizide sakliyo
+    function toggleSort(columnIndex, event, dataType) {
+
+        // eger gelen columnIndex'teki state durumu tanimlanmamissa, ilk kez buttona basiliyor
+        if (sortStates[columnIndex] === undefined) {
+            sortStates[columnIndex] = true; // true olarak isaretle
+        }
+        else { // eger bos degilse, o zaman icinde true ve ya false bir deger var demektir.
+            sortStates[columnIndex] = !sortStates[columnIndex]; // icindeki degeri tersine cevir
+        }
+
+        const isAscending = sortStates[columnIndex]; // state listesinden gelen degeri tut
+        const table = document.querySelector("tbody"); // tabloyu yakala
+        const rows = Array.from(table.rows); // tablonun satirlarindan bir array olustur
+
+        // siralama islemini yap. sort fonksiyonu bubble sorting yapiyor, a-b iki farkli satiri temsil editor
+        rows.sort((a, b) => {
+            const aText = a.cells[columnIndex].innerText.trim(); // a satirindaki indexi verilen kolondaki metni al
+            const bText = b.cells[columnIndex].innerText.trim(); // b satirindaki ayni indexteki kolonun icindek metni al
+            if (dataType === "number") {
+                return sortNumbers(aText, bText, isAscending);
+            } else if (dataType === "date") {
+                return sortDates(aText, bText, isAscending);
+            } else {
+                return sortStrings(aText, bText, isAscending);
+            }
+
+
+        });
+        event.target.classList.toggle('-rotate-90')
+
+        rows.forEach(row => table.appendChild(row));
+    }
+
+
+
+    function sortStrings(aText, bText, isAscending) {
+        return isAscending
+            ? aText.localeCompare(bText) // Artan sıralama
+            : bText.localeCompare(aText); // Azalan sıralama
+    }
+    function sortNumbers(aText, bText, isAscending) {
+        const aValue = parseFloat(aText); // Sayıya dönüştür
+        const bValue = parseFloat(bText); // Sayıya dönüştür
+        return isAscending
+            ? aValue - bValue // Artan sıralama
+            : bValue - aValue; // Azalan sıralama
+    }
+    function sortDates(aText, bText, isAscending) {
+        const aDate = new Date(aText); // Tarih nesnesine dönüştür
+        const bDate = new Date(bText); // Tarih nesnesine dönüştür
+        return isAscending
+            ? aDate - bDate // Artan sıralama
+            : bDate - aDate; // Azalan sıralama
+    }
+
+</script>

@@ -17,6 +17,5 @@ namespace VM
         {
             RegDate = DateTime.Now;
         }
-
     }
 }

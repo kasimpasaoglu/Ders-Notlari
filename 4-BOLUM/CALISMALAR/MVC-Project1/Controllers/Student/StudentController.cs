@@ -52,6 +52,7 @@ public class StudentController : Controller
         {
             list.Add(_mapper.Map<Student>(item));
         }
+
         return View(list);
     }
 }

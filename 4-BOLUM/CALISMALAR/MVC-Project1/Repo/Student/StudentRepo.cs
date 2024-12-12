@@ -60,8 +60,7 @@ public class StudentRepo : IStudentRepo
         List<DTO.Student> dtoList = new();
         foreach (var item in dmoList)
         {
-            var dtoItem = _mapper.Map<DTO.Student>(item);
-            dtoList.Add(dtoItem);
+            dtoList.Add(_mapper.Map<DTO.Student>(item));
         }
         return dtoList;
     }
