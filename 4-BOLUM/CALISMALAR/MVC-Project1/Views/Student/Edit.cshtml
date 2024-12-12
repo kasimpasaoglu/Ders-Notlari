@@ -2,84 +2,86 @@
 
 
 
-<div class="addStudent">
-    <h2>Add Student</h2>
-    <form action="/Student/Add" method="post" class="flex flex-col gap-4 p-4 form">
-        <div class="flex gap-4">
-            <div class="flex flex-col">
-                <label asp-for="Name" class="font-bold">Name</label>
-                <input type="text" asp-for="Name" placeholder="Name" class="p-2 border rounded shadow-lg text-darkNavy"
-                    required>
+<div class="flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
+    <div class="flex flex-col items-center justify-center p-8 rounded-lg shadow-xl bg-navyBlue text-aqua mb-9">
+        <h2>Add Student</h2>
+        <form action="/Student/Add" method="post" class="flex flex-col gap-4 p-4 form">
+            <div class="flex gap-4">
+                <div class="flex flex-col">
+                    <label asp-for="Name" class="font-bold">Name</label>
+                    <input type="text" asp-for="Name" placeholder="Name"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required>
+                </div>
+                <div class="flex flex-col">
+                    <label asp-for="LastName" class="font-bold">Last Name</label>
+                    <input type="text" asp-for="LastName" placeholder="Last Name"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required>
+                </div>
             </div>
-            <div class="flex flex-col">
-                <label asp-for="LastName" class="font-bold">Last Name</label>
-                <input type="text" asp-for="LastName" placeholder="Last Name"
-                    class="p-2 border rounded shadow-lg text-darkNavy" required>
-            </div>
-        </div>
 
-        <div class="flex gap-4">
-            <div class="flex flex-col">
-                <label asp-for="Email" class="font-bold">E-Mail</label>
-                <input type="email" asp-for="Email" placeholder="Email"
-                    class="p-2 border rounded shadow-lg text-darkNavy" required>
+            <div class="flex gap-4">
+                <div class="flex flex-col">
+                    <label asp-for="Email" class="font-bold">E-Mail</label>
+                    <input type="email" asp-for="Email" placeholder="Email"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required>
+                </div>
+                <div class="flex flex-col">
+                    <label asp-for="Phone" class="font-bold">Phone</label>
+                    <input type="text" asp-for="Phone" placeholder="Phone"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required pattern="[0-9]+"
+                        title="Enter a valid phone number">
+                </div>
             </div>
-            <div class="flex flex-col">
-                <label asp-for="Phone" class="font-bold">Phone</label>
-                <input type="text" asp-for="Phone" placeholder="Phone"
-                    class="p-2 border rounded shadow-lg text-darkNavy" required pattern="[0-9]+"
-                    title="Enter a valid phone number">
-            </div>
-        </div>
 
-        <div class="flex gap-4">
-            <div class="flex flex-col">
-                <label asp-for="CitizenshipId" class="font-bold">Citizenship ID</label>
-                <input type="text" asp-for="CitizenshipId" placeholder="Citizenship ID"
-                    class="p-2 border rounded shadow-lg text-darkNavy" required pattern="[0-9]+"
-                    title="Enter a valid ID">
+            <div class="flex gap-4">
+                <div class="flex flex-col">
+                    <label asp-for="CitizenshipId" class="font-bold">Citizenship ID</label>
+                    <input type="text" asp-for="CitizenshipId" placeholder="Citizenship ID"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required pattern="[0-9]+"
+                        title="Enter a valid ID">
+                </div>
+                <div class="flex flex-col w-full">
+                    <label asp-for="BirthDate" class="font-bold">Birth Date</label>
+                    <input type="date" asp-for="BirthDate" class="w-full p-2 border rounded shadow-lg text-darkNavy"
+                        required>
+                </div>
             </div>
-            <div class="flex flex-col w-full">
-                <label asp-for="BirthDate" class="font-bold">Birth Date</label>
-                <input type="date" asp-for="BirthDate" class="w-full p-2 border rounded shadow-lg text-darkNavy"
-                    required>
-            </div>
-        </div>
-        <button type="submit"
-            class="px-4 py-2 font-extrabold duration-200 rounded text-aqua bg-darkNavy hover:bg-skyBlue hover:text-darkNavy">Save
-            Student</button>
-    </form>
-</div>
+            <button type="submit"
+                class="px-4 py-2 font-extrabold duration-200 rounded text-aqua bg-darkNavy hover:bg-skyBlue hover:text-darkNavy">Save
+                Student</button>
+        </form>
+    </div>
 
 
-<div class="flex flex-col items-center justify-center p-8 shadow-xl rounded-3xl bg-navyBlue text-aqua mb-9">
-    <h2>Remove Student</h2>
-    <form action="/Student/Remove" method="post" class="flex flex-col gap-4 p-4 form" onsubmit="clearInputs(event)">
-        <div class="flex gap-4">
-            <div class="flex flex-col">
-                <label asp-for="Name" class="font-bold">Name</label>
-                <input type="text" asp-for="Name" placeholder="Name" class="p-2 border rounded shadow-lg text-darkNavy"
-                    required>
+    <div class="flex flex-col items-center justify-center p-8 shadow-xl rounded-3xl bg-navyBlue text-aqua mb-9">
+        <h2>Remove Student</h2>
+        <form action="/Student/Remove" method="post" class="flex flex-col gap-4 p-4 form" onsubmit="clearInputs(event)">
+            <div class="flex gap-4">
+                <div class="flex flex-col">
+                    <label asp-for="Name" class="font-bold">Name</label>
+                    <input type="text" asp-for="Name" placeholder="Name"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required>
+                </div>
+                <div class="flex flex-col">
+                    <label asp-for="LastName" class="font-bold">Last Name</label>
+                    <input type="text" asp-for="LastName" placeholder="Last Name"
+                        class="p-2 border rounded shadow-lg text-darkNavy" required>
+                </div>
             </div>
-            <div class="flex flex-col">
-                <label asp-for="LastName" class="font-bold">Last Name</label>
-                <input type="text" asp-for="LastName" placeholder="Last Name"
-                    class="p-2 border rounded shadow-lg text-darkNavy" required>
-            </div>
-        </div>
-        <button type="submit"
-            class="px-4 py-2 font-extrabold duration-200 rounded text-aqua bg-darkNavy hover:bg-coral hover:text-darkNavy">Delete
-            Student</button>
-    </form>
-</div>
+            <button type="submit"
+                class="px-4 py-2 font-extrabold duration-200 rounded text-aqua bg-darkNavy hover:bg-coral hover:text-darkNavy">Delete
+                Student</button>
+        </form>
+    </div>
 
-<div id="popup"
-    class="absolute invisible px-16 py-8 transition-opacity duration-500 ease-in-out shadow-2xl opacity-0 text-aqua bg-darkNavy top-32 left-32 rounded-2xl shadow-navyBlue "
-    )">
-    <h6 class="text-xl font-extrabold">@Model.ErrorMessage</h6>
-    <button
-        class="absolute px-3 py-1 font-extrabold transition-all rounded-full right-3 top-2 bg-coral text-aqua hover:scale-110"
-        type="button" onclick="closePopup()">X</button>
+    <div id="popup"
+        class="absolute invisible px-16 py-8 transition-opacity duration-500 ease-in-out shadow-2xl opacity-0 text-aqua bg-darkNavy top-32 left-32 rounded-2xl shadow-navyBlue "
+        )">
+        <h6 class="text-xl font-extrabold">@Model.ErrorMessage</h6>
+        <button
+            class="absolute px-3 py-1 font-extrabold transition-all rounded-full right-3 top-2 bg-coral text-aqua hover:scale-110"
+            type="button" onclick="closePopup()">X</button>
+    </div>
 </div>
 <script>
     window.onload = () => {

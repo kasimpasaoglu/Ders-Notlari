@@ -1,35 +1,37 @@
 @model VM.Login
-<h2>LOGIN</h2>
 
 
-@if (Model.IsLoggedIn)
-{
-    <h4 class="m-4">Hello @Model.UserName</h4>
-    <form action="/Auth/Logout" method="post">
-    <input type="submit" value="Logout"
-        class="px-8 py-2 font-extrabold duration-300 cursor-pointer bg-darkNavy rounded-2xl text-aqua hover:bg-coral hover:text-darkNavy">
-</form>
-}
-else
-{
-    @if (string.IsNullOrEmpty(Model.UserName))
+<div class="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] gap-4 mx-auto my-auto text-center">
+    <h2>LOGIN</h2>
+    @if (Model.IsLoggedIn)
     {
-        <h2>Username or Password is Incorrect</h2>
+        <h4 class="m-4">Hello @Model.UserName</h4>
+        <form action="/Auth/Logout" method="post">
+            <input type="submit" value="Logout"
+                class="px-8 py-2 font-extrabold duration-300 cursor-pointer bg-darkNavy rounded-2xl text-aqua hover:bg-coral hover:text-darkNavy">
+        </form>
     }
+    else
+    {
+        @if (string.IsNullOrEmpty(Model.UserName))
+        {
+            <h2>Username or Password is Incorrect</h2>
+        }
 
-    <div class="p-4 m-5 shadow-xl bg-skyBlue rounded-3xl shadow-darkNavy">
-    <form action="/Auth/Login" method="post" class="flex flex-col items-center justify-center gap-2">
-        <div>
-            <input type="text" name="UserName" class="p-3 rounded-xl" placeholder="Enter Your UserName">
-            <input type="password" name="Password" class="p-3 rounded-xl" placeholder="Enter Your Password">
+        <div class="p-4 m-5 shadow-xl bg-skyBlue rounded-3xl shadow-darkNavy">
+            <form action="/Auth/Login" method="post" class="flex flex-col items-center justify-center gap-2">
+                <div>
+                    <input type="text" name="UserName" class="p-3 rounded-xl" placeholder="Enter Your UserName">
+                    <input type="password" name="Password" class="p-3 rounded-xl" placeholder="Enter Your Password">
+                </div>
+                <div>
+                    <input type="checkbox" asp-for="RememberMe" id="RememberMe">
+                    <label for="RememberMe">Remember Me</label>
+                </div>
+                <input
+                    class="px-8 py-3 font-extrabold duration-200 cursor-pointer bg-darkNavy text-aqua hover:bg-navyBlue rounded-xl"
+                    type="submit" value="Login">
+            </form>
         </div>
-        <div>
-            <input type="checkbox" asp-for="RememberMe" id="RememberMe">
-            <label for="RememberMe">Remember Me</label>
-        </div>
-        <input
-            class="px-8 py-3 font-extrabold duration-200 cursor-pointer bg-darkNavy text-aqua hover:bg-navyBlue rounded-xl"
-            type="submit" value="Login">
-    </form>
+    }
 </div>
-}

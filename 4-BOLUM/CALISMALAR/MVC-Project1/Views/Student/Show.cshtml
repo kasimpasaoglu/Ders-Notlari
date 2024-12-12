@@ -1,16 +1,21 @@
 @model List<VM.Student>
 
-<div class="m-6 text-center max-w-7xl">
+<div class="m-6 mx-auto text-center max-w-7xl">
     <table class="w-full text-center border border-collapse table-auto border-navyBlue">
         <thead>
             <tr>
-                <th><input name="Id" class="w-full p-2 border border-navyBlue" placeholder="Id"></input></th>
-                <th><input name="Name" class="w-full p-2 border border-navyBlue" placeholder="Name"></input></th>
-                <th><input name="LastName" class="w-full p-2 border border-navyBlue" placeholder="Lastname"></input>
+                <th><input type="number" name="Id" class="w-full p-2 border border-navyBlue" placeholder="Id"></input>
                 </th>
-                <th><input name="Email" class="w-full p-2 border border-navyBlue" placeholder="E-Mail"></input></th>
-                <th><input name="Phone" class="w-full p-2 border border-navyBlue" placeholder="Phone"></input></th>
-                <th><input name="CitizenshipId" class="w-full p-2 border border-navyBlue"
+                <th><input type="text" name="Name" class="w-full p-2 border border-navyBlue" placeholder="Name"></input>
+                </th>
+                <th><input type="text" name="LastName" class="w-full p-2 border border-navyBlue"
+                        placeholder="Lastname"></input>
+                </th>
+                <th><input type="email" name="Email" class="w-full p-2 border border-navyBlue"
+                        placeholder="E-Mail"></input></th>
+                <th><input type="number" name="Phone" class="w-full p-2 border border-navyBlue"
+                        placeholder="Phone"></input></th>
+                <th><input type="number" name="CitizenshipId" class="w-full p-2 border border-navyBlue"
                         placeholder="Citizenship Id"></input>
                 </th>
                 <th><input name="BirthDate" class="w-full p-2 border border-navyBlue" placeholder="Birth Date"></input>
@@ -126,6 +131,7 @@
 
 
         });
+        event.target.classList.toggle('rotate-90')
         event.target.classList.toggle('-rotate-90')
 
         rows.forEach(row => table.appendChild(row));
@@ -153,4 +159,44 @@
             : bDate - aDate; // Azalan sıralama
     }
 
+</script>
+<script>
+    function filterTable() {
+        const table = document.querySelector("tbody"); // tablodaki satirlari bul
+        const rows = Array.from(table.rows); // satirlari diziye cevir
+        const filters = {}; // filtreyi saklayacagimiz obje. her bir sutun icin yazilan degeri key,value olarak tutacak, ayni anda birden fazla filtre uygulanabilecek 
+
+
+        document.querySelectorAll("thead input").forEach(input => {
+            const columnName = input.name; // hangi kolona filtre uygulanacagini name alanindan yakala
+            const filterValue = input.value.trim().toLowerCase(); // tamamini kucuk harfe cevirdikten sonra filtre degerini al
+            if (filterValue) { // eger bir deger varsa (input alani bos degilse)
+                filters[columnName] = filterValue; // degeri filtre objesine ekle
+            }
+        });
+
+
+        rows.forEach(row => {
+            let isVisible = true; // baslangicta gorunur halde
+            Object.entries(filters).forEach(([key, value]) => { // nesneyi diziye donusturup icinde donuyoruz, key sutun adi, value fitre degeri
+                const columnIndex = getColumnIndex(key); // sutunun index'ini al
+                const cellValue = row.cells[columnIndex].innerText.trim().toLowerCase(); // o indexteki hucrenin degerini al
+                if (!cellValue.includes(value)) {
+                    isVisible = false; // eger hucrenin icinde filtre degeri yoksa gorunurlugu kaldir.
+                }
+            });
+            row.style.display = isVisible ? "" : "none"; // satirlarin gorunurlugunu isVisible degiskenine bakarak ayarla
+        });
+    }
+
+    // sutun isminin degerini index'e donustur. (aslinda gerek yok, cunku inputlar zaten belli bir indexteki kolonda duruyor, kolonun indexine bakarak ta bulabilirdim, sonradan aklima geldi)
+    function getColumnIndex(columnName) {
+        const columns = ["Id", "Name", "LastName", "Email", "Phone", "CitizenshipId", "BirthDate", "RegDate"];
+        return columns.indexOf(columnName);
+    }
+
+    // tum input alanlarinna event listener ekle
+    document.querySelectorAll("thead input").forEach(input => {
+        input.addEventListener("input", filterTable); // her bir input girisinde yukardaki metod calisacak. 
+    });
 </script>
