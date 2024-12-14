@@ -1,0 +1,18 @@
+﻿@model SelectorVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form action="/Home/Index" method="post">
+    @Html.DropDownListFor(s => s.SelClassId, new SelectList(Model.Classes, "Id", "Name"), "Sinif Secimi Yapiniz")
+
+    @if (Model.SelClassId != 0)
+    {
+        @Html.DropDownListFor(s => s.SelLessonId, new SelectList(Model.Lessons, "Id", "Name"), "Ders Secimi Yapiniz")
+        @if (Model.SelLessonId != 0)
+        {
+            @Html.DropDownListFor(s => s.SelTopicId, new SelectList(Model.Topics, "Id", "Name"), "Ders Secimi Yapiniz")
+        }
+    }
+    <input type="submit" value="Gonder">
+</form>
