@@ -1,0 +1,13 @@
+﻿@model StutendVM
+@using Helpers
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@Html.CustomLabel("Bu label bizim tarafimizdan olusturuldu", "text-danger")
+@Html.CustomTextBox("UserName", "Username", "Enter Your User Name")
+
+@Html.WissenTextBoxFor(s => s.Name, "Isminizi Giriniz", "form-control", new { OgrenciId = "attribute" })
