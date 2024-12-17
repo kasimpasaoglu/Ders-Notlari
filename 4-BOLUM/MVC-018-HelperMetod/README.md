@@ -88,3 +88,25 @@ public static IHtmlContent WissenTextBoxFor<TModel, TProperty>
 ```
 
 ## Expression Ornegi
+
+```C#
+        Expression<Func<int, bool>> secondExpression = x => x > 100;
+
+        Func<int, bool> isBigNumber = secondExpression.Compile();
+
+        bool isBig = isBigNumber(110);
+
+
+        Expression<Func<int, double>> thirdExpression = x => Math.Sqrt(x);
+
+        Func<int, double> square = thirdExpression.Compile();
+
+        double squareResult = square(48);
+
+
+        Expression<Func<string, string>> reverserExpression = x => x.Reverse();
+
+        Func<string, string> reverser = reverserExpression.Compile();
+
+        string reverserResult = reverser("Kelime");
+```
