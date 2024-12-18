@@ -24,7 +24,7 @@ public class UserModel
 ```
 
 - Models, kalsorunde Validators klasoru acip `UserModelValidator.cs` dosyasi olustur. (klasor yapisi farketmez)
-- UserModel icin validations'lar buraya yazilacak.
+- UserModel icin validation'lar buraya yazilacak.
 
 ```C#
 using FluentValidation;
