@@ -113,3 +113,64 @@ public IActionResult Index(UserModel model)
 - Script eklemek tercihe bagli. Validationu backhand'de yapmak istenirse kaldirilabilir.
 
 - :warning: Burda yapilan yonetim `pipeline` artik desteklenmiyor. Dokuman sayfasinda bunun kullanilmasini tavsiye etmiyor. Cunku dogrulama kurallarinda asenkron islemler kullaniliyorsa, mesela veritabani kontrolu gibi, bu yontem hata verecektir.
+- Asenkron fonksiyonlarda Manual Validation yontemini kullanmak gerekir.
+
+## Daha Gecerli Kullanim
+
+- Manuel olarak validasyon yapmak, az once bahsettigimiz ozellikle asenkron validasyonlar yaparken kullanmamiz gereken yontemdir. Bunun icin Dependency Injection yapilip, validator'u action icinde kullanabiliriz.
+- Model klasorundeki Validadors classlari yukardaki gibi ayni sekilde yazilir
+
+```C#
+using FluentValidation;
+
+
+public class UserModelValidator : AbstractValidator<UserModel>
+{
+    public UserModelValidator()
+    {
+        RuleFor(user => user.Name)
+            .NotEmpty().WithMessage("Name cannot be empty")
+            .Length(2, 50).WithMessage("Name must be between 2 and 50 characters");
+
+        RuleFor(user => user.Email)
+            .NotEmpty().WithMessage("Email cannot be empty")
+            .EmailAddress().WithMessage("Invalid email format");
+
+        RuleFor(user => user.Age)
+            .InclusiveBetween(18, 99).WithMessage("Age must be between 18 and 99");
+    }
+}
+
+```
+
+- Program.cs te sadece asagidaki sekilde injection yapilir
+
+```C#
+builder.Services.AddValidatorsFromAssemblyContaining<PersonValidator>();
+```
+
+- Burdan sonra kullanilacak Controller icinde field olarak tanimlanir ve ctora eklenir
+
+```C#
+private IValidator<UserModel> _validator;
+
+    public HomeController(IValidator validator)
+    {
+        _validator = validator;
+    }
+```
+
+- Artik modellerin valid olup olmadigina bakmak icin `_validator.Validate(model)` vb. fonksiyonlar ile validasyon yapilabilir.
+- **Gelen sonuclar ModelState'e elle yazilmalidir**
+- Ornek bir controller ici
+
+```C#
+ValidationResult result = _validator.Validate(model);
+    if (!result.IsValid) 
+    {
+      result.AddToModelState(this.ModelState);
+      return View(model);
+    }
+```
+
+:bulb: Asenkron validasyonlar icin `ValidateAsync()` gibi metolar vardir. Ilerde bakacagiz
