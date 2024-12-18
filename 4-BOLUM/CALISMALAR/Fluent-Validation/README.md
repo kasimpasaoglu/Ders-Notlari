@@ -111,3 +111,5 @@ public IActionResult Index(UserModel model)
 - Burda `@section Scripts {}` komutu bir Razor ozelligidir. `<script>` tagini otomatik olarak sayfanin dogru yerine ekleyecektir ve icine partial olarak cagirdigimiz ASP.NET Core'a ait Validation Script'i yazacaktir.
   - `@HTML.TextBoxFor()` gibi bir ozellik.
 - Script eklemek tercihe bagli. Validationu backhand'de yapmak istenirse kaldirilabilir.
+
+- :warning: Burda yapilan yonetim `pipeline` artik desteklenmiyor. Dokuman sayfasinda bunun kullanilmasini tavsiye etmiyor. Cunku dogrulama kurallarinda asenkron islemler kullaniliyorsa, mesela veritabani kontrolu gibi, bu yontem hata verecektir.
