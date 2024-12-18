@@ -48,8 +48,8 @@ public class UserModelValidator : AbstractValidator<UserModel>
 }
 ```
 
-> :bulb: Kullanilabilecek hazir validationslar icin [bu sayfayi](https://docs.fluentvalidation.net/en/latest/built-in-validators.html) kontrol et.
-> :bulb: Kendi validatorunu yazmak icin [bu sayfayi](https://docs.fluentvalidation.net/en/latest/custom-validators.html) kontrol et.
+> - :bulb: Kullanilabilecek hazir validationslar icin [bu sayfayi](https://docs.fluentvalidation.net/en/latest/built-in-validators.html) kontrol et.
+> - :bulb: Kendi validatorunu yazmak icin [bu sayfayi](https://docs.fluentvalidation.net/en/latest/custom-validators.html) kontrol et.
 
 ---
 
