@@ -111,5 +111,5 @@
 23. [MVC - MiddleWare & MongoDB](/4-BOLUM/MVC-016-MiddleWare/README.md)
 24. [MVC - Valitation](/4-BOLUM/MVC-017-Validation/README.md)
     1. [Form Validation Deneme](/4-BOLUM/CALISMALAR/Form-Validation/)
-    2. [Fluent Validation Home Page](https://docs.fluentvalidation.net/en/latest/)
+    2. [Fluent Validation](/4-BOLUM/CALISMALAR/Fluent-Validation/README.md)
 25. [Helper Kullanimi - Extentions - Expressions](/4-BOLUM/MVC-018-HelperMetod/README.md)
