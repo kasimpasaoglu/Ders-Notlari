@@ -1,0 +1,16 @@
+﻿@model IndexVM
+
+<ul style="width: 18rem;" class="list-group mx-auto">
+    @foreach (var item in Model.Items)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                @item.Name
+            </div>
+            <div>
+                <span class="badge bg-primary rounded-pill">@item.Id</span>
+                <i class="bi bi-arrow-right"></i>
+            </div>
+        </li>
+    }
+</ul>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC-Api-Calisma", "MVC-Api-Calisma.csproj", "{7822C6DE-6642-4ECA-9F60-E9D92A927FDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7822C6DE-6642-4ECA-9F60-E9D92A927FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7822C6DE-6642-4ECA-9F60-E9D92A927FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7822C6DE-6642-4ECA-9F60-E9D92A927FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7822C6DE-6642-4ECA-9F60-E9D92A927FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D927064A-7788-42C3-840C-C329C32DFF58}
+	EndGlobalSection
+EndGlobal
