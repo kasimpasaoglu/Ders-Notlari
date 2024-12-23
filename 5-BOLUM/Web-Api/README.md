@@ -51,14 +51,17 @@ public class WissenController : ControllerBase
 
 ```C#
 // Kaynaktaki veriyi tamamen degistimek ya da guncellemek icin put kullanilir
-// Eger kaynak mevcut degisle olusturmak, mebcutsa tamamini guncellemek yani override icin kullanilir 
+// Eger kaynak mevcut degisle olusturmak, mebcutsa tamamini guncellemek yani override icin kullanilir
+// Ornek, bir ogrenci nesnesi var, ve bu ogrenci nesnesini yeni bir ogrenci nesnesi ile degistmek icin kullanilir
+// ve ya direk yeni bir ogrenci nesnesi koymak icin kullanilir
     [HttpPut]
     public IActionResult Put()
     {
         return Ok(true);
     }
 
-
+// veri kaynagindaki veriyi kismi guncellemek icin kullanilir
+// mesela ogrenci nesnesinin sadece name propunu degistirmek icin
     [HttpPatch]
     public IActionResult Patch()
     {
@@ -66,14 +69,16 @@ public class WissenController : ControllerBase
         return Ok(true);
     }
 
-
+// veri kaynagindaki veriyi silmek icin kullanilir
+// id degerine gore ogrenci nesnesi silmek gibi
     [HttpDelete]
     public IActionResult Delete()
     {
 
         return Ok(true);
     }
-
+// header bilgilerini almak icin kullanilir
+// header alaninda istenilen verilerin olup olmadigini, varsa veriyi almak icin kullanilir
     [HttpHead]
     public IActionResult Head()
     {
@@ -81,8 +86,7 @@ public class WissenController : ControllerBase
         return Ok(true);
     }
 
-
-
+// Api'nin hangi HTTP metodlarina izin verdigini ogrenmek icin kullanilir
     [HttpOptions]
     public IActionResult Options()
     {
