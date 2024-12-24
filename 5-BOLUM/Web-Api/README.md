@@ -118,3 +118,5 @@ public class WissenController : ControllerBase
 - Burda bir urun sayfasi olusturmak istedigimiz zaman tek get metodu kullanmak zorunda olmak isi biraz zorlastirsada best practis uygulamasi bu sekilde yapilmalidir.
 - Ornegin get metoduna parametre girerek birden fazla islem yapilir, gelen parametrelere gore dogru yanit verilir.
 - Mesela urunlerin tamami gelmesi icin parametresiz calisir, id verilirse tek bir urun getirir gibi bir metod yazilmalidir.
+
+## CORS Kavrami
