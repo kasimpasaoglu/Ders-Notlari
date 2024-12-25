@@ -122,4 +122,5 @@
 
 ## 5.Bolum
 
-1. [Web-Api](/5-BOLUM/Web-Api/README.md)
+1. [Web-Api Giris & Cors](/5-BOLUM/Web-Api/README.md)
+2. [Web-Api JWT Auth](/5-BOLUM/web-api2-jwt/README.md)
