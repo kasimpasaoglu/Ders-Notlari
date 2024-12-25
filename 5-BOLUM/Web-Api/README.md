@@ -120,3 +120,32 @@ public class WissenController : ControllerBase
 - Mesela urunlerin tamami gelmesi icin parametresiz calisir, id verilirse tek bir urun getirir gibi bir metod yazilmalidir.
 
 ## CORS Kavrami
+
+- Cors, tarayici tarafindan web api'lere yapilan istekleri engellemek iicin web apilerde olan bir guvenlik katmanidir.
+- Tarayicilar, cors acik degilken bir web sitesinden baska bir web api'a istek yapmazlar.
+- Cors resharp ile yapilan isteklere takilmaz. Cunku restsharp ile tapilan istekcek tarayicidan gonderilmez, backhande sunucu tarafindan gonderilir.
+- Tarayicida calisan teknolojiler Javascript tabanli teknolojilerdir. (Jquerry, React, Vue, Angular vb.)
+
+- Cors'a takilmamak icin, eger api'ye erisimimiz yoksa (yani baskansinin yazdigi bir api kullaniyorsak) proxy sunucusu kullanabiliriz
+- Ya da kendi yazdigimiz apiye baska sitelerden isten atilmasina izin vermek istiyorsak, kendi API'mize cors konfigrasyonu eklememiz gerekir.
+
+- Program.cs dosyasina asagidaki configrasyonu ekleyebiliriz.
+
+```C#
+builder.Services.AddCors(option =>
+{
+    option.AddDefaultPolicy(policy =>
+    {
+        policy
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+```
+
+- Daha sonra calistirmak icin uygulamaya eklemek gerekir. Yine Program.cs dosyasina asagidaki satir eklenir.
+
+```C#
+app.UseCors();
+```
