@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SignalR Client</h1>
+    <div>
+        <ul id="message">
+
+        </ul>
+    </div>
+    <input type="text" name="" id="UserInput" placeholder="User">
+    <input type="text" name="" id="Message" placeholder="Message">
+    <button onclick="SendMessage()" type="button">Send</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.js"
+        integrity="sha512-FzakzcmrNSXS5+DuuYSO6+5DcUZ417Na0vH1oAIo49mMBA8rHSgkKSjE2ALFOxdQ/kPqF3HZRzb0HQ+AvwXttg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://kasimchat.runasp.net/chatHub")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        async function start() {
+            try {
+                await connection.start();
+                console.log("SignalR Connected.");
+            } catch (err) {
+                console.log(err);
+                setTimeout(start, 5000);
+            }
+        };
+
+        connection.onclose(async () => {
+            await start();
+        });
+
+        // Start the connection.
+        start();
+
+        connection.on("ReceiveMessage", (user, message) => {
+            const msg = `${user} : ${message}`;
+            const li = document.createElement("li");
+            li.textContent = msg;
+            document.getElementById("message").appendChild(li);
+        });
+
+        function SendMessage() {
+            const user = document.getElementById("UserInput").value;
+            const message = document.getElementById("Message").value;
+
+            const response = fetch("http://kasimchatapi.runasp.net/api/Chat/Send", {
+                method: "POST",
+                headers: {
+                    'Content-Type': "Application/json"
+                },
+                body: JSON.stringify({ UserName: user, Message: message })
+            });
+            if (!response.ok) {
+                alert = ("Mesaj Gonderilemedi")
+            }
+
+        }
+    </script>
+</body>
+
+</html>
