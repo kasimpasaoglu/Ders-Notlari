@@ -1,5 +1,8 @@
 # Authentication Islemleri
 
+- Daha once SHA512 ile bir sifreleme ornegi yapmistik.
+- SHA512 'de sifreleme tek yonludur. Yani ornegin bir kullanici sifre bilgisini SHA512 ile encrypt ettikten sonra onu geri acip, sifreyi goremeyiz.
+- Ancak JWT iki yonlu calisir. Veriye tekrar ulasabiliriz.
 - Bu projede JWT kullanarak bir authentication yapacagiz
 - [JWT Bearer](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer) nuget paketini indiriyoruz.
 
@@ -83,6 +86,7 @@ var key = Encoding.ASCII.GetBytes(Configuration["JwtSettings:Key"]);
 var tokenDescriptor = new SecurityTokenDescriptor
 {
     Subject = new System.Security.Claims.ClaimsIdentity(new[]{
+      // claims bir token icinde bilgileri tasimak icin kullanilan yontemdir.
          new Claim(ClaimTypes.Name, model.UserName),
          new Claim(ClaimTypes.Role, "Admin")
     }),
