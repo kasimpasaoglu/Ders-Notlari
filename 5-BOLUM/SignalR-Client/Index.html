@@ -23,7 +23,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("http://kasimchat.runasp.net/chatHub")
+            .withUrl("http://localhost:5295/chatHub") // api main adresi/chatHub seklinde yazilmali
             .configureLogging(signalR.LogLevel.Information)
             .build();
 
@@ -55,7 +55,7 @@
             const user = document.getElementById("UserInput").value;
             const message = document.getElementById("Message").value;
 
-            const response = fetch("http://kasimchatapi.runasp.net/api/Chat/Send", {
+            const response = fetch("http://localhost:5295/api/Chat/Send", {
                 method: "POST",
                 headers: {
                     'Content-Type': "Application/json"
