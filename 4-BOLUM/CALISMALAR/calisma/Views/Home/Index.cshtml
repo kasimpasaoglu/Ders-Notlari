@@ -1,0 +1,35 @@
+﻿@model IndexViewModel
+
+<form action="/Home/Index" method="post">
+    @Html.DropDownListFor(s => s.SecilenTurNo, new SelectList(Model.Turler, "Turno", "Ad"), "Kitap Turu Seciniz")
+    <input type="submit" value="Sec">
+</form>
+
+@if (Model.SecilenTurNo != 0)
+{
+    <table>
+    <thead>
+        <tr>
+            <th>Kitap NO</th>
+            <th>Kitap Adi</th>
+            <th>Sayfa Sayisi</th>
+            <th>Yazar Adi</th>
+            <th>Yazar Soyadi</th>
+            <th>Tur</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Kitaplar)
+            {
+                <tr>
+                    <td>@item.Kitapno</td>
+                    <td>@item.Ad</td>
+                    <td>@item.Sayfasayisi</td>
+                    <td>@item.YazarAd</td>
+                    <td>@item.YazarSoyad</td>
+                    <td>@item.Tur</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
