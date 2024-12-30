@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
-public class FilterController : ControllerBase
+public class FiltersController : ControllerBase
 {
     private IRepo _repo;
 
-    public FilterController(IRepo repo)
+    public FiltersController(IRepo repo)
     {
         _repo = repo;
     }
