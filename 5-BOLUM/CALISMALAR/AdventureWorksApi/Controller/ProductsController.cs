@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
-/// ProductsController, ürünlerle ilgili API işlemlerini sağlar.
+/// Get single or list of products
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -16,16 +16,25 @@ public class ProductsController : ControllerBase
 
 
     /// <summary>
-    /// Tüm ürünleri getirir. (isteğe bağlı limit ile)
+    /// Get products list by filters
     /// </summary>
-    /// <param name="count">Dönen ürün sayısı</param>
-    /// <returns>Ürün listesi</returns>
+    /// <param name="productFilter"></param>
+    /// <returns>Product list filtered by params</returns>
     [HttpGet]
-    public IActionResult Get([FromQuery] int count = 20)
+    public IActionResult Get([FromBody] ProductFilterRequest productFilter)
     {
-        var result = _repo.GetAllProducts(count);
+        var result = _repo.GetProductsByFilters(
+            productFilter.ProductRequested,
+            productFilter.Page,
+            productFilter.SelectedSort,
+            productFilter.CategoryId,
+            productFilter.SubcategoryId,
+            productFilter.MinPrice,
+            productFilter.MaxPrice,
+            productFilter.SelectedColors
+        );
 
-        if (result == null)
+        if (result == null || result.Count == 0)
         {
             return NotFound("No products found");
         }
@@ -33,10 +42,10 @@ public class ProductsController : ControllerBase
     }
 
     /// <summary>
-    /// Belirtilen ID'ye sahip ürünü döndürür.
+    /// Get single product by id
     /// </summary>
-    /// <param name="id">Ürün ID.</param>
-    /// <returns>Ürün bilgileri.</returns>
+    /// <param name="id">Product ID</param>
+    /// <returns>Detailed product information</returns>
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
