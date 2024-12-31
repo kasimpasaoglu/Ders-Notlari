@@ -20,7 +20,7 @@ public class ProductsController : ControllerBase
     /// </summary>
     /// <param name="productFilter"></param>
     /// <returns>Product list filtered by params</returns>
-    [HttpGet]
+    [HttpPost]
     public IActionResult Get([FromBody] ProductFilterRequest productFilter)
     {
         var result = _repo.GetProductsByFilters(
