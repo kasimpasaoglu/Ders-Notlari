@@ -4,17 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>SignalR Client</h1>
-    <input type="text" name="" id="UserInput" placeholder="User">
-    <input type="text" name="" id="Message" placeholder="Message">
-    <button onclick="SendMessage()" type="button">Send</button>
-    <div>
-        <ul id="message">
+    <div class="relative max-w-[800px] mx-auto flex flex-col items-center justify-center bg-slate-200 p-5 gap-5 rounded-b-3xl shadow-2xl mb-5"
+        id="senderField">
+        <button style="background-color: green;" id="helpBtn" onclick="HelpBtnHandler()"
+            class="font-extrabold absolute top-2 right-2 px-3 py-1 hover:scale-125 duration-500 rounded-full z-10">?</button>
+        <div id="helpField" style="opacity: 0; z-index: -1;"
+            class="absolute top-2 w-1/2 text-center bg-slate-400 text-black rounded-3xl shadow-2xl">
+            <ul id="commands" class="py-3 flex flex-col gap-1 items-center justify-center">
+                <li class="min-w-32 py-2 rounded-lg" style="background-color: white;">/clear</li>
+            </ul>
+        </div>
+        <h1 class="text-3xl mx-auto py-4">Wissen - SignalR Client</h1>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-3">
+            <input class="border text-center border-black px-2 py-3 text-black rounded-2xl focus:shadow-2xl" type="text"
+                name="User" id="UserInput" placeholder="User" required>
+            <input class="border text-center border-black px-2 py-3 text-black rounded-2xl focus:shadow-2xl" type="text"
+                name="Message" id="Message" placeholder="Message" required>
+        </div>
+        <button class="block md:hidden bg-slate-700 text-white px-6 py-2 rounded-xl" type="button"
+            onclick="SendMessage()">Send</button>
 
+    </div>
+    <div class="max-w-[800px] mx-auto flex flex-col bg-slate-200 gap-5 rounded-3xl shadow-2xl h-96">
+        <ul class="pt-5 px-8 overflow-y-auto" id="messageField">
         </ul>
     </div>
 
@@ -23,7 +40,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-
+        // !!!!!!!!! http://wissenchatapi.runasp.net/chatHub
         const connection = new signalR.HubConnectionBuilder()
             .withUrl("http://wissenchatapi.runasp.net/chatHub") // api main adresi/chatHub seklinde yazilmali
             .configureLogging(signalR.LogLevel.Information)
@@ -48,41 +65,125 @@
         // Start the connection.
         start();
 
+        const colors = {
+            '/deeppink': 'deeppink',
+            '/blue': 'blue',
+            '/yellow': 'yellow',
+            '/white': 'white',
+            '/red': 'red',
+            '/green': 'green',
+            '/orange': 'orange',
+            '/purple': 'purple',
+            '/cyan': 'cyan',
+            '/lime': 'lime',
+            '/black': 'black',
+            '/gray': 'gray'
+        }
 
+        const commandList = document.querySelector('#commands');
+
+        Object.entries(colors).forEach(([key, value]) => {
+            const li = document.createElement('li');
+            const textColor = ['white', 'yellow', 'cyan', 'lime'].includes(value) ? 'text-black' : 'text-white';
+            li.className = `min-w-32 py-2 px-4 rounded-lg ${textColor}`;
+            li.style.backgroundColor = value;
+            li.textContent = key;
+            commandList.appendChild(li);
+        })
 
         connection.on("ReceiveMessage", (user, message) => {
-            const msg = `${user} : ${message}`;
-            if (message === 'clear') {
+            const now = new Date();
+            const formattedTime = now.toLocaleString('en-US', {
+                year: '2-digit',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            const msg = `[${formattedTime}] - ${user} : ${message}`;
+            const body = document.body;
+
+
+            if (message === '/clear') {
                 const listItems = document.querySelectorAll('li');
                 listItems.forEach(item => item.remove());
-            } else if (message === 'deeppink') {
-                document.body.style.backgroundColor = 'deeppink';
-            } else if (message === 'white') {
-                document.body.style.backgroundColor = 'white';
+            } else if (colors[message]) {
+                body.style.backgroundColor = colors[message];
             } else {
+                const messageList = document.querySelector('#messageField');
                 const li = document.createElement("li");
                 li.textContent = msg;
-                document.getElementById("message").appendChild(li);
+                messageList.prepend(li);
             }
         });
 
 
+        document.querySelector('#UserInput').addEventListener('keypress', async (event) => {
+            if (event.key === 'Enter') {
+                await SendMessage();
+            }
+        });
 
-        function SendMessage() {
-            const user = document.getElementById("UserInput").value;
-            const message = document.getElementById("Message").value;
+        document.querySelector('#Message').addEventListener('keypress', async (event) => {
+            if (event.key === 'Enter') {
+                await SendMessage();
+            }
+        });
 
-            const response = fetch("http://wissenchatapi.runasp.net/api/Chat/Send", {
+        async function SendMessage() {
+            const senderField = document.querySelector('#senderField');
+            const user = document.getElementById("UserInput");
+            const message = document.getElementById("Message");
+
+            // !!!!!!!!!  http://wissenchatapi.runasp.net/api/Chat/Send
+            const response = await fetch("http://wissenchatapi.runasp.net/api/Chat/Send", {
                 method: "POST",
                 headers: {
                     'Content-Type': "Application/json"
                 },
-                body: JSON.stringify({ User: user, Message: message })
+                body: JSON.stringify({ User: user.value, Message: message.value })
             });
             if (!response.ok) {
-                alert = ("Mesaj Gonderilemedi")
+                senderField.classList.remove('bg-slate-200');
+                senderField.classList.add('bg-red-500');
+            }
+            else {
+                senderField.classList.remove('bg-slate-200');
+                senderField.classList.add('bg-green-500');
+            }
+            senderField.classList.add('animate-pulseFast');
+            setTimeout(() => {
+                senderField.classList.remove('animate-pulseFast');
+                senderField.classList.replace('bg-red-500', 'bg-slate-200');
+                senderField.classList.replace('bg-green-500', 'bg-slate-200');
+            }, 1000);
+            message.value = '';
+        }
+
+        function HelpBtnHandler() {
+            const helpField = document.getElementById("helpField");
+            const helpBtn = document.getElementById("helpBtn");
+
+            const isVisible = helpField.style.opacity === "1";
+
+            if (isVisible) {
+                //gizle
+                helpField.style.opacity = "0";
+                helpField.style.zIndex = "-1";
+                helpBtn.style.backgroundColor = "green";
+                helpBtn.textContent = "?";
+            } else {
+                // goster
+                helpField.style.opacity = "1";
+                helpField.style.zIndex = "10";
+                helpBtn.style.backgroundColor = "red";
+                helpBtn.textContent = "X";
             }
 
+
+            helpField.style.transition = "opacity 0.5s ease-in-out, z-index 0.5s ease-in-out";
         }
     </script>
 </body>
