@@ -58,27 +58,27 @@ Bu yontemle Html classina kendi metodumuzu yazip kendi texbox'umuzu olusturabili
 
 ```C#
 public static IHtmlContent WissenTextBoxFor<TModel, TProperty>
-        (
-            this IHtmlHelper<TModel> htmlHelper,
-            Expression<Func<TModel, TProperty>> expression,
-            string placeholder,
-            string cssClass,
-            object htmlAttributes
-        )
-        {
-            var metadata = htmlHelper.ViewData.ModelMetadata.Properties.FirstOrDefault(s => s.PropertyName == ((MemberExpression)expression.Body).Member.Name);
-            string name = htmlHelper.NameFor(expression).ToString();
-            string value = htmlHelper.ValueFor(expression).ToString();
+    (
+        this IHtmlHelper<TModel> htmlHelper,
+        Expression<Func<TModel, TProperty>> expression,
+        string placeholder,
+        string cssClass,
+        object htmlAttributes
+    )
+    {
+        var metadata = htmlHelper.ViewData.ModelMetadata.Properties.FirstOrDefault(s => s.PropertyName == ((MemberExpression)expression.Body).Member.Name);
+        string name = htmlHelper.NameFor(expression).ToString();
+        string value = htmlHelper.ValueFor(expression).ToString();
 
-            var tagBuilder = new TagBuilder("input");
-            tagBuilder.Attributes.Add("type", "text");
-            tagBuilder.Attributes.Add("name", name);
-            tagBuilder.Attributes.Add("value", value);
-            tagBuilder.Attributes.Add("placeholder", placeholder);
-            tagBuilder.Attributes.Add("class", cssClass);
+        var tagBuilder = new TagBuilder("input");
+        tagBuilder.Attributes.Add("type", "text");
+        tagBuilder.Attributes.Add("name", name);
+        tagBuilder.Attributes.Add("value", value);
+        tagBuilder.Attributes.Add("placeholder", placeholder);
+        tagBuilder.Attributes.Add("class", cssClass);
 
-            return tagBuilder;
-        }
+        return tagBuilder;
+    }
 ```
 
 - Kullanimi;

@@ -11,7 +11,7 @@ public class AuthorController : ControllerBase
     public IActionResult Get()
     {
         var result = _authorService.Get();
-        if (result.Count != 0)
+        if (result.Count > 0)
         {
             return Ok(result);
         }
