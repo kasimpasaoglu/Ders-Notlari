@@ -44,9 +44,9 @@ public class BookService : IBookService
             combinedExp = combinedExp == null ? equality : Expression.AndAlso(combinedExp, equality);
         }
 
-        if (combinedExp == null) // eger bir filtre gelmediyse expression null kalacak. 
+        if (combinedExp == null)
         {
-            return await _unitOfWork.Book.Find(x => true); // butun kayitlari getir
+            return await _unitOfWork.Book.Find(x => true);
         }
 
         var lambda = Expression.Lambda<Func<Kitap, bool>>(combinedExp, parameter);
