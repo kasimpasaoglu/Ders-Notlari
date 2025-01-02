@@ -24,10 +24,10 @@ public class BookController : ControllerBase
         }
     }
 
-    [Route("find")]
-    public IActionResult Find(Kitap model)
+    [HttpPost]
+    public IActionResult Find(KitapVM model)
     {
-        var result = _bookService.Find(new Kitap() { Ad = model.Ad }).Result.ToList();
+        var result = _bookService.Find(model).Result.ToList();
         return Ok(result);
     }
 }

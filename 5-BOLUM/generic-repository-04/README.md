@@ -210,3 +210,108 @@ public interface IBookService
 
 # Generic Repo icinde yazdigimiz Expression ile calisan metod
 
+Repo icinde yazdigimiz asagidaki metodu kullanalim
+
+```C#
+public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate)
+    {
+        return await _dbSet.Where(predicate).ToListAsync();
+    }
+```
+
+- Bu metod parametre olarak expression alacagi icin, gelen kitap degerini expression haline getirip metoda parametre olarak gondermemiz gerekiyor
+
+```C#
+    public async Task<IEnumerable<Kitap>> Find(Kitap kitap)
+    {
+        // generic repo find adiminda expression istiyor, parametre olarak gelen kitap adi degerini expression haline getirelim
+        Expression<Func<Kitap, bool>> filter = s => s.Ad == kitap.Ad;
+        return await _unitOfWork.Book.Find(filter);
+    }
+```
+
+- Controller'da kullanimi
+
+```C#
+    [Route("find")]
+    public IActionResult Find(Kitap model)
+    {
+        var result = _bookService.Find(new Kitap() { Ad = model.Ad }).Result.ToList();
+        return Ok(result);
+    }
+```
+
+- :warning: **ODEV** Bu find metodunu modelin icinde hangi alanlarin olup olmadigina bakip olan alanlari expression ile esleyerek yapacak sekilde dinamik hale getir. (REFLECTION KULLAN)
+
+# Reflection
+
+```C#
+Kitap k = new Kitap();
+k.Ad = "Sefiller";
+k.Yazar = "Victor Hugo";
+
+// Reflection ile , yukarıdaki sınıfın içerisindeki propların değerlerini okuyalım!!
+
+var props = k.GetType().GetProperties();
+foreach (var prop in props)
+{
+    // reflection ile bir sınıf içerisindeki prop'un değeri okunabilir!!
+    var value = prop.GetValue(k);
+    Console.WriteLine("Name : {0} Value : {1}", prop.Name, value);
+
+}
+```
+
+- Cozum
+
+```C#
+public async Task<IEnumerable<Kitap>> Find(KitapVM kitap)
+{
+    var props = kitap.GetType().GetProperties();    // gelen nesnenin propertylerini al.
+
+    var parameter = Expression.Parameter(typeof(Kitap), "s"); // parameterExpression 's' olarak ver. ( s =>  ifadesi icindeki 's')
+
+    Expression combinedExp = null; // olusturulacak expressionu dongu disinda tanima
+
+    foreach (var prop in props)
+    {
+        var value = prop.GetValue(kitap); // value'yu yakala
+        if (value == null || string.IsNullOrEmpty(value.ToString()))
+        {
+            continue;  // eger deger yoksa bu propu atla
+        }
+
+        var propAccess = Expression.Property(parameter, prop.Name);
+        // Propery metodu ile, parametre('s' diye tanimladik) ile icinde gezdigimiz tipin property'si eslesti ( s.[PropAdi] )
+
+        var constant = Expression.Constant(value);
+        // bir sonraki adim da kullanilmak uzere; sorguda esitligin sag tarafinda kalan sabit degeri olusturur ( "Sefiller" )
+
+        var equality = Expression.Equal(propAccess, constant);
+        // Equal metodu ile az once propAccess ile olusturdumuz `s.[PropAdi]` ifadesinin devamina az once constant olarak olusturdugumuz degeri ekliyoruz
+        // son hali -> ` s.[PropAdi] == [propun degeri] ` oldu...
+        // mesela ad alani icin dusunursek: ``` s.Ad == "Sefiller" ``` gibi. 
+
+        combinedExp = combinedExp == null ? equality : Expression.AndAlso(combinedExp, equality);
+        // combinedExp null ise direk equality'i bas, null degilse `AndAlso()` metodu ile combinedExp'e equality'i ekle.
+        // Mesela bir onceki dongude baska bir expression olusturulmussa ona yeni bir expression ilave edecek
+        // mesela ad alani vardi kitapno alani da eklendi diyelim, cikti asagidaki gibi olacak
+        // (s.Ad == "Sefiller") && (s.KitapNo == 15)
+    }
+
+    if (combinedExp == null) // eger bir filtre gelmediyse expression null kalacak. 
+    {
+        return await _unitOfWork.Book.Find(x => true); // butun kayitlari getir
+    }
+
+    // bu noktaya kadar olusturdugumuz aslinda bir Expression Tree'ydi. 
+    // 'hangi kosullari kontrol edecegim?' sorusunun tanimidir.
+    // Calistirilabilir bir lambda ifadesine cevirmek icin;
+    var lambda = Expression.Lambda<Func<Kitap, bool>>(combinedExp, parameter);
+    // artik expression `Func<Kitap, bool>` turunde, parametre olarak kitap alan ve bool donen bir lambda ifadesine donustu,  
+    // yani ``` s => (s.Ad == "Sefiller") && (s.KitapNo == 15) ``` halini aldi
+    
+    return await _unitOfWork.Book.Find(lambda);
+
+}
+```

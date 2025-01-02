@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using generic_repository_04.DMO;
+using Microsoft.IdentityModel.Tokens;
 
 public class BookService : IBookService
 {
@@ -23,11 +24,34 @@ public class BookService : IBookService
         return _unitOfWork.Book.GetAll().Result.ToList();
     }
 
-    public async Task<IEnumerable<Kitap>> Find(Kitap kitap)
+    public async Task<IEnumerable<Kitap>> Find(KitapVM kitap)
     {
-        // generic repo find adiminda expression istiyor, parametre olarak gelen kitap adi degerini expression haline getirelim
-        Expression<Func<Kitap, bool>> filter = s => s.Ad == kitap.Ad;
-        return await _unitOfWork.Book.Find(filter);
+        var props = kitap.GetType().GetProperties();
+        var parameter = Expression.Parameter(typeof(Kitap), "s");
+        Expression combinedExp = null;
+
+        foreach (var prop in props)
+        {
+            var value = prop.GetValue(kitap);
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+            {
+                continue;
+            }
+
+            var propAccess = Expression.Property(parameter, prop.Name);
+            var constant = Expression.Constant(value);
+            var equality = Expression.Equal(propAccess, constant);
+            combinedExp = combinedExp == null ? equality : Expression.AndAlso(combinedExp, equality);
+        }
+
+        if (combinedExp == null) // eger bir filtre gelmediyse expression null kalacak. 
+        {
+            return await _unitOfWork.Book.Find(x => true); // butun kayitlari getir
+        }
+
+        var lambda = Expression.Lambda<Func<Kitap, bool>>(combinedExp, parameter);
+        return await _unitOfWork.Book.Find(lambda);
+
     }
 
 }
@@ -35,5 +59,5 @@ public class BookService : IBookService
 public interface IBookService
 {
     public List<Kitap> Get();
-    public Task<IEnumerable<Kitap>> Find(Kitap kitap);
+    public Task<IEnumerable<Kitap>> Find(KitapVM kitap);
 }
