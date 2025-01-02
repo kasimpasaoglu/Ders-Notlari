@@ -6,13 +6,20 @@ public interface IAuthorService
 }
 public class AuthorService : IAuthorService
 {
-    private readonly IGenericRepository<Yazar> _authorRepo;
-    public AuthorService(IGenericRepository<Yazar> authorRepo)
+    // private readonly IGenericRepository<Yazar> _authorRepo;
+    // public AuthorService(IGenericRepository<Yazar> authorRepo)
+    // {
+    //     _authorRepo = authorRepo;
+    // }
+    // artik repoya UnitOf work uzerinden erisecegiz
+
+    private IUnitOfWork _unitOfWork;
+    public AuthorService(IUnitOfWork unitOfWork)
     {
-        _authorRepo = authorRepo;
+        _unitOfWork = unitOfWork;
     }
     public List<Yazar> Get()
     {
-        return _authorRepo.GetAll().Result.ToList();
+        return _unitOfWork.Author.GetAll().Result.ToList();
     }
 }

@@ -1,3 +1,4 @@
+using generic_repository_04.DMO;
 using Microsoft.AspNetCore.Mvc;
 [ApiController]
 [Route("api/[controller]")]
@@ -21,5 +22,12 @@ public class BookController : ControllerBase
         {
             return NoContent();
         }
+    }
+
+    [Route("find")]
+    public IActionResult Find(Kitap model)
+    {
+        var result = _bookService.Find(new Kitap() { Ad = model.Ad }).Result.ToList();
+        return Ok(result);
     }
 }

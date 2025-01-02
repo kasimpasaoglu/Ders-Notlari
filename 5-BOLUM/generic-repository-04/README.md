@@ -109,3 +109,104 @@ Yazilim gelistirme sirasinda **Repository Pattern** ile birlikte kullanilan bir 
 
     - Kitap icin ayri bir repository yazmadik. Bunun yerine generic repository yazdik
     - Generic repo hangi tip icin kullanmak istediginizi repo'yu inject ederken belirttik `<Kitap>`
+
+---
+
+# Unit of Work
+
+Bir tasarim desenidir.
+
+- Unit of work veritabani islemlerinden sorumludur
+- Tum veritabani islemlerini tek bir noktadan yonetmek icin kullanilir
+- Veritabani ile birlikte transaction yonetimi yapilmalidir.
+  - ornegin 2-3 tablodan olusan bir insert yapilacak
+  - Yani kayit islemi iki tabloya veri insert yapilmasi gerekecek
+  - Iki tablodan herhangi birinde basarisiz olursa, veri butunlugu bozulmus olacaktir.
+- Transaction yonetiminde bunu takip edip basarisiz olan islemi iptal etmemiz gerekir.
+- Unit of Work bu konuda yardimci olan bir tasarim desenidir
+
+- Ayrica bagimliligi azaltir
+  - Biz service'ten repoya gidiyoruz,
+  - Ancak unit of work kullanilirsa, service'ten unit of worke gidecegiz
+- Unit Of Work katmani repolari kapsulleyen bir katmandir
+- Servisler repolarak direk erismez, unit of work uzerinden erisirler
+
+## Yapisi
+
+- UnitOfWork katmaninda yeni bir sinif olusturacagiz
+
+1. Interface icinde kullanilacak veritabani ve repositorylerin hepsi tanimlanir
+    - Interface **IDisposable** interface'inden kalitilir
+
+```C#
+public interface IUnitOfWork : IDisposable
+{
+    IGenericRepository<Yazar> Author { get; }
+    IGenericRepository<Kitap> Book { get; }
+
+    Task<int> SaveChange();
+}
+```
+
+2. Sinif olusturulurken kullanilacak repolar ctor icinde  new'lenir
+
+```C#
+public class UnitOfWork : IUnitOfWork
+{
+
+    // SaveChange() icinde context uzerinden savechange yapilacagi icin context'i DI ile almamiz lazim
+
+    private LibraryContext _context;
+    public IGenericRepository<Yazar> Author { get; }
+    public IGenericRepository<Kitap> Book { get; }
+    
+    public UnitOfWork(LibraryContext context)
+    {
+        _context = context;
+        Author = new GenericRepository<Yazar>(_context);
+        Book = new GenericRepository<Kitap>(_context);
+
+    }
+
+    public async Task<int> SaveChange()
+    {
+        // unit of work uzerinden savechange yapacagiz
+        return await _context.SaveChangesAsync();
+    }
+
+    public void Dispose()
+    {
+        _context.Dispose();
+    }
+}
+```
+
+3. Artik servis katmaninda repoya dogrudan erisim girmeyip, UnitOfWork classi uzerinden erisim saglayacagiz
+
+```C#
+public class BookService : IBookService
+{
+    private IUnitOfWork _unitOfWork;
+    
+    public BookService(IUnitOfWork unitOfWork)
+    {
+        _unitOfWork = unitOfWork;
+    }
+
+
+    public List<Kitap> Get()
+    {
+        return _unitOfWork.Book.GetAll().Result.ToList();
+    }
+}
+
+public interface IBookService
+{
+    public List<Kitap> Get();
+}
+```
+
+---
+
+# Generic Repo icinde yazdigimiz Expression ile calisan metod
+
