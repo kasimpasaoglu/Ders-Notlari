@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 
 public class ChatMessage
 {
-    public string UserName { get; set; }
+    public string User { get; set; }
     public string Message { get; set; }
 }
 
@@ -23,11 +23,11 @@ public class ChatController : ControllerBase
     [Route("Send")]
     public async Task<IActionResult> SendMessage(ChatMessage chatMessage)
     {
-        if (string.IsNullOrWhiteSpace(chatMessage.Message) || string.IsNullOrWhiteSpace(chatMessage.UserName))
+        if (string.IsNullOrWhiteSpace(chatMessage.Message) || string.IsNullOrWhiteSpace(chatMessage.User))
         {
             return BadRequest("Invalid Message or Username");
         }
-        await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", chatMessage.UserName, chatMessage.Message);
+        await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", chatMessage.User, chatMessage.Message);
         return Ok();
     }
 }
