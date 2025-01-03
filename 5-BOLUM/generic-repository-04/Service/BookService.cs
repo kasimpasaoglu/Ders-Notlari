@@ -26,31 +26,21 @@ public class BookService : IBookService
 
     public async Task<IEnumerable<Kitap>> Find(KitapVM kitap)
     {
-        var props = kitap.GetType().GetProperties();
-        var parameter = Expression.Parameter(typeof(Kitap), "s");
-        Expression combinedExp = null;
 
-        foreach (var prop in props)
+        var kitapDMO = new Kitap()
         {
-            var value = prop.GetValue(kitap);
-            if (value == null || string.IsNullOrEmpty(value.ToString()))
-            {
-                continue;
-            }
+            Kitapno = kitap.Kitapno,
+            Ad = kitap.Ad,
+            Puan = kitap.Puan,
+            Sayfasayisi = kitap.Sayfasayisi,
+            Turno = kitap.Turno,
+            Yazarno = kitap.Yazarno,
+            Islems = null,
+        };
 
-            var propAccess = Expression.Property(parameter, prop.Name);
-            var constant = Expression.Constant(value);
-            var equality = Expression.Equal(propAccess, constant);
-            combinedExp = combinedExp == null ? equality : Expression.AndAlso(combinedExp, equality);
-        }
+        var expression = ExpressionHelper.ExpressionMaker<Kitap>(kitapDMO);
 
-        if (combinedExp == null)
-        {
-            return await _unitOfWork.Book.Find(x => true);
-        }
-
-        var lambda = Expression.Lambda<Func<Kitap, bool>>(combinedExp, parameter);
-        return await _unitOfWork.Book.Find(lambda);
+        return await _unitOfWork.Book.Find(expression);
 
     }
 
