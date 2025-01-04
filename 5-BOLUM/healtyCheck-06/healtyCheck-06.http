@@ -1,0 +1,6 @@
+@healtyCheck_06_HostAddress = http://localhost:5052
+
+GET {{healtyCheck_06_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
