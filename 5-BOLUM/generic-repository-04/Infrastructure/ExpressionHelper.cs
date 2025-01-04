@@ -29,7 +29,7 @@ public static class ExpressionHelper
         }
 
 
-        var lambda = Expression.Lambda<Func<T, bool>>(combinedExp, parameter);
-        return lambda;
+        return Expression.Lambda<Func<T, bool>>(combinedExp, parameter);
+
     }
 }
