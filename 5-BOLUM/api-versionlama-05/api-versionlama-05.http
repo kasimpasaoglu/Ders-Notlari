@@ -1,0 +1,6 @@
+@api_versionlama_05_HostAddress = http://localhost:5104
+
+GET {{api_versionlama_05_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
