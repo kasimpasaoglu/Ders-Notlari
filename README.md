@@ -125,3 +125,6 @@
 1. [Web-Api Giris & Cors](/5-BOLUM/Web-Api/README.md)
 2. [Web-Api JWT Auth](/5-BOLUM/web-api2-jwt/README.md)
 3. [SignalR Web-Api](/5-BOLUM/SignalIR-WebApi/)
+4. [Generic Repository & Unit Of Work](/5-BOLUM/generic-repository-04/README.md)
+5. [Api Versionlama](/5-BOLUM/api-versionlama-05/README.md)
+6. [Health Check](/5-BOLUM/healtyCheck-06/README.md)

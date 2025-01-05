@@ -1,5 +1,4 @@
 using HealthChecks.UI.Client;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
