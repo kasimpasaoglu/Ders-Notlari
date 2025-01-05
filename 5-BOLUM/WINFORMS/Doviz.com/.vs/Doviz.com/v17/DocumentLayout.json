@@ -1,0 +1,78 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|c:\\users\\kasim.pasaoglu\\source\\repos\\doviz.com\\doviz.com\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|solutionrelative:doviz.com\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|c:\\users\\kasim.pasaoglu\\source\\repos\\doviz.com\\doviz.com\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|solutionrelative:doviz.com\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|c:\\users\\kasim.pasaoglu\\source\\repos\\doviz.com\\doviz.com\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E7C7EC6-10CC-49AD-AD18-258DB88C5276}|Doviz.com\\Doviz.com.csproj|solutionrelative:doviz.com\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Program.cs",
+              "RelativeDocumentMoniker": "Doviz.com\\Program.cs",
+              "ToolTip": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Program.cs",
+              "RelativeToolTip": "Doviz.com\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T07:48:19.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Form1.cs",
+              "RelativeDocumentMoniker": "Doviz.com\\Form1.cs",
+              "ToolTip": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Form1.cs",
+              "RelativeToolTip": "Doviz.com\\Form1.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAgwCgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T07:47:40.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Form1.cs",
+              "RelativeDocumentMoniker": "Doviz.com\\Form1.cs",
+              "ToolTip": "C:\\Users\\kasim.pasaoglu\\source\\repos\\Doviz.com\\Doviz.com\\Form1.cs [Design]",
+              "RelativeToolTip": "Doviz.com\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T07:47:34.532Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
