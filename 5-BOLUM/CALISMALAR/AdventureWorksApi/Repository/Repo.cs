@@ -74,11 +74,11 @@ public class Repo : IRepo
     {
         var query = _context.Products
             .Include(p => p.ProductProductPhotos)
-                .Include(p => p.ProductModel)
-                    .ThenInclude(pm => pm.ProductModelProductDescriptionCultures)
-                    .ThenInclude(pmpdc => pmpdc.ProductDescription)
-                .Include(p => p.ProductSubcategory)
-                    .ThenInclude(psc => psc.ProductCategory)
+            .Include(p => p.ProductModel)
+                .ThenInclude(pm => pm.ProductModelProductDescriptionCultures)
+                .ThenInclude(pmpdc => pmpdc.ProductDescription)
+            .Include(p => p.ProductSubcategory)
+                .ThenInclude(psc => psc.ProductCategory)
             .AsQueryable();
 
         #region Category and Subcategory
