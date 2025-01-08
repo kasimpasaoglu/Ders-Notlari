@@ -1,0 +1,31 @@
+﻿@model IndexVM
+
+
+
+<h1>Shipping Cost Calculator</h1>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label for="OrderAmount">Order Amount:</label>
+        <input type="number" id="OrderAmount" name="OrderAmount" value="@Model?.OrderAmount" step="0.01" required />
+    </div>
+    <div>
+        <label for="ShippingType">Shipping Type:</label>
+        <select id="ShippingType" name="ShippingType" required>
+            <option value="Standard" selected="@(Model?.ShippingType == "Standard" ? "selected" : null)">Standard
+                Shipping</option>
+            <option value="Express" selected="@(Model?.ShippingType == "Express" ? "selected" : null)">Express Shipping
+            </option>
+            <option value="Free" selected="@(Model?.ShippingType == "Free" ? "selected" : null)">Free Shipping</option>
+        </select>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
+
+@if (Model?.ShippingCost != null)
+{
+    <h2>Results</h2>
+    <p><strong>Order Amount:</strong> @Model.OrderAmount</p>
+    <p><strong>Shipping Type:</strong> @Model.ShippingType</p>
+    <p><strong>Shipping Cost:</strong> @Model.ShippingCost</p>
+}
