@@ -128,3 +128,4 @@
 4. [Generic Repository & Unit Of Work](/5-BOLUM/generic-repository-04/README.md)
 5. [Api Versionlama](/5-BOLUM/api-versionlama-05/README.md)
 6. [Health Check](/5-BOLUM/healtyCheck-06/README.md)
+7. [Asenkron Metodlar](/5-BOLUM/AsyncMetodlar-07/README.md)
