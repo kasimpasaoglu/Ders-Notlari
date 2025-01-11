@@ -35,7 +35,7 @@ const test2 = () => {
 
 
 let name1 = "Oguzhan";
-name1 = "Oguzhan Varli" // hata verir cunku const ile tanimlandigi icin sonradan degistirilemez
+name1 = "Oguzhan Varli"
 console.log(name1);
 
 {
@@ -60,6 +60,7 @@ if (number2 === "29") {
 else {
     console.log("esit degil")
 }
+
 
 let sampleNull = null;
 if (sampleNull) {
